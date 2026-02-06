@@ -1,0 +1,27 @@
+<section class="category-section">
+  <div class="section-inner">
+    <h1 class="section-title">{{ category() }}</h1>
+    @if (loading()) {
+      <div class="articles-grid">
+        @for (_ of [1,2,3]; track $index) {
+          <div class="skeleton-card">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line short"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else if (articles().length === 0) {
+      <p class="empty-state">No articles in this category yet.</p>
+    } @else {
+      <div class="articles-grid">
+        @for (article of articles(); track article.slug) {
+          <app-article-card [article]="article" />
+        }
+      </div>
+    }
+  </div>
+</section>

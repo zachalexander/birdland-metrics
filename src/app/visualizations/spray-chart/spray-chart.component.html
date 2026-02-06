@@ -1,0 +1,11 @@
+<div class="spray-chart-wrapper">
+  <h3 class="chart-title">Spray Chart</h3>
+  @if (isBrowser) {
+    <div #chartContainer class="chart-container"></div>
+  } @else {
+    <div class="chart-placeholder">
+      <div class="placeholder-field"></div>
+      <p class="placeholder-text">Loading visualization...</p>
+    </div>
+  }
+</div>

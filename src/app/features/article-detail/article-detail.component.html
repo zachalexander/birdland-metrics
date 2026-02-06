@@ -1,0 +1,40 @@
+@if (loading()) {
+  <div class="article-loading">
+    <div class="skeleton-hero-img"></div>
+    <div class="article-container">
+      <div class="skeleton-line title-line"></div>
+      <div class="skeleton-line meta-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line short"></div>
+    </div>
+  </div>
+} @else if (notFound()) {
+  <div class="not-found">
+    <h1>Article Not Found</h1>
+    <p>The article you're looking for doesn't exist.</p>
+  </div>
+} @else if (article(); as art) {
+  <article class="article-detail">
+    @if (art.coverImage) {
+      <div class="article-hero-image">
+        <img
+          [src]="art.coverImage.url + '?w=1200&h=600&fit=fill'"
+          [alt]="art.coverImage.title"
+          width="1200"
+          height="600"
+        />
+      </div>
+    }
+    <div class="article-container">
+      @if (art.tags.length) {
+        <span class="article-category">{{ art.tags[0] }}</span>
+      }
+      <h1 class="article-title">{{ art.title }}</h1>
+      <div class="article-meta">
+        <time class="article-date">{{ art.publishedAt | date: 'MMMM d, yyyy' }}</time>
+      </div>
+      <div class="article-body" [innerHTML]="bodyHtml()"></div>
+    </div>
+  </article>
+}
