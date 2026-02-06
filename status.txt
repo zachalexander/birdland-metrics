@@ -21,7 +21,7 @@ Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
 - **Space ID**: `btpj5jq8xkdj`
 - **Content type**: `article` (not `blogPost` — this was a gotcha during setup)
 - **Article fields**: title, slug, excerpt, content (RichText), coverImage (Asset link), publishedAt (Date), tags (Array<Symbol>), isPremium (Boolean), featured (Boolean)
-- **Author content type**: name, bio, avatar (Asset link) — exists but not linked from articles yet
+- **Author content type**: name, bio, avatar (Asset link) — linked to articles
 - API key stored in `src/environments/environment.ts` (gitignored)
 - `environment.prod.ts` reads from `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` env vars
 
@@ -36,13 +36,14 @@ src/app/
 ├── shared/
 │   ├── components/header|footer|article-card
 │   └── models/content.models.ts           — BlogPost, Author interfaces
-└── visualizations/spray-chart/            — d3.js proof-of-concept (not wired into routes yet)
+└── visualizations/spray-chart/            — d3.js spray chart at /visualizations/spray-chart
 ```
 
 ## Routes
 - `/` — Home (lazy-loaded HomeComponent)
 - `/articles/:slug` — Article detail (lazy-loaded)
 - `/category/:category` — Filtered list (lazy-loaded)
+- `/visualizations/spray-chart` — d3.js spray chart (lazy-loaded)
 - All routes use `RenderMode.Server` for SSR
 
 ## SEO
@@ -55,16 +56,27 @@ src/app/
 - Runs `node dist/launch-angle/server/server.mjs` on port 4000
 - `.env.example` documents required env vars
 
-## Current State (2026-02-05)
+## Deployment
+- **Live URL**: https://bthqtdiamm.us-east-1.awsapprunner.com
+- **Service**: AWS App Runner (auto-deploys on push to main)
+- **Region**: us-east-1
+- **Runtime**: Node.js 22
+- **Instance**: 0.25 vCPU, 0.5 GB memory
+
+## Current State (2026-02-06)
 - 2 test articles in Contentful ("First Post", "Second Post") with cover images
-- App is functional — articles load, detail pages render, SSR verified via curl
-- Spray chart component exists but not yet wired into any route
-- Author not linked to articles in Contentful yet
-- No tags added to articles yet (category route untested with real data)
+- App is functional — articles load, detail pages render, SSR verified
+- Spray chart wired to /visualizations/spray-chart with nav link in header
+- Author linked to articles and displayed on article detail pages
+- Tags added to articles, category filtering works
+
+## Completed
+- ✓ Wire spray chart into dedicated route
+- ✓ Add tags to Contentful articles
+- ✓ Link author entries to articles in Contentful
+- ✓ Deploy to AWS App Runner
 
 ## Next Steps
-- Wire spray chart into home page or dedicated route
-- Add tags to Contentful articles to enable category filtering
-- Link author entries to articles in Contentful
-- Deploy to AWS (Fargate or App Runner)
 - Add pagination for article lists
+- Add custom domain
+- Add more d3.js visualizations

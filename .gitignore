@@ -39,9 +39,6 @@ testem.log
 /typings
 __screenshots__/
 
-# Environment (contains API keys)
-/src/environments/environment.ts
-
 # System files
 .DS_Store
 Thumbs.db
