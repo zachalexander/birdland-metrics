@@ -58,7 +58,7 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   private setMeta(article: BlogPost): void {
-    this.title.setTitle(`${article.title} — Launch Angle`);
+    this.title.setTitle(`${article.title} — Birdland Metrics`);
     this.meta.updateTag({ name: 'description', content: article.excerpt });
     this.meta.updateTag({ property: 'og:title', content: article.title });
     this.meta.updateTag({ property: 'og:description', content: article.excerpt });

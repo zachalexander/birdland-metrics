@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Launch Angle — Baseball Analytics & Insights');
+    this.title.setTitle('Birdland Metrics — Baseball Analytics & Insights');
     this.meta.updateTag({ name: 'description', content: 'Data-driven baseball analysis, visualizations, and insights.' });
-    this.meta.updateTag({ property: 'og:title', content: 'Launch Angle — Baseball Analytics & Insights' });
+    this.meta.updateTag({ property: 'og:title', content: 'Birdland Metrics — Baseball Analytics & Insights' });
     this.meta.updateTag({ property: 'og:description', content: 'Data-driven baseball analysis, visualizations, and insights.' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });

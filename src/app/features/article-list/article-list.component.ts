@@ -29,9 +29,9 @@ export class ArticleListComponent implements OnInit {
     this.category.set(cat);
 
     const displayName = cat.charAt(0).toUpperCase() + cat.slice(1);
-    this.title.setTitle(`${displayName} — Launch Angle`);
-    this.meta.updateTag({ name: 'description', content: `Articles about ${displayName} on Launch Angle.` });
-    this.meta.updateTag({ property: 'og:title', content: `${displayName} — Launch Angle` });
+    this.title.setTitle(`${displayName} — Birdland Metrics`);
+    this.meta.updateTag({ name: 'description', content: `Articles about ${displayName} on Birdland Metrics.` });
+    this.meta.updateTag({ property: 'og:title', content: `${displayName} — Birdland Metrics` });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
 
     this.contentful

@@ -1,14 +1,14 @@
-# Birdland Metrics (formerly Launch Angle)
+# Birdland Metrics (formerly Birdland Metrics)
 
 ## Overview
 Baseball analytics blog — Angular 21 SSR + Contentful CMS + d3.js visualizations.
 Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
-**Rebranding in progress**: Launch Angle → Birdland Metrics
+**Rebranding in progress**: Birdland Metrics → Birdland Metrics
 
 ## Repo
-- GitHub: https://github.com/zachalexander/launch-angle
+- GitHub: https://github.com/zachalexander/birdland-metrics
 - Branch: `main`
-- Path: `/Users/zdalexander/Desktop/launch-angle/`
+- Path: `/Users/zdalexander/Desktop/birdland-metrics/`
 
 ## Tech Stack
 - Angular 21 with SSR (Express-based via `@angular/ssr`)
@@ -54,7 +54,7 @@ src/app/
 
 ## Docker
 - Multi-stage Dockerfile: build with `node:20-alpine`, run with `node:20-alpine`
-- Runs `node dist/launch-angle/server/server.mjs` on port 4000
+- Runs `node dist/birdland-metrics/server/server.mjs` on port 4000
 - `.env.example` documents required env vars
 
 ## Deployment
@@ -63,7 +63,7 @@ src/app/
 - **Region**: us-east-1
 - **Runtime**: Node.js 22
 - **Instance**: 0.25 vCPU, 0.5 GB memory
-- **GitHub Connection**: launch-angle-github (authorized)
+- **GitHub Connection**: birdland-metrics-github (authorized)
 
 ## Current State (2026-02-06)
 - 2 test articles in Contentful ("First Post", "Second Post") with cover images
@@ -80,7 +80,7 @@ src/app/
 - ✓ Deploy to AWS App Runner
 
 ## Next Steps
-- Rebrand from "Launch Angle" to "Birdland Metrics" (site title, logo, meta tags, etc.)
+- Rebrand from "Birdland Metrics" to "Birdland Metrics" (site title, logo, meta tags, etc.)
 - Add disclaimers to the site (see Disclaimers section below)
 - Set up newsletter for email capture (Buttondown or ConvertKit)
 - Add pagination for article lists

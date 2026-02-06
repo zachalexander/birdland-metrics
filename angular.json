@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "launch-angle": {
+    "birdland-metrics": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -102,10 +102,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "launch-angle:build:production"
+              "buildTarget": "birdland-metrics:build:production"
             },
             "development": {
-              "buildTarget": "launch-angle:build:development"
+              "buildTarget": "birdland-metrics:build:development"
             }
           },
           "defaultConfiguration": "development"
