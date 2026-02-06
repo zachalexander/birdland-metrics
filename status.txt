@@ -1,9 +1,8 @@
-# Birdland Metrics (formerly Birdland Metrics)
+# Birdland Metrics (formerly Launch Angle)
 
 ## Overview
 Baseball analytics blog — Angular 21 SSR + Contentful CMS + d3.js visualizations.
 Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
-**Rebranding in progress**: Birdland Metrics → Birdland Metrics
 
 ## Repo
 - GitHub: https://github.com/zachalexander/birdland-metrics
@@ -58,33 +57,35 @@ src/app/
 - `.env.example` documents required env vars
 
 ## Deployment
-- **Live URL**: https://zsncppjfkq.us-east-1.awsapprunner.com
-- **Service**: AWS App Runner (auto-deploys on push to main)
+- **Custom Domain**: https://birdlandmetrics.com (+ www.birdlandmetrics.com)
+- **App Runner URL**: https://gmzjz8m6pc.us-east-1.awsapprunner.com
+- **Service**: AWS App Runner `birdland-metrics` (auto-deploys on push to main)
 - **Region**: us-east-1
 - **Runtime**: Node.js 22
 - **Instance**: 0.25 vCPU, 0.5 GB memory
-- **GitHub Connection**: birdland-metrics-github (authorized)
+- **DNS**: Route 53 hosted zone, ALIAS record for apex, CNAME for www
+- **GitHub Connection**: launch-angle-github (connection ARN unchanged after repo rename)
 
 ## Current State (2026-02-06)
 - 2 test articles in Contentful ("First Post", "Second Post") with cover images
-- App deployed to App Runner — deploy in progress with Contentful fix
 - Spray chart wired to /visualizations/spray-chart with nav link in header
 - Author linked to articles and displayed on article detail pages
 - Tags added to articles, category filtering works
-- Fixed: Angular environment files evaluated at build time, not runtime (hardcoded prod keys)
+- Rebranded from "Launch Angle" to "Birdland Metrics" across all code, repo, and AWS
+- Custom domain birdlandmetrics.com active with HTTPS
 
 ## Completed
 - ✓ Wire spray chart into dedicated route
 - ✓ Add tags to Contentful articles
 - ✓ Link author entries to articles in Contentful
 - ✓ Deploy to AWS App Runner
+- ✓ Rebrand from "Launch Angle" to "Birdland Metrics"
+- ✓ Set up custom domain (birdlandmetrics.com) via Route 53
 
 ## Next Steps
-- Rebrand from "Birdland Metrics" to "Birdland Metrics" (site title, logo, meta tags, etc.)
 - Add disclaimers to the site (see Disclaimers section below)
 - Set up newsletter for email capture (Buttondown or ConvertKit)
 - Add pagination for article lists
-- Add custom domain (birdlandmetrics.com?)
 - Add more d3.js visualizations
 
 ## Disclaimers (TODO)
