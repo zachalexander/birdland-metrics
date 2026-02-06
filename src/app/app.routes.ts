@@ -28,6 +28,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'disclaimer',
+    loadComponent: () =>
+      import('./features/disclaimer/disclaimer.component').then(
+        (m) => m.DisclaimerComponent,
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

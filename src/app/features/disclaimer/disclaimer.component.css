@@ -1,0 +1,35 @@
+.disclaimer-page {
+  padding: 3rem 1.5rem;
+}
+
+.disclaimer-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.disclaimer-inner h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 2rem;
+}
+
+.disclaimer-inner h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 2rem 0 0.75rem;
+}
+
+.disclaimer-inner p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .disclaimer-inner h1 {
+    font-size: 1.5rem;
+  }
+}
