@@ -1,0 +1,70 @@
+# Launch Angle
+
+## Overview
+Baseball analytics blog — Angular 21 SSR + Contentful CMS + d3.js visualizations.
+Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
+
+## Repo
+- GitHub: https://github.com/zachalexander/launch-angle
+- Branch: `main`
+- Path: `/Users/zdalexander/Desktop/launch-angle/`
+
+## Tech Stack
+- Angular 21 with SSR (Express-based via `@angular/ssr`)
+- Contentful Delivery API (`contentful` npm package)
+- `@contentful/rich-text-html-renderer` for rich text → HTML
+- d3.js for visualizations (lazy-loaded, browser-only via `isPlatformBrowser`)
+- Plain CSS (no framework)
+- Dockerized for AWS deployment (Fargate/App Runner)
+
+## Contentful Schema
+- **Space ID**: `btpj5jq8xkdj`
+- **Content type**: `article` (not `blogPost` — this was a gotcha during setup)
+- **Article fields**: title, slug, excerpt, content (RichText), coverImage (Asset link), publishedAt (Date), tags (Array<Symbol>), isPremium (Boolean), featured (Boolean)
+- **Author content type**: name, bio, avatar (Asset link) — exists but not linked from articles yet
+- API key stored in `src/environments/environment.ts` (gitignored)
+- `environment.prod.ts` reads from `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` env vars
+
+## Architecture
+```
+src/app/
+├── core/services/contentful.service.ts    — API client, maps entries to TypeScript models
+├── features/
+│   ├── home/                              — Hero + article card grid
+│   ├── article-detail/                    — Full article, rich text rendering, JSON-LD, SEO meta
+│   └── article-list/                      — Category/tag filtered grid
+├── shared/
+│   ├── components/header|footer|article-card
+│   └── models/content.models.ts           — BlogPost, Author interfaces
+└── visualizations/spray-chart/            — d3.js proof-of-concept (not wired into routes yet)
+```
+
+## Routes
+- `/` — Home (lazy-loaded HomeComponent)
+- `/articles/:slug` — Article detail (lazy-loaded)
+- `/category/:category` — Filtered list (lazy-loaded)
+- All routes use `RenderMode.Server` for SSR
+
+## SEO
+- `Meta` and `Title` services set og:title, og:description, og:image, og:type, twitter:card per page
+- JSON-LD `BlogPosting` schema injected on article detail pages
+- SSR ensures meta tags are in initial HTML response
+
+## Docker
+- Multi-stage Dockerfile: build with `node:20-alpine`, run with `node:20-alpine`
+- Runs `node dist/launch-angle/server/server.mjs` on port 4000
+- `.env.example` documents required env vars
+
+## Current State (2026-02-05)
+- 2 test articles in Contentful ("First Post", "Second Post") with cover images
+- App is functional — articles load, detail pages render, SSR verified via curl
+- Spray chart component exists but not yet wired into any route
+- Author not linked to articles in Contentful yet
+- No tags added to articles yet (category route untested with real data)
+
+## Next Steps
+- Wire spray chart into home page or dedicated route
+- Add tags to Contentful articles to enable category filtering
+- Link author entries to articles in Contentful
+- Deploy to AWS (Fargate or App Runner)
+- Add pagination for article lists
