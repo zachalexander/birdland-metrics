@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, ContentfulClientApi, Entry } from 'contentful';
 import { environment } from '../../../environments/environment';
-import { BlogPost } from '../../shared/models/content.models';
+import { Author, BlogPost } from '../../shared/models/content.models';
 
 @Injectable({ providedIn: 'root' })
 export class ContentfulService {
@@ -63,6 +63,9 @@ export class ContentfulService {
     const imageDetails = imageFile?.['details'] as Record<string, unknown> | undefined;
     const imageSize = imageDetails?.['image'] as Record<string, unknown> | undefined;
 
+    const authorEntry = fields['author'] as Entry | undefined;
+    const author = authorEntry ? this.mapAuthor(authorEntry) : undefined;
+
     return {
       title: fields['title'] as string,
       slug: fields['slug'] as string,
@@ -80,6 +83,26 @@ export class ContentfulService {
       isPremium: (fields['isPremium'] as boolean) ?? false,
       featured: (fields['featured'] as boolean) ?? false,
       tags: (fields['tags'] as string[]) ?? [],
+      author,
+    };
+  }
+
+  private mapAuthor(entry: Entry): Author {
+    const fields = entry.fields as Record<string, unknown>;
+    const avatarEntry = fields['avatar'] as Entry | undefined;
+    const avatarFile = avatarEntry
+      ? (avatarEntry.fields as Record<string, unknown>)['file'] as Record<string, unknown> | undefined
+      : undefined;
+
+    return {
+      name: fields['name'] as string,
+      bio: (fields['bio'] as string) ?? '',
+      avatar: avatarFile
+        ? {
+            url: `https:${avatarFile['url'] as string}`,
+            title: (avatarEntry!.fields as Record<string, unknown>)['title'] as string,
+          }
+        : undefined,
     };
   }
 }

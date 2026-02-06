@@ -4,7 +4,7 @@ export const environment = {
     spaceId: process.env['CONTENTFUL_SPACE_ID'] ?? '',
     accessToken: process.env['CONTENTFUL_ACCESS_TOKEN'] ?? '',
     contentTypeIds: {
-      blogPost: 'blogPost',
+      blogPost: 'article',
       author: 'author',
       category: 'category',
     },

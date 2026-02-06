@@ -15,6 +15,7 @@ export interface BlogPost {
   isPremium: boolean;
   featured: boolean;
   tags: string[];
+  author?: Author;
 }
 
 export interface Author {

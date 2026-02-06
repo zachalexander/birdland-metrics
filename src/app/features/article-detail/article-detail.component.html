@@ -32,6 +32,10 @@
       }
       <h1 class="article-title">{{ art.title }}</h1>
       <div class="article-meta">
+        @if (art.author) {
+          <span class="article-author">{{ art.author.name }}</span>
+          <span class="meta-separator">·</span>
+        }
         <time class="article-date">{{ art.publishedAt | date: 'MMMM d, yyyy' }}</time>
       </div>
       <div class="article-body" [innerHTML]="bodyHtml()"></div>

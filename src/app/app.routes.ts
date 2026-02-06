@@ -21,6 +21,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'visualizations/spray-chart',
+    loadComponent: () =>
+      import('./visualizations/spray-chart/spray-chart.component').then(
+        (m) => m.SprayChartComponent,
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
