@@ -1,8 +1,9 @@
-# Launch Angle
+# Birdland Metrics (formerly Launch Angle)
 
 ## Overview
 Baseball analytics blog — Angular 21 SSR + Contentful CMS + d3.js visualizations.
 Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
+**Rebranding in progress**: Launch Angle → Birdland Metrics
 
 ## Repo
 - GitHub: https://github.com/zachalexander/launch-angle
@@ -22,8 +23,8 @@ Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
 - **Content type**: `article` (not `blogPost` — this was a gotcha during setup)
 - **Article fields**: title, slug, excerpt, content (RichText), coverImage (Asset link), publishedAt (Date), tags (Array<Symbol>), isPremium (Boolean), featured (Boolean)
 - **Author content type**: name, bio, avatar (Asset link) — linked to articles
-- API key stored in `src/environments/environment.ts` (gitignored)
-- `environment.prod.ts` reads from `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` env vars
+- `environment.ts` has placeholder values (for local dev, replace with real keys)
+- `environment.prod.ts` has hardcoded Delivery API keys (read-only, safe to commit)
 
 ## Architecture
 ```
@@ -57,18 +58,20 @@ src/app/
 - `.env.example` documents required env vars
 
 ## Deployment
-- **Live URL**: https://bthqtdiamm.us-east-1.awsapprunner.com
+- **Live URL**: https://zsncppjfkq.us-east-1.awsapprunner.com
 - **Service**: AWS App Runner (auto-deploys on push to main)
 - **Region**: us-east-1
 - **Runtime**: Node.js 22
 - **Instance**: 0.25 vCPU, 0.5 GB memory
+- **GitHub Connection**: launch-angle-github (authorized)
 
 ## Current State (2026-02-06)
 - 2 test articles in Contentful ("First Post", "Second Post") with cover images
-- App is functional — articles load, detail pages render, SSR verified
+- App deployed to App Runner — deploy in progress with Contentful fix
 - Spray chart wired to /visualizations/spray-chart with nav link in header
 - Author linked to articles and displayed on article detail pages
 - Tags added to articles, category filtering works
+- Fixed: Angular environment files evaluated at build time, not runtime (hardcoded prod keys)
 
 ## Completed
 - ✓ Wire spray chart into dedicated route
@@ -77,6 +80,22 @@ src/app/
 - ✓ Deploy to AWS App Runner
 
 ## Next Steps
+- Rebrand from "Launch Angle" to "Birdland Metrics" (site title, logo, meta tags, etc.)
+- Add disclaimers to the site (see Disclaimers section below)
+- Set up newsletter for email capture (Buttondown or ConvertKit)
 - Add pagination for article lists
-- Add custom domain
+- Add custom domain (birdlandmetrics.com?)
 - Add more d3.js visualizations
+
+## Disclaimers (TODO)
+Add the following disclaimers to Birdland Metrics:
+- Not affiliated with the Baltimore Orioles or MLB
+- Content is for informational/entertainment purposes only
+- Any betting/fantasy advice is not financial advice
+- Data sourced from public APIs (credit sources as needed)
+- Affiliate disclosure if using affiliate links
+
+## Monetization Ideas (discussed)
+- Premium content (isPremium field already exists in schema)
+- Affiliate links (fantasy sports, baseball gear, data subscriptions)
+- Newsletter with free/paid tiers
