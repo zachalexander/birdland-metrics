@@ -1,56 +1,58 @@
 .site-header {
-  background-color: #1a1a1a;
-  border-bottom: 3px solid #df4a00;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .header-inner {
-  max-width: 1200px;
+  max-width: var(--width-dashboard);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 56px;
 }
 
 .logo {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 0.35rem;
   text-decoration: none;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.logo-icon {
-  font-size: 1.75rem;
+.logo:hover {
+  text-decoration: none;
 }
 
 .logo-text {
-  background: linear-gradient(135deg, #df4a00, #ff8c42);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-text);
+}
+
+.logo-accent {
+  color: var(--color-accent);
 }
 
 .main-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
 .nav-link {
-  color: #ccc;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color var(--transition-fast);
 }
 
 .nav-link:hover {
-  color: #df4a00;
+  color: var(--color-text);
+  text-decoration: none;
 }

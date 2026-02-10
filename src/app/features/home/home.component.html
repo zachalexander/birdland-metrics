@@ -1,34 +1,54 @@
-<section class="hero">
-  <div class="hero-inner">
-    <h1>Birdland Metrics</h1>
-    <p class="hero-subtitle">Data-driven baseball analysis, visualizations, and insights.</p>
-  </div>
-</section>
+<div class="home-layout">
+  @if (!dashboardLoading()) {
+    @if (oriolesOdds()) {
+      <section class="dashboard-hero">
+        <app-playoff-odds [odds]="oriolesOdds()" />
+      </section>
+    }
 
-<section class="articles-section">
-  <div class="section-inner">
-    <h2 class="section-title">Latest Articles</h2>
+    @if (projections().length || recentGames().length) {
+      <hr class="divider" />
+
+      <section class="dashboard-row">
+        @if (projections().length) {
+          <div class="dashboard-col">
+            <app-standings-table [projections]="projections()" [odds]="allOdds()" />
+          </div>
+        }
+        @if (recentGames().length) {
+          <div class="dashboard-col">
+            <app-recent-games [games]="recentGames()" />
+          </div>
+        }
+      </section>
+    }
+
+    <hr class="divider" />
+  }
+
+  <section class="articles-section">
+    <h2 class="section-label">Latest Analysis</h2>
     @if (loading()) {
-      <div class="loading-grid">
-        @for (_ of [1,2,3,4,5,6]; track $index) {
-          <div class="skeleton-card">
-            <div class="skeleton-image"></div>
-            <div class="skeleton-body">
+      <div class="loading-area">
+        @for (_ of [1,2,3]; track $index) {
+          <div class="skeleton-article">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-text">
               <div class="skeleton-line short"></div>
               <div class="skeleton-line"></div>
-              <div class="skeleton-line"></div>
+              <div class="skeleton-line medium"></div>
             </div>
           </div>
         }
       </div>
     } @else if (articles().length === 0) {
-      <p class="empty-state">No articles yet. Connect your Contentful space to get started.</p>
+      <p class="empty-state">No articles yet. Check back soon for data-driven baseball analysis.</p>
     } @else {
-      <div class="articles-grid">
+      <div class="articles-list">
         @for (article of articles(); track article.slug) {
           <app-article-card [article]="article" />
         }
       </div>
     }
-  </div>
-</section>
+  </section>
+</div>

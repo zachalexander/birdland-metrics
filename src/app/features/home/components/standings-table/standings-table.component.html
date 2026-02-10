@@ -1,0 +1,26 @@
+<div class="standings-wrapper">
+  <h3 class="table-title">AL East Projected Standings</h3>
+  <table class="standings-table">
+    <thead>
+      <tr>
+        <th class="col-team">Team</th>
+        <th class="col-num">W</th>
+        <th class="col-num">L</th>
+        <th class="col-num">Playoff %</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (team of divisionTeams(); track team.team) {
+        <tr [class.highlight]="isOrioles(team.team)">
+          <td class="col-team">
+            <span class="team-abbr">{{ team.team }}</span>
+            <span class="team-name">{{ teamName(team.team) }}</span>
+          </td>
+          <td class="col-num">{{ team.median_wins | number: '1.0-0' }}</td>
+          <td class="col-num">{{ projLosses(team.median_wins) }}</td>
+          <td class="col-num">{{ playoffPct(team.team) | number: '1.0-0' }}%</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,111 @@
+// --- S3 JSON response envelopes ---
+
+export interface PlayoffOddsResponse {
+  updated: string;
+  simulations: number;
+  odds: PlayoffOdds[];
+}
+
+export interface StandingsResponse {
+  updated: string;
+  standings: TeamStanding[];
+}
+
+export interface ProjectionsResponse {
+  updated: string;
+  projections: TeamProjection[];
+}
+
+export interface EloResponse {
+  updated: string;
+  ratings: EloRating[];
+}
+
+export interface RecentGamesResponse {
+  updated: string;
+  games: RecentGame[];
+}
+
+// --- Data models ---
+
+export interface PlayoffOdds {
+  team: string;
+  playoff_pct: number;
+  division_pct: number;
+  wildcard_pct: number;
+}
+
+export interface TeamStanding {
+  team: string;
+  median_wins: number;
+  avg_wins: number;
+  std_dev: number;
+  p10: number;
+  p90: number;
+}
+
+export interface TeamProjection {
+  team: string;
+  median_wins: number;
+  avg_wins: number;
+  std_dev: number;
+  p10: number;
+  p25: number;
+  p75: number;
+  p90: number;
+}
+
+export interface EloRating {
+  team: string;
+  elo: number;
+}
+
+export interface RecentGame {
+  id: string;
+  date: string;
+  home_team: string;
+  away_team: string;
+  home_score: number;
+  away_score: number;
+  winning_team: string;
+  losing_team: string;
+  winning_pitcher: string;
+  losing_pitcher: string;
+  save_pitcher: string;
+  venue: string;
+}
+
+// --- Team display helpers ---
+
+export const TEAM_NAMES: Record<string, string> = {
+  BAL: 'Orioles', NYY: 'Yankees', BOS: 'Red Sox', TB: 'Rays', TOR: 'Blue Jays',
+  CLE: 'Guardians', CWS: 'White Sox', DET: 'Tigers', KC: 'Royals', MIN: 'Twins',
+  HOU: 'Astros', LAA: 'Angels', ATH: 'Athletics', SEA: 'Mariners', TEX: 'Rangers',
+  ATL: 'Braves', MIA: 'Marlins', NYM: 'Mets', PHI: 'Phillies', WSH: 'Nationals',
+  CHC: 'Cubs', CIN: 'Reds', MIL: 'Brewers', PIT: 'Pirates', STL: 'Cardinals',
+  ARI: 'Diamondbacks', COL: 'Rockies', LAD: 'Dodgers', SD: 'Padres', SF: 'Giants',
+};
+
+export const AL_EAST = ['BAL', 'NYY', 'BOS', 'TB', 'TOR'];
+export const AL_CENTRAL = ['CLE', 'CWS', 'DET', 'KC', 'MIN'];
+export const AL_WEST = ['HOU', 'LAA', 'ATH', 'SEA', 'TEX'];
+
+/** Convert full team name (e.g. "Baltimore Orioles") to abbreviation ("BAL") */
+export function teamAbbr(fullName: string): string {
+  const map: Record<string, string> = {
+    'Baltimore Orioles': 'BAL', 'New York Yankees': 'NYY', 'Boston Red Sox': 'BOS',
+    'Tampa Bay Rays': 'TB', 'Toronto Blue Jays': 'TOR',
+    'Cleveland Guardians': 'CLE', 'Chicago White Sox': 'CWS', 'Detroit Tigers': 'DET',
+    'Kansas City Royals': 'KC', 'Minnesota Twins': 'MIN',
+    'Houston Astros': 'HOU', 'Los Angeles Angels': 'LAA', 'Athletics': 'ATH',
+    'Oakland Athletics': 'ATH', 'Sacramento Athletics': 'ATH',
+    'Seattle Mariners': 'SEA', 'Texas Rangers': 'TEX',
+    'Atlanta Braves': 'ATL', 'Miami Marlins': 'MIA', 'New York Mets': 'NYM',
+    'Philadelphia Phillies': 'PHI', 'Washington Nationals': 'WSH',
+    'Chicago Cubs': 'CHC', 'Cincinnati Reds': 'CIN', 'Milwaukee Brewers': 'MIL',
+    'Pittsburgh Pirates': 'PIT', 'St. Louis Cardinals': 'STL',
+    'Arizona Diamondbacks': 'ARI', 'Colorado Rockies': 'COL',
+    'Los Angeles Dodgers': 'LAD', 'San Diego Padres': 'SD', 'San Francisco Giants': 'SF',
+  };
+  return map[fullName] ?? fullName;
+}

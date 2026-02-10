@@ -1,58 +1,60 @@
 .category-section {
-  padding: 3rem 1.5rem;
+  padding: var(--space-2xl) var(--space-lg);
 }
 
 .section-inner {
-  max-width: 1200px;
+  max-width: var(--width-dashboard);
   margin: 0 auto;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: var(--text-sm);
   font-weight: 700;
-  margin: 0 0 2rem;
-  color: #1a1a1a;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-xl);
 }
 
 .articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .empty-state {
-  text-align: center;
-  color: #888;
-  font-size: 1.1rem;
-  padding: 3rem 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  padding: var(--space-2xl) 0;
 }
 
 .skeleton-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .skeleton-image {
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(90deg, #eee 25%, #e0e0e0 50%, #eee 75%);
+  flex: 0 0 180px;
+  aspect-ratio: 3 / 2;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
 }
 
 .skeleton-body {
-  padding: 1.25rem;
+  flex: 1;
+  padding-top: var(--space-sm);
 }
 
 .skeleton-line {
   height: 14px;
-  background: linear-gradient(90deg, #eee 25%, #e0e0e0 50%, #eee 75%);
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .skeleton-line.short {
@@ -62,10 +64,4 @@
 @keyframes shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
-}
-
-@media (max-width: 768px) {
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
 }
