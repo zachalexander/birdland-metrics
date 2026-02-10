@@ -15,9 +15,9 @@
 }
 
 .dashboard-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 
 .articles-section {
@@ -89,9 +89,6 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard-row {
-    grid-template-columns: 1fr;
-  }
   .skeleton-article {
     flex-direction: column;
   }

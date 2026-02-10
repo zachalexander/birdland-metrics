@@ -49,10 +49,10 @@ export class MlbDataService {
     return res.ratings;
   }
 
-  async getRecentGames(): Promise<RecentGame[]> {
+  async getRecentGames(): Promise<{ gameType: 'R' | 'S'; games: RecentGame[] }> {
     const res = await firstValueFrom(
       this.http.get<RecentGamesResponse>(`${this.predBase}/recent-games-latest.json`)
     );
-    return res.games;
+    return { gameType: res.game_type ?? 'R', games: res.games };
   }
 }

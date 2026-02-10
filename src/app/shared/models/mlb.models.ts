@@ -23,6 +23,7 @@ export interface EloResponse {
 
 export interface RecentGamesResponse {
   updated: string;
+  game_type?: 'R' | 'S';
   games: RecentGame[];
 }
 

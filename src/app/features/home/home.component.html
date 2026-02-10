@@ -11,14 +11,10 @@
 
       <section class="dashboard-row">
         @if (projections().length) {
-          <div class="dashboard-col">
-            <app-standings-table [projections]="projections()" [odds]="allOdds()" />
-          </div>
+          <app-standings-table [projections]="projections()" [odds]="allOdds()" />
         }
         @if (recentGames().length) {
-          <div class="dashboard-col">
-            <app-recent-games [games]="recentGames()" />
-          </div>
+          <app-recent-games [games]="recentGames()" [gameType]="gamesType()" />
         }
       </section>
     }

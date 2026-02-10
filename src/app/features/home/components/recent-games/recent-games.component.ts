@@ -11,6 +11,7 @@ import { RecentGame, teamAbbr } from '../../../../shared/models/mlb.models';
 })
 export class RecentGamesComponent {
   games = input.required<RecentGame[]>();
+  gameType = input<'R' | 'S'>('R');
 
   abbr(fullName: string): string {
     return teamAbbr(fullName);

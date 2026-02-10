@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   projections = signal<TeamProjection[]>([]);
   allOdds = signal<PlayoffOdds[]>([]);
   recentGames = signal<RecentGame[]>([]);
+  gamesType = signal<'R' | 'S'>('R');
   dashboardLoading = signal(true);
 
   private platformId = inject(PLATFORM_ID);
@@ -66,16 +67,17 @@ export class HomeComponent implements OnInit {
 
   private async loadDashboard(): Promise<void> {
     try {
-      const [odds, projections, games] = await Promise.all([
+      const [odds, projections, gamesResult] = await Promise.all([
         this.mlbData.getPlayoffOdds().catch(() => [] as PlayoffOdds[]),
         this.mlbData.getProjections().catch(() => [] as TeamProjection[]),
-        this.mlbData.getRecentGames().catch(() => [] as RecentGame[]),
+        this.mlbData.getRecentGames().catch(() => ({ gameType: 'R' as const, games: [] as RecentGame[] })),
       ]);
 
       this.allOdds.set(odds);
       this.oriolesOdds.set(odds.find(t => t.team === 'BAL') ?? null);
       this.projections.set(projections);
-      this.recentGames.set(games);
+      this.recentGames.set(gamesResult.games);
+      this.gamesType.set(gamesResult.gameType);
     } catch (err) {
       console.error('Dashboard data load failed:', err);
     } finally {
