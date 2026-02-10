@@ -1,5 +1,5 @@
 import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DatePipe } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
@@ -14,6 +14,7 @@ import { RecentGamesComponent } from './components/recent-games/recent-games.com
   selector: 'app-home',
   standalone: true,
   imports: [
+    DatePipe,
     ArticleCardComponent,
     PlayoffOddsComponent,
     StandingsTableComponent,
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
   allOdds = signal<PlayoffOdds[]>([]);
   recentGames = signal<RecentGame[]>([]);
   gamesType = signal<'R' | 'S'>('R');
+  modelsUpdated = signal<string | null>(null);
   dashboardLoading = signal(true);
 
   private platformId = inject(PLATFORM_ID);
@@ -67,16 +69,19 @@ export class HomeComponent implements OnInit {
 
   private async loadDashboard(): Promise<void> {
     try {
-      const [odds, projections, gamesResult] = await Promise.all([
-        this.mlbData.getPlayoffOdds().catch(() => [] as PlayoffOdds[]),
+      const [oddsResult, projections, gamesResult] = await Promise.all([
+        this.mlbData.getPlayoffOdds().catch(() => ({ updated: '', odds: [] as PlayoffOdds[] })),
         this.mlbData.getProjections().catch(() => [] as TeamProjection[]),
         this.mlbData.getRecentGames().catch(() => ({ gameType: 'R' as const, games: [] as RecentGame[] })),
       ]);
 
-      this.allOdds.set(odds);
-      this.oriolesOdds.set(odds.find(t => t.team === 'BAL') ?? null);
+      this.allOdds.set(oddsResult.odds);
+      this.oriolesOdds.set(oddsResult.odds.find(t => t.team === 'BAL') ?? null);
+      if (oddsResult.updated) {
+        this.modelsUpdated.set(oddsResult.updated);
+      }
       this.projections.set(projections);
-      this.recentGames.set(gamesResult.games);
+      this.recentGames.set(gamesResult.games.slice(0, 10));
       this.gamesType.set(gamesResult.gameType);
     } catch (err) {
       console.error('Dashboard data load failed:', err);

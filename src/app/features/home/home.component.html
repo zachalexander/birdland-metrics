@@ -9,15 +9,8 @@
   @if (!dashboardLoading()) {
     <div class="content-with-sidebar">
       <main class="main-content">
-        @if (projections().length || recentGames().length) {
-          <section class="dashboard-row" [class.standings-only]="!recentGames().length">
-            @if (projections().length) {
-              <app-standings-table [projections]="projections()" [odds]="allOdds()" />
-            }
-            @if (recentGames().length) {
-              <app-recent-games [games]="recentGames()" [gameType]="gamesType()" />
-            }
-          </section>
+        @if (recentGames().length) {
+          <app-recent-games [games]="recentGames()" [gameType]="gamesType()" />
           <hr class="divider" />
         }
 
@@ -48,11 +41,26 @@
         </section>
       </main>
 
-      @if (oriolesOdds()) {
-        <aside class="sidebar">
-          <app-playoff-odds [odds]="oriolesOdds()" />
-        </aside>
-      }
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Birdland Models</h3>
+          @if (modelsUpdated()) {
+            <span class="sidebar-updated">Last updated {{ modelsUpdated()! + 'Z' | date: 'MMM d, y, h:mm a' : 'America/New_York' }}</span>
+          }
+          @if (oriolesOdds()) {
+            <app-playoff-odds [odds]="oriolesOdds()" />
+          }
+          @if (projections().length) {
+            <app-standings-table [projections]="projections()" [odds]="allOdds()" />
+          }
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Model Philosophy</h3>
+          <p class="sidebar-description">Our projections are powered by an Elo rating system that evaluates team strength based on head-to-head results, adjusted for preseason roster changes.</p>
+          <a class="sidebar-link" href="/articles">Read more <span class="chevron">&rsaquo;</span></a>
+        </div>
+      </aside>
     </div>
   }
 </div>

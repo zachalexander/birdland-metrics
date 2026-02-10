@@ -44,18 +44,66 @@
 .sidebar {
   position: sticky;
   top: var(--space-lg);
+  padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
 }
 
-.dashboard-row {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: var(--space-2xl);
-  align-items: start;
+.sidebar-section {
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.dashboard-row.standings-only {
-  grid-template-columns: 1fr;
-  max-width: 520px;
+.sidebar-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: var(--space-lg);
+}
+
+.sidebar-title {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-lg);
+}
+
+.sidebar-updated {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-description {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0 0 var(--space-md);
+}
+
+.sidebar-link {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  text-decoration: underline;
+}
+
+.chevron {
+  font-size: var(--text-lg);
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .articles-section {
@@ -68,7 +116,7 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
 }
 
 .articles-list {
@@ -130,11 +178,11 @@
   .content-with-sidebar {
     grid-template-columns: 1fr;
   }
+  .content-with-sidebar {
+    gap: var(--space-md);
+  }
   .sidebar {
     position: static;
-  }
-  .dashboard-row {
-    grid-template-columns: 1fr;
   }
   .skeleton-article {
     flex-direction: column;

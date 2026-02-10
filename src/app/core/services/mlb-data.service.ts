@@ -21,11 +21,11 @@ export class MlbDataService {
   private eloBase = environment.s3.eloRatings;
   private predBase = environment.s3.predictions;
 
-  async getPlayoffOdds(): Promise<PlayoffOdds[]> {
+  async getPlayoffOdds(): Promise<{ updated: string; odds: PlayoffOdds[] }> {
     const res = await firstValueFrom(
       this.http.get<PlayoffOddsResponse>(`${this.predBase}/playoff-odds-latest.json`)
     );
-    return res.odds;
+    return { updated: res.updated, odds: res.odds };
   }
 
   async getStandings(): Promise<TeamStanding[]> {

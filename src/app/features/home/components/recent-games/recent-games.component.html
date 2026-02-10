@@ -2,26 +2,54 @@
   <h3 class="section-label">
     {{ gameType() === 'S' ? 'Spring Training' : 'Recent Orioles Games' }}
   </h3>
-  <div class="games-grid">
-    @for (game of games(); track game.id) {
-      <div class="game-card">
-        <span class="game-date">{{ game.date | date: 'MMM d' }}</span>
-        <div class="matchup-row" [class.winner]="game.away_score > game.home_score">
-          <span class="team-name">{{ abbr(game.away_team) }}</span>
-          <span class="team-score">{{ game.away_score }}</span>
+  <div class="games-scroll-container">
+    <div class="games-grid" #gamesGrid>
+      @for (game of games(); track game.id) {
+        <div class="game-card">
+          <div class="card-header">
+            <span class="game-date">{{ game.date | date: 'EEE, MMM d' }}</span>
+            <span
+              class="game-outcome"
+              [class.win-text]="isOriolesWin(game)"
+              [class.loss-text]="isOriolesLoss(game)"
+            >
+              {{ isOriolesWin(game) ? 'W' : 'L' }}
+            </span>
+          </div>
+          <div class="matchup-row" [class.winner]="game.away_score > game.home_score">
+            <span class="team-name">{{ abbr(game.away_team) }}</span>
+            <span class="team-score">{{ game.away_score }}</span>
+          </div>
+          <div class="matchup-row" [class.winner]="game.home_score > game.away_score">
+            <span class="team-name">{{ abbr(game.home_team) }}</span>
+            <span class="team-score">{{ game.home_score }}</span>
+          </div>
+          <div class="card-details">
+            <span class="venue">{{ game.venue }}</span>
+            <div class="pitchers">
+              <span class="pitcher"><span class="pitcher-label">W</span> {{ game.winning_pitcher }}</span>
+              <span class="pitcher"><span class="pitcher-label">L</span> {{ game.losing_pitcher }}</span>
+              @if (game.save_pitcher) {
+                <span class="pitcher"><span class="pitcher-label">SV</span> {{ game.save_pitcher }}</span>
+              }
+            </div>
+          </div>
         </div>
-        <div class="matchup-row" [class.winner]="game.home_score > game.away_score">
-          <span class="team-name">{{ abbr(game.home_team) }}</span>
-          <span class="team-score">{{ game.home_score }}</span>
-        </div>
-        <span
-          class="game-outcome"
-          [class.win-text]="isOriolesWin(game)"
-          [class.loss-text]="isOriolesLoss(game)"
-        >
-          {{ isOriolesWin(game) ? 'W' : 'L' }}
-        </span>
-      </div>
+      }
+    </div>
+    @if (canScrollLeft) {
+      <button class="scroll-arrow scroll-left" (click)="scrollLeft()" aria-label="Scroll left">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    }
+    @if (canScrollRight) {
+      <button class="scroll-arrow scroll-right" (click)="scrollRight()" aria-label="Scroll right">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     }
   </div>
 </div>
