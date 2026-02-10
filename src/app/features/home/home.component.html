@@ -1,50 +1,58 @@
 <div class="home-layout">
-  @if (!dashboardLoading()) {
-    @if (oriolesOdds()) {
-      <section class="dashboard-hero">
-        <app-playoff-odds [odds]="oriolesOdds()" />
-      </section>
-    }
-
-    @if (projections().length || recentGames().length) {
-      <hr class="divider" />
-
-      <section class="dashboard-row" [class.standings-only]="!recentGames().length">
-        @if (projections().length) {
-          <app-standings-table [projections]="projections()" [odds]="allOdds()" />
-        }
-        @if (recentGames().length) {
-          <app-recent-games [games]="recentGames()" [gameType]="gamesType()" />
-        }
-      </section>
-    }
-
-    <hr class="divider" />
-  }
-
-  <section class="articles-section">
-    <h2 class="section-label">Latest Analysis</h2>
-    @if (loading()) {
-      <div class="loading-area">
-        @for (_ of [1,2,3]; track $index) {
-          <div class="skeleton-article">
-            <div class="skeleton-thumb"></div>
-            <div class="skeleton-text">
-              <div class="skeleton-line short"></div>
-              <div class="skeleton-line"></div>
-              <div class="skeleton-line medium"></div>
-            </div>
-          </div>
-        }
-      </div>
-    } @else if (articles().length === 0) {
-      <p class="empty-state">No articles yet. Check back soon for data-driven baseball analysis.</p>
-    } @else {
-      <div class="articles-list">
-        @for (article of articles(); track article.slug) {
-          <app-article-card [article]="article" />
-        }
-      </div>
-    }
+  <section class="welcome-hero">
+    <h1 class="welcome-title">Welcome to Birdland Metrics</h1>
+    <p class="welcome-subtitle">Data-driven analysis and projections for the Baltimore Orioles.</p>
   </section>
+
+  <hr class="divider" />
+
+  @if (!dashboardLoading()) {
+    <div class="content-with-sidebar">
+      <main class="main-content">
+        @if (projections().length || recentGames().length) {
+          <section class="dashboard-row" [class.standings-only]="!recentGames().length">
+            @if (projections().length) {
+              <app-standings-table [projections]="projections()" [odds]="allOdds()" />
+            }
+            @if (recentGames().length) {
+              <app-recent-games [games]="recentGames()" [gameType]="gamesType()" />
+            }
+          </section>
+          <hr class="divider" />
+        }
+
+        <section class="articles-section">
+          <h2 class="section-label">Latest Analysis</h2>
+          @if (loading()) {
+            <div class="loading-area">
+              @for (_ of [1,2,3]; track $index) {
+                <div class="skeleton-article">
+                  <div class="skeleton-thumb"></div>
+                  <div class="skeleton-text">
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                  </div>
+                </div>
+              }
+            </div>
+          } @else if (articles().length === 0) {
+            <p class="empty-state">No articles yet. Check back soon for data-driven baseball analysis.</p>
+          } @else {
+            <div class="articles-list">
+              @for (article of articles(); track article.slug) {
+                <app-article-card [article]="article" />
+              }
+            </div>
+          }
+        </section>
+      </main>
+
+      @if (oriolesOdds()) {
+        <aside class="sidebar">
+          <app-playoff-odds [odds]="oriolesOdds()" />
+        </aside>
+      }
+    </div>
+  }
 </div>

@@ -1,10 +1,11 @@
 .hero-stat {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-lg) 0;
+  border-top: 3px solid var(--color-accent);
 }
 
 .stat-label {
   display: block;
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -15,21 +16,21 @@
 .stat-number {
   display: block;
   font-family: var(--font-mono);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: 700;
   color: var(--color-text);
   line-height: 1;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .stat-pct {
-  font-size: var(--text-3xl);
+  font-size: var(--text-xl);
   color: var(--color-text-secondary);
 }
 
 .stat-details {
   display: flex;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
 }
 
 .stat-detail {
@@ -39,7 +40,7 @@
 
 .detail-value {
   font-family: var(--font-mono);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--color-text);
 }
