@@ -20,8 +20,9 @@
   text-transform: uppercase;
   color: var(--color-text-muted);
   text-align: right;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-sm);
   border-bottom: 2px solid var(--color-text);
+  white-space: nowrap;
 }
 
 .standings-table th.col-team {
@@ -30,7 +31,7 @@
 
 .standings-table td {
   font-family: var(--font-mono);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-sm);
   border-bottom: 1px solid var(--color-border);
   text-align: right;
   color: var(--color-text);
@@ -43,29 +44,29 @@
 }
 
 .team-abbr {
-  display: none;
+  display: inline;
   font-weight: 700;
 }
 
 .team-name {
-  display: inline;
+  display: none;
 }
 
 tr.highlight td {
   background-color: var(--color-accent-light);
 }
 
-@media (max-width: 480px) {
+@media (min-width: 900px) {
   .standings-table th,
   .standings-table td {
-    padding: var(--space-sm) var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
   }
 
   .team-abbr {
-    display: inline;
+    display: none;
   }
 
   .team-name {
-    display: none;
+    display: inline;
   }
 }

@@ -9,7 +9,7 @@
     @if (projections().length || recentGames().length) {
       <hr class="divider" />
 
-      <section class="dashboard-row">
+      <section class="dashboard-row" [class.standings-only]="!recentGames().length">
         @if (projections().length) {
           <app-standings-table [projections]="projections()" [odds]="allOdds()" />
         }
