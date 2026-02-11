@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { BlogPost } from '../../shared/models/content.models';
@@ -8,7 +8,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 @Component({
   selector: 'app-article-list',
   standalone: true,
-  imports: [ArticleCardComponent],
+  imports: [ArticleCardComponent, RouterLink],
   templateUrl: './article-list.component.html',
   styleUrl: './article-list.component.css',
 })

@@ -19,6 +19,8 @@
       <p class="card-excerpt">{{ article().excerpt }}</p>
       <div class="card-meta">
         <span class="card-date">{{ article().publishedAt | date: 'MMM d, yyyy' }}</span>
+        <span class="meta-dot">·</span>
+        <span class="card-reading-time">{{ article().readingTime }} min read</span>
       </div>
     </div>
   </a>

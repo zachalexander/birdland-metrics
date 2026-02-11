@@ -114,3 +114,164 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
 }
+
+/* === Article Body Content ===
+   Styles for Contentful rich-text rendered via [innerHTML].
+   Must be global because innerHTML bypasses Angular's view encapsulation. */
+.article-body :first-child {
+  margin-top: 0;
+}
+
+.article-body h1 {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-text);
+  margin: var(--space-3xl) 0 var(--space-md);
+}
+
+.article-body h2 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: var(--space-3xl) 0 var(--space-sm);
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--color-accent);
+}
+
+.article-body h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin: var(--space-2xl) 0 var(--space-xs);
+}
+
+.article-body h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: var(--space-xl) 0 var(--space-xs);
+}
+
+.article-body h5 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: var(--space-xl) 0 var(--space-xs);
+}
+
+.article-body h6 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin: var(--space-lg) 0 var(--space-xs);
+}
+
+.article-body p {
+  margin: 0 0 1.5rem;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin: var(--space-2xl) 0;
+}
+
+.article-body blockquote {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  margin: var(--space-2xl) 0;
+  padding: var(--space-md) var(--space-lg);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  font-size: var(--text-base);
+}
+
+.article-body code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.article-body pre {
+  background: var(--color-text);
+  color: #e0e0e0;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin: var(--space-2xl) 0;
+}
+
+.article-body pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: var(--space-xl);
+  margin: 0 0 1.5rem;
+  line-height: 1.65;
+}
+
+.article-body ul p,
+.article-body ol p {
+  margin: 0;
+}
+
+/* Article Data Tables */
+.article-body table {
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  border-collapse: collapse;
+  font-size: var(--text-base);
+  text-align: center;
+}
+
+.article-body th {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 2px solid var(--color-text);
+  vertical-align: middle;
+  line-height: 2;
+  white-space: nowrap;
+}
+
+.article-body td {
+  font-family: var(--font-mono);
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  vertical-align: middle;
+  color: var(--color-text);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.article-body td:first-child {
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.article-body td p,
+.article-body th p {
+  margin: 0;
+}

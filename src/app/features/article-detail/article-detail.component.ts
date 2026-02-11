@@ -1,15 +1,16 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { DatePipe, DOCUMENT } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { BlogPost } from '../../shared/models/content.models';
+import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
 
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink, ArticleCardComponent],
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })
@@ -18,6 +19,7 @@ export class ArticleDetailComponent implements OnInit {
   bodyHtml = signal('');
   loading = signal(true);
   notFound = signal(false);
+  relatedArticles = signal<BlogPost[]>([]);
 
   private document = inject(DOCUMENT);
 
@@ -50,6 +52,12 @@ export class ArticleDetailComponent implements OnInit {
         this.loading.set(false);
         this.setMeta(article);
         this.addJsonLd(article);
+
+        if (article.tags.length) {
+          this.contentful.getRelatedArticles(article.slug, article.tags).then((related) => {
+            this.relatedArticles.set(related);
+          });
+        }
       })
       .catch(() => {
         this.loading.set(false);

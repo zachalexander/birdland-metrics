@@ -1,6 +1,5 @@
 @if (loading()) {
   <div class="article-loading">
-    <div class="skeleton-hero-img"></div>
     <div class="article-container">
       <div class="skeleton-line title-line"></div>
       <div class="skeleton-line meta-line"></div>
@@ -16,29 +15,59 @@
   </div>
 } @else if (article(); as art) {
   <article class="article-detail">
-    @if (art.coverImage) {
-      <div class="article-hero-image">
-        <img
-          [src]="art.coverImage.url + '?w=1200&h=600&fit=fill'"
-          [alt]="art.coverImage.title"
-          width="1200"
-          height="600"
-        />
-      </div>
-    }
     <div class="article-container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Home</a>
+        @if (art.tags.length) {
+          <span class="breadcrumb-sep">/</span>
+          <a [routerLink]="['/category', art.tags[0]]">{{ art.tags[0] }}</a>
+        }
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">{{ art.title }}</span>
+      </nav>
+      @if (art.coverImage) {
+        <div class="article-hero-image">
+          <img
+            [src]="art.coverImage.url + '?w=1200&h=600&fit=fill'"
+            [alt]="art.coverImage.title"
+            width="1200"
+            height="600"
+          />
+        </div>
+      }
       @if (art.tags.length) {
         <span class="article-category">{{ art.tags[0] }}</span>
       }
       <h1 class="article-title">{{ art.title }}</h1>
       <div class="article-meta">
         @if (art.author) {
+          @if (art.author.avatar) {
+            <img
+              class="author-avatar"
+              [src]="art.author.avatar.url + '?w=80&h=80&fit=fill&f=face'"
+              [alt]="art.author.name"
+              width="40"
+              height="40"
+            />
+          }
           <span class="article-author">{{ art.author.name }}</span>
           <span class="meta-separator">·</span>
         }
         <time class="article-date">{{ art.publishedAt | date: 'MMMM d, yyyy' }}</time>
+        <span class="meta-separator">·</span>
+        <span class="reading-time">{{ art.readingTime }} min read</span>
       </div>
       <div class="article-body" [innerHTML]="bodyHtml()"></div>
+      @if (relatedArticles().length) {
+        <section class="related-articles">
+          <h2 class="related-title">Related Articles</h2>
+          <div class="related-list">
+            @for (related of relatedArticles(); track related.slug) {
+              <app-article-card [article]="related" />
+            }
+          </div>
+        </section>
+      }
     </div>
   </article>
 }

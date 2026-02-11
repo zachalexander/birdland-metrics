@@ -14,6 +14,7 @@ export interface BlogPost {
   publishedAt: string;
   isPremium: boolean;
   featured: boolean;
+  readingTime: number;
   tags: string[];
   author?: Author;
 }

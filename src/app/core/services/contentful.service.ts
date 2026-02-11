@@ -18,6 +18,7 @@ export class ContentfulService {
     const entries = await this.client.getEntries({
       content_type: environment.contentful.contentTypeIds.blogPost,
       order: ['-sys.createdAt'],
+      include: 2,
       limit,
       skip,
     });
@@ -28,6 +29,7 @@ export class ContentfulService {
     const entries = await this.client.getEntries({
       content_type: environment.contentful.contentTypeIds.blogPost,
       'fields.slug': slug,
+      include: 2,
       limit: 1,
     });
     if (entries.items.length === 0) return null;
@@ -38,6 +40,7 @@ export class ContentfulService {
     const entries = await this.client.getEntries({
       content_type: environment.contentful.contentTypeIds.blogPost,
       'fields.tags[in]': category,
+      include: 2,
       order: ['-sys.createdAt'],
     });
     return entries.items.map((entry) => this.mapBlogPost(entry));
@@ -82,9 +85,33 @@ export class ContentfulService {
       publishedAt: (fields['publishedAt'] as string) ?? entry.sys.createdAt,
       isPremium: (fields['isPremium'] as boolean) ?? false,
       featured: (fields['featured'] as boolean) ?? false,
+      readingTime: Math.ceil(this.countWords(fields['content']) / 200) || 1,
       tags: (fields['tags'] as string[]) ?? [],
       author,
     };
+  }
+
+  async getRelatedArticles(slug: string, tags: string[], limit = 3): Promise<BlogPost[]> {
+    if (!tags.length) return [];
+    const entries = await this.client.getEntries({
+      content_type: environment.contentful.contentTypeIds.blogPost,
+      'fields.tags[in]': tags[0],
+      'fields.slug[ne]': slug,
+      include: 2,
+      order: ['-sys.createdAt'],
+      limit,
+    });
+    return entries.items.map((entry) => this.mapBlogPost(entry));
+  }
+
+  private countWords(node: unknown): number {
+    if (!node || typeof node !== 'object') return 0;
+    const n = node as Record<string, unknown>;
+    if (n['nodeType'] === 'text') {
+      return ((n['value'] as string) || '').split(/\s+/).filter(Boolean).length;
+    }
+    const children = n['content'] as unknown[] | undefined;
+    return children ? children.reduce((sum: number, child) => sum + this.countWords(child), 0) : 0;
   }
 
   private mapAuthor(entry: Entry): Author {
