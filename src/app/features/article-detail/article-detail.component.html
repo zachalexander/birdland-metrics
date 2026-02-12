@@ -71,7 +71,7 @@
         <span class="meta-separator">·</span>
         <span class="reading-time">{{ art.readingTime }} min read</span>
       </div>
-      <div class="article-body" [innerHTML]="bodyHtml()"></div>
+      <div class="article-body" appVizHost [innerHTML]="bodyHtml()"></div>
       @if (relatedArticles().length) {
         <section class="related-articles">
           <h2 class="related-title">Related Articles</h2>

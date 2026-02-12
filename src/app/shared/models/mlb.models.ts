@@ -76,6 +76,15 @@ export interface RecentGame {
   venue: string;
 }
 
+export interface EloHistoryPoint {
+  date: string;
+  elo: number;
+}
+
+export interface EloHistoryResponse {
+  teams: Record<string, EloHistoryPoint[]>;
+}
+
 // --- Team display helpers ---
 
 export const TEAM_NAMES: Record<string, string> = {

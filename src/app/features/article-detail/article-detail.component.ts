@@ -1,28 +1,31 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { SeoService } from '../../core/services/seo.service';
 import { BlogPost } from '../../shared/models/content.models';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
+import { VizHostDirective } from '../../shared/directives/viz-host.directive';
 
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [DatePipe, RouterLink, ArticleCardComponent],
+  imports: [DatePipe, RouterLink, ArticleCardComponent, VizHostDirective],
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })
 export class ArticleDetailComponent implements OnInit {
   article = signal<BlogPost | null>(null);
-  bodyHtml = signal('');
+  bodyHtml = signal<SafeHtml>('');
   loading = signal(true);
   notFound = signal(false);
   relatedArticles = signal<BlogPost[]>([]);
 
   private seo = inject(SeoService);
+  private sanitizer = inject(DomSanitizer);
 
   constructor(
     private route: ActivatedRoute,
@@ -49,7 +52,24 @@ export class ArticleDetailComponent implements OnInit {
         }
 
         this.article.set(article);
-        this.bodyHtml.set(documentToHtmlString(article.content));
+        const renderVizEntry = (node: any): string => {
+          const entry = node.data?.target;
+          if (!entry?.sys?.contentType?.sys?.id) return '';
+          if (entry.sys.contentType.sys.id === 'visualization') {
+            const vizType = entry.fields?.vizType ?? '';
+            const config = entry.fields?.config ?? {};
+            const safeConfig = JSON.stringify(config).replace(/'/g, '&#39;');
+            return `<div class="article-viz" data-viz-type="${vizType}" data-viz-config='${safeConfig}'></div>`;
+          }
+          return '';
+        };
+        const rawHtml = documentToHtmlString(article.content, {
+          renderNode: {
+            [BLOCKS.EMBEDDED_ENTRY]: renderVizEntry,
+            [INLINES.EMBEDDED_ENTRY]: renderVizEntry,
+          },
+        });
+        this.bodyHtml.set(this.sanitizer.bypassSecurityTrustHtml(rawHtml));
         this.loading.set(false);
         this.setMeta(article);
         this.addJsonLd(article);

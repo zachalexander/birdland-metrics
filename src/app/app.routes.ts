@@ -28,6 +28,20 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'visualizations/elo-trends',
+    loadComponent: () =>
+      import('./visualizations/elo-trend/elo-trend.component').then(
+        (m) => m.EloTrendComponent,
+      ),
+  },
+  {
+    path: 'visualizations/win-distribution',
+    loadComponent: () =>
+      import('./visualizations/win-distribution/win-distribution.component').then(
+        (m) => m.WinDistributionComponent,
+      ),
+  },
+  {
     path: 'disclaimer',
     loadComponent: () =>
       import('./features/disclaimer/disclaimer.component').then(

@@ -14,6 +14,102 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 const SITE_URL = 'https://birdlandmetrics.com';
+const ELO_S3_BASE = 'https://mlb-elo-ratings-output.s3.amazonaws.com';
+
+// In-memory cache for parsed ELO CSV data
+const eloCache = new Map<string, { data: string[][]; fetchedAt: number }>();
+const ELO_CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+async function fetchEloCsv(fileName: string): Promise<string[][]> {
+  const cached = eloCache.get(fileName);
+  if (cached && Date.now() - cached.fetchedAt < ELO_CACHE_TTL) {
+    return cached.data;
+  }
+  const res = await fetch(`${ELO_S3_BASE}/${fileName}`);
+  if (!res.ok) throw new Error(`S3 fetch failed: ${res.status}`);
+  const text = await res.text();
+  const rows = text.replace(/\r/g, '').trim().split('\n').map(line => line.split(','));
+  eloCache.set(fileName, { data: rows, fetchedAt: Date.now() });
+  return rows;
+}
+
+/**
+ * ELO history API — returns per-game ELO for requested teams and season
+ */
+app.get('/api/elo-history', async (req, res) => {
+  const teamParam = req.query['team'] as string | undefined;
+  const seasonParam = req.query['season'] as string | undefined;
+
+  if (!teamParam || !seasonParam) {
+    res.status(400).json({ error: 'Missing required query params: team, season' });
+    return;
+  }
+
+  const teams = teamParam.split(',').map(t => t.trim().toUpperCase());
+  const season = parseInt(seasonParam, 10);
+  if (isNaN(season)) {
+    res.status(400).json({ error: 'Invalid season parameter' });
+    return;
+  }
+
+  try {
+    const teamSet = new Set(teams);
+    const result: Record<string, { date: string; elo: number }[]> = {};
+    for (const team of teams) {
+      result[team] = [];
+    }
+
+    // Try to get starting ELO from prior season's end-of-year file
+    try {
+      const baselineRows = await fetchEloCsv(`elo_rating_end_of_${season - 1}.csv`);
+      const baseHeader = baselineRows[0];
+      const bTeamIdx = baseHeader.indexOf('team');
+      const bEloIdx = baseHeader.indexOf('elo');
+      for (const row of baselineRows.slice(1)) {
+        const team = row[bTeamIdx];
+        if (teamSet.has(team)) {
+          result[team].push({ date: `${season}-03-01`, elo: parseFloat(row[bEloIdx]) });
+        }
+      }
+    } catch {
+      // No baseline available — skip
+    }
+
+    // Fetch full history CSV and filter by season
+    // CSV columns: date,home_team,away_team,home_score,away_score,home_elo_before,away_elo_before,home_elo_after,away_elo_after
+    try {
+      const gameRows = await fetchEloCsv('elo-ratings-full-history.csv');
+      const header = gameRows[0];
+      const dateIdx = header.indexOf('date');
+      const homeTeamIdx = header.indexOf('home_team');
+      const awayTeamIdx = header.indexOf('away_team');
+      const homeEloPostIdx = header.indexOf('home_elo_after');
+      const awayEloPostIdx = header.indexOf('away_elo_after');
+      const seasonPrefix = `${season}-`;
+
+      for (const row of gameRows.slice(1)) {
+        const date = row[dateIdx];
+        if (!date.startsWith(seasonPrefix)) continue;
+        const homeTeam = row[homeTeamIdx];
+        const awayTeam = row[awayTeamIdx];
+        if (teamSet.has(homeTeam)) {
+          result[homeTeam].push({ date, elo: parseFloat(row[homeEloPostIdx]) });
+        }
+        if (teamSet.has(awayTeam)) {
+          result[awayTeam].push({ date, elo: parseFloat(row[awayEloPostIdx]) });
+        }
+      }
+    } catch {
+      // Full history not available
+    }
+
+    res.set('Cache-Control', 'public, max-age=300');
+    res.json({ teams: result });
+  } catch (err) {
+    console.error('ELO history fetch failed:', err);
+    res.status(500).json({ error: 'Failed to fetch ELO history' });
+  }
+});
 
 /**
  * Dynamic sitemap.xml — queries Contentful for all articles
@@ -46,6 +142,8 @@ app.get('/sitemap.xml', async (_req, res) => {
       `  <url><loc>${SITE_URL}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`,
       `  <url><loc>${SITE_URL}/disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>`,
       `  <url><loc>${SITE_URL}/visualizations/spray-chart</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>`,
+      `  <url><loc>${SITE_URL}/visualizations/elo-trends</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
+      `  <url><loc>${SITE_URL}/visualizations/win-distribution</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
       ...[...categories].map(
         cat => `  <url><loc>${SITE_URL}/category/${cat}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`
       ),
