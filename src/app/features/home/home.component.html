@@ -56,6 +56,7 @@
           }
           @if (oriolesOdds()) {
             <app-playoff-odds [odds]="oriolesOdds()" />
+            <hr class="divider" />
           }
           @if (projections().length) {
             <app-win-distribution [config]="{ teams: ['BAL'] }" />
@@ -65,8 +66,8 @@
 
         <div class="sidebar-section">
           <h3 class="sidebar-title">Model Philosophy</h3>
-          <p class="sidebar-description">Our projections are powered by an Elo rating system that evaluates team strength based on head-to-head results, adjusted for preseason roster changes.</p>
-          <a class="sidebar-link" href="/articles/projection-model">Read more <span class="chevron">&rsaquo;</span></a>
+          <p class="sidebar-description">Our projections are powered by an ELO rating system that evaluates team strength based on head-to-head baseball game results dating back 155 years ago (since 1871), adjusted for preseason roster changes, starting pitcher weights, and much more.</p>
+          <a class="sidebar-link" href="/articles/projection-model">Read the comprehensive model documentation <span class="chevron">&rsaquo;</span></a>
         </div>
       </aside>
     </div>

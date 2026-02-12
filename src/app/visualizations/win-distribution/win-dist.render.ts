@@ -70,8 +70,8 @@ export function renderWinDistribution(
   let xMin = Infinity;
   let xMax = -Infinity;
   for (const td of teamData) {
-    const lo = td.avg_wins - 4 * td.std_dev;
-    const hi = td.avg_wins + 4 * td.std_dev;
+    const lo = td.avg_wins - 3 * td.std_dev;
+    const hi = td.avg_wins + 3 * td.std_dev;
     if (lo < xMin) xMin = lo;
     if (hi > xMax) xMax = hi;
   }
@@ -165,7 +165,7 @@ export function renderWinDistribution(
     .attr('font-size', '18px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
-    .text(`FREQUENCY (${(NUM_SIMULATIONS).toLocaleString()} SIM.)`);
+    .text(`FREQUENCY (${(NUM_SIMULATIONS).toLocaleString()} sims)`);
 
   // 95% confidence interval (mean ± 1.96σ)
   for (const { team, projection: td } of teamBars) {
@@ -206,10 +206,10 @@ export function renderWinDistribution(
       .attr('y', -4)
       .attr('text-anchor', 'middle')
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '16px')
+      .attr('font-size', '18px')
       .attr('font-weight', '600')
       .attr('fill', COLOR_TEXT_MUTED)
-      .text(`95% CI: ${ciLo}–${ciHi} W`);
+      .text(`95% Confidence Interval: ${ciLo}–${ciHi} Wins`);
   }
 
   // Draw bars
@@ -254,7 +254,7 @@ export function renderWinDistribution(
       .attr('y', avgBarTop - 28)
       .attr('text-anchor', 'middle')
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '20px')
+      .attr('font-size', '24px')
       .attr('font-weight', '700')
       .attr('fill', color)
       .text(`${medianWin}W`);

@@ -26,8 +26,8 @@
 }
 
 .col-team { width: 28%; }
-.col-num { width: 12%; }
-.col-pct { width: 24%; }
+.col-num { width: 14%; }
+.col-pct { width: 22%; }
 
 .standings-table th {
   font-family: var(--font-mono);
