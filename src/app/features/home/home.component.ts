@@ -11,6 +11,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 import { PlayoffOddsComponent } from './components/playoff-odds/playoff-odds.component';
 import { StandingsTableComponent } from './components/standings-table/standings-table.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
+import { WinDistributionComponent } from '../../visualizations/win-distribution/win-distribution.component';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ import { RecentGamesComponent } from './components/recent-games/recent-games.com
     PlayoffOddsComponent,
     StandingsTableComponent,
     RecentGamesComponent,
+    WinDistributionComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

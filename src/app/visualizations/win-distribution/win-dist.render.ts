@@ -47,8 +47,8 @@ export function renderWinDistribution(
 
   const width = 700;
   const hasTitle = !!config.title;
-  const height = hasTitle ? 420 : 390;
-  const margin = { top: hasTitle ? 32 : 12, right: 16, bottom: 48, left: 54 };
+  const height = hasTitle ? 480 : 450;
+  const margin = { top: hasTitle ? 36 : 28, right: 48, bottom: 80, left: 64 };
 
   const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
 
@@ -128,18 +128,18 @@ export function renderWinDistribution(
     .call(g => g.selectAll('.tick text')
       .attr('fill', COLOR_TEXT_MUTED)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '13px')
+      .attr('font-size', '22px')
       .attr('font-weight', '600')
-      .attr('dy', '1em'));
+      .attr('dy', '1.2em'));
 
   // X axis label
   g.append('text')
     .attr('x', innerWidth / 2)
-    .attr('y', innerHeight + 42)
+    .attr('y', innerHeight + 68)
     .attr('text-anchor', 'middle')
     .attr('fill', COLOR_TEXT_MUTED)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', '11px')
+    .attr('font-size', '18px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text('PROJECTED WINS');
@@ -151,21 +151,66 @@ export function renderWinDistribution(
     .call(g => g.selectAll('.tick text')
       .attr('fill', COLOR_TEXT_MUTED)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '12px')
-      .attr('dx', '-0.5em'));
+      .attr('font-size', '16px')
+      .attr('dx', '-0.4em'));
 
   // Y axis label
   g.append('text')
     .attr('transform', 'rotate(-90)')
-    .attr('y', -42)
+    .attr('y', -50)
     .attr('x', -innerHeight / 2)
     .attr('text-anchor', 'middle')
     .attr('fill', COLOR_TEXT_MUTED)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', '11px')
+    .attr('font-size', '18px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text(`FREQUENCY (${(NUM_SIMULATIONS).toLocaleString()} SIM.)`);
+
+  // 95% confidence interval (mean ± 1.96σ)
+  for (const { team, projection: td } of teamBars) {
+    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const ciLo = Math.round(td.avg_wins - 1.96 * td.std_dev);
+    const ciHi = Math.round(td.avg_wins + 1.96 * td.std_dev);
+
+    // Shaded background region
+    const ciLoX = x(Math.max(ciLo, xMin)) ?? 0;
+    const ciHiX = (x(Math.min(ciHi, xMax)) ?? 0) + x.bandwidth();
+    g.append('rect')
+      .attr('x', ciLoX)
+      .attr('y', 0)
+      .attr('width', ciHiX - ciLoX)
+      .attr('height', innerHeight)
+      .attr('fill', color)
+      .attr('opacity', 0.04);
+
+    // Dashed boundary lines
+    for (const bound of [ciLo, ciHi]) {
+      if (bound < xMin || bound > xMax) continue;
+      const bx = bound === ciLo
+        ? (x(bound) ?? 0)
+        : (x(bound) ?? 0) + x.bandwidth();
+      g.append('line')
+        .attr('x1', bx).attr('x2', bx)
+        .attr('y1', 0).attr('y2', innerHeight)
+        .attr('stroke', color)
+        .attr('stroke-width', 1.5)
+        .attr('stroke-dasharray', '6,4')
+        .attr('opacity', 0.5);
+    }
+
+    // Label above the CI region
+    const labelX = (ciLoX + ciHiX) / 2;
+    g.append('text')
+      .attr('x', labelX)
+      .attr('y', -4)
+      .attr('text-anchor', 'middle')
+      .attr('font-family', FONT_MONO)
+      .attr('font-size', '16px')
+      .attr('font-weight', '600')
+      .attr('fill', COLOR_TEXT_MUTED)
+      .text(`95% CI: ${ciLo}–${ciHi} W`);
+  }
 
   // Draw bars
   const OPACITY_DEFAULT = 0.45;
@@ -200,16 +245,16 @@ export function renderWinDistribution(
 
     g.append('line')
       .attr('x1', avgBandX).attr('x2', avgBandX)
-      .attr('y1', avgBarTop - 18).attr('y2', avgBarTop - 4)
+      .attr('y1', avgBarTop - 24).attr('y2', avgBarTop - 4)
       .attr('stroke', color)
       .attr('stroke-width', 1.5);
 
     g.append('text')
       .attr('x', avgBandX)
-      .attr('y', avgBarTop - 22)
+      .attr('y', avgBarTop - 28)
       .attr('text-anchor', 'middle')
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '11px')
+      .attr('font-size', '20px')
       .attr('font-weight', '700')
       .attr('fill', color)
       .text(`${medianWin}W`);
@@ -251,16 +296,14 @@ export function renderWinDistribution(
       }
 
       let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${COLOR_TEXT_MUTED};text-transform:uppercase;letter-spacing:0.04em">${clampedWin} WINS</span>`;
-      for (const { team, bars } of teamBars) {
+      for (const { bars } of teamBars) {
         const bar = bars.find(b => b.wins === clampedWin);
         const freq = bar?.freq ?? 0;
         const pct = (bar?.density ?? 0) * 100;
-        const barColor = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
-        const name = TEAM_NAMES[team] ?? team;
-        html += `<div style="display:flex;align-items:center;gap:6px;margin-top:4px">`;
-        html += `<span style="width:8px;height:8px;border-radius:2px;background:${barColor};flex-shrink:0"></span>`;
-        html += `<span style="font-weight:500;color:${COLOR_TEXT}">${name}</span>`;
-        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${COLOR_TEXT};margin-left:auto">${freq} <span style="font-weight:500;color:${COLOR_TEXT_MUTED};font-size:10px">(${pct.toFixed(1)}%)</span></span>`;
+        html += `<div style="margin-top:4px;font-family:${FONT_MONO};font-size:12px">`;
+        html += `<span style="font-weight:700;color:${COLOR_TEXT}">${freq}</span>`;
+        html += `<span style="font-weight:500;color:${COLOR_TEXT_SECONDARY}"> times </span>`;
+        html += `<span style="font-weight:500;color:${COLOR_TEXT_MUTED}">(${pct.toFixed(1)}%)</span>`;
         html += `</div>`;
       }
       tooltip.show(html);

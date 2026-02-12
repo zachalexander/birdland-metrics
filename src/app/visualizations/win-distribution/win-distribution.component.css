@@ -65,3 +65,10 @@
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* Compact mode when embedded in sidebar */
+:host-context(.sidebar) .win-dist-wrapper {
+  margin-top: var(--space-sm);
+  padding-top: 0;
+  border-top: none;
+}

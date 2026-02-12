@@ -54,8 +54,8 @@
   gap: var(--space-sm);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  margin-bottom: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -180,7 +180,7 @@
   .article-title {
     font-size: 1.75rem;
   }
-  .article-body {
+.article-body {
     font-size: var(--text-base);
     line-height: 1.6;
   }

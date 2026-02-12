@@ -33,6 +33,10 @@ export class StandingsTableComponent {
     return this.odds().find(o => o.team === code)?.playoff_pct ?? 0;
   }
 
+  wildcardPct(code: string): number {
+    return this.odds().find(o => o.team === code)?.wildcard_pct ?? 0;
+  }
+
   isOrioles(code: string): boolean {
     return code === 'BAL';
   }

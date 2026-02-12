@@ -58,6 +58,7 @@
             <app-playoff-odds [odds]="oriolesOdds()" />
           }
           @if (projections().length) {
+            <app-win-distribution [config]="{ teams: ['BAL'] }" />
             <app-standings-table [projections]="projections()" [odds]="allOdds()" />
           }
         </div>

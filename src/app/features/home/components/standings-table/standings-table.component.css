@@ -2,6 +2,9 @@
   margin-top: var(--space-sm);
   padding-top: var(--space-md);
   border-top: 1px solid var(--color-border-strong);
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .table-title {
@@ -9,7 +12,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   margin-bottom: var(--space-md);
   margin-top: 0;
   text-align: center;
@@ -22,9 +25,9 @@
   table-layout: fixed;
 }
 
-.col-team { width: 40%; }
-.col-num { width: 15%; }
-.col-playoff { width: 30%; }
+.col-team { width: 28%; }
+.col-num { width: 12%; }
+.col-pct { width: 24%; }
 
 .standings-table th {
   font-family: var(--font-mono);
@@ -34,7 +37,7 @@
   color: var(--color-text-muted);
   text-align: center;
   padding: var(--space-sm) var(--space-xs);
-  border-bottom: 2px solid var(--color-text);
+  border-bottom: 1px solid var(--color-border-strong);
   vertical-align: bottom;
 }
 
@@ -47,13 +50,14 @@
   padding: var(--space-sm) var(--space-xs);
   border-bottom: 1px solid var(--color-border);
   text-align: center;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
 }
 
 .standings-table td.col-team {
   text-align: left;
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--color-text-secondary);
 }
 
 .team-abbr {

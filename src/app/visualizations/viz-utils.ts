@@ -69,6 +69,7 @@ export function createTooltip(d3: typeof import('d3'), container: HTMLElement): 
     .style('font-size', '12px')
     .style('line-height', '1.5')
     .style('color', COLOR_TEXT)
+    .style('white-space', 'nowrap')
     .style('opacity', '0')
     .style('transition', 'opacity 150ms ease');
 
@@ -78,9 +79,17 @@ export function createTooltip(d3: typeof import('d3'), container: HTMLElement): 
     },
     move(event: MouseEvent) {
       const rect = container.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      el.style('left', `${x + 14}px`).style('top', `${y - 12}px`);
+      const cursorX = event.clientX - rect.left;
+      const cursorY = event.clientY - rect.top;
+      const tooltipNode = el.node() as HTMLElement;
+      const tooltipW = tooltipNode.offsetWidth;
+
+      // Flip to left side if tooltip would overflow container
+      const leftPos = cursorX + 14 + tooltipW > rect.width
+        ? cursorX - tooltipW - 14
+        : cursorX + 14;
+
+      el.style('left', `${leftPos}px`).style('top', `${cursorY - 12}px`);
     },
     hide() {
       el.style('opacity', '0');
