@@ -16,6 +16,13 @@
 
         <section class="articles-section">
           <h2 class="section-label">Latest Articles</h2>
+          @if (categories().length) {
+            <nav class="category-nav" aria-label="Categories">
+              @for (cat of categories(); track cat) {
+                <a [routerLink]="['/category', cat]" class="category-pill">{{ cat }}</a>
+              }
+            </nav>
+          }
           @if (loading()) {
             <div class="loading-area">
               @for (_ of [1,2,3]; track $index) {
@@ -43,7 +50,7 @@
 
       <aside class="sidebar">
         <div class="sidebar-section">
-          <h3 class="sidebar-title">Birdland Models</h3>
+          <h3 class="sidebar-title">Birdland Projections</h3>
           @if (modelsUpdated()) {
             <span class="sidebar-updated">Last updated {{ modelsUpdated()! + 'Z' | date: 'MMM d, y, h:mm a' : 'America/New_York' }}</span>
           }

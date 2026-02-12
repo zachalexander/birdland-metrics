@@ -31,6 +31,13 @@
   padding: var(--space-xs) var(--space-sm);
   border-radius: 3px;
   margin-bottom: var(--space-md);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.article-category:hover {
+  background: var(--color-accent);
+  color: white;
 }
 
 .article-title {

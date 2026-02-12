@@ -48,6 +48,12 @@
   letter-spacing: 0.06em;
   color: var(--color-accent);
   margin-bottom: var(--space-xs);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.card-category:hover {
+  color: var(--color-accent-hover, #c44000);
 }
 
 .card-title {

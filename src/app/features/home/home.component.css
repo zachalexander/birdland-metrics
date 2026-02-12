@@ -119,6 +119,31 @@
   margin-bottom: var(--space-md);
 }
 
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.category-pill {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  transition: all var(--transition-fast);
+}
+
+.category-pill:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 .articles-list {
   display: flex;
   flex-direction: column;

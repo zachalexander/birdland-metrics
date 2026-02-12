@@ -2,18 +2,33 @@
   <a [routerLink]="['/articles', article().slug]" class="card-link">
     @if (article().coverImage) {
       <div class="card-image">
-        <img
-          [src]="article().coverImage!.url + '?w=600&h=340&fit=fill'"
-          [alt]="article().coverImage!.title"
-          loading="lazy"
-          width="600"
-          height="340"
-        />
+        <picture>
+          <source
+            type="image/avif"
+            [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=avif 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=avif 600w'"
+            sizes="(max-width: 640px) 100vw, 180px"
+          />
+          <source
+            type="image/webp"
+            [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=webp 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=webp 600w'"
+            sizes="(max-width: 640px) 100vw, 180px"
+          />
+          <img
+            [src]="article().coverImage!.url + '?w=600&h=340&fit=fill'"
+            [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill 600w'"
+            sizes="(max-width: 640px) 100vw, 180px"
+            [alt]="article().coverImage!.title"
+            loading="lazy"
+            width="600"
+            height="340"
+          />
+        </picture>
       </div>
     }
     <div class="card-body">
       @if (article().tags.length) {
-        <span class="card-category">{{ article().tags[0] }}</span>
+        <a class="card-category" [routerLink]="['/category', article().tags[0]]"
+           (click)="$event.stopPropagation()">{{ article().tags[0] }}</a>
       }
       <h3 class="card-title">{{ article().title }}</h3>
       <p class="card-excerpt">{{ article().excerpt }}</p>

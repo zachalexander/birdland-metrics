@@ -1,7 +1,8 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
+import { SeoService } from '../../core/services/seo.service';
 import { BlogPost } from '../../shared/models/content.models';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
 
@@ -16,6 +17,8 @@ export class ArticleListComponent implements OnInit {
   articles = signal<BlogPost[]>([]);
   category = signal('');
   loading = signal(true);
+
+  private seo = inject(SeoService);
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +36,15 @@ export class ArticleListComponent implements OnInit {
     this.meta.updateTag({ name: 'description', content: `Articles about ${displayName} on Birdland Metrics.` });
     this.meta.updateTag({ property: 'og:title', content: `${displayName} — Birdland Metrics` });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/category/' + cat });
+    this.seo.setCanonicalUrl('/category/' + cat);
+    this.seo.setJsonLd(
+      this.seo.getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: displayName, path: '/category/' + cat },
+      ]),
+      this.seo.getOrganizationSchema(),
+    );
 
     this.contentful
       .getArticlesByCategory(cat)

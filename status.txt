@@ -28,7 +28,10 @@ Orioles-inspired color palette (#df4a00 orange, #1a1a1a black).
 ## Architecture
 ```
 src/app/
-├── core/services/contentful.service.ts    — API client, maps entries to TypeScript models
+├── core/services/
+│   ├── contentful.service.ts              — API client, maps entries to TypeScript models
+│   ├── mlb-data.service.ts                — Fetches JSON from S3 for dashboard
+│   └── seo.service.ts                     — Canonical URLs, JSON-LD management, schema helpers
 ├── features/
 │   ├── home/                              — Hero + article card grid
 │   ├── article-detail/                    — Full article, rich text rendering, JSON-LD, SEO meta
@@ -47,9 +50,14 @@ src/app/
 - All routes use `RenderMode.Server` for SSR
 
 ## SEO
-- `Meta` and `Title` services set og:title, og:description, og:image, og:type, twitter:card per page
-- JSON-LD `BlogPosting` schema injected on article detail pages
-- SSR ensures meta tags are in initial HTML response
+- `Meta` and `Title` services set og:title, og:description, og:image, og:type, og:url, twitter:card per page
+- `SeoService` manages canonical URLs (`<link rel="canonical">`) and JSON-LD schemas (uses `data-seo` attribute to prevent accumulation during SPA navigation)
+- JSON-LD schemas: `BlogPosting` (with author/publisher) on article detail, `BreadcrumbList` on article detail + category list, `Organization` on all pages
+- Canonical URLs set on all routes (home, article detail, category list, disclaimer, spray chart)
+- `robots.txt` in `public/` (Allow all + sitemap reference)
+- Dynamic `/sitemap.xml` Express route queries Contentful for all articles (static pages + category pages + article URLs with lastmod)
+- `environment.ts` / `environment.prod.ts` include `siteUrl` for canonical/og:url generation
+- SSR ensures meta tags and JSON-LD are in initial HTML response
 
 ## Docker
 - Multi-stage Dockerfile: build with `node:20-alpine`, run with `node:20-alpine`
@@ -66,7 +74,7 @@ src/app/
 - **DNS**: Route 53 hosted zone, ALIAS record for apex, CNAME for www
 - **GitHub Connection**: launch-angle-github (connection ARN unchanged after repo rename)
 
-## Current State (2026-02-10)
+## Current State (2026-02-11)
 - 2 test articles in Contentful ("First Post", "Second Post") with cover images
 - Spray chart wired to /visualizations/spray-chart with nav link in header
 - Author linked to articles and displayed on article detail pages
@@ -77,6 +85,9 @@ src/app/
 - Preseason WAR adjustment Lambda deployed with EventBridge schedule (every Monday in March)
 - BAL preseason playoff odds: 39.0% (after WAR-based roster adjustment)
 - Comprehensive model documentation at `data-pipelines/model-2026-updates/enhanced-model-reference.md`
+- SEO technical gaps complete: robots.txt, dynamic sitemap.xml, canonical URLs, JSON-LD (Organization, BreadcrumbList, enhanced BlogPosting) on all routes
+- Responsive images: `<picture>` with AVIF/WebP srcset on article cards (300w/600w) and article hero (600w/1200w)
+- Service worker configured: `@angular/service-worker` with prefetch for app shell, lazy for images, freshness for APIs
 
 ## Completed
 - ✓ Wire spray chart into dedicated route
@@ -96,6 +107,11 @@ src/app/
 - ✓ Preseason WAR adjustment Lambda (`mlb-preseason-adjustment`) deployed and tested
 - ✓ EventBridge schedule for preseason adjustment (every Monday in March at noon UTC)
 - ✓ Model documentation: `enhanced-model-reference.md`
+- ✓ SEO: robots.txt, dynamic sitemap.xml (Express route), canonical URLs on all routes
+- ✓ SEO: SeoService with JSON-LD management (Organization, BreadcrumbList, enhanced BlogPosting with author/publisher)
+- ✓ SEO: og:url meta tags on all routes
+- ✓ Media: Responsive images with `<picture>` + AVIF/WebP sources on article cards and hero images
+- ✓ Performance: Service worker (`@angular/service-worker`) with app shell prefetch, lazy image caching, API freshness caching
 
 ## Disclaimers
 - ✓ Disclaimer page at `/disclaimer` with full legal text
@@ -329,18 +345,22 @@ Benchmarks: Baseball Savant (inline viz, dashboard home), FanGraphs (taxonomy/fi
 - Affiliate placements styled as "recommended tools" cards within articles
 - Sponsored content styling distinct from editorial
 
-## Technical Gaps (after UX/UI phases)
+## Technical Gaps (after UX/UI phases) — ✓ COMPLETE (2026-02-11)
 
-### Media / Images
-- Add `srcset` and `<picture>` elements for responsive image breakpoints
-- Use Contentful image format params for WebP/AVIF (`&fm=webp`)
+### Media / Images — ✓ COMPLETE
+- ✓ `<picture>` elements with AVIF/WebP `<source>` + srcset breakpoints on article cards (300w/600w) and article detail hero (600w/1200w)
+- ✓ Contentful image format params (`&fm=avif`, `&fm=webp`) for modern formats
 
-### SEO
-- Add `robots.txt`
-- Add `sitemap.xml`
-- Add canonical URL tags
-- Add `Organization` JSON-LD structured data schema
-- Add `BreadcrumbList` JSON-LD structured data schema
+### SEO — ✓ COMPLETE
+- ✓ `robots.txt` (static in `public/`)
+- ✓ `sitemap.xml` (dynamic Express route, queries Contentful for articles + categories)
+- ✓ Canonical URL tags on all routes via `SeoService.setCanonicalUrl()`
+- ✓ `Organization` JSON-LD on all pages
+- ✓ `BreadcrumbList` JSON-LD on article detail and category list pages
+- ✓ Enhanced `BlogPosting` JSON-LD with author (Person), publisher (Organization with logo), URL
+- ✓ `og:url` meta tags on all routes
+- ✓ `SeoService` (`src/app/core/services/seo.service.ts`) — manages canonical links + JSON-LD with `data-seo` attribute to prevent script accumulation
 
-### Performance
-- Add service worker for offline caching
+### Performance — ✓ COMPLETE
+- ✓ Service worker via `@angular/service-worker` (production only, registerWhenStable:30000)
+- ✓ `ngsw-config.json`: app shell prefetch, lazy image caching, Contentful API freshness (5s timeout, 1h cache), Contentful images performance (30d cache), S3 data freshness (5s timeout, 6h cache)

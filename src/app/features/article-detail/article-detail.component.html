@@ -27,16 +27,30 @@
       </nav>
       @if (art.coverImage) {
         <div class="article-hero-image">
-          <img
-            [src]="art.coverImage.url + '?w=1200&h=600&fit=fill'"
-            [alt]="art.coverImage.title"
-            width="1200"
-            height="600"
-          />
+          <picture>
+            <source
+              type="image/avif"
+              [srcset]="art.coverImage.url + '?w=600&h=300&fit=fill&fm=avif 600w, ' + art.coverImage.url + '?w=1200&h=600&fit=fill&fm=avif 1200w'"
+              sizes="(max-width: 768px) 100vw, 720px"
+            />
+            <source
+              type="image/webp"
+              [srcset]="art.coverImage.url + '?w=600&h=300&fit=fill&fm=webp 600w, ' + art.coverImage.url + '?w=1200&h=600&fit=fill&fm=webp 1200w'"
+              sizes="(max-width: 768px) 100vw, 720px"
+            />
+            <img
+              [src]="art.coverImage.url + '?w=1200&h=600&fit=fill'"
+              [srcset]="art.coverImage.url + '?w=600&h=300&fit=fill 600w, ' + art.coverImage.url + '?w=1200&h=600&fit=fill 1200w'"
+              sizes="(max-width: 768px) 100vw, 720px"
+              [alt]="art.coverImage.title"
+              width="1200"
+              height="600"
+            />
+          </picture>
         </div>
       }
       @if (art.tags.length) {
-        <span class="article-category">{{ art.tags[0] }}</span>
+        <a class="article-category" [routerLink]="['/category', art.tags[0]]">{{ art.tags[0] }}</a>
       }
       <h1 class="article-title">{{ art.title }}</h1>
       <div class="article-meta">
