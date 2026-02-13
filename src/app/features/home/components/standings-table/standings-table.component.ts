@@ -41,6 +41,20 @@ export class StandingsTableComponent {
     return this.odds().find(o => o.team === code)?.wildcard_pct ?? 0;
   }
 
+  private static readonly TEAM_IDS: Record<string, number> = {
+    BAL: 110, NYY: 147, BOS: 111, TB: 139, TOR: 141,
+    CLE: 114, CWS: 145, DET: 116, KC: 118, MIN: 142,
+    HOU: 117, LAA: 108, ATH: 133, SEA: 136, TEX: 140,
+    ATL: 144, MIA: 146, NYM: 121, PHI: 143, WSH: 120,
+    CHC: 112, CIN: 113, MIL: 158, PIT: 134, STL: 138,
+    ARI: 109, COL: 115, LAD: 119, SD: 135, SF: 137,
+  };
+
+  teamLogo(code: string): string {
+    const id = StandingsTableComponent.TEAM_IDS[code] ?? 0;
+    return `https://www.mlbstatic.com/team-logos/${id}.svg`;
+  }
+
   isOrioles(code: string): boolean {
     return code === 'BAL';
   }

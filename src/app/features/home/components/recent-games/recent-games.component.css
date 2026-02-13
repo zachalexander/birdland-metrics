@@ -164,3 +164,13 @@
 .loss-text {
   color: var(--color-chart-red);
 }
+
+@media (max-width: 768px) {
+  .game-card {
+    flex: 0 0 150px;
+    padding: var(--space-sm);
+  }
+  .scroll-arrow {
+    display: none;
+  }
+}

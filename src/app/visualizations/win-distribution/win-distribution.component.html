@@ -2,6 +2,18 @@
   @if (!config) {
     <h3 class="chart-title">Projected Win Distribution</h3>
   }
+  @if (teamOptions().length > 1) {
+    <div class="team-picker">
+      @for (opt of teamOptions(); track opt.abbr) {
+        <button
+          class="team-pick"
+          [class.active]="selectedTeam() === opt.abbr"
+          [style.--team-color]="teamColor(opt.abbr)"
+          (click)="onTeamChange(opt.abbr)"
+        >{{ opt.name }}</button>
+      }
+    </div>
+  }
   @if (isBrowser) {
     @if (error) {
       <p class="chart-error">{{ error }}</p>

@@ -1,5 +1,5 @@
 <div class="standings-wrapper">
-  <h3 class="table-title">AL East Projected Standings</h3>
+  <h3 class="table-title">Projected Standings</h3>
   <table class="standings-table">
     <thead>
       <tr>
@@ -16,7 +16,6 @@
         <tr [class.highlight]="isOrioles(team.team)">
           <td class="col-team">
             <span class="team-abbr">{{ team.team }}</span>
-            <span class="team-name">{{ teamName(team.team) }}</span>
           </td>
           <td class="col-num">{{ team.median_wins | number: '1.0-0' }}</td>
           <td class="col-num">{{ projLosses(team.median_wins) }}</td>

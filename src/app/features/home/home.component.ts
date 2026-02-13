@@ -1,5 +1,5 @@
-import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, DatePipe } from '@angular/common';
+import { Component, OnInit, signal, computed, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, DecimalPipe } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
@@ -8,7 +8,6 @@ import { BlogPost } from '../../shared/models/content.models';
 import { PlayoffOdds, TeamProjection, RecentGame } from '../../shared/models/mlb.models';
 import { RouterLink } from '@angular/router';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
-import { PlayoffOddsComponent } from './components/playoff-odds/playoff-odds.component';
 import { StandingsTableComponent } from './components/standings-table/standings-table.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 import { WinDistributionComponent } from '../../visualizations/win-distribution/win-distribution.component';
@@ -18,10 +17,9 @@ import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/n
   selector: 'app-home',
   standalone: true,
   imports: [
-    DatePipe,
+    DecimalPipe,
     RouterLink,
     ArticleCardComponent,
-    PlayoffOddsComponent,
     StandingsTableComponent,
     RecentGamesComponent,
     WinDistributionComponent,
@@ -42,6 +40,36 @@ export class HomeComponent implements OnInit {
   gamesType = signal<'R' | 'S'>('R');
   modelsUpdated = signal<string | null>(null);
   dashboardLoading = signal(true);
+
+  oriolesWins = computed(() => {
+    const bal = this.projections().find(p => p.team === 'BAL');
+    return bal ? Math.round(bal.median_wins) : null;
+  });
+
+  featuredArticle = computed(() => {
+    const arts = this.articles();
+    return arts.find(a => a.featured) ?? arts[0] ?? null;
+  });
+
+  remainingArticles = computed(() => {
+    const feat = this.featuredArticle();
+    if (!feat) return this.articles();
+    return this.articles().filter(a => a.slug !== feat.slug);
+  });
+
+  lastRunDate = computed(() => {
+    const raw = this.modelsUpdated();
+    if (!raw) return null;
+    const d = new Date(raw + 'Z');
+    const month = d.toLocaleDateString('en-US', { month: 'short', timeZone: 'America/New_York' });
+    const day = d.getDate();
+    const year = d.getFullYear();
+    const s = ['th', 'st', 'nd', 'rd'];
+    const v = day % 100;
+    const suffix = s[(v - 20) % 10] || s[v] || s[0];
+    const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+    return `${month} ${day}${suffix}, ${year} at ${time} ET`;
+  });
 
   private platformId = inject(PLATFORM_ID);
   private seo = inject(SeoService);

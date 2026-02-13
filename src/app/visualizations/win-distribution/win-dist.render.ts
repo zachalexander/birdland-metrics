@@ -257,7 +257,7 @@ export function renderWinDistribution(
       .attr('font-size', '24px')
       .attr('font-weight', '700')
       .attr('fill', color)
-      .text(`${medianWin}W`);
+      .text(`${medianWin} wins`);
   }
 
   // Helper to reset bars to default state
