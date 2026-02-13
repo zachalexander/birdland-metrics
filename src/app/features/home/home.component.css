@@ -44,7 +44,7 @@
 .sidebar {
   position: sticky;
   top: var(--space-lg);
-  padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+  padding: var(--space-lg) var(--space-lg) var(--space-sm);
   margin-bottom: var(--space-2xl);
   background-color: var(--color-bg-subtle);
   border-radius: var(--radius-sm);
@@ -60,11 +60,11 @@
 .sidebar-section:last-child {
   border-bottom: none;
   margin-bottom: 0;
-  padding-bottom: var(--space-lg);
+  padding-bottom: 0;
 }
 
 .sidebar-title {
-  font-size: var(--text-sm);
+  font-size: var(--text-lg);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -87,8 +87,8 @@
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: 1.5;
-  margin: 0 0 var(--space-md);
-  text-align: center;
+  margin: var(--space-md) 0 var(--space-md);
+  text-align: left;
 }
 
 .sidebar-link {
@@ -97,7 +97,7 @@
   font-weight: 600;
   color: var(--color-accent);
   text-decoration: none;
-  text-align: center;
+  text-align: left;
 }
 
 .sidebar-link:hover {
