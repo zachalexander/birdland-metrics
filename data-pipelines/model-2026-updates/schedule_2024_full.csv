@@ -1,0 +1,2429 @@
+date,gamePk,status,homeTeam,awayTeam,homeScore,awayScore,venueName,homeStartingPitcherId,homeStartingPitcherName,awayStartingPitcherId,awayStartingPitcherName
+2024-03-20,745444,Final,SD,LAD,2,5,Gocheok Sky Dome,,Yu Darvish,,Tyler Glasnow
+2024-03-21,746175,Final,LAD,SD,11,15,Gocheok Sky Dome,,Yoshinobu Yamamoto,,Joe Musgrove
+2024-03-28,747060,Final,BAL,LAA,11,3,Oriole Park at Camden Yards,,Corbin Burnes,,Patrick Sandoval
+2024-03-28,746737,Final,CIN,WSH,8,2,Great American Ball Park,,Frankie Montas,,Josiah Gray
+2024-03-28,745445,Final,SD,SF,6,4,Petco Park,,Yu Darvish,,Logan Webb
+2024-03-28,746165,Final,LAD,STL,7,1,Dodger Stadium,,Tyler Glasnow,,Miles Mikolas
+2024-03-28,745116,Final,TB,TOR,2,8,Tropicana Field,,Zach Eflin,,José Berríos
+2024-03-28,746335,Final,KC,MIN,1,4,Kauffman Stadium,,Cole Ragans,,Pablo López
+2024-03-28,746821,Final,CWS,DET,0,1,Guaranteed Rate Field,,Garrett Crochet,,Tarik Skubal
+2024-03-28,746089,Final,MIA,PIT,5,6,loanDepot park,,Jesús Luzardo,,Mitch Keller
+2024-03-28,746418,Final,HOU,NYY,4,5,Minute Maid Park,,Framber Valdez,,Nestor Cortes
+2024-03-28,745039,Final,TEX,CHC,4,3,Globe Life Field,,Nathan Eovaldi,,Justin Steele
+2024-03-28,745687,Final,ATH,CLE,0,8,Oakland Coliseum,,Alex Wood,,Shane Bieber
+2024-03-28,747224,Final,AZ,COL,16,1,Chase Field,,Zac Gallen,,Kyle Freeland
+2024-03-28,745283,Final,SEA,BOS,4,6,T-Mobile Park,,Luis Castillo,,Brayan Bello
+2024-03-29,745848,Final,NYM,MIL,1,3,Citi Field,,Jose Quintana,,Freddy Peralta
+2024-03-29,745604,Final,PHI,ATL,3,9,Citizens Bank Park,,Zack Wheeler,,Spencer Strider
+2024-03-29,745117,Final,TB,TOR,8,2,Tropicana Field,,Aaron Civale,,Chris Bassitt
+2024-03-29,746091,Final,MIA,PIT,2,7,loanDepot park,,A.J. Puk,,Martín Pérez
+2024-03-29,746412,Final,HOU,NYY,1,7,Minute Maid Park,,Cristian Javier,,Carlos Rodón
+2024-03-29,747223,Final,AZ,COL,7,3,Chase Field,,Merrill Kelly,,Cal Quantrill
+2024-03-29,745682,Final,ATH,CLE,4,6,Oakland Coliseum,,Ross Stripling,,Logan Allen
+2024-03-29,745276,Final,SEA,BOS,1,0,T-Mobile Park,,George Kirby,,Nick Pivetta
+2024-03-29,745435,Final,SD,SF,3,8,Petco Park,,Joe Musgrove,,Kyle Harrison
+2024-03-29,746167,Final,LAD,STL,6,3,Dodger Stadium,,Bobby Miller,,Zack Thompson
+2024-03-30,745850,Final,NYM,MIL,6,7,Citi Field,,Luis Severino,,DL Hall
+2024-03-30,746818,Final,CWS,DET,6,7,Guaranteed Rate Field,,Michael Soroka,,Kenta Maeda
+2024-03-30,747063,Final,BAL,LAA,13,4,Oriole Park at Camden Yards,,Grayson Rodriguez,,Griffin Canning
+2024-03-30,745599,Final,PHI,ATL,4,12,Citizens Bank Park,,Aaron Nola,,Max Fried
+2024-03-30,745684,Final,ATH,CLE,3,12,Oakland Coliseum,,JP Sears,,Tanner Bibee
+2024-03-30,746736,Final,CIN,WSH,6,7,Great American Ball Park,,Hunter Greene,,Patrick Corbin
+2024-03-30,745119,Final,TB,TOR,5,1,Tropicana Field,,Zack Littell,,Yusei Kikuchi
+2024-03-30,746333,Final,KC,MIN,1,5,Kauffman Stadium,,Seth Lugo,,Joe Ryan
+2024-03-30,746087,Final,MIA,PIT,3,9,loanDepot park,,Ryan Weathers,,Jared Jones
+2024-03-30,745037,Final,TEX,CHC,11,2,Globe Life Field,,Cody Bradford,,Kyle Hendricks
+2024-03-30,745436,Final,SD,SF,6,9,Petco Park,,Dylan Cease,,Jordan Hicks
+2024-03-30,746410,Final,HOU,NYY,3,5,Minute Maid Park,,Hunter Brown,,Marcus Stroman
+2024-03-30,747221,Final,AZ,COL,4,9,Chase Field,,Tommy Henry,,Austin Gomber
+2024-03-30,746168,Final,LAD,STL,5,6,Dodger Stadium,,Yoshinobu Yamamoto,,Lance Lynn
+2024-03-30,745278,Final,SEA,BOS,4,3,T-Mobile Park,,Logan Gilbert,,Kutter Crawford
+2024-03-31,747062,Final,BAL,LAA,1,4,Oriole Park at Camden Yards,,Tyler Wells,,Reid Detmers
+2024-03-31,745602,Final,PHI,ATL,5,4,Citizens Bank Park,,Ranger Suárez,,Chris Sale
+2024-03-31,746739,Final,CIN,WSH,6,5,Great American Ball Park,,Nick Martinez,,Jake Irvin
+2024-03-31,745115,Final,TB,TOR,2,9,Tropicana Field,,Shawn Armstrong,,Kevin Gausman
+2024-03-31,746090,Final,MIA,PIT,7,9,loanDepot park,,Trevor Rogers,,Bailey Falter
+2024-03-31,745845,Final,NYM,MIL,1,4,Citi Field,,Tylor Megill,,Colin Rea
+2024-03-31,746332,Final,KC,MIN,11,0,Kauffman Stadium,,Brady Singer,,Bailey Ober
+2024-03-31,746815,Final,CWS,DET,2,3,Guaranteed Rate Field,,Erick Fedde,,Jack Flaherty
+2024-03-31,746413,Final,HOU,NYY,3,4,Minute Maid Park,,J.P. France,,Clarke Schmidt
+2024-03-31,745035,Final,TEX,CHC,5,9,Globe Life Field,,Jon Gray,,Jordan Wicks
+2024-03-31,745683,Final,ATH,CLE,4,3,Oakland Coliseum,,Paul Blackburn,,Carlos Carrasco
+2024-03-31,747222,Final,AZ,COL,5,1,Chase Field,,Brandon Pfaadt,,Ryan Feltner
+2024-03-31,745279,Final,SEA,BOS,1,5,T-Mobile Park,,Bryce Miller,,Garrett Whitlock
+2024-03-31,745438,Final,SD,SF,13,4,Petco Park,,Michael King,,Daulton Jefferies
+2024-03-31,746166,Final,LAD,STL,5,4,Dodger Stadium,,Gavin Stone,,Steven Matz
+2024-04-01,746899,Final,CHC,COL,5,0,Wrigley Field,,Shota Imanaga,,Dakota Hudson
+2024-04-01,744875,Final,WSH,PIT,4,8,Nationals Park,,MacKenzie Gore,,Marco Gonzales
+2024-04-01,747058,Final,BAL,KC,6,4,Oriole Park at Camden Yards,,Dean Kremer,,Michael Wacha
+2024-04-01,745600,Final,PHI,CIN,3,6,Citizens Bank Park,,Cristopher Sánchez,,Andrew Abbott
+2024-04-01,746085,Final,MIA,LAA,4,7,loanDepot park,,Max Meyer,,Chase Silseth
+2024-04-01,745109,Final,TB,TEX,3,9,Tropicana Field,,Ryan Pepiot,,Dane Dunning
+2024-04-01,745842,Final,NYM,DET,0,5,Citi Field,,Sean Manaea,,Reese Olson
+2024-04-01,746409,Final,HOU,TOR,10,0,Minute Maid Park,,Ronel Blanco,,Bowden Francis
+2024-04-01,745675,Final,ATH,BOS,0,9,Oakland Coliseum,,Joe Boyle,,Tanner Houck
+2024-04-01,745277,Final,SEA,CLE,5,4,T-Mobile Park,,Emerson Hancock,,Triston McKenzie
+2024-04-01,745437,Final,SD,STL,2,6,Petco Park,,Matt Waldron,,Kyle Gibson
+2024-04-01,747218,Final,AZ,NYY,2,5,Chase Field,,Ryne Nelson,,Luis Gil
+2024-04-01,746170,Final,LAD,SF,8,3,Dodger Stadium,,James Paxton,,Keaton Winn
+2024-04-02,746009,Final,MIL,MIN,3,2,American Family Field,,Jakob Junis,,Louis Varland
+2024-04-02,747057,Final,BAL,KC,1,4,Oriole Park at Camden Yards,,Cole Irvin,,Alec Marsh
+2024-04-02,745598,Final,PHI,CIN,9,4,Citizens Bank Park,,Spencer Turnbull,,Graham Ashcraft
+2024-04-02,746086,Final,MIA,LAA,1,3,loanDepot park,,Jesús Luzardo,,Tyler Anderson
+2024-04-02,745111,Final,TB,TEX,5,2,Tropicana Field,,Zach Eflin,,Andrew Heaney
+2024-04-02,746898,Final,CHC,COL,12,2,Wrigley Field,,Javier Assad,,Kyle Freeland
+2024-04-02,746814,Final,CWS,ATL,3,2,Guaranteed Rate Field,,Garrett Crochet,,Reynaldo López
+2024-04-02,746411,Final,HOU,TOR,1,2,Minute Maid Park,,Framber Valdez,,José Berríos
+2024-04-02,745680,Final,ATH,BOS,4,5,Oakland Coliseum,,Alex Wood,,Brayan Bello
+2024-04-02,745273,Final,SEA,CLE,2,5,T-Mobile Park,,Luis Castillo,,Shane Bieber
+2024-04-02,745439,Final,SD,STL,2,5,Petco Park,,Yu Darvish,,Miles Mikolas
+2024-04-02,747220,Final,AZ,NYY,7,0,Chase Field,,Zac Gallen,,Nestor Cortes
+2024-04-02,746169,Final,LAD,SF,5,4,Dodger Stadium,,Ryan Brasier,,Logan Webb
+2024-04-03,747059,Final,BAL,KC,4,3,Oriole Park at Camden Yards,,Corbin Burnes,,Cole Ragans
+2024-04-03,745114,Final,TB,TEX,1,4,Tropicana Field,,Aaron Civale,,Nathan Eovaldi
+2024-04-03,746083,Final,MIA,LAA,2,10,loanDepot park,,A.J. Puk,,Patrick Sandoval
+2024-04-03,746008,Final,MIL,MIN,3,7,American Family Field,,Joe Ross,,Chris Paddack
+2024-04-03,745678,Final,ATH,BOS,0,1,Oakland Coliseum,,Ross Stripling,,Nick Pivetta
+2024-04-03,747219,Final,AZ,NYY,5,6,Chase Field,,Merrill Kelly,,Carlos Rodón
+2024-04-03,745603,Final,PHI,CIN,1,4,Citizens Bank Park,,Zack Wheeler,,Frankie Montas
+2024-04-03,745275,Final,SEA,CLE,0,8,T-Mobile Park,,George Kirby,,Logan Allen
+2024-04-03,745440,Final,SD,STL,3,2,Petco Park,,Joe Musgrove,,Zack Thompson
+2024-04-03,744869,Final,WSH,PIT,5,3,Nationals Park,,Trevor Williams,,Mitch Keller
+2024-04-03,746900,Final,CHC,COL,9,8,Wrigley Field,,Luke Little,,Cal Quantrill
+2024-04-03,746407,Final,HOU,TOR,8,0,Minute Maid Park,,Cristian Javier,,Chris Bassitt
+2024-04-03,746163,Final,LAD,SF,5,4,Dodger Stadium,,Tyler Glasnow,,Kyle Harrison
+2024-04-04,745844,Final,NYM,DET,3,6,Citi Field,,Adrian Houser,,Casey Mize
+2024-04-04,745843,Final,NYM,DET,2,1,Citi Field,,José Buttó,,Matt Manning
+2024-04-04,744870,Final,WSH,PIT,4,7,Nationals Park,,Josiah Gray,,Martín Pérez
+2024-04-04,745928,Final,MIN,CLE,2,4,Target Field,,Pablo López,,Tanner Bibee
+2024-04-04,745200,Final,STL,MIA,8,5,Busch Stadium,,Lance Lynn,,Ryan Weathers
+2024-04-04,746327,Final,KC,CWS,10,1,Kauffman Stadium,,Seth Lugo,,Michael Soroka
+2024-04-05,745764,Final,NYY,TOR,0,3,Yankee Stadium,,Marcus Stroman,,Yusei Kikuchi
+2024-04-05,746497,Final,DET,ATH,5,4,Comerica Park,,Tarik Skubal,,JP Sears
+2024-04-05,746897,Final,CHC,LAD,9,7,Wrigley Field,,Kyle Hendricks,,Bobby Miller
+2024-04-05,746576,Final,COL,TB,10,7,Coors Field,,Austin Gomber,,Zack Littell
+2024-04-05,745524,Final,PIT,BAL,2,5,PNC Park,,Jared Jones,,Grayson Rodriguez
+2024-04-05,745361,Final,SF,SD,3,2,Oracle Park,,Jordan Hicks,,Dylan Cease
+2024-04-05,746733,Final,CIN,NYM,2,3,Great American Ball Park,,Hunter Greene,,Jose Quintana
+2024-04-05,744874,Final,WSH,PHI,0,4,Nationals Park,,Patrick Corbin,,Aaron Nola
+2024-04-05,747143,Final,ATL,AZ,6,5,Truist Park,,Spencer Strider,,Tommy Henry
+2024-04-05,746328,Final,KC,CWS,2,1,Kauffman Stadium,,Brady Singer,,Erick Fedde
+2024-04-05,745033,Final,TEX,HOU,10,2,Globe Life Field,,Cody Bradford,,Hunter Brown
+2024-04-05,746007,Final,MIL,SEA,6,5,American Family Field,,Freddy Peralta,,Logan Gilbert
+2024-04-05,746249,Final,LAA,BOS,6,8,Angel Stadium,,Griffin Canning,,Kutter Crawford
+2024-04-06,746498,Final,DET,ATH,0,4,Comerica Park,,Kenta Maeda,,Paul Blackburn
+2024-04-06,745926,Final,MIN,CLE,1,3,Target Field,,Joe Ryan,,Carlos Carrasco
+2024-04-06,745197,Final,STL,MIA,3,1,Busch Stadium,,Steven Matz,,Trevor Rogers
+2024-04-06,746896,Final,CHC,LAD,1,4,Wrigley Field,,Jordan Wicks,,Yoshinobu Yamamoto
+2024-04-06,745522,Final,PIT,BAL,5,4,PNC Park,,Bailey Falter,,Tyler Wells
+2024-04-06,744873,Final,WSH,PHI,2,5,Nationals Park,,Jake Irvin,,Ranger Suárez
+2024-04-06,746731,Final,CIN,NYM,9,6,Great American Ball Park,,Nick Martinez,,Luis Severino
+2024-04-06,745031,Final,TEX,HOU,7,2,Globe Life Field,,Jon Gray,,J.P. France
+2024-04-06,745766,Final,NYY,TOR,9,8,Yankee Stadium,,Clarke Schmidt,,Kevin Gausman
+2024-04-06,746329,Final,KC,CWS,3,0,Kauffman Stadium,,Michael Wacha,,Chris Flexen
+2024-04-06,746006,Final,MIL,SEA,3,5,American Family Field,,DL Hall,,Bryce Miller
+2024-04-06,747140,Final,ATL,AZ,9,8,Truist Park,,Max Fried,,Brandon Pfaadt
+2024-04-06,746575,Final,COL,TB,6,8,Coors Field,,Ryan Feltner,,Tyler Alexander
+2024-04-06,745359,Final,SF,SD,0,4,Oracle Park,,Keaton Winn,,Michael King
+2024-04-06,746248,Final,LAA,BOS,2,1,Angel Stadium,,Reid Detmers,,Garrett Whitlock
+2024-04-07,745523,Final,PIT,BAL,3,2,PNC Park,,Marco Gonzales,,Dean Kremer
+2024-04-07,744871,Final,WSH,PHI,3,2,Nationals Park,,MacKenzie Gore,,Cristopher Sánchez
+2024-04-07,747141,Final,ATL,AZ,5,2,Truist Park,,Chris Sale,,Ryne Nelson
+2024-04-07,745765,Final,NYY,TOR,8,3,Yankee Stadium,,Luis Gil,,Bowden Francis
+2024-04-07,746734,Final,CIN,NYM,1,3,Great American Ball Park,,Andrew Abbott,,Sean Manaea
+2024-04-07,746493,Final,DET,ATH,1,7,Comerica Park,,Jack Flaherty,,Joe Boyle
+2024-04-07,746330,Final,KC,CWS,5,3,Kauffman Stadium,,Alec Marsh,,Garrett Crochet
+2024-04-07,746003,Final,MIL,SEA,12,4,American Family Field,,Colin Rea,,Emerson Hancock
+2024-04-07,745198,Final,STL,MIA,3,10,Busch Stadium,,Kyle Gibson,,Max Meyer
+2024-04-07,746895,Final,CHC,LAD,8,1,Wrigley Field,,Shota Imanaga,,Gavin Stone
+2024-04-07,746574,Final,COL,TB,2,3,Coors Field,,Dakota Hudson,,Ryan Pepiot
+2024-04-07,745362,Final,SF,SD,3,2,Oracle Park,,Logan Webb,,Matt Waldron
+2024-04-07,746251,Final,LAA,BOS,2,12,Angel Stadium,,Chase Silseth,,Tanner Houck
+2024-04-07,745032,Final,TEX,HOU,1,3,Globe Life Field,,Dane Dunning,,Ronel Blanco
+2024-04-08,746654,Final,CLE,CWS,4,0,Progressive Field,,Triston McKenzie,,Tanner Banks
+2024-04-08,745761,Final,NYY,MIA,7,0,Yankee Stadium,,Nestor Cortes,,Jesús Luzardo
+2024-04-08,745520,Final,PIT,DET,7,4,PNC Park,,Mitch Keller,,Reese Olson
+2024-04-08,746735,Final,CIN,MIL,10,8,Great American Ball Park,,Graham Ashcraft,,Aaron Ashby
+2024-04-08,744956,Final,TOR,SEA,5,2,Rogers Centre,,José Berríos,,Luis Castillo
+2024-04-08,747142,Final,ATL,NYM,7,8,Truist Park,,Charlie Morton,,Julio Teheran
+2024-04-08,745925,Final,MIN,LAD,2,4,Target Field,,Bailey Ober,,James Paxton
+2024-04-08,745194,Final,STL,PHI,3,5,Busch Stadium,,Miles Mikolas,,Spencer Turnbull
+2024-04-08,745034,Final,TEX,HOU,5,10,Globe Life Field,,Andrew Heaney,,Blair Henley
+2024-04-08,746569,Final,COL,AZ,7,5,Coors Field,,Kyle Freeland,,Zac Gallen
+2024-04-08,746252,Final,LAA,TB,7,1,Angel Stadium,,Tyler Anderson,,Zach Eflin
+2024-04-08,745432,Final,SD,CHC,9,8,Petco Park,,Yu Darvish,,Javier Assad
+2024-04-08,745363,Final,SF,WSH,1,8,Oracle Park,,Blake Snell,,Trevor Williams
+2024-04-09,745517,Final,PIT,DET,3,5,PNC Park,,Martín Pérez,,Casey Mize
+2024-04-09,746981,Final,BOS,BAL,1,7,Fenway Park,,Brayan Bello,,Corbin Burnes
+2024-04-09,746653,Final,CLE,CWS,5,7,Progressive Field,,Logan Allen,,Michael Soroka
+2024-04-09,746732,Final,CIN,MIL,5,9,Great American Ball Park,,Frankie Montas,,Joe Ross
+2024-04-09,745762,Final,NYY,MIA,3,2,Yankee Stadium,,Carlos Rodón,,A.J. Puk
+2024-04-09,744957,Final,TOR,SEA,5,3,Rogers Centre,,Chris Bassitt,,George Kirby
+2024-04-09,747138,Final,ATL,NYM,6,5,Truist Park,,Reynaldo López,,Adrian Houser
+2024-04-09,746326,Final,KC,HOU,4,3,Kauffman Stadium,,Cole Ragans,,Cristian Javier
+2024-04-09,745924,Final,MIN,LAD,3,6,Target Field,,Louis Varland,,Tyler Glasnow
+2024-04-09,745195,Final,STL,PHI,3,0,Busch Stadium,,Sonny Gray,,Zack Wheeler
+2024-04-09,745030,Final,TEX,ATH,3,4,Globe Life Field,,Nathan Eovaldi,,Alex Wood
+2024-04-09,746571,Final,COL,AZ,2,3,Coors Field,,Cal Quantrill,,Merrill Kelly
+2024-04-09,746250,Final,LAA,TB,4,6,Angel Stadium,,Patrick Sandoval,,Aaron Civale
+2024-04-09,745357,Final,SF,WSH,3,5,Oracle Park,,Kyle Harrison,,Joan Adon
+2024-04-09,745433,Final,SD,CHC,1,5,Petco Park,,Joe Musgrove,,Ben Brown
+2024-04-10,745923,Final,MIN,LAD,3,2,Target Field,,Chris Paddack,,Bobby Miller
+2024-04-10,745196,Final,STL,PHI,3,4,Busch Stadium,,Lance Lynn,,Aaron Nola
+2024-04-10,744950,Final,TOR,SEA,1,6,Rogers Centre,,Yusei Kikuchi,,Logan Gilbert
+2024-04-10,746573,Final,COL,AZ,3,5,Coors Field,,Austin Gomber,,Tommy Henry
+2024-04-10,745355,Final,SF,WSH,7,1,Oracle Park,,Jordan Hicks,,Patrick Corbin
+2024-04-10,746247,Final,LAA,TB,2,4,Angel Stadium,,José Soriano,,Zack Littell
+2024-04-10,746655,Final,CLE,CWS,7,6,Progressive Field,,Tanner Bibee,,Erick Fedde
+2024-04-10,745429,Final,SD,CHC,10,2,Petco Park,,Dylan Cease,,Kyle Hendricks
+2024-04-10,746728,Final,CIN,MIL,2,7,Great American Ball Park,,Hunter Greene,,Wade Miley
+2024-04-10,745763,Final,NYY,MIA,2,5,Yankee Stadium,,Marcus Stroman,,Ryan Weathers
+2024-04-10,746980,Final,BOS,BAL,5,7,Fenway Park,,Kutter Crawford,,Cole Irvin
+2024-04-10,746323,Final,KC,HOU,11,2,Kauffman Stadium,,Seth Lugo,,Spencer Arrighetti
+2024-04-10,745024,Final,TEX,ATH,6,2,Globe Life Field,,Cody Bradford,,Ross Stripling
+2024-04-11,747137,Final,ATL,NYM,4,16,Truist Park,,Allan Winans,,Jose Quintana
+2024-04-11,746322,Final,KC,HOU,13,3,Kauffman Stadium,,Brady Singer,,Hunter Brown
+2024-04-11,745029,Final,TEX,ATH,0,1,Globe Life Field,,Jon Gray,,JP Sears
+2024-04-11,745601,Final,PHI,PIT,5,1,Citizens Bank Park,,Ranger Suárez,,Jared Jones
+2024-04-11,746977,Final,BOS,BAL,4,9,Fenway Park,,Garrett Whitlock,,Grayson Rodriguez
+2024-04-12,746491,Final,DET,MIN,8,2,Comerica Park,,Tarik Skubal,,Pablo López
+2024-04-12,745596,Final,PHI,PIT,2,5,Citizens Bank Park,,Cristopher Sánchez,,Bailey Falter
+2024-04-12,745112,Final,TB,SF,2,1,Tropicana Field,,Jacob Waguespack,,Keaton Winn
+2024-04-12,747055,Final,BAL,MIL,1,11,Oriole Park at Camden Yards,,Tyler Wells,,Freddy Peralta
+2024-04-12,744954,Final,TOR,COL,4,12,Rogers Centre,,Kevin Gausman,,Ryan Feltner
+2024-04-12,746978,Final,BOS,LAA,0,7,Fenway Park,,Tanner Houck,,Reid Detmers
+2024-04-12,745838,Final,NYM,KC,6,1,Citi Field,,Luis Severino,,Michael Wacha
+2024-04-12,746084,Final,MIA,ATL,1,8,loanDepot park,,Trevor Rogers,,Max Fried
+2024-04-12,746812,Final,CWS,CIN,1,11,Guaranteed Rate Field,,Chris Flexen,,Andrew Abbott
+2024-04-12,746408,Final,HOU,TEX,8,12,Minute Maid Park,,J.P. France,,Dane Dunning
+2024-04-12,745679,Final,ATH,WSH,2,1,Oakland Coliseum,,Paul Blackburn,,Jake Irvin
+2024-04-12,745274,Final,SEA,CHC,4,2,T-Mobile Park,,Bryce Miller,,Jordan Wicks
+2024-04-12,747217,Final,AZ,STL,6,9,Chase Field,,Brandon Pfaadt,,Steven Matz
+2024-04-12,746162,Final,LAD,SD,7,8,Dodger Stadium,,Yoshinobu Yamamoto,,Michael King
+2024-04-13,746656,Final,CLE,NYY,2,3,Progressive Field,,Carlos Carrasco,,Clarke Schmidt
+2024-04-13,746658,Final,CLE,NYY,2,8,Progressive Field,,Triston McKenzie,,Cody Poteet
+2024-04-13,746489,Final,DET,MIN,5,11,Comerica Park,,Kenta Maeda,,Joe Ryan
+2024-04-13,746490,Final,DET,MIN,1,4,Comerica Park,,Matt Manning,,Simeon Woods Richardson
+2024-04-13,745839,Final,NYM,KC,7,11,Citi Field,,Sean Manaea,,Alec Marsh
+2024-04-13,746811,Final,CWS,CIN,0,5,Guaranteed Rate Field,,Garrett Crochet,,Nick Lodolo
+2024-04-13,744953,Final,TOR,COL,5,3,Rogers Centre,,Yariel Rodríguez,,Dakota Hudson
+2024-04-13,746405,Final,HOU,TEX,9,2,Minute Maid Park,,Ronel Blanco,,Andrew Heaney
+2024-04-13,745594,Final,PHI,PIT,4,3,Citizens Bank Park,,Spencer Turnbull,,Marco Gonzales
+2024-04-13,747054,Final,BAL,MIL,5,11,Oriole Park at Camden Yards,,Dean Kremer,,DL Hall
+2024-04-13,745676,Final,ATH,WSH,1,3,Oakland Coliseum,,Joe Boyle,,MacKenzie Gore
+2024-04-13,746979,Final,BOS,LAA,7,2,Fenway Park,,Cooper Criswell,,Griffin Canning
+2024-04-13,745110,Final,TB,SF,2,11,Tropicana Field,,Ryan Pepiot,,Logan Webb
+2024-04-13,746082,Final,MIA,ATL,5,1,loanDepot park,,Max Meyer,,Chris Sale
+2024-04-13,747215,Final,AZ,STL,4,2,Chase Field,,Ryne Nelson,,Kyle Gibson
+2024-04-13,746161,Final,LAD,SD,5,2,Dodger Stadium,,Gavin Stone,,Matt Waldron
+2024-04-13,745272,Final,SEA,CHC,1,4,T-Mobile Park,,Emerson Hancock,,Shota Imanaga
+2024-04-14,746975,Final,BOS,LAA,5,4,Fenway Park,,Brayan Bello,,Tyler Anderson
+2024-04-14,745595,Final,PHI,PIT,2,9,Citizens Bank Park,,Zack Wheeler,,Mitch Keller
+2024-04-14,747056,Final,BAL,MIL,6,4,Oriole Park at Camden Yards,,Corbin Burnes,,Colin Rea
+2024-04-14,744952,Final,TOR,COL,5,0,Rogers Centre,,José Berríos,,Kyle Freeland
+2024-04-14,745841,Final,NYM,KC,2,1,Citi Field,,José Buttó,,Cole Ragans
+2024-04-14,745113,Final,TB,SF,9,4,Tropicana Field,,Shawn Armstrong,,Blake Snell
+2024-04-14,746492,Final,DET,MIN,4,3,Comerica Park,,Jack Flaherty,,Bailey Ober
+2024-04-14,746079,Final,MIA,ATL,7,9,loanDepot park,,Jesús Luzardo,,Charlie Morton
+2024-04-14,746648,Final,CLE,NYY,8,7,Progressive Field,,Logan Allen,,Nestor Cortes
+2024-04-14,746404,Final,HOU,TEX,8,5,Minute Maid Park,,Cristian Javier,,Nathan Eovaldi
+2024-04-14,746810,Final,CWS,CIN,4,11,Guaranteed Rate Field,,Michael Soroka,,Graham Ashcraft
+2024-04-14,745681,Final,ATH,WSH,7,6,Oakland Coliseum,,Alex Wood,,Trevor Williams
+2024-04-14,745271,Final,SEA,CHC,2,3,T-Mobile Park,,Luis Castillo,,Javier Assad
+2024-04-14,747216,Final,AZ,STL,5,0,Chase Field,,Zac Gallen,,Miles Mikolas
+2024-04-14,746164,Final,LAD,SD,3,6,Dodger Stadium,,James Paxton,,Yu Darvish
+2024-04-15,746974,Final,BOS,CLE,0,6,Fenway Park,,Kutter Crawford,,Xzavion Curry
+2024-04-15,747053,Final,BAL,MIN,7,4,Oriole Park at Camden Yards,,Cole Irvin,,Louis Varland
+2024-04-15,746488,Final,DET,TEX,0,1,Comerica Park,,Reese Olson,,Michael Lorenzen
+2024-04-15,745597,Final,PHI,COL,2,1,Citizens Bank Park,,Aaron Nola,,Cal Quantrill
+2024-04-15,746080,Final,MIA,SF,3,4,loanDepot park,,Edward Cabrera,,Kyle Harrison
+2024-04-15,745106,Final,TB,LAA,3,7,Tropicana Field,,Zach Eflin,,Patrick Sandoval
+2024-04-15,744951,Final,TOR,NYY,3,1,Rogers Centre,,Chris Bassitt,,Luis Gil
+2024-04-15,745840,Final,NYM,PIT,6,3,Citi Field,,Adrian Houser,,Martín Pérez
+2024-04-15,746813,Final,CWS,KC,0,2,Guaranteed Rate Field,,Nick Nastrini,,Seth Lugo
+2024-04-15,746002,Final,MIL,SD,3,7,American Family Field,,Joe Ross,,Joe Musgrove
+2024-04-15,746406,Final,HOU,ATL,1,6,Minute Maid Park,,Spencer Arrighetti,,Darius Vines
+2024-04-15,747213,Final,AZ,CHC,2,3,Chase Field,,Merrill Kelly,,Ben Brown
+2024-04-15,745677,Final,ATH,STL,1,3,Oakland Coliseum,,Ross Stripling,,Sonny Gray
+2024-04-15,745268,Final,SEA,CIN,9,3,T-Mobile Park,,George Kirby,,Frankie Montas
+2024-04-15,746158,Final,LAD,WSH,4,6,Dodger Stadium,,Tyler Glasnow,,Mitchell Parker
+2024-04-16,746486,Final,DET,TEX,4,2,Comerica Park,,Casey Mize,,Jon Gray
+2024-04-16,747051,Final,BAL,MIN,11,3,Oriole Park at Camden Yards,,Grayson Rodriguez,,Chris Paddack
+2024-04-16,745593,Final,PHI,COL,5,0,Citizens Bank Park,,Ranger Suárez,,Austin Gomber
+2024-04-16,746081,Final,MIA,SF,6,3,loanDepot park,,Ryan Weathers,,Jordan Hicks
+2024-04-16,745108,Final,TB,LAA,7,6,Tropicana Field,,Aaron Civale,,José Soriano
+2024-04-16,744944,Final,TOR,NYY,5,4,Rogers Centre,,Yusei Kikuchi,,Carlos Rodón
+2024-04-16,746976,Final,BOS,CLE,7,10,Fenway Park,,Garrett Whitlock,,Tanner Bibee
+2024-04-16,745837,Final,NYM,PIT,3,1,Citi Field,,Jose Quintana,,Jared Jones
+2024-04-16,746004,Final,MIL,SD,3,6,American Family Field,,Wade Miley,,Dylan Cease
+2024-04-16,746400,Final,HOU,ATL,2,6,Minute Maid Park,,Hunter Brown,,Reynaldo López
+2024-04-16,747214,Final,AZ,CHC,12,11,Chase Field,,Tommy Henry,,Kyle Hendricks
+2024-04-16,745270,Final,SEA,CIN,3,1,T-Mobile Park,,Logan Gilbert,,Hunter Greene
+2024-04-16,745674,Final,ATH,STL,2,3,Oakland Coliseum,,JP Sears,,Lance Lynn
+2024-04-16,746157,Final,LAD,WSH,6,2,Dodger Stadium,,Kyle Hurt,,Patrick Corbin
+2024-04-17,746076,Final,MIA,SF,1,3,loanDepot park,,Trevor Rogers,,Keaton Winn
+2024-04-17,747049,Final,BAL,MIN,4,2,Oriole Park at Camden Yards,,Albert Suárez,,Pablo López
+2024-04-17,745836,Final,NYM,PIT,9,1,Citi Field,,Luis Severino,,Bailey Falter
+2024-04-17,746487,Final,DET,TEX,4,5,Comerica Park,,Tarik Skubal,,Dane Dunning
+2024-04-17,746005,Final,MIL,SD,1,0,American Family Field,,Bryse Wilson,,Michael King
+2024-04-17,746401,Final,HOU,ATL,4,5,Minute Maid Park,,J.P. France,,Max Fried
+2024-04-17,746807,Final,CWS,KC,2,4,Guaranteed Rate Field,,Jonathan Cannon,,Brady Singer
+2024-04-17,746809,Final,CWS,KC,2,1,Guaranteed Rate Field,,Erick Fedde,,Michael Wacha
+2024-04-17,744948,Final,TOR,NYY,4,6,Rogers Centre,,Kevin Gausman,,Marcus Stroman
+2024-04-17,746159,Final,LAD,WSH,0,2,Dodger Stadium,,Landon Knack,,Jake Irvin
+2024-04-17,745671,Final,ATH,STL,6,3,Oakland Coliseum,,Paul Blackburn,,Steven Matz
+2024-04-17,747212,Final,AZ,CHC,3,5,Chase Field,,Brandon Pfaadt,,Jordan Wicks
+2024-04-17,745267,Final,SEA,CIN,5,1,T-Mobile Park,,Bryce Miller,,Andrew Abbott
+2024-04-17,745591,Final,PHI,COL,7,6,Citizens Bank Park,,Cristopher Sánchez,,Ryan Feltner
+2024-04-17,745105,Final,TB,LAA,4,5,Tropicana Field,,Zack Littell,,Reid Detmers
+2024-04-17,746973,Final,BOS,CLE,2,0,Fenway Park,,Tanner Houck,,Ben Lively
+2024-04-18,745104,Final,TB,LAA,2,1,Tropicana Field,,Ryan Pepiot,,Griffin Canning
+2024-04-18,746485,Final,DET,TEX,7,9,Comerica Park,,Kenta Maeda,,Jack Leiter
+2024-04-18,746970,Final,BOS,CLE,4,5,Fenway Park,,Brennan Bernardino,,Carlos Carrasco
+2024-04-18,745356,Final,SF,AZ,5,0,Oracle Park,,Logan Webb,,Ryne Nelson
+2024-04-19,746892,Final,CHC,MIA,8,3,Wrigley Field,,Jameson Taillon,,A.J. Puk
+2024-04-19,746729,Final,CIN,LAA,7,1,Great American Ball Park,,Nick Lodolo,,Tyler Anderson
+2024-04-19,745518,Final,PIT,BOS,1,8,PNC Park,,Quinn Priester,,Brayan Bello
+2024-04-19,745592,Final,PHI,CWS,7,0,Citizens Bank Park,,Spencer Turnbull,,Garrett Crochet
+2024-04-19,744872,Final,WSH,HOU,3,5,Nationals Park,,MacKenzie Gore,,Justin Verlander
+2024-04-19,745758,Final,NYY,TB,5,3,Yankee Stadium,,Clarke Schmidt,,Tyler Alexander
+2024-04-19,746650,Final,CLE,ATH,10,2,Progressive Field,,Triston McKenzie,,Joe Boyle
+2024-04-19,747136,Final,ATL,TEX,8,3,Truist Park,,Chris Sale,,Andrew Heaney
+2024-04-19,746325,Final,KC,BAL,9,4,Kauffman Stadium,,Alec Marsh,,Dean Kremer
+2024-04-19,745922,Final,MIN,DET,4,5,Target Field,,Joe Ryan,,Jack Flaherty
+2024-04-19,745189,Final,STL,MIL,1,2,Busch Stadium,,Kyle Gibson,,Freddy Peralta
+2024-04-19,745430,Final,SD,TOR,1,5,Petco Park,,Matt Waldron,,Yariel Rodríguez
+2024-04-19,746160,Final,LAD,NYM,4,9,Dodger Stadium,,Yoshinobu Yamamoto,,Sean Manaea
+2024-04-19,745352,Final,SF,AZ,1,17,Oracle Park,,Blake Snell,,Jordan Montgomery
+2024-04-20,745760,Final,NYY,TB,0,2,Yankee Stadium,,Nestor Cortes,,Zach Eflin
+2024-04-20,745921,Final,MIN,DET,4,3,Target Field,,Bailey Ober,,Reese Olson
+2024-04-20,745190,Final,STL,MIL,5,12,Busch Stadium,,Miles Mikolas,,DL Hall
+2024-04-20,746893,Final,CHC,MIA,2,3,Wrigley Field,,Javier Assad,,Jesús Luzardo
+2024-04-20,746891,Final,CHC,MIA,5,3,Wrigley Field,,Shota Imanaga,,Roddery Muñoz
+2024-04-20,744865,Final,WSH,HOU,5,4,Nationals Park,,Trevor Williams,,Ronel Blanco
+2024-04-20,746156,Final,LAD,NYM,4,6,Dodger Stadium,,Gavin Stone,,José Buttó
+2024-04-20,745515,Final,PIT,BOS,2,4,PNC Park,,Mitch Keller,,Kutter Crawford
+2024-04-20,745354,Final,SF,AZ,7,3,Oracle Park,,Kyle Harrison,,Zac Gallen
+2024-04-20,745590,Final,PHI,CWS,9,5,Citizens Bank Park,,Zack Wheeler,,Michael Soroka
+2024-04-20,746651,Final,CLE,ATH,6,3,Progressive Field,,Logan Allen,,Alex Wood
+2024-04-20,746726,Final,CIN,LAA,7,5,Great American Ball Park,,Graham Ashcraft,,Patrick Sandoval
+2024-04-20,746324,Final,KC,BAL,7,9,Kauffman Stadium,,Cole Ragans,,Corbin Burnes
+2024-04-20,747135,Final,ATL,TEX,5,2,Truist Park,,Charlie Morton,,Nathan Eovaldi
+2024-04-20,746570,Final,COL,SEA,0,7,Coors Field,,Dakota Hudson,,Luis Castillo
+2024-04-20,745431,Final,SD,TOR,2,5,Petco Park,,Randy Vásquez,,José Berríos
+2024-04-21,744866,Final,WSH,HOU,6,0,Nationals Park,,Mitchell Parker,,Hunter Brown
+2024-04-21,745514,Final,PIT,BOS,1,6,PNC Park,,Martín Pérez,,Josh Winckowski
+2024-04-21,745588,Final,PHI,CWS,8,2,Citizens Bank Park,,Aaron Nola,,Nick Nastrini
+2024-04-21,745759,Final,NYY,TB,5,4,Yankee Stadium,,Luis Gil,,Aaron Civale
+2024-04-21,746727,Final,CIN,LAA,3,0,Great American Ball Park,,Frankie Montas,,José Soriano
+2024-04-21,746652,Final,CLE,ATH,6,2,Progressive Field,,Tanner Bibee,,Ross Stripling
+2024-04-21,746316,Final,KC,BAL,0,5,Kauffman Stadium,,Seth Lugo,,Cole Irvin
+2024-04-21,745920,Final,MIN,DET,1,6,Target Field,,Louis Varland,,Casey Mize
+2024-04-21,745192,Final,STL,MIL,0,2,Busch Stadium,,Sonny Gray,,Colin Rea
+2024-04-21,746894,Final,CHC,MIA,3,6,Wrigley Field,,Kyle Hendricks,,Edward Cabrera
+2024-04-21,746568,Final,COL,SEA,2,1,Coors Field,,Cal Quantrill,,George Kirby
+2024-04-21,746572,Final,COL,SEA,2,10,Coors Field,,Peter Lambert,,Emerson Hancock
+2024-04-21,745353,Final,SF,AZ,3,5,Oracle Park,,Jordan Hicks,,Slade Cecconi
+2024-04-21,746154,Final,LAD,NYM,10,0,Dodger Stadium,,Tyler Glasnow,,Adrian Houser
+2024-04-21,745434,Final,SD,TOR,6,3,Petco Park,,Joe Musgrove,,Chris Bassitt
+2024-04-21,747133,Final,ATL,TEX,4,6,Truist Park,,Darius Vines,,Michael Lorenzen
+2024-04-22,745757,Final,NYY,ATH,0,2,Yankee Stadium,,Carlos Rodón,,JP Sears
+2024-04-22,746723,Final,CIN,PHI,0,7,Great American Ball Park,,Hunter Greene,,Ranger Suárez
+2024-04-22,745519,Final,PIT,MIL,4,2,PNC Park,,Jared Jones,,Joe Ross
+2024-04-22,745107,Final,TB,DET,1,7,Tropicana Field,,Zack Littell,,Tarik Skubal
+2024-04-22,747134,Final,ATL,MIA,3,0,Truist Park,,Bryce Elder,,Ryan Weathers
+2024-04-22,746319,Final,KC,TOR,3,5,Kauffman Stadium,,Brady Singer,,Yusei Kikuchi
+2024-04-22,745916,Final,MIN,CWS,7,0,Target Field,,Chris Paddack,,Jonathan Cannon
+2024-04-22,745191,Final,STL,AZ,5,3,Busch Stadium,,Lance Lynn,,Brandon Pfaadt
+2024-04-22,746565,Final,COL,SD,1,3,Coors Field,,Austin Gomber,,Dylan Cease
+2024-04-22,746242,Final,LAA,BAL,2,4,Angel Stadium,,Reid Detmers,,Albert Suárez
+2024-04-22,745351,Final,SF,NYM,5,2,Oracle Park,,Keaton Winn,,Jose Quintana
+2024-04-23,746647,Final,CLE,BOS,4,1,Progressive Field,,Ben Lively,,Tanner Houck
+2024-04-23,746722,Final,CIN,PHI,8,1,Great American Ball Park,,Andrew Abbott,,Cristopher Sánchez
+2024-04-23,745516,Final,PIT,MIL,2,1,PNC Park,,Bailey Falter,,Tobias Myers
+2024-04-23,744863,Final,WSH,LAD,1,4,Nationals Park,,Patrick Corbin,,James Paxton
+2024-04-23,745102,Final,TB,DET,2,4,Tropicana Field,,Ryan Pepiot,,Kenta Maeda
+2024-04-23,745754,Final,NYY,ATH,4,3,Yankee Stadium,,Marcus Stroman,,Paul Blackburn
+2024-04-23,747130,Final,ATL,MIA,5,0,Truist Park,,Max Fried,,Trevor Rogers
+2024-04-23,746888,Final,CHC,HOU,7,2,Wrigley Field,,Jordan Wicks,,J.P. France
+2024-04-23,746321,Final,KC,TOR,3,2,Kauffman Stadium,,Michael Wacha,,Kevin Gausman
+2024-04-23,745917,Final,MIN,CWS,6,5,Target Field,,Pablo López,,Erick Fedde
+2024-04-23,745193,Final,STL,AZ,1,14,Busch Stadium,,Steven Matz,,Tommy Henry
+2024-04-23,745026,Final,TEX,SEA,0,4,Globe Life Field,,Dane Dunning,,Logan Gilbert
+2024-04-23,746566,Final,COL,SD,7,4,Coors Field,,Ryan Feltner,,Michael King
+2024-04-23,746246,Final,LAA,BAL,7,4,Angel Stadium,,Griffin Canning,,Grayson Rodriguez
+2024-04-23,745348,Final,SF,NYM,5,1,Oracle Park,,Logan Webb,,Luis Severino
+2024-04-24,745188,Final,STL,AZ,5,1,Busch Stadium,,Kyle Gibson,,Jordan Montgomery
+2024-04-24,745346,Final,SF,NYM,2,8,Oracle Park,,Ryan Walker,,Sean Manaea
+2024-04-24,746244,Final,LAA,BAL,5,6,Angel Stadium,,Tyler Anderson,,Dean Kremer
+2024-04-24,746649,Final,CLE,BOS,0,8,Progressive Field,,Carlos Carrasco,,Cooper Criswell
+2024-04-24,746725,Final,CIN,PHI,7,4,Great American Ball Park,,Nick Lodolo,,Spencer Turnbull
+2024-04-24,745513,Final,PIT,MIL,2,3,PNC Park,,Josh Fleming,,Bryse Wilson
+2024-04-24,744864,Final,WSH,LAD,2,11,Nationals Park,,Jake Irvin,,Landon Knack
+2024-04-24,745099,Final,TB,DET,7,5,Tropicana Field,,Shawn Armstrong,,Jack Flaherty
+2024-04-24,745753,Final,NYY,ATH,7,3,Yankee Stadium,,Clarke Schmidt,,Joe Boyle
+2024-04-24,747132,Final,ATL,MIA,4,3,Truist Park,,Reynaldo López,,Sixto Sánchez
+2024-04-24,746889,Final,CHC,HOU,4,3,Wrigley Field,,Jameson Taillon,,Spencer Arrighetti
+2024-04-24,746317,Final,KC,TOR,3,2,Kauffman Stadium,,Alec Marsh,,Yariel Rodríguez
+2024-04-24,745919,Final,MIN,CWS,6,3,Target Field,,Joe Ryan,,Garrett Crochet
+2024-04-24,745028,Final,TEX,SEA,5,1,Globe Life Field,,Jon Gray,,Bryce Miller
+2024-04-24,746567,Final,COL,SD,2,5,Coors Field,,Ty Blach,,Matt Waldron
+2024-04-25,745512,Final,PIT,MIL,5,7,PNC Park,,Mitch Keller,,Freddy Peralta
+2024-04-25,746646,Final,CLE,BOS,6,4,Progressive Field,,Triston McKenzie,,Chase Anderson
+2024-04-25,746724,Final,CIN,PHI,0,5,Great American Ball Park,,Nick Martinez,,Zack Wheeler
+2024-04-25,745918,Final,MIN,CWS,6,3,Target Field,,Simeon Woods Richardson,,Michael Soroka
+2024-04-25,746887,Final,CHC,HOU,3,1,Wrigley Field,,Javier Assad,,Justin Verlander
+2024-04-25,745027,Final,TEX,SEA,3,4,Globe Life Field,,Andrew Heaney,,Luis Castillo
+2024-04-25,746564,Final,COL,SD,10,9,Coors Field,,Dakota Hudson,,Randy Vásquez
+2024-04-25,744867,Final,WSH,LAD,1,2,Nationals Park,,MacKenzie Gore,,Yoshinobu Yamamoto
+2024-04-25,745755,Final,NYY,ATH,1,3,Yankee Stadium,,Nestor Cortes,,Alex Wood
+2024-04-26,746482,Final,DET,KC,0,8,Comerica Park,,Reese Olson,,Seth Lugo
+2024-04-26,747050,Final,BAL,ATH,2,3,Oriole Park at Camden Yards,,Corbin Burnes,,Ross Stripling
+2024-04-26,744949,Final,TOR,LAD,2,12,Rogers Centre,,Chris Bassitt,,Gavin Stone
+2024-04-26,746972,Final,BOS,CHC,1,7,Fenway Park,,Kutter Crawford,,Shota Imanaga
+2024-04-26,745835,Final,NYM,STL,2,4,Citi Field,,José Buttó,,Miles Mikolas
+2024-04-26,746078,Final,MIA,WSH,1,3,loanDepot park,,Anthony Maldonado,,Trevor Williams
+2024-04-26,747129,Final,ATL,CLE,6,2,Truist Park,,Chris Sale,,Logan Allen
+2024-04-26,746808,Final,CWS,TB,9,4,Guaranteed Rate Field,,Chris Flexen,,Zach Eflin
+2024-04-26,745025,Final,TEX,CIN,2,1,Globe Life Field,,Nathan Eovaldi,,Graham Ashcraft
+2024-04-26,746000,Final,MIL,NYY,7,6,American Family Field,,Colin Rea,,Luis Gil
+2024-04-26,746243,Final,LAA,MIN,3,5,Angel Stadium,,Patrick Sandoval,,Bailey Ober
+2024-04-26,745269,Final,SEA,AZ,6,1,T-Mobile Park,,Emerson Hancock,,Zac Gallen
+2024-04-26,745424,Final,SD,PHI,3,9,Petco Park,,Joe Musgrove,,Aaron Nola
+2024-04-26,745347,Final,SF,PIT,3,0,Oracle Park,,Kyle Harrison,,Quinn Priester
+2024-04-27,744946,Final,TOR,LAD,2,4,Rogers Centre,,Yusei Kikuchi,,Tyler Glasnow
+2024-04-27,747052,Final,BAL,ATH,7,0,Oriole Park at Camden Yards,,Cole Irvin,,JP Sears
+2024-04-27,745833,Final,NYM,STL,4,7,Citi Field,,Adrian Houser,,Sonny Gray
+2024-04-27,745020,Final,TEX,CIN,4,8,Globe Life Field,,Michael Lorenzen,,Hunter Greene
+2024-04-27,746971,Final,BOS,CHC,17,0,Fenway Park,,Josh Winckowski,,Ben Brown
+2024-04-27,746075,Final,MIA,WSH,4,11,loanDepot park,,Edward Cabrera,,Mitchell Parker
+2024-04-27,746560,Final,COL,HOU,4,12,Estadio Alfredo Harp Helu,,Cal Quantrill,,Ronel Blanco
+2024-04-27,746484,Final,DET,KC,6,5,Comerica Park,,Casey Mize,,Brady Singer
+2024-04-27,746803,Final,CWS,TB,8,7,Guaranteed Rate Field,,Jonathan Cannon,,Aaron Civale
+2024-04-27,745998,Final,MIL,NYY,3,15,American Family Field,,Joe Ross,,Carlos Rodón
+2024-04-27,747131,Final,ATL,CLE,2,4,Truist Park,,Charlie Morton,,Tanner Bibee
+2024-04-27,745425,Final,SD,PHI,1,5,Petco Park,,Dylan Cease,,Ranger Suárez
+2024-04-27,745350,Final,SF,PIT,3,4,Oracle Park,,Jordan Hicks,,Martín Pérez
+2024-04-27,746245,Final,LAA,MIN,5,16,Angel Stadium,,José Soriano,,Chris Paddack
+2024-04-27,745266,Final,SEA,AZ,3,1,T-Mobile Park,,George Kirby,,Slade Cecconi
+2024-04-28,747045,Final,BAL,ATH,6,7,Oriole Park at Camden Yards,,Albert Suárez,,Paul Blackburn
+2024-04-28,747125,Final,ATL,CLE,4,3,Truist Park,,Bryce Elder,,Ben Lively
+2024-04-28,744947,Final,TOR,LAD,3,1,Rogers Centre,,Kevin Gausman,,Michael Grove
+2024-04-28,746483,Final,DET,KC,4,1,Comerica Park,,Tarik Skubal,,Michael Wacha
+2024-04-28,745834,Final,NYM,STL,4,2,Citi Field,,Jose Quintana,,Lance Lynn
+2024-04-28,746077,Final,MIA,WSH,9,12,loanDepot park,,Ryan Weathers,,Patrick Corbin
+2024-04-28,746805,Final,CWS,TB,4,2,Guaranteed Rate Field,,Erick Fedde,,Zack Littell
+2024-04-28,746001,Final,MIL,NYY,5,15,American Family Field,,Tobias Myers,,Marcus Stroman
+2024-04-28,745022,Final,TEX,CIN,4,3,Globe Life Field,,Dane Dunning,,Andrew Abbott
+2024-04-28,746561,Final,COL,HOU,2,8,Estadio Alfredo Harp Helu,,Austin Gomber,,Framber Valdez
+2024-04-28,745349,Final,SF,PIT,3,2,Oracle Park,,Keaton Winn,,Jared Jones
+2024-04-28,746237,Final,LAA,MIN,5,11,Angel Stadium,,Reid Detmers,,Pablo López
+2024-04-28,745265,Final,SEA,AZ,2,3,T-Mobile Park,,Logan Gilbert,,Brandon Pfaadt
+2024-04-28,745428,Final,SD,PHI,6,8,Petco Park,,Michael King,,Taijuan Walker
+2024-04-28,746967,Final,BOS,CHC,5,4,Fenway Park,,Tanner Houck,,Hayden Wesneski
+2024-04-29,747046,Final,BAL,NYY,2,0,Oriole Park at Camden Yards,,Grayson Rodriguez,,Clarke Schmidt
+2024-04-29,746074,Final,MIA,WSH,2,7,loanDepot park,,Trevor Rogers,,Jake Irvin
+2024-04-29,744945,Final,TOR,KC,6,5,Rogers Centre,,Yariel Rodríguez,,Jonathan Bowlan
+2024-04-29,745832,Final,NYM,CHC,1,3,Citi Field,,Luis Severino,,Jameson Taillon
+2024-04-29,746804,Final,CWS,MIN,2,3,Guaranteed Rate Field,,Garrett Crochet,,Joe Ryan
+2024-04-29,745999,Final,MIL,TB,0,1,American Family Field,,Bryse Wilson,,Ryan Pepiot
+2024-04-29,746236,Final,LAA,PHI,6,5,Angel Stadium,,Griffin Canning,,Cristopher Sánchez
+2024-04-29,747211,Final,AZ,LAD,4,8,Chase Field,,Tommy Henry,,James Paxton
+2024-04-29,745672,Final,ATH,PIT,5,1,Oakland Coliseum,,Joe Boyle,,Bailey Falter
+2024-04-29,745427,Final,SD,CIN,2,5,Petco Park,,Matt Waldron,,Nick Lodolo
+2024-04-29,745263,Final,SEA,ATL,2,1,T-Mobile Park,,Bryce Miller,,Max Fried
+2024-04-30,746477,Final,DET,STL,1,2,Comerica Park,,Jack Flaherty,,Kyle Gibson
+2024-04-30,746481,Final,DET,STL,11,6,Comerica Park,,Matt Manning,,Steven Matz
+2024-04-30,747047,Final,BAL,NYY,4,2,Oriole Park at Camden Yards,,Dean Kremer,,Nestor Cortes
+2024-04-30,746073,Final,MIA,COL,7,6,loanDepot park,,Sixto Sánchez,,Ryan Feltner
+2024-04-30,744942,Final,TOR,KC,1,4,Rogers Centre,,José Berríos,,Cole Ragans
+2024-04-30,745831,Final,NYM,CHC,4,2,Citi Field,,Sean Manaea,,Javier Assad
+2024-04-30,746968,Final,BOS,SF,4,0,Fenway Park,,Cooper Criswell,,Logan Webb
+2024-04-30,746806,Final,CWS,MIN,5,6,Guaranteed Rate Field,,Michael Soroka,,Simeon Woods Richardson
+2024-04-30,745997,Final,MIL,TB,8,2,American Family Field,,Freddy Peralta,,Tyler Alexander
+2024-04-30,745018,Final,TEX,WSH,7,1,Globe Life Field,,Jon Gray,,MacKenzie Gore
+2024-04-30,746398,Final,HOU,CLE,10,9,Minute Maid Park,,Hunter Brown,,Carlos Carrasco
+2024-04-30,746239,Final,LAA,PHI,5,7,Angel Stadium,,Tyler Anderson,,Spencer Turnbull
+2024-04-30,747210,Final,AZ,LAD,4,3,Chase Field,,Brandon Hughes,,Landon Knack
+2024-04-30,745673,Final,ATH,PIT,5,2,Oakland Coliseum,,Alex Wood,,Mitch Keller
+2024-04-30,745426,Final,SD,CIN,6,4,Petco Park,,Yu Darvish,,Nick Martinez
+2024-04-30,745260,Final,SEA,ATL,3,2,T-Mobile Park,,Luis Castillo,,Reynaldo López
+2024-05-01,746478,Final,DET,STL,4,1,Comerica Park,,Kenta Maeda,,Miles Mikolas
+2024-05-01,745996,Final,MIL,TB,7,1,American Family Field,,Colin Rea,,Zach Eflin
+2024-05-01,746800,Final,CWS,MIN,5,10,Guaranteed Rate Field,,Chris Flexen,,Bailey Ober
+2024-05-01,744939,Final,TOR,KC,1,6,Rogers Centre,,Chris Bassitt,,Seth Lugo
+2024-05-01,745670,Final,ATH,PIT,4,0,Oakland Coliseum,,Ross Stripling,,Quinn Priester
+2024-05-01,745261,Final,SEA,ATL,2,5,T-Mobile Park,,Emerson Hancock,,Chris Sale
+2024-05-01,746238,Final,LAA,PHI,1,2,Angel Stadium,,Patrick Sandoval,,Zack Wheeler
+2024-05-01,745423,Final,SD,CIN,6,2,Petco Park,,Joe Musgrove,,Graham Ashcraft
+2024-05-01,747048,Final,BAL,NYY,0,2,Oriole Park at Camden Yards,,Corbin Burnes,,Luis Gil
+2024-05-01,746072,Final,MIA,COL,4,1,loanDepot park,,Roddery Muñoz,,Dakota Hudson
+2024-05-01,745829,Final,NYM,CHC,0,1,Citi Field,,José Buttó,,Shota Imanaga
+2024-05-01,746966,Final,BOS,SF,6,2,Fenway Park,,Kutter Crawford,,Erik Miller
+2024-05-01,745023,Final,TEX,WSH,0,1,Globe Life Field,,Andrew Heaney,,Trevor Williams
+2024-05-01,746399,Final,HOU,CLE,2,3,Minute Maid Park,,Justin Verlander,,Triston McKenzie
+2024-05-01,747207,Final,AZ,LAD,0,8,Chase Field,,Jordan Montgomery,,Yoshinobu Yamamoto
+2024-05-02,746070,Final,MIA,COL,5,4,loanDepot park,,Edward Cabrera,,Peter Lambert
+2024-05-02,747044,Final,BAL,NYY,7,2,Oriole Park at Camden Yards,,Kyle Bradish,,Carlos Rodón
+2024-05-02,745830,Final,NYM,CHC,7,6,Citi Field,,Adrian Houser,,Ben Brown
+2024-05-02,746969,Final,BOS,SF,1,3,Fenway Park,,Josh Winckowski,,Kyle Harrison
+2024-05-02,745021,Final,TEX,WSH,6,0,Globe Life Field,,Nathan Eovaldi,,Mitchell Parker
+2024-05-02,746403,Final,HOU,CLE,8,2,Minute Maid Park,,Spencer Arrighetti,,Logan Allen
+2024-05-03,746890,Final,CHC,MIL,1,3,Wrigley Field,,Hayden Wesneski,,Joe Ross
+2024-05-03,746721,Final,CIN,BAL,0,3,Great American Ball Park,,Hunter Greene,,Cole Irvin
+2024-05-03,745510,Final,PIT,COL,2,3,PNC Park,,Martín Pérez,,Cal Quantrill
+2024-05-03,745589,Final,PHI,SF,4,3,Citizens Bank Park,,Aaron Nola,,Jordan Hicks
+2024-05-03,744868,Final,WSH,TOR,9,3,Nationals Park,,Patrick Corbin,,Yusei Kikuchi
+2024-05-03,745101,Final,TB,NYM,10,8,Tropicana Field,,Aaron Civale,,Jose Quintana
+2024-05-03,745756,Final,NYY,DET,2,1,Yankee Stadium,,Marcus Stroman,,Reese Olson
+2024-05-03,746645,Final,CLE,LAA,0,6,Progressive Field,,Tanner Bibee,,José Soriano
+2024-05-03,746318,Final,KC,TEX,7,1,Kauffman Stadium,,Brady Singer,,Michael Lorenzen
+2024-05-03,746402,Final,HOU,SEA,5,3,Minute Maid Park,,Ronel Blanco,,George Kirby
+2024-05-03,745914,Final,MIN,BOS,5,2,Target Field,,Chris Paddack,,Tanner Houck
+2024-05-03,745187,Final,STL,CWS,3,0,Busch Stadium,,Sonny Gray,,Brad Keller
+2024-05-03,747208,Final,AZ,SD,1,7,Chase Field,,Slade Cecconi,,Dylan Cease
+2024-05-03,745665,Final,ATH,MIA,3,1,Oakland Coliseum,,JP Sears,,Ryan Weathers
+2024-05-03,746152,Final,LAD,ATL,4,3,Dodger Stadium,,Gavin Stone,,Charlie Morton
+2024-05-04,745750,Final,NYY,DET,5,3,Yankee Stadium,,Clarke Schmidt,,Casey Mize
+2024-05-04,745911,Final,MIN,BOS,3,1,Target Field,,Pablo López,,Brennan Bernardino
+2024-05-04,745183,Final,STL,CWS,5,6,Busch Stadium,,Lance Lynn,,Erick Fedde
+2024-05-04,746884,Final,CHC,MIL,6,5,Wrigley Field,,Jameson Taillon,,Tobias Myers
+2024-05-04,745511,Final,PIT,COL,1,0,PNC Park,,Jared Jones,,Austin Gomber
+2024-05-04,744862,Final,WSH,TOR,3,6,Nationals Park,,Jake Irvin,,Kevin Gausman
+2024-05-04,745666,Final,ATH,MIA,20,4,Oakland Coliseum,,Paul Blackburn,,Trevor Rogers
+2024-05-04,745583,Final,PHI,SF,14,3,Citizens Bank Park,,Ranger Suárez,,Keaton Winn
+2024-05-04,746644,Final,CLE,LAA,7,1,Progressive Field,,Ben Lively,,Reid Detmers
+2024-05-04,746720,Final,CIN,BAL,1,2,Great American Ball Park,,Andrew Abbott,,John Means
+2024-05-04,746311,Final,KC,TEX,4,15,Kauffman Stadium,,Michael Wacha,,Dane Dunning
+2024-05-04,746394,Final,HOU,SEA,0,5,Minute Maid Park,,Framber Valdez,,Logan Gilbert
+2024-05-04,745100,Final,TB,NYM,3,1,Tropicana Field,,Zack Littell,,Christian Scott
+2024-05-04,747209,Final,AZ,SD,1,13,Chase Field,,Brandon Pfaadt,,Michael King
+2024-05-04,746155,Final,LAD,ATL,11,2,Dodger Stadium,,Tyler Glasnow,,Bryce Elder
+2024-05-05,745504,Final,PIT,COL,5,3,PNC Park,,Bailey Falter,,Ryan Feltner
+2024-05-05,744861,Final,WSH,TOR,11,8,Nationals Park,,MacKenzie Gore,,Alek Manoah
+2024-05-05,746643,Final,CLE,LAA,4,1,Progressive Field,,Carlos Carrasco,,Griffin Canning
+2024-05-05,745103,Final,TB,NYM,7,6,Tropicana Field,,Ryan Pepiot,,Luis Severino
+2024-05-05,746395,Final,HOU,SEA,4,5,Minute Maid Park,,Hunter Brown,,Bryce Miller
+2024-05-05,746314,Final,KC,TEX,2,3,Kauffman Stadium,,Daniel Lynch IV,,Jon Gray
+2024-05-05,745913,Final,MIN,BOS,2,9,Target Field,,Joe Ryan,,Cooper Criswell
+2024-05-05,745185,Final,STL,CWS,1,5,Busch Stadium,,Matthew Liberatore,,Garrett Crochet
+2024-05-05,746883,Final,CHC,MIL,5,0,Wrigley Field,,Javier Assad,,Freddy Peralta
+2024-05-05,745667,Final,ATH,MIA,3,12,Oakland Coliseum,,Joe Boyle,,Sixto Sánchez
+2024-05-05,746719,Final,CIN,BAL,1,11,Great American Ball Park,,Nick Lodolo,,Dean Kremer
+2024-05-05,747206,Final,AZ,SD,11,4,Chase Field,,Ryne Nelson,,Matt Waldron
+2024-05-05,746153,Final,LAD,ATL,5,1,Dodger Stadium,,James Paxton,,Max Fried
+2024-05-05,745587,Final,PHI,SF,5,4,Citizens Bank Park,,Taijuan Walker,,Logan Webb
+2024-05-06,745585,Final,PHI,SF,6,1,Citizens Bank Park,,Zack Wheeler,,Mason Black
+2024-05-06,746639,Final,CLE,DET,2,1,Progressive Field,,Triston McKenzie,,Jack Flaherty
+2024-05-06,745509,Final,PIT,LAA,4,1,PNC Park,,Mitch Keller,,Tyler Anderson
+2024-05-06,745098,Final,TB,CWS,8,2,Tropicana Field,,Tyler Alexander,,Mike Clevinger
+2024-05-06,746313,Final,KC,MIL,3,2,Kauffman Stadium,,Cole Ragans,,Bryse Wilson
+2024-05-06,746886,Final,CHC,SD,3,6,Wrigley Field,,Justin Steele,,Yu Darvish
+2024-05-06,745912,Final,MIN,SEA,3,1,Target Field,,Simeon Woods Richardson,,Luis Castillo
+2024-05-06,745182,Final,STL,NYM,3,4,Busch Stadium,,Kyle Gibson,,Sean Manaea
+2024-05-06,745669,Final,ATH,TEX,2,4,Oakland Coliseum,,Alex Wood,,Andrew Heaney
+2024-05-06,746149,Final,LAD,MIA,6,3,Dodger Stadium,,Walker Buehler,,Roddery Muñoz
+2024-05-07,745668,Final,ATH,TEX,8,15,Oakland Coliseum,,Ross Stripling,,José Ureña
+2024-05-07,746638,Final,CLE,DET,7,11,Progressive Field,,Logan Allen,,Kenta Maeda
+2024-05-07,746718,Final,CIN,AZ,2,6,Great American Ball Park,,Frankie Montas,,Zac Gallen
+2024-05-07,745508,Final,PIT,LAA,0,9,PNC Park,,Quinn Priester,,Patrick Sandoval
+2024-05-07,745586,Final,PHI,TOR,10,1,Citizens Bank Park,,Cristopher Sánchez,,José Berríos
+2024-05-07,744859,Final,WSH,BAL,3,0,Nationals Park,,Trevor Williams,,Corbin Burnes
+2024-05-07,745095,Final,TB,CWS,5,1,Tropicana Field,,Zach Eflin,,Michael Soroka
+2024-05-07,745752,Final,NYY,HOU,10,3,Yankee Stadium,,Luis Gil,,Justin Verlander
+2024-05-07,747126,Final,ATL,BOS,4,2,Truist Park,,Reynaldo López,,Kutter Crawford
+2024-05-07,746885,Final,CHC,SD,3,2,Wrigley Field,,Shota Imanaga,,Randy Vásquez
+2024-05-07,745915,Final,MIN,SEA,6,10,Target Field,,Bailey Ober,,Emerson Hancock
+2024-05-07,746315,Final,KC,MIL,5,6,Kauffman Stadium,,Seth Lugo,,Colin Rea
+2024-05-07,745186,Final,STL,NYM,5,7,Busch Stadium,,Miles Mikolas,,José Buttó
+2024-05-07,746559,Final,COL,SF,0,5,Coors Field,,Dakota Hudson,,Kyle Harrison
+2024-05-07,746147,Final,LAD,MIA,8,2,Dodger Stadium,,Yoshinobu Yamamoto,,Edward Cabrera
+2024-05-08,745507,Final,PIT,LAA,4,5,PNC Park,,Martín Pérez,,José Soriano
+2024-05-08,745584,Final,PHI,TOR,3,5,Citizens Bank Park,,Aaron Nola,,Chris Bassitt
+2024-05-08,746640,Final,CLE,DET,5,4,Progressive Field,,Tanner Bibee,,Reese Olson
+2024-05-08,746312,Final,KC,MIL,6,4,Kauffman Stadium,,Brady Singer,,Joe Ross
+2024-05-08,746879,Final,CHC,SD,0,3,Wrigley Field,,Hayden Wesneski,,Dylan Cease
+2024-05-08,746151,Final,LAD,MIA,3,1,Dodger Stadium,,Gavin Stone,,Ryan Weathers
+2024-05-08,745664,Final,ATH,TEX,9,4,Oakland Coliseum,,JP Sears,,Michael Lorenzen
+2024-05-08,745659,Final,ATH,TEX,11,12,Oakland Coliseum,,Osvaldo Bido,,Jack Leiter
+2024-05-08,746717,Final,CIN,AZ,3,4,Great American Ball Park,,Graham Ashcraft,,Jordan Montgomery
+2024-05-08,744858,Final,WSH,BAL,6,7,Nationals Park,,Mitchell Parker,,Kyle Bradish
+2024-05-08,745097,Final,TB,CWS,1,4,Tropicana Field,,Aaron Civale,,Chris Flexen
+2024-05-08,745749,Final,NYY,HOU,9,4,Yankee Stadium,,Carlos Rodón,,Spencer Arrighetti
+2024-05-08,747127,Final,ATL,BOS,5,0,Truist Park,,Chris Sale,,Nick Pivetta
+2024-05-08,745906,Final,MIN,SEA,6,3,Target Field,,Chris Paddack,,George Kirby
+2024-05-08,746562,Final,COL,SF,6,8,Coors Field,,Peter Lambert,,Jordan Hicks
+2024-05-09,746715,Final,CIN,AZ,4,5,Great American Ball Park,,Hunter Greene,,Slade Cecconi
+2024-05-09,745910,Final,MIN,SEA,11,1,Target Field,,Pablo López,,Logan Gilbert
+2024-05-09,746563,Final,COL,SF,9,1,Coors Field,,Cal Quantrill,,Keaton Winn
+2024-05-09,745748,Final,NYY,HOU,3,4,Yankee Stadium,,Marcus Stroman,,Ronel Blanco
+2024-05-09,746802,Final,CWS,CLE,3,2,Guaranteed Rate Field,,Erick Fedde,,Ben Lively
+2024-05-09,745995,Final,MIL,STL,7,1,American Family Field,,Tobias Myers,,Sonny Gray
+2024-05-09,746241,Final,LAA,KC,4,10,Angel Stadium,,Reid Detmers,,Michael Wacha
+2024-05-10,746479,Final,DET,HOU,2,5,Comerica Park,,Casey Mize,,Framber Valdez
+2024-05-10,745506,Final,PIT,CHC,2,7,PNC Park,,Jared Jones,,Javier Assad
+2024-05-10,745094,Final,TB,NYY,0,2,Tropicana Field,,Taj Bradley,,Clarke Schmidt
+2024-05-10,747043,Final,BAL,AZ,4,2,Oriole Park at Camden Yards,,Cole Irvin,,Brandon Pfaadt
+2024-05-10,744940,Final,TOR,MIN,2,3,Rogers Centre,,Yusei Kikuchi,,Joe Ryan
+2024-05-10,746964,Final,BOS,WSH,1,5,Fenway Park,,Tanner Houck,,Patrick Corbin
+2024-05-10,745827,Final,NYM,ATL,2,4,Citi Field,,Jose Quintana,,Charlie Morton
+2024-05-10,746071,Final,MIA,PHI,2,8,loanDepot park,,Trevor Rogers,,Ranger Suárez
+2024-05-10,746801,Final,CWS,CLE,6,3,Guaranteed Rate Field,,Garrett Crochet,,Carlos Carrasco
+2024-05-10,745993,Final,MIL,STL,11,2,American Family Field,,Robert Gasser,,Lance Lynn
+2024-05-10,746553,Final,COL,TEX,4,2,Coors Field,,Austin Gomber,,Jon Gray
+2024-05-10,746240,Final,LAA,KC,1,2,Angel Stadium,,Griffin Canning,,Alec Marsh
+2024-05-10,745421,Final,SD,LAD,2,1,Petco Park,,Michael King,,Tyler Glasnow
+2024-05-10,745264,Final,SEA,ATH,8,1,T-Mobile Park,,Bryan Woo,,Paul Blackburn
+2024-05-10,745340,Final,SF,CIN,2,4,Oracle Park,,Logan Webb,,Andrew Abbott
+2024-05-11,744943,Final,TOR,MIN,10,8,Rogers Centre,,Kevin Gausman,,Simeon Woods Richardson
+2024-05-11,747041,Final,BAL,AZ,5,4,Oriole Park at Camden Yards,,John Means,,Ryne Nelson
+2024-05-11,745505,Final,PIT,CHC,10,9,PNC Park,,Paul Skenes,,Justin Steele
+2024-05-11,746963,Final,BOS,WSH,4,2,Fenway Park,,Cooper Criswell,,Jake Irvin
+2024-05-11,745828,Final,NYM,ATL,1,4,Citi Field,,Christian Scott,,Max Fried
+2024-05-11,746069,Final,MIA,PHI,3,8,loanDepot park,,Jesús Luzardo,,Taijuan Walker
+2024-05-11,745096,Final,TB,NYY,7,2,Tropicana Field,,Zack Littell,,Nestor Cortes
+2024-05-11,746480,Final,DET,HOU,8,2,Comerica Park,,Tarik Skubal,,Cristian Javier
+2024-05-11,746797,Final,CWS,CLE,3,1,Guaranteed Rate Field,,Mike Clevinger,,Triston McKenzie
+2024-05-11,745344,Final,SF,CIN,5,1,Oracle Park,,Mason Black,,Nick Lodolo
+2024-05-11,745994,Final,MIL,STL,5,3,American Family Field,,Freddy Peralta,,Kyle Gibson
+2024-05-11,746554,Final,COL,TEX,8,3,Coors Field,,Ryan Feltner,,Andrew Heaney
+2024-05-11,745422,Final,SD,LAD,0,5,Petco Park,,Matt Waldron,,James Paxton
+2024-05-11,746232,Final,LAA,KC,9,3,Angel Stadium,,Tyler Anderson,,Cole Ragans
+2024-05-11,745262,Final,SEA,ATH,1,8,T-Mobile Park,,Bryce Miller,,Joey Estes
+2024-05-12,747042,Final,BAL,AZ,2,9,Oriole Park at Camden Yards,,Dean Kremer,,Zac Gallen
+2024-05-12,746965,Final,BOS,WSH,3,2,Fenway Park,,Brayan Bello,,MacKenzie Gore
+2024-05-12,745499,Final,PIT,CHC,4,5,PNC Park,,Bailey Falter,,Kyle Hendricks
+2024-05-12,744941,Final,TOR,MIN,1,5,Rogers Centre,,Alek Manoah,,Bailey Ober
+2024-05-12,746476,Final,DET,HOU,3,9,Comerica Park,,Jack Flaherty,,Justin Verlander
+2024-05-12,746068,Final,MIA,PHI,7,6,loanDepot park,,Braxton Garrett,,Zack Wheeler
+2024-05-12,745092,Final,TB,NYY,6,10,Tropicana Field,,Tyler Alexander,,Luis Gil
+2024-05-12,746798,Final,CWS,CLE,0,7,Guaranteed Rate Field,,Michael Soroka,,Logan Allen
+2024-05-12,745990,Final,MIL,STL,3,4,American Family Field,,Bryse Wilson,,Miles Mikolas
+2024-05-12,746555,Final,COL,TEX,3,1,Coors Field,,Ty Blach,,José Ureña
+2024-05-12,745345,Final,SF,CIN,6,5,Oracle Park,,Kyle Harrison,,Frankie Montas
+2024-05-12,746234,Final,LAA,KC,2,4,Angel Stadium,,Patrick Sandoval,,Seth Lugo
+2024-05-12,745419,Final,SD,LAD,4,0,Petco Park,,Yu Darvish,,Walker Buehler
+2024-05-12,745255,Final,SEA,ATH,8,4,T-Mobile Park,,Luis Castillo,,Alex Wood
+2024-05-12,745825,Final,NYM,ATL,4,3,Citi Field,,Luis Severino,,Bryce Elder
+2024-05-13,747040,Final,BAL,TOR,2,3,Oriole Park at Camden Yards,,Corbin Burnes,,José Berríos
+2024-05-13,746471,Final,DET,MIA,6,5,Comerica Park,,Matt Manning,,Sixto Sánchez
+2024-05-13,746961,Final,BOS,TB,3,5,Fenway Park,,Kutter Crawford,,Zach Eflin
+2024-05-13,745826,Final,NYM,PHI,4,5,Citi Field,,Sean Manaea,,Cristopher Sánchez
+2024-05-13,747128,Final,ATL,CHC,2,0,Truist Park,,Reynaldo López,,Shota Imanaga
+2024-05-13,745991,Final,MIL,PIT,6,8,American Family Field,,Colin Rea,,Mitch Keller
+2024-05-13,745019,Final,TEX,CLE,0,7,Globe Life Field,,Michael Lorenzen,,Tanner Bibee
+2024-05-13,746393,Final,HOU,ATH,9,2,Minute Maid Park,,Spencer Arrighetti,,Ross Stripling
+2024-05-13,746233,Final,LAA,STL,5,10,Angel Stadium,,José Soriano,,Matthew Liberatore
+2024-05-13,747204,Final,AZ,CIN,6,5,Chase Field,,Jordan Montgomery,,Graham Ashcraft
+2024-05-13,745420,Final,SD,COL,4,5,Petco Park,,Randy Vásquez,,Dakota Hudson
+2024-05-13,745256,Final,SEA,KC,6,2,T-Mobile Park,,George Kirby,,Brady Singer
+2024-05-13,745343,Final,SF,LAD,4,6,Oracle Park,,Jordan Hicks,,Yoshinobu Yamamoto
+2024-05-14,745821,Final,NYM,PHI,0,4,Citi Field,,José Buttó,,Aaron Nola
+2024-05-14,746796,Final,CWS,WSH,3,6,Guaranteed Rate Field,,Chris Flexen,,Trevor Williams
+2024-05-14,746799,Final,CWS,WSH,4,0,Guaranteed Rate Field,,Erick Fedde,,Mitchell Parker
+2024-05-14,746473,Final,DET,MIA,0,1,Comerica Park,,Reese Olson,,Ryan Weathers
+2024-05-14,746962,Final,BOS,TB,5,4,Fenway Park,,Nick Pivetta,,Aaron Civale
+2024-05-14,747124,Final,ATL,CHC,7,0,Truist Park,,Chris Sale,,Jameson Taillon
+2024-05-14,745909,Final,MIN,NYY,1,5,Target Field,,Chris Paddack,,Carlos Rodón
+2024-05-14,745989,Final,MIL,PIT,4,3,American Family Field,,Joe Ross,,Quinn Priester
+2024-05-14,745014,Final,TEX,CLE,4,7,Globe Life Field,,Jack Leiter,,Ben Lively
+2024-05-14,746396,Final,HOU,ATH,2,1,Minute Maid Park,,Ronel Blanco,,JP Sears
+2024-05-14,746235,Final,LAA,STL,6,7,Angel Stadium,,Reid Detmers,,Sonny Gray
+2024-05-14,747205,Final,AZ,CIN,2,6,Chase Field,,Slade Cecconi,,Hunter Greene
+2024-05-14,745418,Final,SD,COL,3,6,Petco Park,,Dylan Cease,,Cal Quantrill
+2024-05-14,745257,Final,SEA,KC,2,4,T-Mobile Park,,Logan Gilbert,,Michael Wacha
+2024-05-14,745342,Final,SF,LAD,2,10,Oracle Park,,Keaton Winn,,Gavin Stone
+2024-05-15,747038,Final,BAL,TOR,3,2,Oriole Park at Camden Yards,,Kyle Bradish,,Yusei Kikuchi
+2024-05-15,746472,Final,DET,MIA,0,2,Comerica Park,,Casey Mize,,Trevor Rogers
+2024-05-15,745992,Final,MIL,PIT,10,2,American Family Field,,Robert Gasser,,Martín Pérez
+2024-05-15,746795,Final,CWS,WSH,2,0,Guaranteed Rate Field,,Garrett Crochet,,Patrick Corbin
+2024-05-15,747203,Final,AZ,CIN,2,1,Chase Field,,Brandon Pfaadt,,Andrew Abbott
+2024-05-15,745417,Final,SD,COL,0,8,Petco Park,,Michael King,,Austin Gomber
+2024-05-15,745259,Final,SEA,KC,4,2,T-Mobile Park,,Bryan Woo,,Alec Marsh
+2024-05-15,745582,Final,PHI,NYM,10,5,Citizens Bank Park,,Ranger Suárez,,Joey Lucchesi
+2024-05-15,746960,Final,BOS,TB,3,4,Fenway Park,,Tanner Houck,,Taj Bradley
+2024-05-15,747123,Final,ATL,CHC,1,7,Truist Park,,Charlie Morton,,Javier Assad
+2024-05-15,745908,Final,MIN,NYY,0,4,Target Field,,Pablo López,,Marcus Stroman
+2024-05-15,745015,Final,TEX,CLE,4,0,Globe Life Field,,Jon Gray,,Carlos Carrasco
+2024-05-15,746397,Final,HOU,ATH,3,0,Minute Maid Park,,Framber Valdez,,Aaron Brooks
+2024-05-15,746231,Final,LAA,STL,7,2,Angel Stadium,,Griffin Canning,,Lance Lynn
+2024-05-15,745341,Final,SF,LAD,4,1,Oracle Park,,Logan Webb,,Elieser Hernández
+2024-05-16,745907,Final,MIN,NYY,0,5,Target Field,,Joe Ryan,,Clarke Schmidt
+2024-05-16,745580,Final,PHI,NYM,5,6,Citizens Bank Park,,Taijuan Walker,,Jose Quintana
+2024-05-16,746959,Final,BOS,TB,5,7,Fenway Park,,Cooper Criswell,,Zack Littell
+2024-05-16,746881,Final,CHC,PIT,4,5,Wrigley Field,,Justin Steele,,Jared Jones
+2024-05-16,746391,Final,HOU,ATH,8,1,Minute Maid Park,,Cristian Javier,,Joey Estes
+2024-05-16,746150,Final,LAD,CIN,2,7,Dodger Stadium,,Tyler Glasnow,,Brent Suter
+2024-05-17,746878,Final,CHC,PIT,3,9,Wrigley Field,,Kyle Hendricks,,Paul Skenes
+2024-05-17,745579,Final,PHI,WSH,4,2,Citizens Bank Park,,Zack Wheeler,,Jake Irvin
+2024-05-17,747037,Final,BAL,SEA,9,2,Oriole Park at Camden Yards,,John Means,,Bryce Miller
+2024-05-17,745747,Final,NYY,CWS,4,2,Yankee Stadium,,Nestor Cortes,,Mike Clevinger
+2024-05-17,744934,Final,TOR,TB,3,4,Rogers Centre,,Chris Bassitt,,Tyler Alexander
+2024-05-17,746641,Final,CLE,MIN,3,2,Progressive Field,,Triston McKenzie,,Simeon Woods Richardson
+2024-05-17,746065,Final,MIA,NYM,8,0,loanDepot park,,Jesús Luzardo,,Christian Scott
+2024-05-17,747122,Final,ATL,SD,1,3,Truist Park,,Max Fried,,Matt Waldron
+2024-05-17,746310,Final,KC,ATH,6,2,Kauffman Stadium,,Cole Ragans,,Mitch Spence
+2024-05-17,745016,Final,TEX,LAA,3,9,Globe Life Field,,Andrew Heaney,,Tyler Anderson
+2024-05-17,746388,Final,HOU,MIL,5,4,Minute Maid Park,,Hunter Brown,,Freddy Peralta
+2024-05-17,745178,Final,STL,BOS,10,6,Busch Stadium,,Kyle Gibson,,Brayan Bello
+2024-05-17,747201,Final,AZ,DET,0,13,Chase Field,,Ryne Nelson,,Tarik Skubal
+2024-05-17,746148,Final,LAD,CIN,7,3,Dodger Stadium,,James Paxton,,Frankie Montas
+2024-05-17,745335,Final,SF,COL,10,5,Oracle Park,,Mason Black,,Ryan Feltner
+2024-05-18,745744,Final,NYY,CWS,6,1,Yankee Stadium,,Luis Gil,,Brad Keller
+2024-05-18,746882,Final,CHC,PIT,1,0,Wrigley Field,,Shota Imanaga,,Bailey Falter
+2024-05-18,744938,Final,TOR,TB,4,5,Rogers Centre,,Kevin Gausman,,Zach Eflin
+2024-05-18,747036,Final,BAL,SEA,3,4,Oriole Park at Camden Yards,,Grayson Rodriguez,,Luis Castillo
+2024-05-18,745339,Final,SF,COL,14,4,Oracle Park,,Kyle Harrison,,Ty Blach
+2024-05-18,746067,Final,MIA,NYM,10,9,loanDepot park,,Braxton Garrett,,Luis Severino
+2024-05-18,745581,Final,PHI,WSH,4,3,Citizens Bank Park,,Cristopher Sánchez,,MacKenzie Gore
+2024-05-18,746642,Final,CLE,MIN,11,4,Progressive Field,,Logan Allen,,Bailey Ober
+2024-05-18,746308,Final,KC,ATH,5,3,Kauffman Stadium,,Seth Lugo,,Ross Stripling
+2024-05-18,746389,Final,HOU,MIL,2,4,Minute Maid Park,,Justin Verlander,,Bryse Wilson
+2024-05-18,745177,Final,STL,BOS,7,2,Busch Stadium,,Miles Mikolas,,Kutter Crawford
+2024-05-18,745013,Final,TEX,LAA,3,2,Globe Life Field,,José Ureña,,Patrick Sandoval
+2024-05-18,747202,Final,AZ,DET,3,8,Chase Field,,Zac Gallen,,Jack Flaherty
+2024-05-18,746142,Final,LAD,CIN,4,0,Dodger Stadium,,Walker Buehler,,Graham Ashcraft
+2024-05-19,745179,Final,STL,BOS,3,11,Busch Stadium,,Matthew Liberatore,,Nick Pivetta
+2024-05-19,747035,Final,BAL,SEA,6,3,Oriole Park at Camden Yards,,Corbin Burnes,,George Kirby
+2024-05-19,745577,Final,PHI,WSH,11,5,Citizens Bank Park,,Aaron Nola,,Trevor Williams
+2024-05-19,745745,Final,NYY,CWS,7,2,Yankee Stadium,,Carlos Rodón,,Chris Flexen
+2024-05-19,744937,Final,TOR,TB,5,2,Rogers Centre,,Alek Manoah,,Aaron Civale
+2024-05-19,746636,Final,CLE,MIN,5,2,Progressive Field,,Tanner Bibee,,Chris Paddack
+2024-05-19,746064,Final,MIA,NYM,3,7,loanDepot park,,Sixto Sánchez,,Sean Manaea
+2024-05-19,746306,Final,KC,ATH,8,4,Kauffman Stadium,,Brady Singer,,JP Sears
+2024-05-19,746392,Final,HOU,MIL,9,4,Minute Maid Park,,Spencer Arrighetti,,Colin Rea
+2024-05-19,746880,Final,CHC,PIT,2,3,Wrigley Field,,Jameson Taillon,,Mitch Keller
+2024-05-19,745012,Final,TEX,LAA,1,4,Globe Life Field,,Michael Lorenzen,,José Soriano
+2024-05-19,745336,Final,SF,COL,4,1,Oracle Park,,Jordan Hicks,,Dakota Hudson
+2024-05-19,747198,Final,AZ,DET,6,4,Chase Field,,Jordan Montgomery,,Matt Manning
+2024-05-19,746144,Final,LAD,CIN,3,2,Dodger Stadium,,Landon Knack,,Hunter Greene
+2024-05-19,747120,Final,ATL,SD,1,9,Truist Park,,Bryce Elder,,Yu Darvish
+2024-05-20,747119,Final,ATL,SD,5,6,Truist Park,,Reynaldo López,,Dylan Cease
+2024-05-20,747121,Final,ATL,SD,3,0,Truist Park,,Chris Sale,,Randy Vásquez
+2024-05-20,744935,Final,TOR,CWS,9,3,Rogers Centre,,José Berríos,,Erick Fedde
+2024-05-20,746637,Final,CLE,NYM,3,1,Progressive Field,,Ben Lively,,Tylor Megill
+2024-05-20,746066,Final,MIA,MIL,3,2,loanDepot park,,Ryan Weathers,,Joe Ross
+2024-05-20,744857,Final,WSH,MIN,12,3,Nationals Park,,Mitchell Parker,,Pablo López
+2024-05-20,745093,Final,TB,BOS,0,5,Tropicana Field,,Taj Bradley,,Tanner Houck
+2024-05-20,745746,Final,NYY,SEA,4,5,Yankee Stadium,,Marcus Stroman,,Logan Gilbert
+2024-05-20,746307,Final,KC,DET,8,3,Kauffman Stadium,,Michael Wacha,,Reese Olson
+2024-05-20,745181,Final,STL,BAL,6,3,Busch Stadium,,Sonny Gray,,Dean Kremer
+2024-05-20,746390,Final,HOU,LAA,7,9,Minute Maid Park,,Framber Valdez,,Reid Detmers
+2024-05-20,746146,Final,LAD,AZ,6,4,Dodger Stadium,,Yoshinobu Yamamoto,,Joe Mantiply
+2024-05-21,746633,Final,CLE,NYM,7,6,Progressive Field,,Xzavion Curry,,Adrian Houser
+2024-05-21,746716,Final,CIN,SD,2,0,Great American Ball Park,,Andrew Abbott,,Joe Musgrove
+2024-05-21,745503,Final,PIT,SF,7,6,PNC Park,,Martín Pérez,,Logan Webb
+2024-05-21,745578,Final,PHI,TEX,5,2,Citizens Bank Park,,Ranger Suárez,,Jon Gray
+2024-05-21,746058,Final,MIA,MIL,5,7,loanDepot park,,Trevor Rogers,,Robert Gasser
+2024-05-21,744860,Final,WSH,MIN,0,10,Nationals Park,,Patrick Corbin,,Joe Ryan
+2024-05-21,745090,Final,TB,BOS,2,5,Tropicana Field,,Zack Littell,,Cooper Criswell
+2024-05-21,745742,Final,NYY,SEA,3,6,Yankee Stadium,,Clarke Schmidt,,Bryan Woo
+2024-05-21,744936,Final,TOR,CWS,0,5,Rogers Centre,,Yusei Kikuchi,,Garrett Crochet
+2024-05-21,746309,Final,KC,DET,10,3,Kauffman Stadium,,Alec Marsh,,Casey Mize
+2024-05-21,746875,Final,CHC,ATL,4,3,Wrigley Field,,Javier Assad,,Charlie Morton
+2024-05-21,745180,Final,STL,BAL,3,1,Busch Stadium,,Lance Lynn,,Kyle Bradish
+2024-05-21,746385,Final,HOU,LAA,6,5,Minute Maid Park,,Cristian Javier,,Griffin Canning
+2024-05-21,745662,Final,ATH,COL,5,4,Oakland Coliseum,,Aaron Brooks,,Cal Quantrill
+2024-05-21,746145,Final,LAD,AZ,3,7,Dodger Stadium,,Gavin Stone,,Brandon Pfaadt
+2024-05-22,745180,Final,STL,BAL,3,1,Busch Stadium,,Lance Lynn,,Kyle Bradish
+2024-05-22,744856,Final,WSH,MIN,2,3,Nationals Park,,Jake Irvin,,Simeon Woods Richardson
+2024-05-22,746634,Final,CLE,NYM,6,3,Progressive Field,,Triston McKenzie,,Jose Quintana
+2024-05-22,745173,Final,STL,BAL,5,4,Busch Stadium,,Kyle Gibson,,John Means
+2024-05-22,746386,Final,HOU,LAA,1,2,Minute Maid Park,,Hunter Brown,,Tyler Anderson
+2024-05-22,746304,Final,KC,DET,8,3,Kauffman Stadium,,Cole Ragans,,Tarik Skubal
+2024-05-22,746712,Final,CIN,SD,3,7,Great American Ball Park,,Nick Martinez,,Michael King
+2024-05-22,745502,Final,PIT,SF,5,9,PNC Park,,Jared Jones,,Blake Snell
+2024-05-22,745576,Final,PHI,TEX,11,4,Citizens Bank Park,,Taijuan Walker,,Dane Dunning
+2024-05-22,746063,Final,MIA,MIL,1,0,loanDepot park,,Jesús Luzardo,,Freddy Peralta
+2024-05-22,745089,Final,TB,BOS,5,8,Tropicana Field,,Ryan Pepiot,,Brayan Bello
+2024-05-22,745743,Final,NYY,SEA,7,3,Yankee Stadium,,Nestor Cortes,,Bryce Miller
+2024-05-22,744933,Final,TOR,CWS,9,2,Rogers Centre,,Chris Bassitt,,Nick Nastrini
+2024-05-22,746876,Final,CHC,ATL,2,9,Wrigley Field,,Justin Steele,,Max Fried
+2024-05-22,745661,Final,ATH,COL,3,4,Oakland Coliseum,,Mitch Spence,,Austin Gomber
+2024-05-22,746143,Final,LAD,AZ,0,6,Dodger Stadium,,Tyler Glasnow,,Brandon Hughes
+2024-05-23,745500,Final,PIT,SF,6,7,PNC Park,,Paul Skenes,,Erik Miller
+2024-05-23,745741,Final,NYY,SEA,5,0,Yankee Stadium,,Luis Gil,,Luis Castillo
+2024-05-23,745573,Final,PHI,TEX,5,2,Citizens Bank Park,,Zack Wheeler,,Andrew Heaney
+2024-05-23,746714,Final,CIN,SD,4,6,Great American Ball Park,,Frankie Montas,,Matt Waldron
+2024-05-23,746874,Final,CHC,ATL,0,3,Wrigley Field,,Ben Brown,,AJ Smith-Shawver
+2024-05-23,745660,Final,ATH,COL,10,9,Oakland Coliseum,,Joey Estes,,Ryan Feltner
+2024-05-23,746474,Final,DET,TOR,1,9,Comerica Park,,Jack Flaherty,,Kevin Gausman
+2024-05-23,746792,Final,CWS,BAL,6,8,Guaranteed Rate Field,,Mike Clevinger,,Grayson Rodriguez
+2024-05-24,746475,Final,DET,TOR,6,2,Comerica Park,,Kenta Maeda,,Alek Manoah
+2024-05-24,745501,Final,PIT,ATL,11,5,PNC Park,,Bailey Falter,,Ray Kerr
+2024-05-24,744853,Final,WSH,SEA,6,1,Nationals Park,,MacKenzie Gore,,George Kirby
+2024-05-24,745087,Final,TB,KC,1,8,Tropicana Field,,Shawn Armstrong,,Seth Lugo
+2024-05-24,746713,Final,CIN,LAD,9,6,Great American Ball Park,,Graham Ashcraft,,James Paxton
+2024-05-24,745822,Final,NYM,SF,7,8,Citi Field,,Christian Scott,,Kyle Harrison
+2024-05-24,745905,Final,MIN,TEX,3,2,Target Field,,Bailey Ober,,José Ureña
+2024-05-24,746956,Final,BOS,MIL,2,7,Fenway Park,,Kutter Crawford,,Jared Koenig
+2024-05-24,746793,Final,CWS,BAL,4,6,Guaranteed Rate Field,,Chris Flexen,,Corbin Burnes
+2024-05-24,746558,Final,COL,PHI,3,2,Coors Field,,Ty Blach,,Cristopher Sánchez
+2024-05-24,746227,Final,LAA,CLE,4,10,Angel Stadium,,Patrick Sandoval,,Logan Allen
+2024-05-24,745663,Final,ATH,HOU,3,6,Oakland Coliseum,,Ross Stripling,,Justin Verlander
+2024-05-24,747200,Final,AZ,MIA,0,3,Chase Field,,Zac Gallen,,Braxton Garrett
+2024-05-24,745415,Final,SD,NYY,0,8,Petco Park,,Yu Darvish,,Carlos Rodón
+2024-05-25,746470,Final,DET,TOR,2,1,Comerica Park,,Reese Olson,,José Berríos
+2024-05-25,745823,Final,NYM,SF,2,7,Citi Field,,Luis Severino,,Jordan Hicks
+2024-05-25,745901,Final,MIN,TEX,5,3,Target Field,,Chris Paddack,,Michael Lorenzen
+2024-05-25,746794,Final,CWS,BAL,3,5,Guaranteed Rate Field,,Erick Fedde,,Albert Suárez
+2024-05-25,744851,Final,WSH,SEA,3,1,Nationals Park,,Trevor Williams,,Logan Gilbert
+2024-05-25,745493,Final,PIT,ATL,4,1,PNC Park,,Mitch Keller,,Reynaldo López
+2024-05-25,745658,Final,ATH,HOU,3,1,Oakland Coliseum,,JP Sears,,Spencer Arrighetti
+2024-05-25,745086,Final,TB,KC,4,7,Tropicana Field,,Aaron Civale,,Brady Singer
+2024-05-25,746958,Final,BOS,MIL,3,6,Fenway Park,,Nick Pivetta,,Jared Koenig
+2024-05-25,746710,Final,CIN,LAD,3,1,Great American Ball Park,,Hunter Greene,,Walker Buehler
+2024-05-25,745176,Final,STL,CHC,7,6,Busch Stadium,,Miles Mikolas,,Jameson Taillon
+2024-05-25,746556,Final,COL,PHI,4,8,Coors Field,,Dakota Hudson,,Aaron Nola
+2024-05-25,746226,Final,LAA,CLE,3,4,Angel Stadium,,José Soriano,,Tanner Bibee
+2024-05-25,745411,Final,SD,NYY,1,4,Petco Park,,Dylan Cease,,Marcus Stroman
+2024-05-25,747199,Final,AZ,MIA,3,2,Chase Field,,Jordan Montgomery,,Sixto Sánchez
+2024-05-26,746469,Final,DET,TOR,14,11,Comerica Park,,Casey Mize,,Yusei Kikuchi
+2024-05-26,746711,Final,CIN,LAD,4,1,Great American Ball Park,,Brent Suter,,Yoshinobu Yamamoto
+2024-05-26,744855,Final,WSH,SEA,5,9,Nationals Park,,Patrick Corbin,,Bryan Woo
+2024-05-26,745498,Final,PIT,ATL,1,8,PNC Park,,Martín Pérez,,Chris Sale
+2024-05-26,746957,Final,BOS,MIL,2,1,Fenway Park,,Tanner Houck,,Tobias Myers
+2024-05-26,745824,Final,NYM,SF,4,3,Citi Field,,Sean Manaea,,Logan Webb
+2024-05-26,745088,Final,TB,KC,4,1,Tropicana Field,,Taj Bradley,,Michael Wacha
+2024-05-26,745902,Final,MIN,TEX,2,6,Target Field,,Pablo López,,Gerson Garabito
+2024-05-26,746789,Final,CWS,BAL,1,4,Guaranteed Rate Field,,Garrett Crochet,,Kyle Bradish
+2024-05-26,746557,Final,COL,PHI,5,2,Coors Field,,Cal Quantrill,,Ranger Suárez
+2024-05-26,746230,Final,LAA,CLE,4,5,Angel Stadium,,Reid Detmers,,Ben Lively
+2024-05-26,745653,Final,ATH,HOU,2,5,Oakland Coliseum,,Aaron Brooks,,Ronel Blanco
+2024-05-26,747197,Final,AZ,MIA,1,3,Chase Field,,Blake Walston,,Ryan Weathers
+2024-05-26,745413,Final,SD,NYY,5,2,Petco Park,,Joe Musgrove,,Clarke Schmidt
+2024-05-26,745172,Final,STL,CHC,4,3,Busch Stadium,,Sonny Gray,,Javier Assad
+2024-05-27,747034,Final,BAL,BOS,11,3,Oriole Park at Camden Yards,,Cole Irvin,,Cooper Criswell
+2024-05-27,745904,Final,MIN,KC,6,5,Target Field,,Joe Ryan,,Alec Marsh
+2024-05-27,746788,Final,CWS,TOR,1,5,Guaranteed Rate Field,,Nick Nastrini,,Chris Bassitt
+2024-05-27,746549,Final,COL,CLE,8,6,Coors Field,,Anthony Molina,,Xzavion Curry
+2024-05-27,746708,Final,CIN,STL,3,1,Great American Ball Park,,Nick Lodolo,,Lance Lynn
+2024-05-27,747118,Final,ATL,WSH,4,8,Truist Park,,Charlie Morton,,Mitchell Parker
+2024-05-27,745986,Final,MIL,CHC,5,1,American Family Field,,Robert Gasser,,Justin Steele
+2024-05-27,745338,Final,SF,PHI,8,4,Oracle Park,,Blake Snell,,Taijuan Walker
+2024-05-27,745416,Final,SD,MIA,2,1,Petco Park,,Michael King,,Trevor Rogers
+2024-05-27,745254,Final,SEA,HOU,3,2,T-Mobile Park,,Bryce Miller,,Framber Valdez
+2024-05-28,745818,Final,NYM,LAD,2,5,Citi Field,,Tylor Megill,,Tyler Glasnow
+2024-05-28,745816,Final,NYM,LAD,0,3,Citi Field,,Jose Quintana,,Gavin Stone
+2024-05-28,747033,Final,BAL,BOS,3,8,Oriole Park at Camden Yards,,Grayson Rodriguez,,Brayan Bello
+2024-05-28,746709,Final,CIN,STL,1,7,Great American Ball Park,,Andrew Abbott,,Kyle Gibson
+2024-05-28,745091,Final,TB,ATH,0,3,Tropicana Field,,Zack Littell,,Mitch Spence
+2024-05-28,747115,Final,ATL,WSH,2,0,Truist Park,,Max Fried,,Jake Irvin
+2024-05-28,745903,Final,MIN,KC,4,2,Target Field,,Simeon Woods Richardson,,Cole Ragans
+2024-05-28,746791,Final,CWS,TOR,2,7,Guaranteed Rate Field,,Jake Woodford,,Kevin Gausman
+2024-05-28,745987,Final,MIL,CHC,3,6,American Family Field,,Freddy Peralta,,Ben Brown
+2024-05-28,745017,Final,TEX,AZ,4,2,Globe Life Field,,Nathan Eovaldi,,Brandon Pfaadt
+2024-05-28,746552,Final,COL,CLE,7,13,Coors Field,,Ryan Feltner,,Triston McKenzie
+2024-05-28,746229,Final,LAA,NYY,4,3,Angel Stadium,,Griffin Canning,,Nestor Cortes
+2024-05-28,745258,Final,SEA,HOU,4,2,T-Mobile Park,,Luis Castillo,,Hunter Brown
+2024-05-28,745412,Final,SD,MIA,4,0,Petco Park,,Matt Waldron,,Jesús Luzardo
+2024-05-28,745337,Final,SF,PHI,1,0,Oracle Park,,Erik Miller,,Zack Wheeler
+2024-05-29,746467,Final,DET,PIT,8,0,Comerica Park,,Tarik Skubal,,Jared Jones
+2024-05-29,746468,Final,DET,PIT,2,10,Comerica Park,,Keider Montero,,Paul Skenes
+2024-05-29,746706,Final,CIN,STL,3,5,Great American Ball Park,,Frankie Montas,,Andre Pallante
+2024-05-29,745011,Final,TEX,AZ,6,1,Globe Life Field,,Dane Dunning,,Ryne Nelson
+2024-05-29,745333,Final,SF,PHI,1,6,Oracle Park,,Kyle Harrison,,Cristopher Sánchez
+2024-05-29,745817,Final,NYM,LAD,3,10,Citi Field,,David Peterson,,James Paxton
+2024-05-29,745414,Final,SD,MIA,1,9,Petco Park,,Yu Darvish,,Braxton Garrett
+2024-05-29,747031,Final,BAL,BOS,6,1,Oriole Park at Camden Yards,,Corbin Burnes,,Kutter Crawford
+2024-05-29,745084,Final,TB,ATH,4,3,Tropicana Field,,Ryan Pepiot,,Joey Estes
+2024-05-29,747117,Final,ATL,WSH,2,7,Truist Park,,Spencer Schwellenbach,,MacKenzie Gore
+2024-05-29,745900,Final,MIN,KC,1,6,Target Field,,Bailey Ober,,Seth Lugo
+2024-05-29,746790,Final,CWS,TOR,1,3,Guaranteed Rate Field,,Chris Flexen,,Alek Manoah
+2024-05-29,745988,Final,MIL,CHC,10,6,American Family Field,,Bryse Wilson,,Shota Imanaga
+2024-05-29,746551,Final,COL,CLE,7,4,Coors Field,,Ty Blach,,Logan Allen
+2024-05-29,746228,Final,LAA,NYY,1,2,Angel Stadium,,Tyler Anderson,,Luis Gil
+2024-05-29,745250,Final,SEA,HOU,2,1,T-Mobile Park,,George Kirby,,Justin Verlander
+2024-05-30,745081,Final,TB,ATH,6,5,Tropicana Field,,Shawn Armstrong,,Hogan Harris
+2024-05-30,745898,Final,MIN,KC,7,6,Target Field,,Chris Paddack,,Daniel Lynch IV
+2024-05-30,745985,Final,MIL,CHC,6,4,American Family Field,,Colin Rea,,Jameson Taillon
+2024-05-30,745249,Final,SEA,HOU,0,4,T-Mobile Park,,Logan Gilbert,,Spencer Arrighetti
+2024-05-30,746954,Final,BOS,DET,0,5,Fenway Park,,Nick Pivetta,,Jack Flaherty
+2024-05-30,745819,Final,NYM,AZ,3,2,Citi Field,,Christian Scott,,Zac Gallen
+2024-05-30,747114,Final,ATL,WSH,1,3,Truist Park,,Ray Kerr,,Trevor Williams
+2024-05-30,746225,Final,LAA,NYY,3,8,Angel Stadium,,Patrick Sandoval,,Carlos Rodón
+2024-05-31,746877,Final,CHC,CIN,4,5,Wrigley Field,,Javier Assad,,Graham Ashcraft
+2024-05-31,745574,Final,PHI,STL,4,2,Citizens Bank Park,,Aaron Nola,,Miles Mikolas
+2024-05-31,747032,Final,BAL,TB,3,1,Oriole Park at Camden Yards,,Albert Suárez,,Aaron Civale
+2024-05-31,744928,Final,TOR,PIT,5,3,Rogers Centre,,José Berríos,,Bailey Falter
+2024-05-31,746955,Final,BOS,DET,7,3,Fenway Park,,Tanner Houck,,Kenta Maeda
+2024-05-31,746635,Final,CLE,WSH,7,1,Progressive Field,,Tanner Bibee,,Patrick Corbin
+2024-05-31,745820,Final,NYM,AZ,10,9,Citi Field,,Luis Severino,,Jordan Montgomery
+2024-05-31,746059,Final,MIA,TEX,8,2,loanDepot park,,Sixto Sánchez,,José Ureña
+2024-05-31,747116,Final,ATL,ATH,4,2,Truist Park,,Reynaldo López,,JP Sears
+2024-05-31,746303,Final,KC,SD,8,11,Kauffman Stadium,,Michael Wacha,,Dylan Cease
+2024-05-31,746387,Final,HOU,MIN,1,6,Minute Maid Park,,Ronel Blanco,,Pablo López
+2024-05-31,745983,Final,MIL,CWS,12,5,American Family Field,,Tobias Myers,,Erick Fedde
+2024-05-31,746140,Final,LAD,COL,1,4,Dodger Stadium,,Walker Buehler,,Dakota Hudson
+2024-05-31,745253,Final,SEA,LAA,5,4,T-Mobile Park,,Bryan Woo,,José Soriano
+2024-05-31,745331,Final,SF,NYY,2,6,Oracle Park,,Jordan Hicks,,Marcus Stroman
+2024-06-01,744932,Final,TOR,PIT,1,8,Rogers Centre,,Yusei Kikuchi,,Mitch Keller
+2024-06-01,747029,Final,BAL,TB,9,5,Oriole Park at Camden Yards,,Kyle Bradish,,Taj Bradley
+2024-06-01,746952,Final,BOS,DET,6,3,Fenway Park,,Cooper Criswell,,Reese Olson
+2024-06-01,746629,Final,CLE,WSH,3,2,Progressive Field,,Ben Lively,,Mitchell Parker
+2024-06-01,745812,Final,NYM,AZ,5,10,Citi Field,,Sean Manaea,,Slade Cecconi
+2024-06-01,746305,Final,KC,SD,3,7,Kauffman Stadium,,Alec Marsh,,Randy Vásquez
+2024-06-01,746384,Final,HOU,MIN,5,2,Minute Maid Park,,Framber Valdez,,Joe Ryan
+2024-06-01,747111,Final,ATL,ATH,9,11,Truist Park,,Chris Sale,,Aaron Brooks
+2024-06-01,746062,Final,MIA,TEX,0,7,loanDepot park,,Ryan Weathers,,Michael Lorenzen
+2024-06-01,745980,Final,MIL,CWS,4,3,American Family Field,,Robert Gasser,,Garrett Crochet
+2024-06-01,746870,Final,CHC,CIN,7,5,Wrigley Field,,Justin Steele,,Hunter Greene
+2024-06-01,745251,Final,SEA,LAA,9,0,T-Mobile Park,,Bryce Miller,,Reid Detmers
+2024-06-01,745575,Final,PHI,STL,6,1,Citizens Bank Park,,Ranger Suárez,,Sonny Gray
+2024-06-01,745332,Final,SF,NYY,3,7,Oracle Park,,Logan Webb,,Cody Poteet
+2024-06-01,746138,Final,LAD,COL,4,1,Dodger Stadium,,Yoshinobu Yamamoto,,Cal Quantrill
+2024-06-02,746383,Final,HOU,MIN,3,4,Minute Maid Park,,Hunter Brown,,Simeon Woods Richardson
+2024-06-02,746953,Final,BOS,DET,4,8,Fenway Park,,Brayan Bello,,Casey Mize
+2024-06-02,747030,Final,BAL,TB,3,4,Oriole Park at Camden Yards,,Cole Irvin,,Zack Littell
+2024-06-02,747110,Final,ATL,ATH,3,1,Truist Park,,Charlie Morton,,Luis Medina
+2024-06-02,744929,Final,TOR,PIT,5,4,Rogers Centre,,Chris Bassitt,,Quinn Priester
+2024-06-02,746632,Final,CLE,WSH,2,5,Progressive Field,,Carlos Carrasco,,Jake Irvin
+2024-06-02,745813,Final,NYM,AZ,4,5,Citi Field,,Jose Quintana,,Brandon Pfaadt
+2024-06-02,746061,Final,MIA,TEX,0,6,loanDepot park,,Trevor Rogers,,Andrew Heaney
+2024-06-02,746301,Final,KC,SD,4,3,Kauffman Stadium,,Cole Ragans,,Michael King
+2024-06-02,745984,Final,MIL,CWS,6,3,American Family Field,,Freddy Peralta,,Nick Nastrini
+2024-06-02,746871,Final,CHC,CIN,2,5,Wrigley Field,,Ben Brown,,Nick Lodolo
+2024-06-02,745330,Final,SF,NYY,5,7,Oracle Park,,Blake Snell,,Nestor Cortes
+2024-06-02,746141,Final,LAD,COL,4,0,Dodger Stadium,,Gavin Stone,,Austin Gomber
+2024-06-02,745252,Final,SEA,LAA,5,1,T-Mobile Park,,Luis Castillo,,Griffin Canning
+2024-06-02,745572,Final,PHI,STL,4,5,Citizens Bank Park,,Taijuan Walker,,Lance Lynn
+2024-06-03,745569,Final,PHI,MIL,3,1,Citizens Bank Park,,Zack Wheeler,,Jared Koenig
+2024-06-03,744854,Final,WSH,NYM,7,8,Nationals Park,,MacKenzie Gore,,Tylor Megill
+2024-06-03,744930,Final,TOR,BAL,2,7,Rogers Centre,,Kevin Gausman,,Grayson Rodriguez
+2024-06-03,745009,Final,TEX,DET,1,2,Globe Life Field,,Nathan Eovaldi,,Tarik Skubal
+2024-06-03,746382,Final,HOU,STL,7,4,Minute Maid Park,,Justin Verlander,,Kyle Gibson
+2024-06-03,746548,Final,COL,CIN,3,13,Coors Field,,Ryan Feltner,,Andrew Abbott
+2024-06-03,746224,Final,LAA,SD,2,1,Angel Stadium,,Tyler Anderson,,Matt Waldron
+2024-06-03,747194,Final,AZ,SF,4,2,Chase Field,,Ryne Nelson,,Erik Miller
+2024-06-04,746630,Final,CLE,KC,8,5,Progressive Field,,Triston McKenzie,,Seth Lugo
+2024-06-04,745497,Final,PIT,LAD,1,0,PNC Park,,Jared Jones,,Tyler Glasnow
+2024-06-04,746060,Final,MIA,TB,5,9,loanDepot park,,Jesús Luzardo,,Ryan Pepiot
+2024-06-04,745568,Final,PHI,MIL,2,1,Citizens Bank Park,,Cristopher Sánchez,,Jared Koenig
+2024-06-04,744850,Final,WSH,NYM,3,6,Nationals Park,,DJ Herz,,David Peterson
+2024-06-04,745739,Final,NYY,MIN,5,1,Yankee Stadium,,Luis Gil,,Bailey Ober
+2024-06-04,744931,Final,TOR,BAL,1,10,Rogers Centre,,Trevor Richards,,Corbin Burnes
+2024-06-04,746949,Final,BOS,ATL,3,8,Fenway Park,,Kutter Crawford,,Max Fried
+2024-06-04,745010,Final,TEX,DET,1,3,Globe Life Field,,Dane Dunning,,Jack Flaherty
+2024-06-04,746872,Final,CHC,CWS,7,6,Wrigley Field,,Shota Imanaga,,Chris Flexen
+2024-06-04,746380,Final,HOU,STL,8,5,Minute Maid Park,,Spencer Arrighetti,,Andre Pallante
+2024-06-04,746550,Final,COL,CIN,1,4,Coors Field,,Ty Blach,,Frankie Montas
+2024-06-04,746222,Final,LAA,SD,4,2,Angel Stadium,,Patrick Sandoval,,Adam Mazur
+2024-06-04,745656,Final,ATH,SEA,3,4,Oakland Coliseum,,Mitch Spence,,George Kirby
+2024-06-04,747196,Final,AZ,SF,8,5,Chase Field,,Blake Walston,,Kyle Harrison
+2024-06-05,746950,Final,BOS,ATL,9,0,Fenway Park,,Nick Pivetta,,Spencer Schwellenbach
+2024-06-05,746379,Final,HOU,STL,2,4,Minute Maid Park,,Ronel Blanco,,Miles Mikolas
+2024-06-05,746544,Final,COL,CIN,7,12,Coors Field,,Dakota Hudson,,Graham Ashcraft
+2024-06-05,747195,Final,AZ,SF,3,9,Chase Field,,Jordan Montgomery,,Jordan Hicks
+2024-06-05,744852,Final,WSH,NYM,1,9,Nationals Park,,Patrick Corbin,,Luis Severino
+2024-06-05,745570,Final,PHI,MIL,2,0,Citizens Bank Park,,Aaron Nola,,Aaron Ashby
+2024-06-05,745494,Final,PIT,LAD,10,6,PNC Park,,Paul Skenes,,James Paxton
+2024-06-05,746056,Final,MIA,TB,3,5,loanDepot park,,Braxton Garrett,,Zach Eflin
+2024-06-05,745740,Final,NYY,MIN,9,5,Yankee Stadium,,Carlos Rodón,,Chris Paddack
+2024-06-05,744927,Final,TOR,BAL,3,2,Rogers Centre,,José Berríos,,Albert Suárez
+2024-06-05,745007,Final,TEX,DET,9,1,Globe Life Field,,José Ureña,,Kenta Maeda
+2024-06-05,746873,Final,CHC,CWS,7,6,Wrigley Field,,Jameson Taillon,,Erick Fedde
+2024-06-05,746221,Final,LAA,SD,3,2,Angel Stadium,,José Soriano,,Dylan Cease
+2024-06-05,745654,Final,ATH,SEA,2,1,Oakland Coliseum,,Joey Estes,,Logan Gilbert
+2024-06-06,744923,Final,TOR,BAL,6,5,Rogers Centre,,Yusei Kikuchi,,Cade Povich
+2024-06-06,746631,Final,CLE,KC,3,4,Progressive Field,,Tanner Bibee,,Brady Singer
+2024-06-06,745657,Final,ATH,SEA,0,3,Oakland Coliseum,,JP Sears,,Bryan Woo
+2024-06-06,745495,Final,PIT,LAD,7,11,PNC Park,,Bailey Falter,,Walker Buehler
+2024-06-06,744844,Final,WSH,ATL,2,5,Nationals Park,,Mitchell Parker,,Reynaldo López
+2024-06-06,745738,Final,NYY,MIN,8,5,Yankee Stadium,,Marcus Stroman,,Pablo López
+2024-06-06,746707,Final,CIN,CHC,8,4,Great American Ball Park,,Hunter Greene,,Javier Assad
+2024-06-06,745174,Final,STL,COL,2,3,Busch Stadium,,Sonny Gray,,Cal Quantrill
+2024-06-06,746784,Final,CWS,BOS,2,14,Guaranteed Rate Field,,Jake Woodford,,Tanner Houck
+2024-06-06,745408,Final,SD,AZ,3,4,Petco Park,,Randy Vásquez,,Slade Cecconi
+2024-06-07,745169,Final,STL,COL,8,5,Busch Stadium,,Lance Lynn,,Austin Gomber
+2024-06-07,745496,Final,PIT,MIN,3,0,PNC Park,,Mitch Keller,,Joe Ryan
+2024-06-07,746466,Final,DET,MIL,0,10,Comerica Park,,Reese Olson,,Tobias Myers
+2024-06-07,744845,Final,WSH,ATL,2,1,Nationals Park,,Jake Irvin,,Chris Sale
+2024-06-07,745083,Final,TB,BAL,3,6,Tropicana Field,,Aaron Civale,,Cole Irvin
+2024-06-07,745737,Final,NYY,LAD,1,2,Yankee Stadium,,Cody Poteet,,Yoshinobu Yamamoto
+2024-06-07,746704,Final,CIN,CHC,3,2,Great American Ball Park,,Nick Lodolo,,Justin Steele
+2024-06-07,746053,Final,MIA,CLE,3,2,loanDepot park,,Ryan Weathers,,Logan Allen
+2024-06-07,745008,Final,TEX,SF,2,5,Globe Life Field,,Michael Lorenzen,,Logan Webb
+2024-06-07,746302,Final,KC,SEA,10,9,Kauffman Stadium,,Daniel Lynch IV,,Bryce Miller
+2024-06-07,746785,Final,CWS,BOS,7,2,Guaranteed Rate Field,,Garrett Crochet,,Cooper Criswell
+2024-06-07,746220,Final,LAA,HOU,1,7,Angel Stadium,,Griffin Canning,,Framber Valdez
+2024-06-07,745406,Final,SD,AZ,10,3,Petco Park,,Michael King,,Brandon Pfaadt
+2024-06-07,745655,Final,ATH,TOR,2,1,Oakland Coliseum,,Hogan Harris,,Chris Bassitt
+2024-06-08,745814,Final,NYM,PHI,2,7,London Stadium,,Sean Manaea,,Ranger Suárez
+2024-06-08,745001,Final,TEX,SF,1,3,Globe Life Field,,Andrew Heaney,,Spencer Howard
+2024-06-08,745492,Final,PIT,MIN,4,0,PNC Park,,Carmen Mlodzinski,,Simeon Woods Richardson
+2024-06-08,744848,Final,WSH,ATL,7,3,Nationals Park,,MacKenzie Gore,,Charlie Morton
+2024-06-08,745652,Final,ATH,TOR,0,7,Oakland Coliseum,,Luis Medina,,Kevin Gausman
+2024-06-08,746703,Final,CIN,CHC,4,3,Great American Ball Park,,Andrew Abbott,,Ben Brown
+2024-06-08,746300,Final,KC,SEA,8,4,Kauffman Stadium,,Alec Marsh,,Luis Castillo
+2024-06-08,745082,Final,TB,BAL,0,5,Tropicana Field,,Taj Bradley,,Kyle Bradish
+2024-06-08,746786,Final,CWS,BOS,6,1,Guaranteed Rate Field,,Nick Nastrini,,Brayan Bello
+2024-06-08,746461,Final,DET,MIL,4,5,Comerica Park,,Casey Mize,,Freddy Peralta
+2024-06-08,745166,Final,STL,COL,5,6,Busch Stadium,,Kyle Gibson,,Ryan Feltner
+2024-06-08,746057,Final,MIA,CLE,0,8,loanDepot park,,Roddery Muñoz,,Ben Lively
+2024-06-08,745735,Final,NYY,LAD,3,11,Yankee Stadium,,Nestor Cortes,,Gavin Stone
+2024-06-08,745410,Final,SD,AZ,13,1,Petco Park,,Matt Waldron,,Ryne Nelson
+2024-06-08,746223,Final,LAA,HOU,1,6,Angel Stadium,,Tyler Anderson,,Hunter Brown
+2024-06-09,745571,Final,PHI,NYM,5,6,London Stadium,,Taijuan Walker,,Jose Quintana
+2024-06-09,745003,Final,TEX,SF,7,2,Globe Life Field,,Nathan Eovaldi,,Keaton Winn
+2024-06-09,745491,Final,PIT,MIN,5,11,PNC Park,,Jared Jones,,Bailey Ober
+2024-06-09,744849,Final,WSH,ATL,8,5,Nationals Park,,DJ Herz,,Hurston Waldrep
+2024-06-09,746705,Final,CIN,CHC,2,4,Great American Ball Park,,Frankie Montas,,Shota Imanaga
+2024-06-09,745085,Final,TB,BAL,2,9,Tropicana Field,,Zack Littell,,Grayson Rodriguez
+2024-06-09,746054,Final,MIA,CLE,3,6,loanDepot park,,Trevor Rogers,,Carlos Carrasco
+2024-06-09,746463,Final,DET,MIL,10,2,Comerica Park,,Tarik Skubal,,Bryse Wilson
+2024-06-09,746297,Final,KC,SEA,5,6,Kauffman Stadium,,Cole Ragans,,George Kirby
+2024-06-09,746787,Final,CWS,BOS,4,6,Guaranteed Rate Field,,Chris Flexen,,Zack Kelly
+2024-06-09,745167,Final,STL,COL,5,1,Busch Stadium,,Andre Pallante,,Ty Blach
+2024-06-09,746216,Final,LAA,HOU,9,7,Angel Stadium,,Patrick Sandoval,,Justin Verlander
+2024-06-09,745651,Final,ATH,TOR,4,6,Oakland Coliseum,,Mitch Spence,,Bowden Francis
+2024-06-09,745407,Final,SD,AZ,3,9,Petco Park,,Adam Mazur,,Scott McGough
+2024-06-09,745736,Final,NYY,LAD,6,4,Yankee Stadium,,Luis Gil,,Tyler Glasnow
+2024-06-10,745080,Final,TB,BAL,2,5,Tropicana Field,,Ryan Pepiot,,Corbin Burnes
+2024-06-10,745897,Final,MIN,COL,5,0,Target Field,,Chris Paddack,,Dakota Hudson
+2024-06-10,746295,Final,KC,NYY,2,4,Kauffman Stadium,,Seth Lugo,,Carlos Rodón
+2024-06-10,745982,Final,MIL,TOR,3,1,American Family Field,,Colin Rea,,José Berríos
+2024-06-10,745409,Final,SD,ATH,6,1,Petco Park,,Dylan Cease,,Joey Estes
+2024-06-10,745248,Final,SEA,CWS,8,4,T-Mobile Park,,Logan Gilbert,,Erick Fedde
+2024-06-10,745334,Final,SF,HOU,4,3,Oracle Park,,Kyle Harrison,,Spencer Arrighetti
+2024-06-11,747027,Final,BAL,ATL,4,0,Oriole Park at Camden Yards,,Albert Suárez,,Max Fried
+2024-06-11,746464,Final,DET,WSH,4,5,Comerica Park,,Kenta Maeda,,Mitchell Parker
+2024-06-11,745077,Final,TB,CHC,5,2,Tropicana Field,,Zach Eflin,,Jameson Taillon
+2024-06-11,746702,Final,CIN,CLE,3,5,Great American Ball Park,,Brent Suter,,Triston McKenzie
+2024-06-11,746951,Final,BOS,PHI,1,4,Fenway Park,,Kutter Crawford,,Zack Wheeler
+2024-06-11,745815,Final,NYM,MIA,2,4,Citi Field,,Tylor Megill,,Jesús Luzardo
+2024-06-11,745899,Final,MIN,COL,4,5,Target Field,,Louis Varland,,Cal Quantrill
+2024-06-11,745170,Final,STL,PIT,1,2,Busch Stadium,,Miles Mikolas,,Paul Skenes
+2024-06-11,746296,Final,KC,NYY,1,10,Kauffman Stadium,,Brady Singer,,Marcus Stroman
+2024-06-11,745981,Final,MIL,TOR,0,3,American Family Field,,Carlos Rodriguez,,Yusei Kikuchi
+2024-06-11,747190,Final,AZ,LAA,9,4,Chase Field,,Jordan Montgomery,,José Suarez
+2024-06-11,745404,Final,SD,ATH,4,3,Petco Park,,Randy Vásquez,,JP Sears
+2024-06-11,745244,Final,SEA,CWS,4,3,T-Mobile Park,,Jhonathan Díaz,,Drew Thorpe
+2024-06-11,745327,Final,SF,HOU,1,3,Oracle Park,,Jordan Hicks,,Ronel Blanco
+2024-06-11,746139,Final,LAD,TEX,15,2,Dodger Stadium,,James Paxton,,Dane Dunning
+2024-06-12,745896,Final,MIN,COL,17,9,Target Field,,Pablo López,,Austin Gomber
+2024-06-12,745978,Final,MIL,TOR,5,4,American Family Field,,Tobias Myers,,Chris Bassitt
+2024-06-12,745328,Final,SF,HOU,5,3,Oracle Park,,Logan Webb,,Framber Valdez
+2024-06-12,745405,Final,SD,ATH,5,4,Petco Park,,Michael King,,Hogan Harris
+2024-06-12,747028,Final,BAL,ATL,4,2,Oriole Park at Camden Yards,,Cade Povich,,Spencer Schwellenbach
+2024-06-12,746462,Final,DET,WSH,5,7,Comerica Park,,Reese Olson,,Jake Irvin
+2024-06-12,745079,Final,TB,CHC,3,4,Tropicana Field,,Aaron Civale,,Javier Assad
+2024-06-12,746701,Final,CIN,CLE,4,2,Great American Ball Park,,Nick Lodolo,,Tanner Bibee
+2024-06-12,746948,Final,BOS,PHI,8,6,Fenway Park,,Nick Pivetta,,Cristopher Sánchez
+2024-06-12,745811,Final,NYM,MIA,10,4,Citi Field,,David Peterson,,Braxton Garrett
+2024-06-12,745171,Final,STL,PIT,4,2,Busch Stadium,,Sonny Gray,,Bailey Falter
+2024-06-12,746294,Final,KC,NYY,5,11,Kauffman Stadium,,Dan Altavilla,,Cody Poteet
+2024-06-12,747193,Final,AZ,LAA,3,8,Chase Field,,Slade Cecconi,,José Soriano
+2024-06-12,745246,Final,SEA,CWS,2,1,T-Mobile Park,,Bryce Miller,,Jonathan Cannon
+2024-06-12,746137,Final,LAD,TEX,2,3,Dodger Stadium,,Walker Buehler,,Jon Gray
+2024-06-13,747026,Final,BAL,ATL,3,6,Oriole Park at Camden Yards,,Cole Irvin,,Reynaldo López
+2024-06-13,746465,Final,DET,WSH,7,2,Comerica Park,,Casey Mize,,Patrick Corbin
+2024-06-13,746299,Final,KC,NYY,4,3,Kauffman Stadium,,Alec Marsh,,Nestor Cortes
+2024-06-13,745168,Final,STL,PIT,4,3,Busch Stadium,,Lance Lynn,,Mitch Keller
+2024-06-13,745075,Final,TB,CHC,3,2,Tropicana Field,,Taj Bradley,,Justin Steele
+2024-06-13,746944,Final,BOS,PHI,9,3,Fenway Park,,Tanner Houck,,Aaron Nola
+2024-06-13,745809,Final,NYM,MIA,3,2,Citi Field,,Luis Severino,,Roddery Muñoz
+2024-06-13,745894,Final,MIN,ATH,6,2,Target Field,,Joe Ryan,,Luis Medina
+2024-06-13,747192,Final,AZ,LAA,11,1,Chase Field,,Brandon Pfaadt,,Griffin Canning
+2024-06-13,745245,Final,SEA,CWS,2,3,T-Mobile Park,,Emerson Hancock,,Garrett Crochet
+2024-06-13,746136,Final,LAD,TEX,1,3,Dodger Stadium,,Michael Grove,,Michael Lorenzen
+2024-06-14,746869,Final,CHC,STL,0,3,Wrigley Field,,Jordan Wicks,,Kyle Gibson
+2024-06-14,746947,Final,BOS,NYY,1,8,Fenway Park,,Brayan Bello,,Luis Gil
+2024-06-14,744847,Final,WSH,MIA,8,1,Nationals Park,,MacKenzie Gore,,Shaun Anderson
+2024-06-14,747025,Final,BAL,PHI,3,5,Oriole Park at Camden Yards,,Kyle Bradish,,Ranger Suárez
+2024-06-14,744924,Final,TOR,CLE,1,3,Rogers Centre,,Kevin Gausman,,Logan Allen
+2024-06-14,745810,Final,NYM,SD,2,1,Citi Field,,Sean Manaea,,Matt Waldron
+2024-06-14,747112,Final,ATL,TB,7,3,Truist Park,,Chris Sale,,Zack Littell
+2024-06-14,746378,Final,HOU,DET,4,0,Minute Maid Park,,Hunter Brown,,Tarik Skubal
+2024-06-14,745892,Final,MIN,ATH,6,5,Target Field,,Simeon Woods Richardson,,Mitch Spence
+2024-06-14,745979,Final,MIL,CIN,5,6,American Family Field,,Freddy Peralta,,Hunter Greene
+2024-06-14,746545,Final,COL,PIT,2,5,Coors Field,,Ryan Feltner,,Carmen Mlodzinski
+2024-06-14,747191,Final,AZ,CWS,7,1,Chase Field,,Ryne Nelson,,Chris Flexen
+2024-06-14,746134,Final,LAD,KC,4,3,Dodger Stadium,,Gavin Stone,,Cole Ragans
+2024-06-14,745247,Final,SEA,TEX,3,2,T-Mobile Park,,Luis Castillo,,Andrew Heaney
+2024-06-14,745326,Final,SF,LAA,6,8,Oracle Park,,Spencer Howard,,Tyler Anderson
+2024-06-15,746865,Final,CHC,STL,5,1,Wrigley Field,,Shota Imanaga,,Andre Pallante
+2024-06-15,744925,Final,TOR,CLE,5,0,Rogers Centre,,Trevor Richards,,Carlos Carrasco
+2024-06-15,745329,Final,SF,LAA,3,4,Oracle Park,,Keaton Winn,,Patrick Sandoval
+2024-06-15,747024,Final,BAL,PHI,6,2,Oriole Park at Camden Yards,,Grayson Rodriguez,,Taijuan Walker
+2024-06-15,744846,Final,WSH,MIA,4,0,Nationals Park,,DJ Herz,,Trevor Rogers
+2024-06-15,746381,Final,HOU,DET,5,13,Minute Maid Park,,Spencer Arrighetti,,Jack Flaherty
+2024-06-15,745805,Final,NYM,SD,5,1,Citi Field,,Jose Quintana,,Adam Mazur
+2024-06-15,747113,Final,ATL,TB,9,2,Truist Park,,Charlie Morton,,Ryan Pepiot
+2024-06-15,745976,Final,MIL,CIN,3,1,American Family Field,,Jared Koenig,,Andrew Abbott
+2024-06-15,745241,Final,SEA,TEX,7,5,T-Mobile Park,,George Kirby,,Nathan Eovaldi
+2024-06-15,746946,Final,BOS,NYY,8,4,Fenway Park,,Cooper Criswell,,Carlos Rodón
+2024-06-15,746135,Final,LAD,KC,2,7,Dodger Stadium,,Yoshinobu Yamamoto,,Seth Lugo
+2024-06-15,746547,Final,COL,PIT,16,4,Coors Field,,Ty Blach,,Jared Jones
+2024-06-15,747187,Final,AZ,CWS,2,9,Chase Field,,Scott McGough,,Erick Fedde
+2024-06-16,746866,Final,CHC,STL,1,2,Wrigley Field,,Jameson Taillon,,Miles Mikolas
+2024-06-16,747023,Final,BAL,PHI,8,3,Oriole Park at Camden Yards,,Corbin Burnes,,Zack Wheeler
+2024-06-16,747109,Final,ATL,TB,6,8,Truist Park,,Hurston Waldrep,,Zach Eflin
+2024-06-16,744839,Final,WSH,MIA,3,1,Nationals Park,,Mitchell Parker,,Jesús Luzardo
+2024-06-16,744926,Final,TOR,CLE,7,6,Rogers Centre,,José Berríos,,Ben Lively
+2024-06-16,745807,Final,NYM,SD,11,6,Citi Field,,Tylor Megill,,Dylan Cease
+2024-06-16,746377,Final,HOU,DET,4,1,Minute Maid Park,,Ronel Blanco,,Kenta Maeda
+2024-06-16,745895,Final,MIN,ATH,6,2,Target Field,,Bailey Ober,,JP Sears
+2024-06-16,745891,Final,MIN,ATH,8,7,Target Field,,Chris Paddack,,Joey Estes
+2024-06-16,745977,Final,MIL,CIN,5,4,American Family Field,,Colin Rea,,Frankie Montas
+2024-06-16,746546,Final,COL,PIT,2,8,Coors Field,,Dakota Hudson,,Josh Fleming
+2024-06-16,745321,Final,SF,LAA,13,6,Oracle Park,,Erik Miller,,Ben Joyce
+2024-06-16,746130,Final,LAD,KC,3,0,Dodger Stadium,,Tyler Glasnow,,Brady Singer
+2024-06-16,745242,Final,SEA,TEX,5,0,T-Mobile Park,,Logan Gilbert,,Dane Dunning
+2024-06-16,747189,Final,AZ,CWS,12,5,Chase Field,,Jordan Montgomery,,Drew Thorpe
+2024-06-16,746945,Final,BOS,NYY,9,3,Fenway Park,,Kutter Crawford,,Marcus Stroman
+2024-06-17,745490,Final,PIT,CIN,4,1,PNC Park,,Paul Skenes,,Carson Spiers
+2024-06-17,745567,Final,PHI,SD,9,2,Citizens Bank Park,,Cristopher Sánchez,,Randy Vásquez
+2024-06-17,746055,Final,MIA,STL,6,7,loanDepot park,,Braxton Garrett,,Sonny Gray
+2024-06-17,744918,Final,TOR,BOS,3,7,Rogers Centre,,Yusei Kikuchi,,Nick Pivetta
+2024-06-17,747108,Final,ATL,DET,2,1,Truist Park,,Max Fried,,Reese Olson
+2024-06-17,746868,Final,CHC,SF,6,7,Wrigley Field,,Javier Assad,,Jordan Hicks
+2024-06-17,745005,Final,TEX,NYM,2,14,Globe Life Field,,Jon Gray,,David Peterson
+2024-06-17,746543,Final,COL,LAD,5,9,Coors Field,,Cal Quantrill,,James Paxton
+2024-06-17,746215,Final,LAA,MIL,5,3,Angel Stadium,,Zach Plesac,,Carlos Rodriguez
+2024-06-18,746049,Final,MIA,STL,9,8,loanDepot park,,Roddery Muñoz,,Lance Lynn
+2024-06-18,745488,Final,PIT,CIN,1,2,PNC Park,,Bailey Falter,,Nick Lodolo
+2024-06-18,746627,Final,CLE,SEA,5,8,Progressive Field,,Triston McKenzie,,Bryce Miller
+2024-06-18,745563,Final,PHI,SD,4,3,Citizens Bank Park,,Aaron Nola,,Michael King
+2024-06-18,744843,Final,WSH,AZ,0,5,Nationals Park,,Jake Irvin,,Slade Cecconi
+2024-06-18,745733,Final,NYY,BAL,4,2,Yankee Stadium,,Nestor Cortes,,Albert Suárez
+2024-06-18,744917,Final,TOR,BOS,3,4,Rogers Centre,,Chris Bassitt,,Tanner Houck
+2024-06-18,747107,Final,ATL,DET,2,1,Truist Park,,Spencer Schwellenbach,,Casey Mize
+2024-06-18,745893,Final,MIN,TB,7,6,Target Field,,Pablo López,,Aaron Civale
+2024-06-18,746867,Final,CHC,SF,5,2,Wrigley Field,,Justin Steele,,Logan Webb
+2024-06-18,745004,Final,TEX,NYM,6,7,Globe Life Field,,Michael Lorenzen,,Luis Severino
+2024-06-18,746783,Final,CWS,HOU,2,0,Guaranteed Rate Field,,Jonathan Cannon,,Framber Valdez
+2024-06-18,746542,Final,COL,LAD,9,11,Coors Field,,Austin Gomber,,Walker Buehler
+2024-06-18,746217,Final,LAA,MIL,3,6,Angel Stadium,,Griffin Canning,,Tobias Myers
+2024-06-18,745650,Final,ATH,KC,7,5,Oakland Coliseum,,Hogan Harris,,Alec Marsh
+2024-06-19,747106,Final,ATL,DET,7,0,Truist Park,,Reynaldo López,,Tarik Skubal
+2024-06-19,745489,Final,PIT,CIN,1,0,PNC Park,,Mitch Keller,,Hunter Greene
+2024-06-19,746050,Final,MIA,STL,4,3,loanDepot park,,Yonny Chirinos,,Matthew Liberatore
+2024-06-19,745561,Final,PHI,SD,2,5,Citizens Bank Park,,Ranger Suárez,,Matt Waldron
+2024-06-19,746864,Final,CHC,SF,6,5,Wrigley Field,,Kyle Hendricks,,Erik Miller
+2024-06-19,744842,Final,WSH,AZ,3,1,Nationals Park,,Patrick Corbin,,Brandon Pfaadt
+2024-06-19,746625,Final,CLE,SEA,8,0,Progressive Field,,Tanner Bibee,,Bryan Woo
+2024-06-19,745732,Final,NYY,BAL,6,7,Yankee Stadium,,Gerrit Cole,,Cade Povich
+2024-06-19,744920,Final,TOR,BOS,3,7,Rogers Centre,,Kevin Gausman,,Brayan Bello
+2024-06-19,745887,Final,MIN,TB,2,3,Target Field,,Joe Ryan,,Taj Bradley
+2024-06-19,745002,Final,TEX,NYM,5,3,Globe Life Field,,Andrew Heaney,,Sean Manaea
+2024-06-19,746781,Final,CWS,HOU,1,4,Guaranteed Rate Field,,Garrett Crochet,,Hunter Brown
+2024-06-19,746538,Final,COL,LAD,7,6,Coors Field,,Ryan Feltner,,Bobby Miller
+2024-06-19,746219,Final,LAA,MIL,0,2,Angel Stadium,,Tyler Anderson,,Freddy Peralta
+2024-06-19,745646,Final,ATH,KC,5,1,Oakland Coliseum,,Luis Medina,,Cole Ragans
+2024-06-20,744841,Final,WSH,AZ,2,5,Nationals Park,,MacKenzie Gore,,Ryne Nelson
+2024-06-20,746626,Final,CLE,SEA,6,3,Progressive Field,,Logan Allen,,Luis Castillo
+2024-06-20,745889,Final,MIN,TB,6,7,Target Field,,Simeon Woods Richardson,,Zack Littell
+2024-06-20,746782,Final,CWS,HOU,3,5,Guaranteed Rate Field,,Chris Flexen,,Spencer Arrighetti
+2024-06-20,746539,Final,COL,LAD,3,5,Coors Field,,Ty Blach,,Gavin Stone
+2024-06-20,745645,Final,ATH,KC,2,3,Oakland Coliseum,,Mitch Spence,,Seth Lugo
+2024-06-20,745734,Final,NYY,BAL,5,17,Yankee Stadium,,Luis Gil,,Cole Irvin
+2024-06-20,745164,Final,STL,SF,6,5,Rickwood Field,,Andre Pallante,,Keaton Winn
+2024-06-20,745401,Final,SD,MIL,7,6,Petco Park,,Adam Mazur,,Bryse Wilson
+2024-06-21,746861,Final,CHC,NYM,1,11,Wrigley Field,,Shota Imanaga,,Jose Quintana
+2024-06-21,745483,Final,PIT,TB,3,10,PNC Park,,Carmen Mlodzinski,,Ryan Pepiot
+2024-06-21,745562,Final,PHI,AZ,4,5,Citizens Bank Park,,Taijuan Walker,,Jordan Montgomery
+2024-06-21,746460,Final,DET,CWS,2,1,Comerica Park,,Jack Flaherty,,Erick Fedde
+2024-06-21,745729,Final,NYY,ATL,1,8,Yankee Stadium,,Carlos Rodón,,Chris Sale
+2024-06-21,746698,Final,CIN,BOS,5,2,Great American Ball Park,,Andrew Abbott,,Kutter Crawford
+2024-06-21,746624,Final,CLE,TOR,7,1,Progressive Field,,Carlos Carrasco,,Yariel Rodríguez
+2024-06-21,746052,Final,MIA,SEA,3,2,loanDepot park,,Trevor Rogers,,George Kirby
+2024-06-21,745006,Final,TEX,KC,6,2,Globe Life Field,,Nathan Eovaldi,,Brady Singer
+2024-06-21,746375,Final,HOU,BAL,14,11,Minute Maid Park,,Jake Bloss,,Grayson Rodriguez
+2024-06-21,746540,Final,COL,WSH,5,11,Coors Field,,Dakota Hudson,,DJ Herz
+2024-06-21,745649,Final,ATH,MIN,6,5,Oakland Coliseum,,Joey Estes,,Chris Paddack
+2024-06-21,745403,Final,SD,MIL,9,5,Petco Park,,Dylan Cease,,Colin Rea
+2024-06-21,746131,Final,LAD,LAA,2,3,Dodger Stadium,,Landon Knack,,Patrick Sandoval
+2024-06-22,746459,Final,DET,CWS,1,5,Comerica Park,,Kenta Maeda,,Drew Thorpe
+2024-06-22,745163,Final,STL,SF,9,4,Busch Stadium,,Miles Mikolas,,Jordan Hicks
+2024-06-22,746863,Final,CHC,NYM,8,1,Wrigley Field,,Jameson Taillon,,Tylor Megill
+2024-06-22,745486,Final,PIT,TB,4,3,PNC Park,,Jared Jones,,Zach Eflin
+2024-06-22,744997,Final,TEX,KC,6,0,Globe Life Field,,Jon Gray,,Michael Wacha
+2024-06-22,745564,Final,PHI,AZ,12,1,Citizens Bank Park,,Zack Wheeler,,Tommy Henry
+2024-06-22,745644,Final,ATH,MIN,2,10,Oakland Coliseum,,JP Sears,,Bailey Ober
+2024-06-22,746700,Final,CIN,BOS,3,4,Great American Ball Park,,Frankie Montas,,Nick Pivetta
+2024-06-22,746376,Final,HOU,BAL,5,1,Minute Maid Park,,Ronel Blanco,,Corbin Burnes
+2024-06-22,746622,Final,CLE,TOR,6,3,Progressive Field,,Ben Lively,,José Berríos
+2024-06-22,746048,Final,MIA,SEA,0,9,loanDepot park,,Shaun Anderson,,Logan Gilbert
+2024-06-22,745731,Final,NYY,ATL,8,3,Yankee Stadium,,Marcus Stroman,,Charlie Morton
+2024-06-22,745402,Final,SD,MIL,6,4,Petco Park,,Randy Vásquez,,Carlos Rodriguez
+2024-06-22,746541,Final,COL,WSH,8,7,Coors Field,,Cal Quantrill,,Mitchell Parker
+2024-06-22,746132,Final,LAD,LAA,7,2,Dodger Stadium,,Tyler Glasnow,,Zach Plesac
+2024-06-23,745566,Final,PHI,AZ,4,1,Citizens Bank Park,,Cristopher Sánchez,,Slade Cecconi
+2024-06-23,745485,Final,PIT,TB,1,3,PNC Park,,Paul Skenes,,Aaron Civale
+2024-06-23,745727,Final,NYY,ATL,1,3,Yankee Stadium,,Nestor Cortes,,Max Fried
+2024-06-23,746699,Final,CIN,BOS,4,7,Great American Ball Park,,Nick Lodolo,,Zack Kelly
+2024-06-23,746621,Final,CLE,TOR,6,5,Progressive Field,,Triston McKenzie,,Yusei Kikuchi
+2024-06-23,746457,Final,DET,CWS,11,2,Comerica Park,,Reese Olson,,Jonathan Cannon
+2024-06-23,746051,Final,MIA,SEA,6,4,loanDepot park,,Kyle Tyler,,Bryce Miller
+2024-06-23,746373,Final,HOU,BAL,8,1,Minute Maid Park,,Framber Valdez,,Albert Suárez
+2024-06-23,745165,Final,STL,SF,5,3,Busch Stadium,,Sonny Gray,,Logan Webb
+2024-06-23,745000,Final,TEX,KC,4,0,Globe Life Field,,Max Scherzer,,Alec Marsh
+2024-06-23,746536,Final,COL,WSH,1,2,Coors Field,,Kyle Freeland,,Jake Irvin
+2024-06-23,745648,Final,ATH,MIN,0,3,Oakland Coliseum,,Hogan Harris,,Pablo López
+2024-06-23,745396,Final,SD,MIL,2,6,Petco Park,,Michael King,,Tobias Myers
+2024-06-23,746862,Final,CHC,NYM,2,5,Wrigley Field,,Javier Assad,,Luis Severino
+2024-06-24,747021,Final,BAL,CLE,2,3,Oriole Park at Camden Yards,,Cade Povich,,Tanner Bibee
+2024-06-24,746458,Final,DET,PHI,1,8,Comerica Park,,Casey Mize,,Aaron Nola
+2024-06-24,745078,Final,TB,SEA,4,3,Tropicana Field,,Taj Bradley,,Bryan Woo
+2024-06-24,746696,Final,CIN,PIT,11,5,Great American Ball Park,,Carson Spiers,,Bailey Falter
+2024-06-24,746941,Final,BOS,TOR,7,6,Fenway Park,,Tanner Houck,,Chris Bassitt
+2024-06-24,745160,Final,STL,ATL,4,3,Busch Stadium,,Lance Lynn,,Spencer Schwellenbach
+2024-06-24,746780,Final,CWS,LAD,0,3,Guaranteed Rate Field,,Garrett Crochet,,James Paxton
+2024-06-24,746298,Final,KC,MIA,4,1,Kauffman Stadium,,Cole Ragans,,Roddery Muñoz
+2024-06-24,745974,Final,MIL,TEX,6,3,American Family Field,,Freddy Peralta,,Michael Lorenzen
+2024-06-24,746218,Final,LAA,ATH,5,1,Angel Stadium,,Griffin Canning,,Luis Medina
+2024-06-24,745397,Final,SD,WSH,7,6,Petco Park,,Matt Waldron,,Patrick Corbin
+2024-06-24,745323,Final,SF,CHC,5,4,Oracle Park,,Erik Miller,,Justin Steele
+2024-06-25,747022,Final,BAL,CLE,8,10,Oriole Park at Camden Yards,,Cole Irvin,,Logan Allen
+2024-06-25,746454,Final,DET,PHI,4,1,Comerica Park,,Tarik Skubal,,Ranger Suárez
+2024-06-25,745076,Final,TB,SEA,11,3,Tropicana Field,,Zack Littell,,Luis Castillo
+2024-06-25,746697,Final,CIN,PIT,5,9,Great American Ball Park,,Hunter Greene,,Mitch Keller
+2024-06-25,746943,Final,BOS,TOR,4,9,Fenway Park,,Brayan Bello,,Kevin Gausman
+2024-06-25,745806,Final,NYM,NYY,9,7,Citi Field,,David Peterson,,Gerrit Cole
+2024-06-25,746372,Final,HOU,COL,5,2,Minute Maid Park,,Hunter Brown,,Austin Gomber
+2024-06-25,746775,Final,CWS,LAD,3,4,Guaranteed Rate Field,,Chris Flexen,,Bobby Miller
+2024-06-25,746293,Final,KC,MIA,1,2,Kauffman Stadium,,Seth Lugo,,Yonny Chirinos
+2024-06-25,745973,Final,MIL,TEX,3,1,American Family Field,,Hoby Milner,,Andrew Heaney
+2024-06-25,746213,Final,LAA,ATH,7,5,Angel Stadium,,Tyler Anderson,,Mitch Spence
+2024-06-25,745399,Final,SD,WSH,9,7,Petco Park,,Adam Mazur,,MacKenzie Gore
+2024-06-25,747188,Final,AZ,MIN,5,4,Chase Field,,Brandon Pfaadt,,Joe Ryan
+2024-06-25,745322,Final,SF,CHC,5,1,Oracle Park,,Randy Rodríguez,,Kyle Hendricks
+2024-06-26,745073,Final,TB,SEA,2,5,Tropicana Field,,Ryan Pepiot,,George Kirby
+2024-06-26,746695,Final,CIN,PIT,1,6,Great American Ball Park,,Graham Ashcraft,,Luis Ortiz
+2024-06-26,746456,Final,DET,PHI,2,6,Comerica Park,,Tyler Holton,,Spencer Turnbull
+2024-06-26,745157,Final,STL,ATL,2,6,Busch Stadium,,Kyle Gibson,,Reynaldo López
+2024-06-26,745158,Final,STL,ATL,4,1,Busch Stadium,,Matthew Liberatore,,Bryce Elder
+2024-06-26,746374,Final,HOU,COL,7,1,Minute Maid Park,,Spencer Arrighetti,,Ryan Feltner
+2024-06-26,746291,Final,KC,MIA,5,1,Kauffman Stadium,,Brady Singer,,Valente Bellozo
+2024-06-26,745975,Final,MIL,TEX,6,5,American Family Field,,Dallas Keuchel,,Nathan Eovaldi
+2024-06-26,746212,Final,LAA,ATH,5,2,Angel Stadium,,Roansy Contreras,,Joey Estes
+2024-06-26,745400,Final,SD,WSH,8,5,Petco Park,,Dylan Cease,,DJ Herz
+2024-06-26,747019,Final,BAL,CLE,4,2,Oriole Park at Camden Yards,,Grayson Rodriguez,,Carlos Carrasco
+2024-06-26,746942,Final,BOS,TOR,1,4,Fenway Park,,Nick Pivetta,,Ryan Burr
+2024-06-26,745808,Final,NYM,NYY,12,2,Citi Field,,Sean Manaea,,Luis Gil
+2024-06-26,746777,Final,CWS,LAD,0,4,Guaranteed Rate Field,,Erick Fedde,,Gavin Stone
+2024-06-26,747184,Final,AZ,MIN,3,8,Chase Field,,Ryne Nelson,,Simeon Woods Richardson
+2024-06-26,745325,Final,SF,CHC,4,3,Oracle Park,,Hayden Birdsong,,Hayden Wesneski
+2024-06-27,747185,Final,AZ,MIN,6,13,Chase Field,,Jordan Montgomery,,David Festa
+2024-06-27,745324,Final,SF,CHC,3,5,Oracle Park,,Jordan Hicks,,Shota Imanaga
+2024-06-27,746816,Final,CWS,ATL,1,0,Guaranteed Rate Field,,Chad Kuhl,,Chris Sale
+2024-06-27,745565,Final,PHI,MIA,4,7,Citizens Bank Park,,Zack Wheeler,,Trevor Rogers
+2024-06-27,747020,Final,BAL,TEX,11,2,Oriole Park at Camden Yards,,Corbin Burnes,,Jon Gray
+2024-06-27,744919,Final,TOR,NYY,9,2,Rogers Centre,,José Berríos,,Carlos Rodón
+2024-06-27,745162,Final,STL,CIN,4,11,Busch Stadium,,Miles Mikolas,,Andrew Abbott
+2024-06-27,746288,Final,KC,CLE,2,1,Kauffman Stadium,,Michael Wacha,,Ben Lively
+2024-06-27,746210,Final,LAA,DET,5,0,Angel Stadium,,Davis Daniel,,Jack Flaherty
+2024-06-28,745560,Final,PHI,MIA,2,0,Citizens Bank Park,,Cristopher Sánchez,,Kyle Tyler
+2024-06-28,745070,Final,TB,WSH,3,1,Tropicana Field,,Zach Eflin,,Mitchell Parker
+2024-06-28,747017,Final,BAL,TEX,2,1,Oriole Park at Camden Yards,,Albert Suárez,,Max Scherzer
+2024-06-28,744922,Final,TOR,NYY,5,16,Rogers Centre,,Yusei Kikuchi,,Marcus Stroman
+2024-06-28,745804,Final,NYM,HOU,7,2,Citi Field,,Jose Quintana,,Ronel Blanco
+2024-06-28,746939,Final,BOS,SD,2,9,Fenway Park,,Nick Pivetta,,Randy Vásquez
+2024-06-28,746776,Final,CWS,COL,5,3,Guaranteed Rate Field,,Drew Thorpe,,Dakota Hudson
+2024-06-28,747105,Final,ATL,PIT,6,1,Truist Park,,Charlie Morton,,Martín Pérez
+2024-06-28,746292,Final,KC,CLE,10,3,Kauffman Stadium,,Alec Marsh,,Triston McKenzie
+2024-06-28,745970,Final,MIL,CHC,4,2,American Family Field,,Colin Rea,,Jameson Taillon
+2024-06-28,745161,Final,STL,CIN,1,0,Busch Stadium,,Andre Pallante,,Frankie Montas
+2024-06-28,746214,Final,LAA,DET,5,2,Angel Stadium,,Zach Plesac,,Kenta Maeda
+2024-06-28,747183,Final,AZ,ATH,4,9,Chase Field,,Slade Cecconi,,JP Sears
+2024-06-28,745238,Final,SEA,MIN,3,2,T-Mobile Park,,Logan Gilbert,,Bailey Ober
+2024-06-28,745319,Final,SF,LAD,5,3,Oracle Park,,Logan Webb,,Landon Knack
+2024-06-29,746778,Final,CWS,COL,11,3,Guaranteed Rate Field,,Jonathan Cannon,,Cal Quantrill
+2024-06-29,745159,Final,STL,CIN,4,9,Busch Stadium,,Sonny Gray,,Carson Spiers
+2024-06-29,744921,Final,TOR,NYY,9,3,Rogers Centre,,Chris Bassitt,,Nestor Cortes
+2024-06-29,745559,Final,PHI,MIA,2,3,Citizens Bank Park,,Aaron Nola,,Roddery Muñoz
+2024-06-29,746289,Final,KC,CLE,2,7,Kauffman Stadium,,Cole Ragans,,Tanner Bibee
+2024-06-29,745801,Final,NYM,HOU,6,9,Citi Field,,Tylor Megill,,Framber Valdez
+2024-06-29,747186,Final,AZ,ATH,3,0,Chase Field,,Zac Gallen,,Hogan Harris
+2024-06-29,746940,Final,BOS,SD,1,11,Fenway Park,,Tanner Houck,,Michael King
+2024-06-29,745071,Final,TB,WSH,1,8,Tropicana Field,,Aaron Civale,,Jake Irvin
+2024-06-29,747104,Final,ATL,PIT,2,1,Truist Park,,Max Fried,,Paul Skenes
+2024-06-29,745972,Final,MIL,CHC,3,5,American Family Field,,Tobias Myers,,Justin Steele
+2024-06-29,745317,Final,SF,LAD,7,14,Oracle Park,,Erik Miller,,Tyler Glasnow
+2024-06-29,747018,Final,BAL,TEX,6,5,Oriole Park at Camden Yards,,Cade Povich,,Michael Lorenzen
+2024-06-29,746211,Final,LAA,DET,6,5,Angel Stadium,,Griffin Canning,,Reese Olson
+2024-06-29,745239,Final,SEA,MIN,1,5,T-Mobile Park,,Bryce Miller,,Pablo López
+2024-06-30,747101,Final,ATL,PIT,2,4,Truist Park,,Spencer Schwellenbach,,Bailey Falter
+2024-06-30,746938,Final,BOS,SD,4,1,Fenway Park,,Josh Winckowski,,Matt Waldron
+2024-06-30,745555,Final,PHI,MIA,7,6,Citizens Bank Park,,Ranger Suárez,,Yonny Chirinos
+2024-06-30,744916,Final,TOR,NYY,1,8,Rogers Centre,,Kevin Gausman,,Gerrit Cole
+2024-06-30,745802,Final,NYM,HOU,5,10,Citi Field,,Luis Severino,,Shawn Dubin
+2024-06-30,745072,Final,TB,WSH,5,0,Tropicana Field,,Taj Bradley,,Patrick Corbin
+2024-06-30,746290,Final,KC,CLE,6,2,Kauffman Stadium,,Seth Lugo,,Logan Allen
+2024-06-30,746779,Final,CWS,COL,4,5,Guaranteed Rate Field,,Garrett Crochet,,Kyle Freeland
+2024-06-30,745971,Final,MIL,CHC,7,1,American Family Field,,Freddy Peralta,,Kyle Hendricks
+2024-06-30,745154,Final,STL,CIN,2,0,Busch Stadium,,Lance Lynn,,Hunter Greene
+2024-06-30,745320,Final,SF,LAD,10,4,Oracle Park,,Spencer Bivens,,James Paxton
+2024-06-30,746209,Final,LAA,DET,6,7,Angel Stadium,,Tyler Anderson,,Casey Mize
+2024-06-30,747182,Final,AZ,ATH,5,1,Chase Field,,Brandon Pfaadt,,Luis Medina
+2024-06-30,745243,Final,SEA,MIN,3,5,T-Mobile Park,,Luis Castillo,,Joe Ryan
+2024-06-30,747016,Final,BAL,TEX,2,11,Oriole Park at Camden Yards,,Cole Irvin,,Andrew Heaney
+2024-07-01,744914,Final,TOR,HOU,1,3,Rogers Centre,,Yariel Rodríguez,,Hunter Brown
+2024-07-01,744840,Final,WSH,NYM,7,9,Nationals Park,,MacKenzie Gore,,David Peterson
+2024-07-01,746535,Final,COL,MIL,8,7,Coors Field,,Austin Gomber,,Rob Zastryzny
+2024-07-02,745482,Final,PIT,STL,4,7,PNC Park,,Mitch Keller,,Kyle Gibson
+2024-07-02,746623,Final,CLE,CWS,7,6,Progressive Field,,Carlos Carrasco,,Chris Flexen
+2024-07-02,746047,Final,MIA,BOS,3,8,loanDepot park,,Valente Bellozo,,Kutter Crawford
+2024-07-02,744838,Final,WSH,NYM,2,7,Nationals Park,,DJ Herz,,Sean Manaea
+2024-07-02,745730,Final,NYY,CIN,4,5,Yankee Stadium,,Luis Gil,,Graham Ashcraft
+2024-07-02,744913,Final,TOR,HOU,7,6,Rogers Centre,,José Berríos,,Spencer Arrighetti
+2024-07-02,747102,Final,ATL,SF,3,5,Truist Park,,Reynaldo López,,Hayden Birdsong
+2024-07-02,745886,Final,MIN,DET,5,3,Target Field,,Simeon Woods Richardson,,Tarik Skubal
+2024-07-02,744999,Final,TEX,SD,7,0,Globe Life Field,,Nathan Eovaldi,,Dylan Cease
+2024-07-02,746860,Final,CHC,PHI,4,6,Wrigley Field,,Hayden Wesneski,,Michael Mercado
+2024-07-02,746282,Final,KC,TB,1,5,Kauffman Stadium,,Brady Singer,,Zack Littell
+2024-07-02,746537,Final,COL,MIL,3,4,Coors Field,,Ryan Feltner,,Dallas Keuchel
+2024-07-02,745647,Final,ATH,LAA,7,5,Oakland Coliseum,,Mitch Spence,,José Soriano
+2024-07-02,745240,Final,SEA,BAL,0,2,T-Mobile Park,,George Kirby,,Grayson Rodriguez
+2024-07-02,746133,Final,LAD,AZ,6,5,Dodger Stadium,,Bobby Miller,,Joe Mantiply
+2024-07-03,745487,Final,PIT,STL,5,4,PNC Park,,Jared Jones,,Miles Mikolas
+2024-07-03,746617,Final,CLE,CWS,2,8,Progressive Field,,Gavin Williams,,Erick Fedde
+2024-07-03,746045,Final,MIA,BOS,2,7,loanDepot park,,Trevor Rogers,,Brayan Bello
+2024-07-03,744837,Final,WSH,NYM,7,5,Nationals Park,,Mitchell Parker,,Christian Scott
+2024-07-03,745728,Final,NYY,CIN,2,3,Yankee Stadium,,Carlos Rodón,,Andrew Abbott
+2024-07-03,744915,Final,TOR,HOU,2,9,Rogers Centre,,Yusei Kikuchi,,Ronel Blanco
+2024-07-03,747100,Final,ATL,SF,3,1,Truist Park,,Chris Sale,,Jordan Hicks
+2024-07-03,744998,Final,TEX,SD,4,6,Globe Life Field,,Jon Gray,,Adam Mazur
+2024-07-03,746858,Final,CHC,PHI,3,5,Wrigley Field,,Shota Imanaga,,Zack Wheeler
+2024-07-03,746283,Final,KC,TB,4,2,Kauffman Stadium,,Michael Wacha,,Ryan Pepiot
+2024-07-03,745888,Final,MIN,DET,2,9,Target Field,,David Festa,,Keider Montero
+2024-07-03,746534,Final,COL,MIL,0,3,Coors Field,,Dakota Hudson,,Colin Rea
+2024-07-03,745643,Final,ATH,LAA,5,0,Oakland Coliseum,,Joey Estes,,Davis Daniel
+2024-07-03,746128,Final,LAD,AZ,4,12,Dodger Stadium,,Gavin Stone,,Cristian Mena
+2024-07-03,745234,Final,SEA,BAL,1,4,T-Mobile Park,,Logan Gilbert,,Dean Kremer
+2024-07-04,744834,Final,WSH,NYM,1,0,Nationals Park,,Jake Irvin,,Jose Quintana
+2024-07-04,745484,Final,PIT,STL,2,3,PNC Park,,Martín Pérez,,Andre Pallante
+2024-07-04,745726,Final,NYY,CIN,4,8,Yankee Stadium,,Marcus Stroman,,Frankie Montas
+2024-07-04,744912,Final,TOR,HOU,3,5,Rogers Centre,,Chris Bassitt,,Framber Valdez
+2024-07-04,746619,Final,CLE,CWS,8,4,Progressive Field,,Ben Lively,,Jared Shuster
+2024-07-04,746043,Final,MIA,BOS,5,6,loanDepot park,,Kyle Tyler,,Nick Pivetta
+2024-07-04,746857,Final,CHC,PHI,10,2,Wrigley Field,,Jameson Taillon,,Cristopher Sánchez
+2024-07-04,744996,Final,TEX,SD,1,3,Globe Life Field,,Max Scherzer,,Michael King
+2024-07-04,745641,Final,ATH,LAA,5,0,Oakland Coliseum,,JP Sears,,Roansy Contreras
+2024-07-04,745236,Final,SEA,BAL,7,3,T-Mobile Park,,Bryce Miller,,Corbin Burnes
+2024-07-04,747103,Final,ATL,SF,2,4,Truist Park,,Charlie Morton,,Logan Webb
+2024-07-04,746285,Final,KC,TB,8,10,Kauffman Stadium,,Alec Marsh,,Zach Eflin
+2024-07-04,746532,Final,COL,MIL,4,3,Coors Field,,Cal Quantrill,,Tobias Myers
+2024-07-04,746126,Final,LAD,AZ,3,9,Dodger Stadium,,Landon Knack,,Zac Gallen
+2024-07-05,746859,Final,CHC,LAA,5,1,Wrigley Field,,Justin Steele,,Griffin Canning
+2024-07-05,745479,Final,PIT,NYM,14,2,PNC Park,,Paul Skenes,,Luis Severino
+2024-07-05,744836,Final,WSH,STL,6,7,Nationals Park,,Patrick Corbin,,Sonny Gray
+2024-07-05,745725,Final,NYY,BOS,3,5,Yankee Stadium,,Nestor Cortes,,Tanner Houck
+2024-07-05,746693,Final,CIN,DET,4,5,Great American Ball Park,,Carson Spiers,,Reese Olson
+2024-07-05,746620,Final,CLE,SF,2,4,Progressive Field,,Tanner Bibee,,Erik Miller
+2024-07-05,746046,Final,MIA,CWS,2,3,loanDepot park,,Bryan Hoeing,,Drew Thorpe
+2024-07-05,747097,Final,ATL,PHI,6,8,Truist Park,,Max Fried,,Aaron Nola
+2024-07-05,744992,Final,TEX,TB,3,0,Globe Life Field,,Michael Lorenzen,,Shane Baz
+2024-07-05,746533,Final,COL,KC,4,2,Coors Field,,Kyle Freeland,,Cole Ragans
+2024-07-05,745884,Final,MIN,HOU,12,13,Target Field,,Pablo López,,Shawn Dubin
+2024-07-05,745639,Final,ATH,BAL,2,3,Oakland Coliseum,,Hogan Harris,,Albert Suárez
+2024-07-05,745398,Final,SD,AZ,10,8,Petco Park,,Randy Vásquez,,Slade Cecconi
+2024-07-05,745237,Final,SEA,TOR,2,1,T-Mobile Park,,Luis Castillo,,Kevin Gausman
+2024-07-05,746127,Final,LAD,MIL,8,5,Dodger Stadium,,Tyler Glasnow,,Aaron Civale
+2024-07-06,745724,Final,NYY,BOS,14,4,Yankee Stadium,,Gerrit Cole,,Josh Winckowski
+2024-07-06,745885,Final,MIN,HOU,9,3,Target Field,,Joe Ryan,,Hunter Brown
+2024-07-06,746856,Final,CHC,LAA,0,7,Wrigley Field,,Kyle Hendricks,,Tyler Anderson
+2024-07-06,745476,Final,PIT,NYM,2,5,PNC Park,,Bailey Falter,,David Peterson
+2024-07-06,744835,Final,WSH,STL,14,6,Nationals Park,,MacKenzie Gore,,Lance Lynn
+2024-07-06,744995,Final,TEX,TB,4,3,Globe Life Field,,Andrew Heaney,,Taj Bradley
+2024-07-06,745642,Final,ATH,BAL,19,8,Oakland Coliseum,,Luis Medina,,Cade Povich
+2024-07-06,746694,Final,CIN,DET,3,5,Great American Ball Park,,Hunter Greene,,Alex Faedo
+2024-07-06,746615,Final,CLE,SF,5,4,Progressive Field,,Logan Allen,,Kyle Harrison
+2024-07-06,745235,Final,SEA,TOR,4,5,T-Mobile Park,,Emerson Hancock,,Yariel Rodríguez
+2024-07-06,746044,Final,MIA,CWS,4,3,loanDepot park,,Yonny Chirinos,,Garrett Crochet
+2024-07-06,747099,Final,ATL,PHI,5,1,Truist Park,,Spencer Schwellenbach,,Ranger Suárez
+2024-07-06,746129,Final,LAD,MIL,5,3,Dodger Stadium,,James Paxton,,Freddy Peralta
+2024-07-06,746529,Final,COL,KC,3,1,Coors Field,,Austin Gomber,,Seth Lugo
+2024-07-06,745395,Final,SD,AZ,5,7,Petco Park,,Matt Waldron,,Brandon Pfaadt
+2024-07-07,745477,Final,PIT,NYM,2,3,PNC Park,,Luis Ortiz,,Sean Manaea
+2024-07-07,744832,Final,WSH,STL,3,8,Nationals Park,,DJ Herz,,Kyle Gibson
+2024-07-07,747098,Final,ATL,PHI,6,0,Truist Park,,Reynaldo López,,Michael Mercado
+2024-07-07,746691,Final,CIN,DET,1,5,Great American Ball Park,,Graham Ashcraft,,Tarik Skubal
+2024-07-07,746616,Final,CLE,SF,5,4,Progressive Field,,Carlos Carrasco,,Hayden Birdsong
+2024-07-07,746039,Final,MIA,CWS,7,4,loanDepot park,,Edward Cabrera,,Jonathan Cannon
+2024-07-07,745883,Final,MIN,HOU,3,2,Target Field,,Simeon Woods Richardson,,Spencer Arrighetti
+2024-07-07,746855,Final,CHC,LAA,5,0,Wrigley Field,,Hayden Wesneski,,José Soriano
+2024-07-07,744993,Final,TEX,TB,13,2,Globe Life Field,,Nathan Eovaldi,,Zack Littell
+2024-07-07,746530,Final,COL,KC,1,10,Coors Field,,Tanner Gordon,,Brady Singer
+2024-07-07,745637,Final,ATH,BAL,3,6,Oakland Coliseum,,Mitch Spence,,Grayson Rodriguez
+2024-07-07,745391,Final,SD,AZ,1,9,Petco Park,,Dylan Cease,,Ryne Nelson
+2024-07-07,745233,Final,SEA,TOR,4,5,T-Mobile Park,,George Kirby,,José Berríos
+2024-07-07,746122,Final,LAD,MIL,2,9,Dodger Stadium,,Justin Wrobleski,,Dallas Keuchel
+2024-07-07,745723,Final,NYY,BOS,0,3,Yankee Stadium,,Luis Gil,,Kutter Crawford
+2024-07-08,745480,Final,PIT,NYM,8,2,PNC Park,,Mitch Keller,,Christian Scott
+2024-07-08,744833,Final,WSH,STL,0,6,Nationals Park,,Mitchell Parker,,Miles Mikolas
+2024-07-08,746455,Final,DET,CLE,1,0,Comerica Park,,Keider Montero,,Gavin Williams
+2024-07-08,746692,Final,CIN,COL,6,0,Great American Ball Park,,Andrew Abbott,,Ryan Feltner
+2024-07-08,746771,Final,CWS,MIN,6,8,Guaranteed Rate Field,,Chris Flexen,,Chris Paddack
+2024-07-08,746208,Final,LAA,TEX,4,9,Angel Stadium,,Davis Daniel,,Jon Gray
+2024-07-08,747181,Final,AZ,ATL,4,5,Chase Field,,Yilber Díaz,,Bryce Elder
+2024-07-09,747014,Final,BAL,CHC,2,9,Oriole Park at Camden Yards,,Dean Kremer,,Jameson Taillon
+2024-07-09,746451,Final,DET,CLE,8,9,Comerica Park,,Kenta Maeda,,Ben Lively
+2024-07-09,745557,Final,PHI,LAD,10,1,Citizens Bank Park,,Zack Wheeler,,Bobby Miller
+2024-07-09,745074,Final,TB,NYY,5,3,Tropicana Field,,Ryan Pepiot,,Carlos Rodón
+2024-07-09,746690,Final,CIN,COL,12,6,Great American Ball Park,,Nick Lodolo,,Cal Quantrill
+2024-07-09,745803,Final,NYM,WSH,7,5,Citi Field,,Jose Quintana,,Jake Irvin
+2024-07-09,746937,Final,BOS,ATH,12,9,Fenway Park,,Brayan Bello,,Joey Estes
+2024-07-09,746368,Final,HOU,MIA,4,3,Minute Maid Park,,Ronel Blanco,,Trevor Rogers
+2024-07-09,745968,Final,MIL,PIT,2,12,American Family Field,,Colin Rea,,Josh Fleming
+2024-07-09,746206,Final,LAA,TEX,4,5,Angel Stadium,,Roansy Contreras,,Max Scherzer
+2024-07-09,745393,Final,SD,SEA,3,8,Petco Park,,Adam Mazur,,Logan Gilbert
+2024-07-09,747180,Final,AZ,ATL,2,6,Chase Field,,Zac Gallen,,Chris Sale
+2024-07-09,745316,Final,SF,TOR,4,3,Oracle Park,,Blake Snell,,Yusei Kikuchi
+2024-07-10,745155,Final,STL,KC,4,6,Busch Stadium,,Andre Pallante,,Alec Marsh
+2024-07-10,745156,Final,STL,KC,5,8,Busch Stadium,,Gordon Graceffo,,Michael Wacha
+2024-07-10,746772,Final,CWS,MIN,3,1,Guaranteed Rate Field,,Erick Fedde,,Bailey Ober
+2024-07-10,746773,Final,CWS,MIN,2,3,Guaranteed Rate Field,,Drew Thorpe,,Pablo López
+2024-07-10,747015,Final,BAL,CHC,0,4,Oriole Park at Camden Yards,,Corbin Burnes,,Shota Imanaga
+2024-07-10,746453,Final,DET,CLE,5,4,Comerica Park,,Reese Olson,,Tanner Bibee
+2024-07-10,745394,Final,SD,SEA,0,2,Petco Park,,Michael King,,Bryce Miller
+2024-07-10,745069,Final,TB,NYY,1,2,Tropicana Field,,Zach Eflin,,Marcus Stroman
+2024-07-10,745556,Final,PHI,LAD,4,3,Citizens Bank Park,,Cristopher Sánchez,,Gavin Stone
+2024-07-10,746689,Final,CIN,COL,5,6,Great American Ball Park,,Frankie Montas,,Kyle Freeland
+2024-07-10,745796,Final,NYM,WSH,6,2,Citi Field,,Luis Severino,,Patrick Corbin
+2024-07-10,746934,Final,BOS,ATH,2,5,Fenway Park,,Nick Pivetta,,JP Sears
+2024-07-10,746366,Final,HOU,MIA,9,1,Minute Maid Park,,Framber Valdez,,Bryan Hoeing
+2024-07-10,745969,Final,MIL,PIT,9,0,American Family Field,,Tobias Myers,,Martín Pérez
+2024-07-10,746205,Final,LAA,TEX,7,2,Angel Stadium,,Griffin Canning,,Michael Lorenzen
+2024-07-10,747179,Final,AZ,ATL,7,5,Chase Field,,Slade Cecconi,,Charlie Morton
+2024-07-10,745318,Final,SF,TOR,6,10,Oracle Park,,Logan Webb,,Chris Bassitt
+2024-07-11,746688,Final,CIN,COL,8,1,Great American Ball Park,,Hunter Greene,,Austin Gomber
+2024-07-11,746452,Final,DET,CLE,10,1,Comerica Park,,Jack Flaherty,,Spencer Howard
+2024-07-11,745799,Final,NYM,WSH,7,0,Citi Field,,David Peterson,,MacKenzie Gore
+2024-07-11,745967,Final,MIL,PIT,0,1,American Family Field,,Aaron Civale,,Paul Skenes
+2024-07-11,745313,Final,SF,TOR,3,5,Oracle Park,,Jordan Hicks,,Kevin Gausman
+2024-07-11,745558,Final,PHI,LAD,5,1,Citizens Bank Park,,Aaron Nola,,Anthony Banda
+2024-07-11,747011,Final,BAL,CHC,0,8,Oriole Park at Camden Yards,,Albert Suárez,,Justin Steele
+2024-07-11,745065,Final,TB,NYY,5,4,Tropicana Field,,Shane Baz,,Nestor Cortes
+2024-07-11,746935,Final,BOS,ATH,7,0,Fenway Park,,Tanner Houck,,Luis Medina
+2024-07-11,746367,Final,HOU,MIA,6,3,Minute Maid Park,,,,Roddery Muñoz
+2024-07-11,746204,Final,LAA,SEA,0,11,Angel Stadium,,Jack Kochanowicz,,Luis Castillo
+2024-07-11,747178,Final,AZ,ATL,1,0,Chase Field,,Brandon Pfaadt,,Max Fried
+2024-07-12,746450,Final,DET,LAD,3,4,Comerica Park,,Tarik Skubal,,James Paxton
+2024-07-12,745552,Final,PHI,ATH,2,6,Citizens Bank Park,,Ranger Suárez,,Hogan Harris
+2024-07-12,745064,Final,TB,CLE,2,0,Tropicana Field,,Taj Bradley,,Carlos Carrasco
+2024-07-12,747012,Final,BAL,NYY,1,4,Oriole Park at Camden Yards,,Cade Povich,,Gerrit Cole
+2024-07-12,746936,Final,BOS,KC,1,6,Fenway Park,,Cooper Criswell,,Cole Ragans
+2024-07-12,745800,Final,NYM,COL,7,6,Citi Field,,Sean Manaea,,Tanner Gordon
+2024-07-12,746685,Final,CIN,MIA,7,4,Great American Ball Park,,Carson Spiers,,Yonny Chirinos
+2024-07-12,746371,Final,HOU,TEX,6,3,Minute Maid Park,,Hunter Brown,,Andrew Heaney
+2024-07-12,746774,Final,CWS,PIT,1,4,Guaranteed Rate Field,,Garrett Crochet,,Marco Gonzales
+2024-07-12,745965,Final,MIL,WSH,2,5,American Family Field,,Freddy Peralta,,Jackson Rutledge
+2024-07-12,745153,Final,STL,CHC,1,5,Busch Stadium,,Sonny Gray,,Kyle Hendricks
+2024-07-12,746207,Final,LAA,SEA,6,5,Angel Stadium,,Tyler Anderson,,Bryan Woo
+2024-07-12,747175,Final,AZ,TOR,5,4,Chase Field,,Ryne Nelson,,Yariel Rodríguez
+2024-07-12,745390,Final,SD,ATL,1,6,Petco Park,,Matt Waldron,,Spencer Schwellenbach
+2024-07-12,745312,Final,SF,MIN,7,1,Oracle Park,,Kyle Harrison,,Joe Ryan
+2024-07-13,746447,Final,DET,LAD,11,9,Comerica Park,,Keider Montero,,Justin Wrobleski
+2024-07-13,746766,Final,CWS,PIT,2,6,Guaranteed Rate Field,,Chris Flexen,,Luis Ortiz
+2024-07-13,745152,Final,STL,CHC,11,3,Busch Stadium,,Lance Lynn,,Hayden Wesneski
+2024-07-13,745175,Final,STL,CHC,5,4,Busch Stadium,,Kyle Gibson,,Javier Assad
+2024-07-13,745549,Final,PHI,ATH,11,5,Citizens Bank Park,,Tyler Phillips,,Mitch Spence
+2024-07-13,747013,Final,BAL,NYY,1,6,Oriole Park at Camden Yards,,Grayson Rodriguez,,Luis Gil
+2024-07-13,746930,Final,BOS,KC,5,0,Fenway Park,,Kutter Crawford,,Seth Lugo
+2024-07-13,745798,Final,NYM,COL,7,3,Citi Field,,Christian Scott,,Ryan Feltner
+2024-07-13,745067,Final,TB,CLE,2,4,Tropicana Field,,Zack Littell,,Gavin Williams
+2024-07-13,746369,Final,HOU,TEX,1,2,Minute Maid Park,,Spencer Arrighetti,,Nathan Eovaldi
+2024-07-13,746687,Final,CIN,MIA,10,6,Great American Ball Park,,Andrew Abbott,,Edward Cabrera
+2024-07-13,745963,Final,MIL,WSH,5,6,American Family Field,,Dallas Keuchel,,Mitchell Parker
+2024-07-13,745311,Final,SF,MIN,2,4,Oracle Park,,Hayden Birdsong,,Simeon Woods Richardson
+2024-07-13,745392,Final,SD,ATL,4,0,Petco Park,,Dylan Cease,,Reynaldo López
+2024-07-13,746202,Final,LAA,SEA,2,1,Angel Stadium,,José Soriano,,George Kirby
+2024-07-13,747177,Final,AZ,TOR,12,1,Chase Field,,Yilber Díaz,,José Berríos
+2024-07-14,747009,Final,BAL,NYY,6,5,Oriole Park at Camden Yards,,Dean Kremer,,Carlos Rodón
+2024-07-14,746932,Final,BOS,KC,5,4,Fenway Park,,Brayan Bello,,Brady Singer
+2024-07-14,745551,Final,PHI,ATH,3,18,Citizens Bank Park,,Orion Kerkering,,Joey Estes
+2024-07-14,746449,Final,DET,LAD,4,3,Comerica Park,,Beau Brieske,,Brent Honeywell
+2024-07-14,745797,Final,NYM,COL,5,8,Citi Field,,Jose Quintana,,Germán Márquez
+2024-07-14,745066,Final,TB,CLE,2,0,Tropicana Field,,Ryan Pepiot,,Ben Lively
+2024-07-14,746686,Final,CIN,MIA,2,3,Great American Ball Park,,Nick Lodolo,,Trevor Rogers
+2024-07-14,746370,Final,HOU,TEX,2,4,Minute Maid Park,,Ronel Blanco,,Max Scherzer
+2024-07-14,746769,Final,CWS,PIT,4,9,Guaranteed Rate Field,,Jared Shuster,,Mitch Keller
+2024-07-14,745962,Final,MIL,WSH,9,3,American Family Field,,Rob Zastryzny,,Jake Irvin
+2024-07-14,745151,Final,STL,CHC,3,8,Busch Stadium,,Miles Mikolas,,Jameson Taillon
+2024-07-14,745314,Final,SF,MIN,3,2,Oracle Park,,Blake Snell,,Chris Paddack
+2024-07-14,746201,Final,LAA,SEA,3,2,Angel Stadium,,Carson Fulmer,,Logan Gilbert
+2024-07-14,747176,Final,AZ,TOR,7,8,Chase Field,,Zac Gallen,,Yusei Kikuchi
+2024-07-14,745385,Final,SD,ATL,3,6,Petco Park,,Randy Vásquez,,Chris Sale
+2024-07-19,746854,Final,CHC,AZ,2,5,Wrigley Field,,Justin Steele,,Ryne Nelson
+2024-07-19,745481,Final,PIT,PHI,8,7,PNC Park,,Martín Pérez,,Aaron Nola
+2024-07-19,744829,Final,WSH,CIN,8,5,Nationals Park,,Patrick Corbin,,Frankie Montas
+2024-07-19,745721,Final,NYY,TB,6,1,Yankee Stadium,,Gerrit Cole,,Zach Eflin
+2024-07-19,744911,Final,TOR,DET,4,5,Rogers Centre,,Chris Bassitt,,Jack Flaherty
+2024-07-19,746618,Final,CLE,SD,7,0,Progressive Field,,Tanner Bibee,,Matt Waldron
+2024-07-19,746040,Final,MIA,NYM,6,4,loanDepot park,,Edward Cabrera,,Sean Manaea
+2024-07-19,744990,Final,TEX,BAL,1,9,Globe Life Field,,Nathan Eovaldi,,Corbin Burnes
+2024-07-19,746284,Final,KC,CWS,7,1,Kauffman Stadium,,Michael Wacha,,Chris Flexen
+2024-07-19,746531,Final,COL,SF,7,3,Coors Field,,Cal Quantrill,,Kyle Harrison
+2024-07-19,745640,Final,ATH,LAA,13,3,Oakland Coliseum,,JP Sears,,Griffin Canning
+2024-07-19,746123,Final,LAD,BOS,4,1,Dodger Stadium,,Gavin Stone,,Nick Pivetta
+2024-07-19,745228,Final,SEA,HOU,0,3,T-Mobile Park,,Luis Castillo,,Hunter Brown
+2024-07-20,745720,Final,NYY,TB,1,9,Yankee Stadium,,Nestor Cortes,,Taj Bradley
+2024-07-20,747093,Final,ATL,STL,3,2,Truist Park,,Charlie Morton,,Kyle Gibson
+2024-07-20,747096,Final,ATL,STL,5,9,Truist Park,,Bryce Elder,,Sonny Gray
+2024-07-20,744910,Final,TOR,DET,3,7,Rogers Centre,,Yusei Kikuchi,,Reese Olson
+2024-07-20,745638,Final,ATH,LAA,8,2,Oakland Coliseum,,Mitch Spence,,Jack Kochanowicz
+2024-07-20,746041,Final,MIA,NYM,0,1,loanDepot park,,Roddery Muñoz,,Luis Severino
+2024-07-20,745478,Final,PIT,PHI,4,1,PNC Park,,Luis Ortiz,,Cristopher Sánchez
+2024-07-20,744830,Final,WSH,CIN,5,4,Nationals Park,,MacKenzie Gore,,Nick Lodolo
+2024-07-20,744994,Final,TEX,BAL,4,8,Globe Life Field,,Max Scherzer,,Grayson Rodriguez
+2024-07-20,746613,Final,CLE,SD,0,7,Progressive Field,,Gavin Williams,,Dylan Cease
+2024-07-20,746286,Final,KC,CWS,6,1,Kauffman Stadium,,Brady Singer,,Jonathan Cannon
+2024-07-20,745880,Final,MIN,MIL,4,8,Target Field,,Pablo López,,Freddy Peralta
+2024-07-20,746852,Final,CHC,AZ,0,3,Wrigley Field,,Kyle Hendricks,,Zac Gallen
+2024-07-20,746121,Final,LAD,BOS,7,6,Dodger Stadium,,Justin Wrobleski,,Brayan Bello
+2024-07-20,746527,Final,COL,SF,4,3,Coors Field,,Kyle Freeland,,Logan Webb
+2024-07-20,745229,Final,SEA,HOU,2,4,T-Mobile Park,,George Kirby,,Framber Valdez
+2024-07-21,745882,Final,MIN,MIL,7,8,Target Field,,Joe Ryan,,Aaron Civale
+2024-07-21,744831,Final,WSH,CIN,5,2,Nationals Park,,Jake Irvin,,Andrew Abbott
+2024-07-21,745470,Final,PIT,PHI,0,6,PNC Park,,Marco Gonzales,,Tyler Phillips
+2024-07-21,747094,Final,ATL,STL,2,6,Truist Park,,Spencer Schwellenbach,,Miles Mikolas
+2024-07-21,745722,Final,NYY,TB,4,6,Yankee Stadium,,Marcus Stroman,,Shane Baz
+2024-07-21,744909,Final,TOR,DET,5,4,Rogers Centre,,Kevin Gausman,,Keider Montero
+2024-07-21,746610,Final,CLE,SD,1,2,Progressive Field,,Ben Lively,,Michael King
+2024-07-21,746042,Final,MIA,NYM,4,2,loanDepot park,,Trevor Rogers,,Christian Scott
+2024-07-21,746287,Final,KC,CWS,4,1,Kauffman Stadium,,Seth Lugo,,Drew Thorpe
+2024-07-21,746853,Final,CHC,AZ,2,1,Wrigley Field,,Shota Imanaga,,Brandon Pfaadt
+2024-07-21,744991,Final,TEX,BAL,3,2,Globe Life Field,,Andrew Heaney,,Dean Kremer
+2024-07-21,746528,Final,COL,SF,2,3,Coors Field,,Ryan Feltner,,Hayden Birdsong
+2024-07-21,745633,Final,ATH,LAA,5,8,Oakland Coliseum,,Joey Estes,,Carson Fulmer
+2024-07-21,745230,Final,SEA,HOU,6,4,T-Mobile Park,,Bryan Woo,,Ronel Blanco
+2024-07-21,746125,Final,LAD,BOS,9,6,Dodger Stadium,,James Paxton,,Kutter Crawford
+2024-07-22,745717,Final,NYY,TB,9,1,Yankee Stadium,,Carlos Rodón,,Zack Littell
+2024-07-22,746612,Final,CLE,DET,2,8,Progressive Field,,Carlos Carrasco,,Tarik Skubal
+2024-07-22,745473,Final,PIT,STL,2,1,PNC Park,,Mitch Keller,,Andre Pallante
+2024-07-22,746034,Final,MIA,NYM,4,6,loanDepot park,,Yonny Chirinos,,David Peterson
+2024-07-22,747095,Final,ATL,CIN,1,4,Truist Park,,Reynaldo López,,Hunter Greene
+2024-07-22,745881,Final,MIN,PHI,7,2,Target Field,,Bailey Ober,,Ranger Suárez
+2024-07-22,744988,Final,TEX,CWS,4,3,Globe Life Field,,Michael Lorenzen,,Erick Fedde
+2024-07-22,746850,Final,CHC,MIL,3,1,Wrigley Field,,Javier Assad,,Tobias Myers
+2024-07-22,746280,Final,KC,AZ,10,4,Kauffman Stadium,,Cole Ragans,,Yilber Díaz
+2024-07-22,746526,Final,COL,BOS,9,8,Coors Field,,Austin Gomber,,Tanner Houck
+2024-07-22,745635,Final,ATH,HOU,4,0,Oakland Coliseum,,Hogan Harris,,Spencer Arrighetti
+2024-07-22,745232,Final,SEA,LAA,1,3,T-Mobile Park,,Bryce Miller,,Tyler Anderson
+2024-07-22,746124,Final,LAD,SF,3,2,Dodger Stadium,,River Ryan,,Blake Snell
+2024-07-23,746614,Final,CLE,DET,5,4,Progressive Field,,Xzavion Curry,,Tyler Holton
+2024-07-23,745475,Final,PIT,STL,1,2,PNC Park,,Paul Skenes,,Lance Lynn
+2024-07-23,746036,Final,MIA,BAL,6,3,loanDepot park,,Kyle Tyler,,Albert Suárez
+2024-07-23,744828,Final,WSH,SD,0,4,Nationals Park,,DJ Herz,,Randy Vásquez
+2024-07-23,745715,Final,NYY,NYM,2,3,Yankee Stadium,,Luis Gil,,Jose Quintana
+2024-07-23,744904,Final,TOR,TB,2,4,Rogers Centre,,José Berríos,,Shawn Armstrong
+2024-07-23,745878,Final,MIN,PHI,0,3,Target Field,,Simeon Woods Richardson,,Zack Wheeler
+2024-07-23,744985,Final,TEX,CWS,3,2,Globe Life Field,,Jon Gray,,Garrett Crochet
+2024-07-23,746848,Final,CHC,MIL,0,1,Wrigley Field,,Jameson Taillon,,Colin Rea
+2024-07-23,746281,Final,KC,AZ,2,6,Kauffman Stadium,,Alec Marsh,,Jordan Montgomery
+2024-07-23,746524,Final,COL,BOS,0,6,Coors Field,,Ty Blach,,Cooper Criswell
+2024-07-23,745632,Final,ATH,HOU,8,2,Oakland Coliseum,,Osvaldo Bido,,Jake Bloss
+2024-07-23,745227,Final,SEA,LAA,1,5,T-Mobile Park,,Logan Gilbert,,José Soriano
+2024-07-23,746118,Final,LAD,SF,5,2,Dodger Stadium,,Landon Knack,,Jordan Hicks
+2024-07-24,747091,Final,ATL,CIN,4,9,Truist Park,,Allan Winans,,Frankie Montas
+2024-07-24,745472,Final,PIT,STL,5,0,PNC Park,,Martín Pérez,,Matthew Liberatore
+2024-07-24,745877,Final,MIN,PHI,5,4,Target Field,,Steven Okert,,Aaron Nola
+2024-07-24,746851,Final,CHC,MIL,2,3,Wrigley Field,,Justin Steele,,Rob Zastryzny
+2024-07-24,746525,Final,COL,BOS,20,7,Coors Field,,Cal Quantrill,,Nick Pivetta
+2024-07-24,745634,Final,ATH,HOU,1,8,Oakland Coliseum,,JP Sears,,Hunter Brown
+2024-07-24,745231,Final,SEA,LAA,1,2,T-Mobile Park,,Luis Castillo,,Griffin Canning
+2024-07-24,746611,Final,CLE,DET,2,1,Progressive Field,,Tanner Bibee,,Jack Flaherty
+2024-07-24,746035,Final,MIA,BAL,6,3,loanDepot park,,Edward Cabrera,,Chayce McDermott
+2024-07-24,744824,Final,WSH,SD,3,12,Nationals Park,,Mitchell Parker,,Matt Waldron
+2024-07-24,745716,Final,NYY,NYM,3,12,Yankee Stadium,,Gerrit Cole,,Sean Manaea
+2024-07-24,744905,Final,TOR,TB,6,3,Rogers Centre,,Yariel Rodríguez,,Zach Eflin
+2024-07-24,744989,Final,TEX,CWS,10,2,Globe Life Field,,Nathan Eovaldi,,Chris Flexen
+2024-07-24,746279,Final,KC,AZ,6,8,Kauffman Stadium,,Michael Wacha,,Ryne Nelson
+2024-07-24,746119,Final,LAD,SF,3,8,Dodger Stadium,,Tyler Glasnow,,Robbie Ray
+2024-07-25,744827,Final,WSH,SD,0,3,Nationals Park,,Patrick Corbin,,Dylan Cease
+2024-07-25,746037,Final,MIA,BAL,6,7,loanDepot park,,Roddery Muñoz,,Corbin Burnes
+2024-07-25,746609,Final,CLE,DET,0,3,Progressive Field,,Gavin Williams,,Tyler Holton
+2024-07-25,744984,Final,TEX,CWS,2,1,Globe Life Field,,Max Scherzer,,Jonathan Cannon
+2024-07-25,744907,Final,TOR,TB,0,13,Rogers Centre,,Chris Bassitt,,Taj Bradley
+2024-07-25,746117,Final,LAD,SF,6,4,Dodger Stadium,,Clayton Kershaw,,Logan Webb
+2024-07-25,745794,Final,NYM,ATL,3,2,Citi Field,,Luis Severino,,Chris Sale
+2024-07-25,746199,Final,LAA,ATH,5,6,Angel Stadium,,Kenny Rosenberg,,Ross Stripling
+2024-07-26,746448,Final,DET,MIN,3,9,Comerica Park,,Keider Montero,,Pablo López
+2024-07-26,745554,Final,PHI,CLE,1,3,Citizens Bank Park,,Cristopher Sánchez,,Ben Lively
+2024-07-26,745068,Final,TB,CIN,2,3,Tropicana Field,,Shane Baz,,Nick Lodolo
+2024-07-26,747010,Final,BAL,SD,4,6,Oriole Park at Camden Yards,,Grayson Rodriguez,,Adam Mazur
+2024-07-26,744906,Final,TOR,TEX,6,5,Rogers Centre,,Yusei Kikuchi,,Andrew Heaney
+2024-07-26,745792,Final,NYM,ATL,8,4,Citi Field,,Kodai Senga,,Charlie Morton
+2024-07-26,746933,Final,BOS,NYY,9,7,Fenway Park,,Brayan Bello,,Nestor Cortes
+2024-07-26,746277,Final,KC,CHC,6,0,Kauffman Stadium,,Brady Singer,,Kyle Hendricks
+2024-07-26,746361,Final,HOU,LAD,5,0,Minute Maid Park,,Framber Valdez,,Gavin Stone
+2024-07-26,746767,Final,CWS,SEA,0,10,Guaranteed Rate Field,,Drew Thorpe,,George Kirby
+2024-07-26,745964,Final,MIL,MIA,2,6,American Family Field,,Freddy Peralta,,Trevor Rogers
+2024-07-26,745146,Final,STL,WSH,8,10,Busch Stadium,,Sonny Gray,,MacKenzie Gore
+2024-07-26,746200,Final,LAA,ATH,4,5,Angel Stadium,,Carson Fulmer,,Paul Blackburn
+2024-07-26,747174,Final,AZ,PIT,4,3,Chase Field,,Zac Gallen,,Luis Ortiz
+2024-07-26,745315,Final,SF,COL,11,4,Oracle Park,,Kyle Harrison,,Kyle Freeland
+2024-07-27,744908,Final,TOR,TEX,7,3,Rogers Centre,,Kevin Gausman,,Michael Lorenzen
+2024-07-27,747006,Final,BAL,SD,4,9,Oriole Park at Camden Yards,,Dean Kremer,,Michael King
+2024-07-27,745059,Final,TB,CIN,4,0,Tropicana Field,,Zack Littell,,Andrew Abbott
+2024-07-27,745793,Final,NYM,ATL,0,4,Citi Field,,Tylor Megill,,Spencer Schwellenbach
+2024-07-27,745553,Final,PHI,CLE,8,0,Citizens Bank Park,,Tyler Phillips,,Carlos Carrasco
+2024-07-27,746446,Final,DET,MIN,7,2,Comerica Park,,Tarik Skubal,,Joe Ryan
+2024-07-27,745307,Final,SF,COL,4,1,Oracle Park,,Blake Snell,,Ryan Feltner
+2024-07-27,745310,Final,SF,COL,5,0,Oracle Park,,Hayden Birdsong,,Tanner Gordon
+2024-07-27,746278,Final,KC,CHC,4,9,Kauffman Stadium,,Seth Lugo,,Shota Imanaga
+2024-07-27,746362,Final,HOU,LAD,7,6,Minute Maid Park,,Ronel Blanco,,Justin Wrobleski
+2024-07-27,745966,Final,MIL,MIA,3,7,American Family Field,,Aaron Civale,,Max Meyer
+2024-07-27,745150,Final,STL,WSH,3,14,Busch Stadium,,Kyle Gibson,,Jake Irvin
+2024-07-27,746768,Final,CWS,SEA,3,6,Guaranteed Rate Field,,Erick Fedde,,Bryan Woo
+2024-07-27,746931,Final,BOS,NYY,8,11,Fenway Park,,Kutter Crawford,,Marcus Stroman
+2024-07-27,747171,Final,AZ,PIT,9,5,Chase Field,,Brandon Pfaadt,,Marco Gonzales
+2024-07-27,746203,Final,LAA,ATH,1,3,Angel Stadium,,Tyler Anderson,,Mitch Spence
+2024-07-28,745063,Final,TB,CIN,2,1,Tropicana Field,,,,Hunter Greene
+2024-07-28,747008,Final,BAL,SD,8,6,Oriole Park at Camden Yards,,Albert Suárez,,Randy Vásquez
+2024-07-28,745550,Final,PHI,CLE,3,4,Citizens Bank Park,,Kolby Allard,,Joey Cantillo
+2024-07-28,744902,Final,TOR,TEX,7,3,Rogers Centre,,José Berríos,,Jon Gray
+2024-07-28,746445,Final,DET,MIN,0,5,Comerica Park,,Alex Faedo,,Bailey Ober
+2024-07-28,745795,Final,NYM,ATL,2,9,Citi Field,,David Peterson,,Reynaldo López
+2024-07-28,746274,Final,KC,CHC,3,7,Kauffman Stadium,,Cole Ragans,,Javier Assad
+2024-07-28,746364,Final,HOU,LAD,2,6,Minute Maid Park,,Spencer Arrighetti,,River Ryan
+2024-07-28,746770,Final,CWS,SEA,3,6,Guaranteed Rate Field,,Garrett Crochet,,Bryce Miller
+2024-07-28,745961,Final,MIL,MIA,6,2,American Family Field,,Tobias Myers,,Kyle Tyler
+2024-07-28,745145,Final,STL,WSH,4,3,Busch Stadium,,Miles Mikolas,,DJ Herz
+2024-07-28,745305,Final,SF,COL,5,4,Oracle Park,,Erik Miller,,Austin Gomber
+2024-07-28,746195,Final,LAA,ATH,8,6,Angel Stadium,,José Soriano,,Osvaldo Bido
+2024-07-28,747173,Final,AZ,PIT,5,6,Chase Field,,Yilber Díaz,,Mitch Keller
+2024-07-28,746929,Final,BOS,NYY,2,8,Fenway Park,,Tanner Houck,,Carlos Rodón
+2024-07-29,747007,Final,BAL,TOR,11,5,Oriole Park at Camden Yards,,Zach Eflin,,Yariel Rodríguez
+2024-07-29,747039,Final,BAL,TOR,4,8,Oriole Park at Camden Yards,,Cade Povich,,Bowden Francis
+2024-07-29,746444,Final,DET,CLE,4,8,Comerica Park,,Beau Brieske,,Tanner Bibee
+2024-07-29,745547,Final,PHI,NYY,4,14,Citizens Bank Park,,Zack Wheeler,,Luis Gil
+2024-07-29,746684,Final,CIN,CHC,7,1,Great American Ball Park,,Carson Spiers,,Jameson Taillon
+2024-07-29,746928,Final,BOS,SEA,14,7,Fenway Park,,Nick Pivetta,,Logan Gilbert
+2024-07-29,745791,Final,NYM,MIN,15,2,Citi Field,,Jose Quintana,,Simeon Woods Richardson
+2024-07-29,745147,Final,STL,TEX,3,6,Busch Stadium,,Andre Pallante,,Nathan Eovaldi
+2024-07-29,746360,Final,HOU,PIT,3,5,Minute Maid Park,,Tayler Scott,,Paul Skenes
+2024-07-29,746765,Final,CWS,KC,5,8,Guaranteed Rate Field,,Chris Flexen,,Alec Marsh
+2024-07-29,745959,Final,MIL,ATL,8,3,American Family Field,,Colin Rea,,Grant Holmes
+2024-07-29,747172,Final,AZ,WSH,9,8,Chase Field,,Jordan Montgomery,,Mitchell Parker
+2024-07-30,746441,Final,DET,CLE,0,5,Comerica Park,,Tyler Holton,,Gavin Williams
+2024-07-30,747005,Final,BAL,TOR,6,2,Oriole Park at Camden Yards,,Corbin Burnes,,Chris Bassitt
+2024-07-30,745546,Final,PHI,NYY,6,7,Citizens Bank Park,,Aaron Nola,,Will Warren
+2024-07-30,745060,Final,TB,MIA,9,3,Tropicana Field,,Jeffrey Springs,,Edward Cabrera
+2024-07-30,746683,Final,CIN,CHC,6,3,Great American Ball Park,,Tony Santillan,,Justin Steele
+2024-07-30,746926,Final,BOS,SEA,6,10,Fenway Park,,James Paxton,,Luis Castillo
+2024-07-30,745787,Final,NYM,MIN,2,0,Citi Field,,Sean Manaea,,David Festa
+2024-07-30,745149,Final,STL,TEX,8,1,Busch Stadium,,Lance Lynn,,Max Scherzer
+2024-07-30,746365,Final,HOU,PIT,2,6,Minute Maid Park,,Hunter Brown,,Bailey Falter
+2024-07-30,746763,Final,CWS,KC,3,4,Guaranteed Rate Field,,Jonathan Cannon,,Michael Wacha
+2024-07-30,745958,Final,MIL,ATL,1,5,American Family Field,,Joe Ross,,Bryce Elder
+2024-07-30,746197,Final,LAA,COL,10,7,Angel Stadium,,Griffin Canning,,Cal Quantrill
+2024-07-30,747167,Final,AZ,WSH,17,0,Chase Field,,Ryne Nelson,,Patrick Corbin
+2024-07-30,745389,Final,SD,LAD,6,5,Petco Park,,Matt Waldron,,Tyler Glasnow
+2024-07-30,745309,Final,SF,ATH,2,5,Oracle Park,,Robbie Ray,,JP Sears
+2024-07-31,745061,Final,TB,MIA,2,6,Tropicana Field,,Taj Bradley,,Roddery Muñoz
+2024-07-31,747003,Final,BAL,TOR,10,4,Oriole Park at Camden Yards,,Grayson Rodriguez,,Paolo Espino
+2024-07-31,745543,Final,PHI,NYY,5,6,Citizens Bank Park,,Cristopher Sánchez,,Nestor Cortes
+2024-07-31,745789,Final,NYM,MIN,3,8,Citi Field,,Luis Severino,,Pablo López
+2024-07-31,746764,Final,CWS,KC,3,10,Guaranteed Rate Field,,Drew Thorpe,,Brady Singer
+2024-07-31,745960,Final,MIL,ATL,2,6,American Family Field,,Freddy Peralta,,Chris Sale
+2024-07-31,745148,Final,STL,TEX,10,1,Busch Stadium,,Michael McGreevy,,Andrew Heaney
+2024-07-31,747170,Final,AZ,WSH,5,4,Chase Field,,Zac Gallen,,MacKenzie Gore
+2024-07-31,746925,Final,BOS,SEA,3,2,Fenway Park,,Brayan Bello,,George Kirby
+2024-07-31,746678,Final,CIN,CHC,4,13,Great American Ball Park,,Nick Lodolo,,Kyle Hendricks
+2024-07-31,746363,Final,HOU,PIT,5,4,Minute Maid Park,,Framber Valdez,,Jake Woodford
+2024-07-31,745386,Final,SD,LAD,8,1,Petco Park,,Dylan Cease,,Clayton Kershaw
+2024-07-31,746198,Final,LAA,COL,1,2,Angel Stadium,,Davis Daniel,,Kyle Freeland
+2024-07-31,745306,Final,SF,ATH,1,0,Oracle Park,,Logan Webb,,Ross Stripling
+2024-08-01,746607,Final,CLE,BAL,10,3,Progressive Field,,Ben Lively,,Trevor Rogers
+2024-08-01,746442,Final,DET,KC,1,7,Comerica Park,,Keider Montero,,Seth Lugo
+2024-08-01,747092,Final,ATL,MIA,4,2,Truist Park,,Charlie Morton,,Max Meyer
+2024-08-01,746849,Final,CHC,STL,5,4,Wrigley Field,,Shota Imanaga,,Sonny Gray
+2024-08-01,746196,Final,LAA,COL,4,5,Angel Stadium,,Carson Fulmer,,Ryan Feltner
+2024-08-02,746845,Final,CHC,STL,6,3,Wrigley Field,,Javier Assad,,Erick Fedde
+2024-08-02,746443,Final,DET,KC,2,9,Comerica Park,,Tarik Skubal,,Cole Ragans
+2024-08-02,745471,Final,PIT,AZ,8,9,PNC Park,,Luis Ortiz,,Brandon Pfaadt
+2024-08-02,744825,Final,WSH,MIL,3,8,Nationals Park,,Jake Irvin,,Frankie Montas
+2024-08-02,745719,Final,NYY,TOR,5,8,Yankee Stadium,,Marcus Stroman,,Kevin Gausman
+2024-08-02,746605,Final,CLE,BAL,8,4,Progressive Field,,Carlos Carrasco,,Dean Kremer
+2024-08-02,746679,Final,CIN,SF,0,3,Great American Ball Park,,Andrew Abbott,,Blake Snell
+2024-08-02,747089,Final,ATL,MIA,5,3,Truist Park,,Spencer Schwellenbach,,Valente Bellozo
+2024-08-02,744986,Final,TEX,BOS,6,11,Globe Life Field,,José Ureña,,Kutter Crawford
+2024-08-02,746354,Final,HOU,TB,3,2,Minute Maid Park,,Yusei Kikuchi,,Shane Baz
+2024-08-02,745875,Final,MIN,CWS,10,2,Target Field,,Joe Ryan,,Davis Martin
+2024-08-02,746193,Final,LAA,NYM,1,5,Angel Stadium,,Tyler Anderson,,Paul Blackburn
+2024-08-02,745631,Final,ATH,LAD,6,5,Oakland Coliseum,,Joey Estes,,Gavin Stone
+2024-08-02,745387,Final,SD,COL,2,5,Petco Park,,Randy Vásquez,,Austin Gomber
+2024-08-02,745224,Final,SEA,PHI,10,2,T-Mobile Park,,Bryan Woo,,Tyler Phillips
+2024-08-03,745714,Final,NYY,TOR,8,3,Yankee Stadium,,Carlos Rodón,,José Berríos
+2024-08-03,746846,Final,CHC,STL,4,5,Wrigley Field,,Jameson Taillon,,Kyle Gibson
+2024-08-03,744823,Final,WSH,MIL,6,4,Nationals Park,,DJ Herz,,Aaron Civale
+2024-08-03,746440,Final,DET,KC,6,5,Comerica Park,,Tyler Holton,,Michael Lorenzen
+2024-08-03,745474,Final,PIT,AZ,4,2,PNC Park,,Mitch Keller,,Jordan Montgomery
+2024-08-03,744987,Final,TEX,BOS,7,4,Globe Life Field,,Cody Bradford,,Tanner Houck
+2024-08-03,745876,Final,MIN,CWS,6,2,Target Field,,Bailey Ober,,Garrett Crochet
+2024-08-03,746608,Final,CLE,BAL,4,7,Progressive Field,,Joey Cantillo,,Zach Eflin
+2024-08-03,746681,Final,CIN,SF,6,4,Great American Ball Park,,Hunter Greene,,Kyle Harrison
+2024-08-03,746358,Final,HOU,TB,1,6,Minute Maid Park,,Ronel Blanco,,Zack Littell
+2024-08-03,747087,Final,ATL,MIA,3,4,Truist Park,,Grant Holmes,,Kyle Tyler
+2024-08-03,745388,Final,SD,COL,3,2,Petco Park,,Martín Pérez,,Tanner Gordon
+2024-08-03,745636,Final,ATH,LAD,0,10,Oakland Coliseum,,Mitch Spence,,Jack Flaherty
+2024-08-03,746194,Final,LAA,NYM,5,4,Angel Stadium,,José Soriano,,David Peterson
+2024-08-03,745225,Final,SEA,PHI,6,5,T-Mobile Park,,Bryce Miller,,Orion Kerkering
+2024-08-04,746680,Final,CIN,SF,2,8,Great American Ball Park,,Carson Spiers,,Robbie Ray
+2024-08-04,745468,Final,PIT,AZ,5,6,PNC Park,,Paul Skenes,,Ryne Nelson
+2024-08-04,747088,Final,ATL,MIA,0,7,Truist Park,,Max Fried,,Edward Cabrera
+2024-08-04,745718,Final,NYY,TOR,4,3,Yankee Stadium,,Gerrit Cole,,Yariel Rodríguez
+2024-08-04,744826,Final,WSH,MIL,4,3,Nationals Park,,Mitchell Parker,,Tobias Myers
+2024-08-04,746606,Final,CLE,BAL,5,9,Progressive Field,,Gavin Williams,,Corbin Burnes
+2024-08-04,746439,Final,DET,KC,2,3,Comerica Park,,Alex Faedo,,Michael Wacha
+2024-08-04,746356,Final,HOU,TB,0,1,Minute Maid Park,,Spencer Arrighetti,,Hunter Bigge
+2024-08-04,745879,Final,MIN,CWS,13,7,Target Field,,Simeon Woods Richardson,,Chris Flexen
+2024-08-04,744979,Final,TEX,BOS,2,7,Globe Life Field,,Nathan Eovaldi,,Nick Pivetta
+2024-08-04,746191,Final,LAA,NYM,3,2,Angel Stadium,,Griffin Canning,,Jose Quintana
+2024-08-04,745627,Final,ATH,LAD,2,3,Oakland Coliseum,,Osvaldo Bido,,River Ryan
+2024-08-04,745384,Final,SD,COL,10,2,Petco Park,,Matt Waldron,,Cal Quantrill
+2024-08-04,745222,Final,SEA,PHI,0,6,T-Mobile Park,,Logan Gilbert,,Zack Wheeler
+2024-08-04,746844,Final,CHC,STL,6,2,Wrigley Field,,Justin Steele,,Miles Mikolas
+2024-08-05,745184,Final,STL,NYM,0,6,Busch Stadium,,Andre Pallante,,Sean Manaea
+2024-08-05,746600,Final,CLE,AZ,6,7,Progressive Field,,Logan Allen,,Zac Gallen
+2024-08-05,746038,Final,MIA,CIN,3,10,loanDepot park,,Roddery Muñoz,,Nick Martinez
+2024-08-05,744821,Final,WSH,SF,1,4,Nationals Park,,Patrick Corbin,,Logan Webb
+2024-08-05,744982,Final,TEX,HOU,4,3,Globe Life Field,,Andrew Heaney,,Hunter Brown
+2024-08-05,746847,Final,CHC,MIN,0,3,Wrigley Field,,Kyle Hendricks,,David Festa
+2024-08-05,746276,Final,KC,BOS,5,9,Kauffman Stadium,,Brady Singer,,James Paxton
+2024-08-05,745628,Final,ATH,CWS,5,1,Oakland Coliseum,,JP Sears,,Ky Bush
+2024-08-05,746116,Final,LAD,PHI,5,3,Dodger Stadium,,Tyler Glasnow,,Aaron Nola
+2024-08-06,745467,Final,PIT,SD,0,6,PNC Park,,Bailey Falter,,Dylan Cease
+2024-08-06,746033,Final,MIA,CIN,2,8,loanDepot park,,Max Meyer,,Nick Lodolo
+2024-08-06,744817,Final,WSH,SF,11,5,Nationals Park,,MacKenzie Gore,,Hayden Birdsong
+2024-08-06,744901,Final,TOR,BAL,5,2,Rogers Centre,,Chris Bassitt,,Albert Suárez
+2024-08-06,747086,Final,ATL,MIL,0,10,Truist Park,,Bryce Elder,,Colin Rea
+2024-08-06,745141,Final,STL,TB,4,3,Busch Stadium,,Sonny Gray,,Jeffrey Springs
+2024-08-06,744983,Final,TEX,HOU,2,4,Globe Life Field,,Tyler Mahle,,Framber Valdez
+2024-08-06,746840,Final,CHC,MIN,7,3,Wrigley Field,,Shota Imanaga,,Pablo López
+2024-08-06,746273,Final,KC,BOS,5,6,Kauffman Stadium,,Seth Lugo,,Brayan Bello
+2024-08-06,746519,Final,COL,NYM,6,3,Coors Field,,Kyle Freeland,,Luis Severino
+2024-08-06,745221,Final,SEA,DET,2,4,T-Mobile Park,,Luis Castillo,,Keider Montero
+2024-08-06,745629,Final,ATH,CWS,1,5,Oakland Coliseum,,Ross Stripling,,Jonathan Cannon
+2024-08-06,746120,Final,LAD,PHI,2,6,Dodger Stadium,,Clayton Kershaw,,Cristopher Sánchez
+2024-08-07,746604,Final,CLE,AZ,3,7,Progressive Field,,Ben Lively,,Brandon Pfaadt
+2024-08-07,746602,Final,CLE,AZ,3,5,Progressive Field,,Carlos Carrasco,,Eduardo Rodriguez
+2024-08-07,746842,Final,CHC,MIN,8,2,Wrigley Field,,Javier Assad,,Joe Ryan
+2024-08-07,744981,Final,TEX,HOU,4,6,Globe Life Field,,José Ureña,,Yusei Kikuchi
+2024-08-07,745630,Final,ATH,CWS,3,2,Oakland Coliseum,,Joey Estes,,Davis Martin
+2024-08-07,745709,Final,NYY,LAA,5,2,Yankee Stadium,,Luis Gil,,Davis Daniel
+2024-08-07,745713,Final,NYY,LAA,2,8,Yankee Stadium,,Will Warren,,Carson Fulmer
+2024-08-07,745469,Final,PIT,SD,8,9,PNC Park,,Marco Gonzales,,Michael King
+2024-08-07,746031,Final,MIA,CIN,6,4,loanDepot park,,Valente Bellozo,,Andrew Abbott
+2024-08-07,744822,Final,WSH,SF,4,7,Nationals Park,,Jake Irvin,,Blake Snell
+2024-08-07,744903,Final,TOR,BAL,3,7,Rogers Centre,,Bowden Francis,,Trevor Rogers
+2024-08-07,747085,Final,ATL,MIL,5,8,Truist Park,,Chris Sale,,Freddy Peralta
+2024-08-07,745142,Final,STL,TB,5,2,Busch Stadium,,Erick Fedde,,Taj Bradley
+2024-08-07,746272,Final,KC,BOS,8,4,Kauffman Stadium,,Cole Ragans,,Kutter Crawford
+2024-08-07,746521,Final,COL,NYM,3,5,Coors Field,,Ryan Feltner,,Paul Blackburn
+2024-08-07,745223,Final,SEA,DET,2,6,T-Mobile Park,,George Kirby,,Tarik Skubal
+2024-08-07,746115,Final,LAD,PHI,4,9,Dodger Stadium,,Gavin Stone,,Tyler Phillips
+2024-08-08,744819,Final,WSH,SF,5,9,Nationals Park,,DJ Herz,,Kyle Harrison
+2024-08-08,747081,Final,ATL,MIL,7,16,Truist Park,,Charlie Morton,,Frankie Montas
+2024-08-08,745466,Final,PIT,SD,6,7,PNC Park,,Luis Ortiz,,Randy Vásquez
+2024-08-08,746522,Final,COL,NYM,1,9,Coors Field,,Austin Gomber,,David Peterson
+2024-08-08,746030,Final,MIA,CIN,4,10,loanDepot park,,Kyle Tyler,,Hunter Greene
+2024-08-08,745710,Final,NYY,LAA,4,9,Yankee Stadium,,Nestor Cortes,,Tyler Anderson
+2024-08-08,744899,Final,TOR,BAL,7,6,Rogers Centre,,Kevin Gausman,,Dean Kremer
+2024-08-08,745143,Final,STL,TB,4,6,Busch Stadium,,Kyle Gibson,,Shane Baz
+2024-08-08,745226,Final,SEA,DET,4,3,T-Mobile Park,,Bryan Woo,,Brenan Hanifee
+2024-08-08,747169,Final,AZ,PHI,4,6,Chase Field,,Jordan Montgomery,,Kolby Allard
+2024-08-09,745927,Final,MIN,CLE,4,2,Target Field,,Bailey Ober,,Joey Cantillo
+2024-08-09,745871,Final,MIN,CLE,6,3,Target Field,,Louis Varland,,Alex Cobb
+2024-08-09,744818,Final,WSH,LAA,3,2,Nationals Park,,Mitchell Parker,,José Soriano
+2024-08-09,745062,Final,TB,BAL,1,4,Tropicana Field,,Zack Littell,,Zach Eflin
+2024-08-09,744900,Final,TOR,ATH,3,1,Rogers Centre,,José Berríos,,Mitch Spence
+2024-08-09,746927,Final,BOS,HOU,4,8,Fenway Park,,Tanner Houck,,Ronel Blanco
+2024-08-09,746032,Final,MIA,SD,2,6,loanDepot park,,Edward Cabrera,,Martín Pérez
+2024-08-09,746275,Final,KC,STL,5,8,Kauffman Stadium,,Michael Lorenzen,,Miles Mikolas
+2024-08-09,746760,Final,CWS,CHC,6,7,Guaranteed Rate Field,,Garrett Crochet,,Jameson Taillon
+2024-08-09,745957,Final,MIL,CIN,8,3,American Family Field,,Aaron Civale,,Carson Spiers
+2024-08-09,746523,Final,COL,ATL,6,5,Coors Field,,Tanner Gordon,,Grant Holmes
+2024-08-09,747168,Final,AZ,PHI,3,2,Chase Field,,Ryne Nelson,,Zack Wheeler
+2024-08-09,746113,Final,LAD,PIT,9,5,Dodger Stadium,,Jack Flaherty,,Mitch Keller
+2024-08-09,745220,Final,SEA,NYM,6,0,T-Mobile Park,,Bryce Miller,,Jose Quintana
+2024-08-09,745308,Final,SF,DET,3,2,Oracle Park,,Robbie Ray,,Beau Brieske
+2024-08-10,745712,Final,NYY,TEX,8,0,Yankee Stadium,,Carlos Rodón,,Nathan Eovaldi
+2024-08-10,745708,Final,NYY,TEX,4,9,Yankee Stadium,,Gerrit Cole,,Cody Bradford
+2024-08-10,744897,Final,TOR,ATH,0,1,Rogers Centre,,Yariel Rodríguez,,Osvaldo Bido
+2024-08-10,745304,Final,SF,DET,3,1,Oracle Park,,Logan Webb,,Alex Faedo
+2024-08-10,746922,Final,BOS,HOU,4,5,Fenway Park,,Josh Winckowski,,Spencer Arrighetti
+2024-08-10,746026,Final,MIA,SD,8,9,loanDepot park,,Roddery Muñoz,,Matt Waldron
+2024-08-10,744820,Final,WSH,LAA,5,4,Nationals Park,,Patrick Corbin,,Griffin Canning
+2024-08-10,746269,Final,KC,STL,8,3,Kauffman Stadium,,Michael Wacha,,Andre Pallante
+2024-08-10,745873,Final,MIN,CLE,1,2,Target Field,,Simeon Woods Richardson,,Gavin Williams
+2024-08-10,745955,Final,MIL,CIN,1,0,American Family Field,,Tobias Myers,,Nick Martinez
+2024-08-10,745056,Final,TB,BAL,5,7,Tropicana Field,,Drew Rasmussen,,Corbin Burnes
+2024-08-10,746761,Final,CWS,CHC,1,3,Guaranteed Rate Field,,Chris Flexen,,Justin Steele
+2024-08-10,747164,Final,AZ,PHI,11,1,Chase Field,,Zac Gallen,,Aaron Nola
+2024-08-10,746520,Final,COL,ATL,8,11,Coors Field,,Dakota Hudson,,Max Fried
+2024-08-10,746112,Final,LAD,PIT,4,1,Dodger Stadium,,River Ryan,,Paul Skenes
+2024-08-10,745219,Final,SEA,NYM,4,0,T-Mobile Park,,Logan Gilbert,,Sean Manaea
+2024-08-11,744816,Final,WSH,LAA,4,6,Nationals Park,,MacKenzie Gore,,Jack Kochanowicz
+2024-08-11,746923,Final,BOS,HOU,2,10,Fenway Park,,James Paxton,,Hunter Brown
+2024-08-11,745711,Final,NYY,TEX,8,7,Yankee Stadium,,Marcus Stroman,,Andrew Heaney
+2024-08-11,744895,Final,TOR,ATH,4,8,Rogers Centre,,Chris Bassitt,,JP Sears
+2024-08-11,745057,Final,TB,BAL,2,1,Tropicana Field,,Jeffrey Springs,,Albert Suárez
+2024-08-11,746025,Final,MIA,SD,7,6,loanDepot park,,Max Meyer,,Dylan Cease
+2024-08-11,745872,Final,MIN,CLE,3,5,Target Field,,David Festa,,Tanner Bibee
+2024-08-11,745956,Final,MIL,CIN,3,4,American Family Field,,DL Hall,,Nick Lodolo
+2024-08-11,746517,Final,COL,ATL,9,8,Coors Field,,Kyle Freeland,,Spencer Schwellenbach
+2024-08-11,745303,Final,SF,DET,4,5,Oracle Park,,Hayden Birdsong,,Keider Montero
+2024-08-11,746114,Final,LAD,PIT,6,5,Dodger Stadium,,Tyler Glasnow,,Bailey Falter
+2024-08-11,747166,Final,AZ,PHI,12,5,Chase Field,,Merrill Kelly,,Cristopher Sánchez
+2024-08-11,745216,Final,SEA,NYM,12,1,T-Mobile Park,,Luis Castillo,,Luis Severino
+2024-08-12,746603,Final,CLE,CHC,9,8,Progressive Field,,Ben Lively,,Shota Imanaga
+2024-08-12,746682,Final,CIN,STL,6,1,Great American Ball Park,,Andrew Abbott,,Sonny Gray
+2024-08-12,745058,Final,TB,HOU,1,6,Tropicana Field,,Taj Bradley,,Framber Valdez
+2024-08-12,746921,Final,BOS,TEX,5,4,Fenway Park,,Brayan Bello,,Tyler Mahle
+2024-08-12,745874,Final,MIN,KC,8,3,Target Field,,Pablo López,,Brady Singer
+2024-08-12,746762,Final,CWS,NYY,12,2,Guaranteed Rate Field,,Ky Bush,,Luis Gil
+2024-08-12,745953,Final,MIL,LAD,2,5,American Family Field,,Freddy Peralta,,Clayton Kershaw
+2024-08-12,746192,Final,LAA,TOR,2,4,Angel Stadium,,Davis Daniel,,Bowden Francis
+2024-08-12,747165,Final,AZ,COL,5,4,Chase Field,,Brandon Pfaadt,,Bradley Blalock
+2024-08-12,745383,Final,SD,PIT,2,1,Petco Park,,Joe Musgrove,,Jake Woodford
+2024-08-12,745300,Final,SF,ATL,0,1,Oracle Park,,Blake Snell,,Chris Sale
+2024-08-13,747004,Final,BAL,WSH,3,9,Oriole Park at Camden Yards,,Trevor Rogers,,Jake Irvin
+2024-08-13,746601,Final,CLE,CHC,2,1,Progressive Field,,Matthew Boyd,,Javier Assad
+2024-08-13,746435,Final,DET,SEA,15,1,Comerica Park,,Tarik Skubal,,George Kirby
+2024-08-13,746673,Final,CIN,STL,4,1,Great American Ball Park,,Hunter Greene,,Erick Fedde
+2024-08-13,745548,Final,PHI,MIA,0,5,Citizens Bank Park,,Taijuan Walker,,Valente Bellozo
+2024-08-13,745055,Final,TB,HOU,2,3,Tropicana Field,,Shane Baz,,Yusei Kikuchi
+2024-08-13,745788,Final,NYM,ATH,4,9,Citi Field,,Paul Blackburn,,Joe Boyle
+2024-08-13,746924,Final,BOS,TEX,9,4,Fenway Park,,Kutter Crawford,,José Ureña
+2024-08-13,745867,Final,MIN,KC,13,3,Target Field,,Zebby Matthews,,Seth Lugo
+2024-08-13,746757,Final,CWS,NYY,1,4,Guaranteed Rate Field,,Jonathan Cannon,,Nestor Cortes
+2024-08-13,745954,Final,MIL,LAD,2,7,American Family Field,,Colin Rea,,Gavin Stone
+2024-08-13,746187,Final,LAA,TOR,1,6,Angel Stadium,,Carson Fulmer,,Kevin Gausman
+2024-08-13,747160,Final,AZ,COL,4,3,Chase Field,,Eduardo Rodriguez,,Austin Gomber
+2024-08-13,745382,Final,SD,PIT,3,0,Petco Park,,Michael King,,Luis Ortiz
+2024-08-13,745302,Final,SF,ATL,3,4,Oracle Park,,Kyle Harrison,,Charlie Morton
+2024-08-14,745869,Final,MIN,KC,1,4,Target Field,,Louis Varland,,Cole Ragans
+2024-08-14,747163,Final,AZ,COL,11,4,Chase Field,,Jordan Montgomery,,Tanner Gordon
+2024-08-14,745381,Final,SD,PIT,8,2,Petco Park,,Martín Pérez,,Mitch Keller
+2024-08-14,746919,Final,BOS,TEX,7,9,Fenway Park,,Tanner Houck,,Dane Dunning
+2024-08-14,747000,Final,BAL,WSH,4,1,Oriole Park at Camden Yards,,Dean Kremer,,DJ Herz
+2024-08-14,746598,Final,CLE,CHC,6,1,Progressive Field,,Alex Cobb,,Jameson Taillon
+2024-08-14,746436,Final,DET,SEA,3,2,Comerica Park,,Beau Brieske,,Bryan Woo
+2024-08-14,746677,Final,CIN,STL,9,2,Great American Ball Park,,Emilio Pagán,,Kyle Gibson
+2024-08-14,745544,Final,PHI,MIA,9,5,Citizens Bank Park,,Tyler Phillips,,Edward Cabrera
+2024-08-14,745053,Final,TB,HOU,1,2,Tropicana Field,,Zack Littell,,Ronel Blanco
+2024-08-14,745790,Final,NYM,ATH,9,1,Citi Field,,David Peterson,,Joey Estes
+2024-08-14,746759,Final,CWS,NYY,2,10,Guaranteed Rate Field,,Davis Martin,,Will Warren
+2024-08-14,745951,Final,MIL,LAD,5,4,American Family Field,,Frankie Montas,,Walker Buehler
+2024-08-14,746188,Final,LAA,TOR,2,9,Angel Stadium,,Tyler Anderson,,José Berríos
+2024-08-14,745301,Final,SF,ATL,2,13,Oracle Park,,Robbie Ray,,Grant Holmes
+2024-08-15,745783,Final,NYM,ATH,6,7,Citi Field,,Jose Quintana,,Mitch Spence
+2024-08-15,746437,Final,DET,SEA,2,1,Comerica Park,,Alex Faedo,,Bryce Miller
+2024-08-15,745950,Final,MIL,LAD,6,4,American Family Field,,Tobias Myers,,Jack Flaherty
+2024-08-15,745298,Final,SF,ATL,6,0,Oracle Park,,Logan Webb,,Max Fried
+2024-08-15,747002,Final,BAL,BOS,5,1,Oriole Park at Camden Yards,,Zach Eflin,,Nick Pivetta
+2024-08-15,745545,Final,PHI,WSH,13,3,Citizens Bank Park,,Zack Wheeler,,Mitchell Parker
+2024-08-15,744980,Final,TEX,MIN,2,3,Globe Life Field,,Cody Bradford,,Bailey Ober
+2024-08-16,746843,Final,CHC,TOR,6,5,Wrigley Field,,Kyle Hendricks,,Yariel Rodríguez
+2024-08-16,746674,Final,CIN,KC,1,7,Great American Ball Park,,Nick Martinez,,Michael Lorenzen
+2024-08-16,745462,Final,PIT,SEA,5,3,PNC Park,,Paul Skenes,,Logan Gilbert
+2024-08-16,745542,Final,PHI,WSH,3,2,Citizens Bank Park,,Aaron Nola,,Patrick Corbin
+2024-08-16,746438,Final,DET,NYY,0,3,Comerica Park,,Beau Brieske,,Gerrit Cole
+2024-08-16,745054,Final,TB,AZ,5,4,Tropicana Field,,Ryan Pepiot,,Ryne Nelson
+2024-08-16,747001,Final,BAL,BOS,10,12,Oriole Park at Camden Yards,,Corbin Burnes,,Brennan Bernardino
+2024-08-16,745784,Final,NYM,MIA,7,3,Citi Field,,Sean Manaea,,Roddery Muñoz
+2024-08-16,744974,Final,TEX,MIN,3,4,Globe Life Field,,Andrew Heaney,,Simeon Woods Richardson
+2024-08-16,746357,Final,HOU,CWS,4,5,Minute Maid Park,,Spencer Arrighetti,,Garrett Crochet
+2024-08-16,745949,Final,MIL,CLE,5,3,American Family Field,,Aaron Civale,,Gavin Williams
+2024-08-16,745144,Final,STL,LAD,6,7,Busch Stadium,,Miles Mikolas,,Justin Wrobleski
+2024-08-16,746518,Final,COL,SD,7,3,Coors Field,,Cal Quantrill,,Matt Waldron
+2024-08-16,746189,Final,LAA,ATL,3,2,Angel Stadium,,José Soriano,,Spencer Schwellenbach
+2024-08-17,745463,Final,PIT,SEA,7,2,PNC Park,,Bailey Falter,,Luis Castillo
+2024-08-17,746434,Final,DET,NYY,4,0,Comerica Park,,Keider Montero,,Carlos Rodón
+2024-08-17,746841,Final,CHC,TOR,3,2,Wrigley Field,,Justin Steele,,Chris Bassitt
+2024-08-17,745049,Final,TB,AZ,6,1,Tropicana Field,,Jeffrey Springs,,Zac Gallen
+2024-08-17,745785,Final,NYM,MIA,4,0,Citi Field,,Luis Severino,,Max Meyer
+2024-08-17,745537,Final,PHI,WSH,5,1,Citizens Bank Park,,Cristopher Sánchez,,MacKenzie Gore
+2024-08-17,746675,Final,CIN,KC,1,13,Great American Ball Park,,Nick Lodolo,,Michael Wacha
+2024-08-17,746997,Final,BAL,BOS,1,5,Oriole Park at Camden Yards,,Cade Povich,,Brayan Bello
+2024-08-17,744977,Final,TEX,MIN,2,5,Globe Life Field,,Nathan Eovaldi,,David Festa
+2024-08-17,745626,Final,ATH,SF,2,0,Oakland Coliseum,,Osvaldo Bido,,Hayden Birdsong
+2024-08-17,746355,Final,HOU,CWS,6,1,Minute Maid Park,,Hunter Brown,,Chris Flexen
+2024-08-17,745140,Final,STL,LAD,5,2,Busch Stadium,,Andre Pallante,,Bobby Miller
+2024-08-17,745952,Final,MIL,CLE,2,1,American Family Field,,Freddy Peralta,,Tanner Bibee
+2024-08-17,746515,Final,COL,SD,3,8,Coors Field,,Kyle Freeland,,Dylan Cease
+2024-08-17,746190,Final,LAA,ATL,3,11,Angel Stadium,,Griffin Canning,,Chris Sale
+2024-08-18,745786,Final,NYM,MIA,2,3,Citi Field,,Paul Blackburn,,Valente Bellozo
+2024-08-18,746999,Final,BAL,BOS,4,2,Oriole Park at Camden Yards,,Albert Suárez,,Kutter Crawford
+2024-08-18,745464,Final,PIT,SEA,3,10,PNC Park,,Jake Woodford,,George Kirby
+2024-08-18,745539,Final,PHI,WSH,4,6,Citizens Bank Park,,Taijuan Walker,,Jake Irvin
+2024-08-18,746676,Final,CIN,KC,1,8,Great American Ball Park,,Andrew Abbott,,Brady Singer
+2024-08-18,745051,Final,TB,AZ,8,7,Tropicana Field,,Drew Rasmussen,,Merrill Kelly
+2024-08-18,746359,Final,HOU,CWS,2,0,Minute Maid Park,,Framber Valdez,,Ky Bush
+2024-08-18,745948,Final,MIL,CLE,2,0,American Family Field,,Colin Rea,,Ben Lively
+2024-08-18,745139,Final,STL,LAD,1,2,Busch Stadium,,Sonny Gray,,Clayton Kershaw
+2024-08-18,746838,Final,CHC,TOR,0,1,Wrigley Field,,Shota Imanaga,,Bowden Francis
+2024-08-18,744975,Final,TEX,MIN,6,5,Globe Life Field,,Tyler Mahle,,Pablo López
+2024-08-18,746516,Final,COL,SD,3,2,Coors Field,,Bradley Blalock,,Joe Musgrove
+2024-08-18,745621,Final,ATH,SF,2,4,Oakland Coliseum,,JP Sears,,Blake Snell
+2024-08-18,746186,Final,LAA,ATL,1,3,Angel Stadium,,Jack Kochanowicz,,Charlie Morton
+2024-08-18,746431,Final,DET,NYY,3,2,Journey Bank Ballpark,,Tarik Skubal,,Marcus Stroman
+2024-08-19,746027,Final,MIA,AZ,6,9,loanDepot park,,Adam Oller,,Brandon Pfaadt
+2024-08-19,744898,Final,TOR,CIN,3,6,Rogers Centre,,Kevin Gausman,,Julian Aguiar
+2024-08-19,745780,Final,NYM,BAL,4,3,Citi Field,,David Peterson,,Trevor Rogers
+2024-08-19,744976,Final,TEX,PIT,4,3,Globe Life Field,,Dane Dunning,,Luis Ortiz
+2024-08-19,746351,Final,HOU,BOS,5,4,Minute Maid Park,,Yusei Kikuchi,,Tanner Houck
+2024-08-19,746270,Final,KC,LAA,5,3,Kauffman Stadium,,Seth Lugo,,Carson Fulmer
+2024-08-19,745620,Final,ATH,TB,3,0,Oakland Coliseum,,Joe Boyle,,Taj Bradley
+2024-08-19,745380,Final,SD,MIN,5,3,Petco Park,,Michael King,,Zebby Matthews
+2024-08-19,745294,Final,SF,CWS,5,3,Oracle Park,,Kyle Harrison,,Jonathan Cannon
+2024-08-19,746109,Final,LAD,SEA,3,0,Dodger Stadium,,Gavin Stone,,Bryan Woo
+2024-08-20,746029,Final,MIA,AZ,1,3,loanDepot park,,Edward Cabrera,,Eduardo Rodriguez
+2024-08-20,744814,Final,WSH,COL,1,3,Nationals Park,,DJ Herz,,Austin Gomber
+2024-08-20,745707,Final,NYY,CLE,5,9,Yankee Stadium,,Luis Gil,,Matthew Boyd
+2024-08-20,744896,Final,TOR,CIN,10,3,Rogers Centre,,José Berríos,,Carson Spiers
+2024-08-20,745782,Final,NYM,BAL,5,9,Citi Field,,Jose Quintana,,Dean Kremer
+2024-08-20,747083,Final,ATL,PHI,3,1,Truist Park,,Reynaldo López,,Zack Wheeler
+2024-08-20,745136,Final,STL,MIL,2,3,Busch Stadium,,Erick Fedde,,Frankie Montas
+2024-08-20,746839,Final,CHC,DET,3,1,Wrigley Field,,Javier Assad,,Alex Faedo
+2024-08-20,744978,Final,TEX,PIT,0,4,Globe Life Field,,Cody Bradford,,Mitch Keller
+2024-08-20,746349,Final,HOU,BOS,5,6,Minute Maid Park,,Ronel Blanco,,Nick Pivetta
+2024-08-20,746266,Final,KC,LAA,5,9,Kauffman Stadium,,Cole Ragans,,Tyler Anderson
+2024-08-20,745624,Final,ATH,TB,0,1,Oakland Coliseum,,Joey Estes,,Shane Baz
+2024-08-20,745374,Final,SD,MIN,7,5,Petco Park,,Martín Pérez,,Bailey Ober
+2024-08-20,745295,Final,SF,CWS,4,1,Oracle Park,,Robbie Ray,,Davis Martin
+2024-08-20,746107,Final,LAD,SEA,6,3,Dodger Stadium,,Walker Buehler,,Bryce Miller
+2024-08-21,745781,Final,NYM,BAL,4,3,Citi Field,,Sean Manaea,,Cole Irvin
+2024-08-21,746350,Final,HOU,BOS,1,4,Minute Maid Park,,Justin Verlander,,Cooper Criswell
+2024-08-21,744973,Final,TEX,PIT,1,0,Globe Life Field,,Andrew Heaney,,Domingo Germán
+2024-08-21,745297,Final,SF,CWS,2,6,Oracle Park,,Logan Webb,,Garrett Crochet
+2024-08-21,745375,Final,SD,MIN,4,11,Petco Park,,Matt Waldron,,Simeon Woods Richardson
+2024-08-21,746028,Final,MIA,AZ,8,10,loanDepot park,,Roddery Muñoz,,Jordan Montgomery
+2024-08-21,744812,Final,WSH,COL,6,1,Nationals Park,,Mitchell Parker,,Tanner Gordon
+2024-08-21,745704,Final,NYY,CLE,8,1,Yankee Stadium,,Nestor Cortes,,Joey Cantillo
+2024-08-21,744893,Final,TOR,CIN,7,11,Rogers Centre,,Yariel Rodríguez,,Nick Martinez
+2024-08-21,747084,Final,ATL,PHI,2,3,Truist Park,,Max Fried,,Aaron Nola
+2024-08-21,745138,Final,STL,MIL,10,6,Busch Stadium,,Kyle Gibson,,Tobias Myers
+2024-08-21,746837,Final,CHC,DET,2,8,Wrigley Field,,Jameson Taillon,,Beau Brieske
+2024-08-21,746267,Final,KC,LAA,3,0,Kauffman Stadium,,Michael Lorenzen,,Johnny Cueto
+2024-08-21,745622,Final,ATH,TB,2,4,Oakland Coliseum,,Mitch Spence,,Ryan Pepiot
+2024-08-21,746110,Final,LAD,SEA,8,4,Dodger Stadium,,Jack Flaherty,,Logan Gilbert
+2024-08-22,744815,Final,WSH,COL,8,3,Nationals Park,,Patrick Corbin,,Cal Quantrill
+2024-08-22,745705,Final,NYY,CLE,6,0,Yankee Stadium,,Gerrit Cole,,Gavin Williams
+2024-08-22,745137,Final,STL,MIL,3,0,Busch Stadium,,Miles Mikolas,,Freddy Peralta
+2024-08-22,746836,Final,CHC,DET,10,2,Wrigley Field,,Justin Steele,,Tyler Holton
+2024-08-22,745623,Final,ATH,TB,3,1,Oakland Coliseum,,Osvaldo Bido,,Jeffrey Springs
+2024-08-22,745465,Final,PIT,CIN,7,0,PNC Park,,Paul Skenes,,Nick Lodolo
+2024-08-22,744894,Final,TOR,LAA,5,3,Rogers Centre,,Ryan Burr,,Brock Burke
+2024-08-22,746998,Final,BAL,HOU,0,6,Oriole Park at Camden Yards,,Corbin Burnes,,Spencer Arrighetti
+2024-08-22,747082,Final,ATL,PHI,3,2,Truist Park,,Spencer Schwellenbach,,Cristopher Sánchez
+2024-08-22,745379,Final,SD,NYM,3,8,Petco Park,,Dylan Cease,,Luis Severino
+2024-08-23,745460,Final,PIT,CIN,6,5,PNC Park,,Bailey Falter,,Buck Farmer
+2024-08-23,746995,Final,BAL,HOU,7,5,Oriole Park at Camden Yards,,Cade Povich,,Hunter Brown
+2024-08-23,745702,Final,NYY,COL,3,0,Yankee Stadium,,Carlos Rodón,,Kyle Freeland
+2024-08-23,744889,Final,TOR,LAA,5,4,Rogers Centre,,Chris Bassitt,,Jack Kochanowicz
+2024-08-23,746920,Final,BOS,AZ,2,12,Fenway Park,,Brayan Bello,,Ryne Nelson
+2024-08-23,746597,Final,CLE,TEX,3,5,Progressive Field,,Tanner Bibee,,Nathan Eovaldi
+2024-08-23,746024,Final,MIA,CHC,3,6,loanDepot park,,Max Meyer,,Kyle Hendricks
+2024-08-23,747080,Final,ATL,WSH,3,2,Truist Park,,Chris Sale,,MacKenzie Gore
+2024-08-23,745870,Final,MIN,STL,1,6,Target Field,,David Festa,,Andre Pallante
+2024-08-23,746268,Final,KC,PHI,7,4,Kauffman Stadium,,Michael Wacha,,Taijuan Walker
+2024-08-23,746758,Final,CWS,DET,2,5,Guaranteed Rate Field,,Chris Flexen,,Keider Montero
+2024-08-23,745378,Final,SD,NYM,7,0,Petco Park,,Joe Musgrove,,Paul Blackburn
+2024-08-23,745625,Final,ATH,MIL,3,11,Oakland Coliseum,,JP Sears,,Aaron Civale
+2024-08-23,745217,Final,SEA,SF,6,5,T-Mobile Park,,Luis Castillo,,Hayden Birdsong
+2024-08-23,746111,Final,LAD,TB,7,3,Dodger Stadium,,Bobby Miller,,Tyler Alexander
+2024-08-24,745703,Final,NYY,COL,2,9,Yankee Stadium,,Will Warren,,Bradley Blalock
+2024-08-24,744890,Final,TOR,LAA,3,1,Rogers Centre,,Bowden Francis,,Carson Fulmer
+2024-08-24,746996,Final,BAL,HOU,3,2,Oriole Park at Camden Yards,,Albert Suárez,,Framber Valdez
+2024-08-24,745617,Final,ATH,MIL,5,9,Oakland Coliseum,,Joe Boyle,,Colin Rea
+2024-08-24,746917,Final,BOS,AZ,1,4,Fenway Park,,Kutter Crawford,,Zac Gallen
+2024-08-24,745218,Final,SEA,SF,3,4,T-Mobile Park,,George Kirby,,Blake Snell
+2024-08-24,746022,Final,MIA,CHC,2,14,loanDepot park,,Valente Bellozo,,Shota Imanaga
+2024-08-24,745457,Final,PIT,CIN,2,10,PNC Park,,Jake Woodford,,Julian Aguiar
+2024-08-24,746599,Final,CLE,TEX,13,5,Progressive Field,,Ben Lively,,Jon Gray
+2024-08-24,745868,Final,MIN,STL,6,0,Target Field,,Pablo López,,Sonny Gray
+2024-08-24,746271,Final,KC,PHI,2,11,Kauffman Stadium,,Brady Singer,,Ranger Suárez
+2024-08-24,746756,Final,CWS,DET,4,13,Guaranteed Rate Field,,Ky Bush,,Tarik Skubal
+2024-08-24,747077,Final,ATL,WSH,4,2,Truist Park,,Charlie Morton,,Jake Irvin
+2024-08-24,745377,Final,SD,NYM,1,7,Petco Park,,Michael King,,David Peterson
+2024-08-24,746108,Final,LAD,TB,8,9,Dodger Stadium,,Clayton Kershaw,,Taj Bradley
+2024-08-25,747078,Final,ATL,WSH,1,5,Truist Park,,Reynaldo López,,DJ Herz
+2024-08-25,746918,Final,BOS,AZ,5,7,Fenway Park,,Tanner Houck,,Merrill Kelly
+2024-08-25,745459,Final,PIT,CIN,4,3,PNC Park,,Luis Ortiz,,Nick Martinez
+2024-08-25,745706,Final,NYY,COL,10,3,Yankee Stadium,,Marcus Stroman,,Austin Gomber
+2024-08-25,744892,Final,TOR,LAA,8,2,Rogers Centre,,Kevin Gausman,,Tyler Anderson
+2024-08-25,746595,Final,CLE,TEX,4,2,Progressive Field,,Matthew Boyd,,Cody Bradford
+2024-08-25,746023,Final,MIA,CHC,7,2,loanDepot park,,Adam Oller,,Javier Assad
+2024-08-25,745863,Final,MIN,STL,2,3,Target Field,,Zebby Matthews,,Erick Fedde
+2024-08-25,746263,Final,KC,PHI,3,11,Kauffman Stadium,,Seth Lugo,,Kolby Allard
+2024-08-25,746754,Final,CWS,DET,4,9,Guaranteed Rate Field,,Jonathan Cannon,,Beau Brieske
+2024-08-25,745618,Final,ATH,MIL,4,3,Oakland Coliseum,,Joey Estes,,Frankie Montas
+2024-08-25,745376,Final,SD,NYM,3,2,Petco Park,,Martín Pérez,,Jose Quintana
+2024-08-25,745212,Final,SEA,SF,4,3,T-Mobile Park,,Bryan Woo,,Robbie Ray
+2024-08-25,746106,Final,LAD,TB,3,1,Dodger Stadium,,Gavin Stone,,Jacob Lopez
+2024-08-25,746994,Final,BAL,HOU,3,6,Oriole Park at Camden Yards,,Dean Kremer,,Yusei Kikuchi
+2024-08-26,746628,Final,CLE,KC,3,4,Progressive Field,,Nick Sandlin,,Cole Ragans
+2024-08-26,746596,Final,CLE,KC,4,9,Progressive Field,,Logan Allen,,Alec Marsh
+2024-08-26,746942,Final,BOS,TOR,1,4,Fenway Park,,Nick Pivetta,,Ryan Burr
+2024-08-26,745458,Final,PIT,CHC,8,18,PNC Park,,Mitch Keller,,Jameson Taillon
+2024-08-26,745538,Final,PHI,HOU,3,2,Citizens Bank Park,,Zack Wheeler,,Ronel Blanco
+2024-08-26,744813,Final,WSH,NYY,2,5,Nationals Park,,Mitchell Parker,,Nestor Cortes
+2024-08-26,746915,Final,BOS,TOR,3,7,Fenway Park,,Zack Kelly,,José Berríos
+2024-08-26,745865,Final,MIN,ATL,6,10,Target Field,,Bailey Ober,,Max Fried
+2024-08-26,745133,Final,STL,SD,4,7,Busch Stadium,,Kyle Gibson,,Randy Vásquez
+2024-08-26,746753,Final,CWS,DET,3,6,Guaranteed Rate Field,,Davis Martin,,Ty Madden
+2024-08-26,746513,Final,COL,MIA,3,2,Coors Field,,Ryan Feltner,,Edward Cabrera
+2024-08-26,745215,Final,SEA,TB,5,1,T-Mobile Park,,Bryce Miller,,Ryan Pepiot
+2024-08-27,746429,Final,DET,LAA,6,2,Comerica Park,,Brant Hurter,,Johnny Cueto
+2024-08-27,746594,Final,CLE,KC,1,6,Progressive Field,,Gavin Williams,,Michael Lorenzen
+2024-08-27,746671,Final,CIN,ATH,4,5,Great American Ball Park,,Jakob Junis,,Mitch Spence
+2024-08-27,745461,Final,PIT,CHC,5,9,PNC Park,,Jared Jones,,Justin Steele
+2024-08-27,745540,Final,PHI,HOU,5,0,Citizens Bank Park,,Aaron Nola,,Justin Verlander
+2024-08-27,744811,Final,WSH,NYY,4,2,Nationals Park,,Patrick Corbin,,Gerrit Cole
+2024-08-27,746916,Final,BOS,TOR,6,3,Fenway Park,,Cooper Criswell,,Yariel Rodríguez
+2024-08-27,745864,Final,MIN,ATL,6,8,Target Field,,Simeon Woods Richardson,,Spencer Schwellenbach
+2024-08-27,745132,Final,STL,SD,5,7,Busch Stadium,,Miles Mikolas,,Dylan Cease
+2024-08-27,746755,Final,CWS,TEX,1,3,Guaranteed Rate Field,,Chris Flexen,,Andrew Heaney
+2024-08-27,745946,Final,MIL,SF,4,5,American Family Field,,Tobias Myers,,Logan Webb
+2024-08-27,746510,Final,COL,MIA,8,9,Coors Field,,Cal Quantrill,,Roddery Muñoz
+2024-08-27,747162,Final,AZ,NYM,3,8,Chase Field,,Brandon Pfaadt,,Sean Manaea
+2024-08-27,745213,Final,SEA,TB,2,3,T-Mobile Park,,Logan Gilbert,,Jeffrey Springs
+2024-08-27,746105,Final,LAD,BAL,2,3,Dodger Stadium,,Jack Flaherty,,Cole Irvin
+2024-08-28,745452,Final,PIT,CHC,10,14,PNC Park,,Paul Skenes,,Kyle Hendricks
+2024-08-28,746589,Final,CLE,KC,7,5,Progressive Field,,Tanner Bibee,,Michael Wacha
+2024-08-28,745541,Final,PHI,HOU,0,10,Citizens Bank Park,,Taijuan Walker,,Spencer Arrighetti
+2024-08-28,745211,Final,SEA,TB,6,2,T-Mobile Park,,Luis Castillo,,Drew Rasmussen
+2024-08-28,746755,Final,CWS,TEX,1,3,Guaranteed Rate Field,,Chris Flexen,,Andrew Heaney
+2024-08-28,746430,Final,DET,LAA,3,2,Comerica Park,,Mason Englert,,Griffin Canning
+2024-08-28,746672,Final,CIN,ATH,6,9,Great American Ball Park,,Fernando Cruz,,Osvaldo Bido
+2024-08-28,744809,Final,WSH,NYY,5,2,Nationals Park,,MacKenzie Gore,,Carlos Rodón
+2024-08-28,746913,Final,BOS,TOR,3,0,Fenway Park,,Brayan Bello,,Chris Bassitt
+2024-08-28,745866,Final,MIN,ATL,1,5,Target Field,,David Festa,,Chris Sale
+2024-08-28,745134,Final,STL,SD,4,3,Busch Stadium,,Andre Pallante,,Joe Musgrove
+2024-08-28,746752,Final,CWS,TEX,3,4,Guaranteed Rate Field,,Matt Foster,,Jack Leiter
+2024-08-28,745943,Final,MIL,SF,5,3,American Family Field,,Freddy Peralta,,Kyle Harrison
+2024-08-28,746512,Final,COL,MIA,8,2,Coors Field,,Kyle Freeland,,Max Meyer
+2024-08-28,747161,Final,AZ,NYM,8,5,Chase Field,,Eduardo Rodriguez,,Luis Severino
+2024-08-28,746103,Final,LAD,BAL,6,4,Dodger Stadium,,Walker Buehler,,Corbin Burnes
+2024-08-29,746432,Final,DET,LAA,0,3,Comerica Park,,Keider Montero,,Jack Kochanowicz
+2024-08-29,746748,Final,CWS,TEX,1,2,Guaranteed Rate Field,,Nick Nastrini,,Nathan Eovaldi
+2024-08-29,745945,Final,MIL,SF,6,0,American Family Field,,Aaron Civale,,Hayden Birdsong
+2024-08-29,745135,Final,STL,SD,4,1,Busch Stadium,,Sonny Gray,,Michael King
+2024-08-29,746514,Final,COL,MIA,8,12,Coors Field,,Bradley Blalock,,Valente Bellozo
+2024-08-29,747159,Final,AZ,NYM,2,3,Chase Field,,Ryne Nelson,,David Peterson
+2024-08-29,746670,Final,CIN,ATH,10,9,Great American Ball Park,,Julian Aguiar,,J.T. Ginn
+2024-08-29,745531,Final,PHI,ATL,5,4,Citizens Bank Park,,Cristopher Sánchez,,Charlie Morton
+2024-08-29,746914,Final,BOS,TOR,0,2,Fenway Park,,Kutter Crawford,,Bowden Francis
+2024-08-29,746352,Final,HOU,KC,6,3,Minute Maid Park,,Hunter Brown,,Brady Singer
+2024-08-29,746102,Final,LAD,BAL,6,3,Dodger Stadium,,Bobby Miller,,Cade Povich
+2024-08-30,746730,Final,CIN,MIL,4,5,Great American Ball Park,,Nick Martinez,,Colin Rea
+2024-08-30,746665,Final,CIN,MIL,0,14,Great American Ball Park,,Rhett Lowder,,DL Hall
+2024-08-30,746433,Final,DET,BOS,5,7,Comerica Park,,Casey Mize,,Tanner Houck
+2024-08-30,745533,Final,PHI,ATL,2,7,Citizens Bank Park,,Ranger Suárez,,Reynaldo López
+2024-08-30,744810,Final,WSH,CHC,6,7,Nationals Park,,Jake Irvin,,Shota Imanaga
+2024-08-30,745052,Final,TB,SD,5,13,Tropicana Field,,Taj Bradley,,Martín Pérez
+2024-08-30,745700,Final,NYY,STL,6,3,Yankee Stadium,,Marcus Stroman,,Erick Fedde
+2024-08-30,746593,Final,CLE,PIT,10,8,Progressive Field,,Ben Lively,,Bailey Falter
+2024-08-30,744969,Final,TEX,ATH,2,9,Globe Life Field,,Jon Gray,,JP Sears
+2024-08-30,746353,Final,HOU,KC,3,2,Minute Maid Park,,Framber Valdez,,Seth Lugo
+2024-08-30,745862,Final,MIN,TOR,2,0,Target Field,,Pablo López,,Kevin Gausman
+2024-08-30,746749,Final,CWS,NYM,1,5,Guaranteed Rate Field,,Jonathan Cannon,,Tylor Megill
+2024-08-30,746511,Final,COL,BAL,3,5,Coors Field,,Austin Gomber,,Albert Suárez
+2024-08-30,746184,Final,LAA,SEA,5,9,Angel Stadium,,Sam Aldegheri,,George Kirby
+2024-08-30,747156,Final,AZ,LAD,9,10,Chase Field,,Zac Gallen,,Clayton Kershaw
+2024-08-30,745299,Final,SF,MIA,3,1,Oracle Park,,Blake Snell,,Adam Oller
+2024-08-31,745699,Final,NYY,STL,5,6,Yankee Stadium,,Will Warren,,Kyle Gibson
+2024-08-31,744808,Final,WSH,CHC,3,5,Nationals Park,,DJ Herz,,Javier Assad
+2024-08-31,745050,Final,TB,SD,11,4,Tropicana Field,,Shane Baz,,Randy Vásquez
+2024-08-31,746424,Final,DET,BOS,2,1,Comerica Park,,Tarik Skubal,,Nick Pivetta
+2024-08-31,746590,Final,CLE,PIT,0,3,Progressive Field,,Matthew Boyd,,Luis Ortiz
+2024-08-31,744971,Final,TEX,ATH,3,2,Globe Life Field,,Cody Bradford,,Joey Estes
+2024-08-31,746348,Final,HOU,KC,5,2,Minute Maid Park,,Yusei Kikuchi,,Cole Ragans
+2024-08-31,745859,Final,MIN,TOR,0,15,Target Field,,Zebby Matthews,,José Berríos
+2024-08-31,746751,Final,CWS,NYM,3,5,Guaranteed Rate Field,,Davis Martin,,Jose Quintana
+2024-08-31,745532,Final,PHI,ATL,3,0,Citizens Bank Park,,Zack Wheeler,,Max Fried
+2024-08-31,746667,Final,CIN,MIL,4,5,Great American Ball Park,,Fernando Cruz,,Frankie Montas
+2024-08-31,746507,Final,COL,BAL,7,5,Coors Field,,Ryan Feltner,,Dean Kremer
+2024-08-31,747158,Final,AZ,LAD,6,8,Chase Field,,Merrill Kelly,,Gavin Stone
+2024-08-31,745296,Final,SF,MIA,3,4,Oracle Park,,Mason Black,,Edward Cabrera
+2024-08-31,746182,Final,LAA,SEA,5,4,Angel Stadium,,Tyler Anderson,,Bryan Woo
+2024-09-01,746669,Final,CIN,MIL,4,3,Great American Ball Park,,Brandon Williamson,,Tobias Myers
+2024-09-01,744806,Final,WSH,CHC,1,14,Nationals Park,,Mitchell Parker,,Jordan Wicks
+2024-09-01,745701,Final,NYY,STL,7,14,Yankee Stadium,,Nestor Cortes,,Miles Mikolas
+2024-09-01,746426,Final,DET,BOS,4,1,Comerica Park,,Beau Brieske,,Cooper Criswell
+2024-09-01,746592,Final,CLE,PIT,6,1,Progressive Field,,Alex Cobb,,Mitch Keller
+2024-09-01,745048,Final,TB,SD,3,4,Tropicana Field,,Ryan Pepiot,,Dylan Cease
+2024-09-01,746347,Final,HOU,KC,7,2,Minute Maid Park,,Ronel Blanco,,Alec Marsh
+2024-09-01,745861,Final,MIN,TOR,4,3,Target Field,,Bailey Ober,,Yariel Rodríguez
+2024-09-01,746750,Final,CWS,NYM,0,2,Guaranteed Rate Field,,Garrett Crochet,,Sean Manaea
+2024-09-01,744970,Final,TEX,ATH,6,4,Globe Life Field,,Walter Pennington,,Mitch Spence
+2024-09-01,746505,Final,COL,BAL,1,6,Coors Field,,Ty Blach,,Zach Eflin
+2024-09-01,745292,Final,SF,MIA,5,7,Oracle Park,,Logan Webb,,Darren McCaughan
+2024-09-01,746183,Final,LAA,SEA,3,2,Angel Stadium,,Caden Dana,,Bryce Miller
+2024-09-01,747157,Final,AZ,LAD,14,3,Chase Field,,Brandon Pfaadt,,Justin Wrobleski
+2024-09-01,745536,Final,PHI,ATL,3,2,Citizens Bank Park,,Aaron Nola,,Spencer Schwellenbach
+2024-09-02,745947,Final,MIL,STL,9,3,American Family Field,,Freddy Peralta,,Andre Pallante
+2024-09-02,746992,Final,BAL,CWS,13,3,Oriole Park at Camden Yards,,Corbin Burnes,,Chris Flexen
+2024-09-02,746668,Final,CIN,HOU,5,3,Great American Ball Park,,Julian Aguiar,,Justin Verlander
+2024-09-02,746265,Final,KC,CLE,2,4,Kauffman Stadium,,Michael Wacha,,Gavin Williams
+2024-09-02,747155,Final,AZ,LAD,6,11,Chase Field,,Eduardo Rodriguez,,Jack Flaherty
+2024-09-02,745373,Final,SD,DET,3,0,Petco Park,,Joe Musgrove,,Tyler Holton
+2024-09-02,745046,Final,TB,MIN,4,5,Tropicana Field,,Zack Littell,,Simeon Woods Richardson
+2024-09-02,745619,Final,ATH,SEA,5,4,Oakland Coliseum,,Osvaldo Bido,,Logan Gilbert
+2024-09-02,745779,Final,NYM,BOS,4,1,Citi Field,,Luis Severino,,Brayan Bello
+2024-09-02,746833,Final,CHC,PIT,3,5,Wrigley Field,,Jameson Taillon,,Jared Jones
+2024-09-02,744972,Final,TEX,NYY,4,8,Globe Life Field,,Jack Leiter,,Gerrit Cole
+2024-09-03,746991,Final,BAL,CWS,9,0,Oriole Park at Camden Yards,,Cade Povich,,Nick Nastrini
+2024-09-03,746020,Final,MIA,WSH,2,6,loanDepot park,,Max Meyer,,Patrick Corbin
+2024-09-03,745047,Final,TB,MIN,2,1,Tropicana Field,,Jeffrey Springs,,David Festa
+2024-09-03,744891,Final,TOR,PHI,9,10,Rogers Centre,,Chris Bassitt,,Tyler Phillips
+2024-09-03,745778,Final,NYM,BOS,7,2,Citi Field,,David Peterson,,Kutter Crawford
+2024-09-03,747079,Final,ATL,COL,3,0,Truist Park,,Chris Sale,,Kyle Freeland
+2024-09-03,746264,Final,KC,CLE,1,7,Kauffman Stadium,,Brady Singer,,Tanner Bibee
+2024-09-03,746834,Final,CHC,PIT,0,5,Wrigley Field,,Kyle Hendricks,,Paul Skenes
+2024-09-03,745944,Final,MIL,STL,4,7,American Family Field,,Aaron Civale,,Steven Matz
+2024-09-03,744968,Final,TEX,NYY,7,4,Globe Life Field,,Andrew Heaney,,Carlos Rodón
+2024-09-03,746185,Final,LAA,LAD,2,6,Angel Stadium,,Reid Detmers,,Walker Buehler
+2024-09-03,745615,Final,ATH,SEA,3,2,Oakland Coliseum,,J.T. Ginn,,Luis Castillo
+2024-09-03,745293,Final,SF,AZ,7,8,Oracle Park,,Kyle Harrison,,Ryne Nelson
+2024-09-04,744887,Final,TOR,PHI,2,4,Rogers Centre,,Bowden Francis,,Cristopher Sánchez
+2024-09-04,746990,Final,BAL,CWS,1,8,Oriole Park at Camden Yards,,Albert Suárez,,Jonathan Cannon
+2024-09-04,746666,Final,CIN,HOU,12,5,Great American Ball Park,,Nick Martinez,,Spencer Arrighetti
+2024-09-04,746019,Final,MIA,WSH,4,3,loanDepot park,,Valente Bellozo,,MacKenzie Gore
+2024-09-04,745045,Final,TB,MIN,9,4,Tropicana Field,,Cole Sulser,,Ronny Henriquez
+2024-09-04,745776,Final,NYM,BOS,8,3,Citi Field,,Tylor Megill,,Tanner Houck
+2024-09-04,747075,Final,ATL,COL,5,2,Truist Park,,Charlie Morton,,Bradley Blalock
+2024-09-04,746262,Final,KC,CLE,4,1,Kauffman Stadium,,Seth Lugo,,Ben Lively
+2024-09-04,746835,Final,CHC,PIT,12,0,Wrigley Field,,Shota Imanaga,,Domingo Germán
+2024-09-04,745938,Final,MIL,STL,2,3,American Family Field,,Colin Rea,,Sonny Gray
+2024-09-04,744964,Final,TEX,NYY,10,6,Globe Life Field,,Nathan Eovaldi,,Marcus Stroman
+2024-09-04,746178,Final,LAA,LAD,10,1,Angel Stadium,,Griffin Canning,,Bobby Miller
+2024-09-04,745370,Final,SD,DET,6,5,Petco Park,,Yu Darvish,,Keider Montero
+2024-09-04,745614,Final,ATH,SEA,3,16,Oakland Coliseum,,JP Sears,,George Kirby
+2024-09-04,745290,Final,SF,AZ,4,6,Oracle Park,,Hayden Birdsong,,Zac Gallen
+2024-09-05,746664,Final,CIN,HOU,1,0,Great American Ball Park,,Rhett Lowder,,Hunter Brown
+2024-09-05,745042,Final,TB,MIN,3,4,Tropicana Field,,Taj Bradley,,Pablo López
+2024-09-05,745612,Final,ATH,SEA,4,6,Oakland Coliseum,,Joey Estes,,Bryan Woo
+2024-09-05,745289,Final,SF,AZ,3,2,Oracle Park,,Blake Snell,,Merrill Kelly
+2024-09-05,745451,Final,PIT,WSH,9,4,PNC Park,,Bailey Falter,,Jake Irvin
+2024-09-05,746021,Final,MIA,PHI,2,5,loanDepot park,,Adam Oller,,Ranger Suárez
+2024-09-05,747073,Final,ATL,COL,1,3,Truist Park,,Reynaldo López,,Austin Gomber
+2024-09-05,744966,Final,TEX,LAA,3,1,Globe Life Field,,Cody Bradford,,Jack Kochanowicz
+2024-09-05,745369,Final,SD,DET,3,4,Petco Park,,Martín Pérez,,Casey Mize
+2024-09-06,746832,Final,CHC,NYY,0,3,Wrigley Field,,Jordan Wicks,,Luis Gil
+2024-09-06,745941,Final,MIL,COL,2,3,American Family Field,,Frankie Montas,,Ryan Feltner
+2024-09-06,746993,Final,BAL,TB,2,0,Oriole Park at Camden Yards,,Dean Kremer,,Shane Baz
+2024-09-06,745777,Final,NYM,CIN,6,4,Citi Field,,Sean Manaea,,Fernando Cruz
+2024-09-06,746912,Final,BOS,CWS,3,1,Fenway Park,,Nick Pivetta,,Davis Martin
+2024-09-06,746016,Final,MIA,PHI,2,16,loanDepot park,,Austin Kitchen,,Zack Wheeler
+2024-09-06,747074,Final,ATL,TOR,3,1,Truist Park,,Max Fried,,Kevin Gausman
+2024-09-06,744967,Final,TEX,LAA,1,5,Globe Life Field,,Gerson Garabito,,Sam Aldegheri
+2024-09-06,746343,Final,HOU,AZ,8,0,Minute Maid Park,,Framber Valdez,,Brandon Pfaadt
+2024-09-06,746257,Final,KC,MIN,5,0,Kauffman Stadium,,Cole Ragans,,Zebby Matthews
+2024-09-06,745131,Final,STL,SEA,1,6,Busch Stadium,,Erick Fedde,,Bryce Miller
+2024-09-06,745611,Final,ATH,DET,7,6,Oakland Coliseum,,Mitch Spence,,Tarik Skubal
+2024-09-06,745371,Final,SD,SF,5,1,Petco Park,,Michael King,,Mason Black
+2024-09-06,746104,Final,LAD,CLE,1,3,Dodger Stadium,,Landon Knack,,Matthew Boyd
+2024-09-07,745455,Final,PIT,WSH,3,5,PNC Park,,Luis Ortiz,,DJ Herz
+2024-09-07,745456,Final,PIT,WSH,6,8,PNC Park,,Mitch Keller,,Mitchell Parker
+2024-09-07,746829,Final,CHC,NYY,0,2,Wrigley Field,,Javier Assad,,Clarke Schmidt
+2024-09-07,746986,Final,BAL,TB,1,7,Oriole Park at Camden Yards,,Zach Eflin,,Ryan Pepiot
+2024-09-07,745613,Final,ATH,DET,1,2,Oakland Coliseum,,Brady Basso,,Brenan Hanifee
+2024-09-07,746344,Final,HOU,AZ,11,5,Minute Maid Park,,Yusei Kikuchi,,Eduardo Rodriguez
+2024-09-07,745775,Final,NYM,CIN,4,0,Citi Field,,Jose Quintana,,Jakob Junis
+2024-09-07,746018,Final,MIA,PHI,9,5,loanDepot park,,Darren McCaughan,,Aaron Nola
+2024-09-07,744963,Final,TEX,LAA,6,4,Globe Life Field,,Jack Leiter,,Tyler Anderson
+2024-09-07,745942,Final,MIL,COL,5,2,American Family Field,,Tobias Myers,,Ty Blach
+2024-09-07,745125,Final,STL,SEA,2,0,Busch Stadium,,Kyle Gibson,,Logan Gilbert
+2024-09-07,746259,Final,KC,MIN,4,2,Kauffman Stadium,,Alec Marsh,,Bailey Ober
+2024-09-07,746911,Final,BOS,CWS,7,5,Fenway Park,,Cooper Criswell,,Garrett Crochet
+2024-09-07,747076,Final,ATL,TOR,5,9,Truist Park,,Spencer Schwellenbach,,José Berríos
+2024-09-07,745372,Final,SD,SF,3,6,Petco Park,,Dylan Cease,,Logan Webb
+2024-09-07,746099,Final,LAD,CLE,7,2,Dodger Stadium,,Ryan Brasier,,Gavin Williams
+2024-09-08,746989,Final,BAL,TB,0,2,Oriole Park at Camden Yards,,Corbin Burnes,,Zack Littell
+2024-09-08,745453,Final,PIT,WSH,7,3,PNC Park,,Jared Jones,,Patrick Corbin
+2024-09-08,747072,Final,ATL,TOR,4,3,Truist Park,,Chris Sale,,Yariel Rodríguez
+2024-09-08,746910,Final,BOS,CWS,2,7,Fenway Park,,Richard Fitts,,Chris Flexen
+2024-09-08,745774,Final,NYM,CIN,1,3,Citi Field,,Luis Severino,,Julian Aguiar
+2024-09-08,746017,Final,MIA,PHI,10,1,loanDepot park,,Edward Cabrera,,Seth Johnson
+2024-09-08,746258,Final,KC,MIN,2,0,Kauffman Stadium,,Michael Wacha,,Simeon Woods Richardson
+2024-09-08,745940,Final,MIL,COL,1,4,American Family Field,,Freddy Peralta,,Kyle Freeland
+2024-09-08,745128,Final,STL,SEA,4,10,Busch Stadium,,Miles Mikolas,,Luis Castillo
+2024-09-08,746827,Final,CHC,NYY,2,1,Wrigley Field,,Jameson Taillon,,Gerrit Cole
+2024-09-08,744965,Final,TEX,LAA,7,4,Globe Life Field,,Andrew Heaney,,Caden Dana
+2024-09-08,745616,Final,ATH,DET,1,9,Oakland Coliseum,,J.T. Ginn,,Beau Brieske
+2024-09-08,746098,Final,LAD,CLE,4,0,Dodger Stadium,,Jack Flaherty,,Tanner Bibee
+2024-09-08,745368,Final,SD,SF,6,7,Petco Park,,Joe Musgrove,,Spencer Bivens
+2024-09-08,746345,Final,HOU,AZ,6,12,Minute Maid Park,,Justin Verlander,,Ryne Nelson
+2024-09-09,745534,Final,PHI,TB,2,1,Citizens Bank Park,,Cristopher Sánchez,,Cole Sulser
+2024-09-09,747090,Final,ATL,CIN,0,1,Truist Park,,Charlie Morton,,Nick Martinez
+2024-09-09,745454,Final,PIT,MIA,3,2,PNC Park,,Paul Skenes,,Valente Bellozo
+2024-09-09,745698,Final,NYY,KC,10,4,Yankee Stadium,,Carlos Rodón,,Brady Singer
+2024-09-09,744888,Final,TOR,NYM,2,3,Rogers Centre,,Ryan Burr,,Tylor Megill
+2024-09-09,746909,Final,BOS,BAL,12,3,Fenway Park,,Brayan Bello,,Cade Povich
+2024-09-09,745860,Final,MIN,LAA,2,6,Target Field,,David Festa,,Reid Detmers
+2024-09-09,746746,Final,CWS,CLE,3,5,Guaranteed Rate Field,,Jared Shuster,,Joey Cantillo
+2024-09-09,746101,Final,LAD,CHC,4,10,Dodger Stadium,,Walker Buehler,,Kyle Hendricks
+2024-09-10,746428,Final,DET,COL,11,0,Comerica Park,,Keider Montero,,Bradley Blalock
+2024-09-10,745535,Final,PHI,TB,9,4,Citizens Bank Park,,Ranger Suárez,,Taj Bradley
+2024-09-10,745446,Final,PIT,MIA,6,4,PNC Park,,Carmen Mlodzinski,,Adam Oller
+2024-09-10,744807,Final,WSH,ATL,0,12,Nationals Park,,MacKenzie Gore,,Reynaldo López
+2024-09-10,745694,Final,NYY,KC,0,5,Yankee Stadium,,Marcus Stroman,,Seth Lugo
+2024-09-10,744886,Final,TOR,NYM,6,2,Rogers Centre,,Chris Bassitt,,David Peterson
+2024-09-10,746907,Final,BOS,BAL,3,5,Fenway Park,,Kutter Crawford,,Albert Suárez
+2024-09-10,745856,Final,MIN,LAA,10,5,Target Field,,Pablo López,,Griffin Canning
+2024-09-10,746747,Final,CWS,CLE,0,5,Guaranteed Rate Field,,Jonathan Cannon,,Ben Lively
+2024-09-10,745126,Final,STL,CIN,0,3,Busch Stadium,,Andre Pallante,,Rhett Lowder
+2024-09-10,746346,Final,HOU,ATH,3,4,Minute Maid Park,,Spencer Arrighetti,,JP Sears
+2024-09-10,745210,Final,SEA,SD,3,7,T-Mobile Park,,George Kirby,,Yu Darvish
+2024-09-10,747152,Final,AZ,TEX,6,0,Chase Field,,Zac Gallen,,Nathan Eovaldi
+2024-09-10,745291,Final,SF,MIL,2,3,Oracle Park,,Landen Roupp,,Aaron Civale
+2024-09-10,746097,Final,LAD,CHC,3,6,Dodger Stadium,,Yoshinobu Yamamoto,,Shota Imanaga
+2024-09-11,745450,Final,PIT,MIA,3,1,PNC Park,,Bailey Falter,,Jonathan Bermúdez
+2024-09-11,746745,Final,CWS,CLE,4,6,Guaranteed Rate Field,,Davis Martin,,Matthew Boyd
+2024-09-11,744881,Final,TOR,NYM,2,6,Rogers Centre,,Bowden Francis,,Sean Manaea
+2024-09-11,747154,Final,AZ,TEX,14,4,Chase Field,,Merrill Kelly,,Cody Bradford
+2024-09-11,746425,Final,DET,COL,7,4,Comerica Park,,Casey Mize,,Tanner Gordon
+2024-09-11,745525,Final,PHI,TB,3,2,Citizens Bank Park,,Zack Wheeler,,Shane Baz
+2024-09-11,744804,Final,WSH,ATL,5,1,Nationals Park,,Jake Irvin,,Max Fried
+2024-09-11,745697,Final,NYY,KC,4,3,Yankee Stadium,,Luis Gil,,Cole Ragans
+2024-09-11,746908,Final,BOS,BAL,5,3,Fenway Park,,Nick Pivetta,,Dean Kremer
+2024-09-11,745857,Final,MIN,LAA,6,4,Target Field,,Zebby Matthews,,Jack Kochanowicz
+2024-09-11,745127,Final,STL,CIN,2,1,Busch Stadium,,Lance Lynn,,Brandon Williamson
+2024-09-11,746342,Final,HOU,ATH,4,5,Minute Maid Park,,Hunter Brown,,Joey Estes
+2024-09-11,745214,Final,SEA,SD,5,2,T-Mobile Park,,Bryan Woo,,Michael King
+2024-09-11,745285,Final,SF,MIL,13,2,Oracle Park,,Blake Snell,,Colin Rea
+2024-09-11,746100,Final,LAD,CHC,10,8,Dodger Stadium,,Bobby Miller,,Jordan Wicks
+2024-09-12,746427,Final,DET,COL,2,4,Comerica Park,,Tarik Skubal,,Ryan Feltner
+2024-09-12,745129,Final,STL,CIN,6,1,Busch Stadium,,Sonny Gray,,Jakob Junis
+2024-09-12,746337,Final,HOU,ATH,6,3,Minute Maid Park,,Framber Valdez,,Mitch Spence
+2024-09-12,744805,Final,WSH,MIA,3,6,Nationals Park,,Mitchell Parker,,Darren McCaughan
+2024-09-12,746591,Final,CLE,TB,2,5,Progressive Field,,Gavin Williams,,Ryan Pepiot
+2024-09-12,745695,Final,NYY,BOS,2,1,Yankee Stadium,,Nestor Cortes,,Cooper Criswell
+2024-09-12,745208,Final,SEA,TEX,4,5,T-Mobile Park,,Bryce Miller,,Kumar Rocker
+2024-09-12,745288,Final,SF,MIL,0,3,Oracle Park,,Hayden Birdsong,,Frankie Montas
+2024-09-13,746423,Final,DET,BAL,1,0,Comerica Park,,Beau Brieske,,Zach Eflin
+2024-09-13,745447,Final,PIT,KC,3,8,PNC Park,,Luis Ortiz,,Alec Marsh
+2024-09-13,745529,Final,PHI,NYM,3,11,Citizens Bank Park,,Aaron Nola,,Jose Quintana
+2024-09-13,744800,Final,WSH,MIA,4,1,Nationals Park,,DJ Herz,,Edward Cabrera
+2024-09-13,745696,Final,NYY,BOS,5,4,Yankee Stadium,,Clarke Schmidt,,Richard Fitts
+2024-09-13,744882,Final,TOR,STL,4,3,Rogers Centre,,Kevin Gausman,,Erick Fedde
+2024-09-13,746586,Final,CLE,TB,1,3,Progressive Field,,Tanner Bibee,,Zack Littell
+2024-09-13,747069,Final,ATL,LAD,6,2,Truist Park,,Spencer Schwellenbach,,Landon Knack
+2024-09-13,746744,Final,CWS,ATH,0,2,Guaranteed Rate Field,,Garrett Crochet,,Brady Basso
+2024-09-13,745855,Final,MIN,CIN,4,8,Target Field,,Bailey Ober,,Julian Aguiar
+2024-09-13,746509,Final,COL,CHC,9,5,Coors Field,,Austin Gomber,,Javier Assad
+2024-09-13,746181,Final,LAA,HOU,3,5,Angel Stadium,,Sam Aldegheri,,Yusei Kikuchi
+2024-09-13,747153,Final,AZ,MIL,1,2,Chase Field,,Eduardo Rodriguez,,Freddy Peralta
+2024-09-13,745207,Final,SEA,TEX,5,4,T-Mobile Park,,Emerson Hancock,,Jacob deGrom
+2024-09-13,745286,Final,SF,SD,0,5,Oracle Park,,Logan Webb,,Dylan Cease
+2024-09-14,745448,Final,PIT,KC,1,5,PNC Park,,Mitch Keller,,Michael Wacha
+2024-09-14,745689,Final,NYY,BOS,1,7,Yankee Stadium,,Gerrit Cole,,Brayan Bello
+2024-09-14,744884,Final,TOR,STL,7,2,Rogers Centre,,José Berríos,,Kyle Gibson
+2024-09-14,745528,Final,PHI,NYM,6,4,Citizens Bank Park,,Kolby Allard,,Luis Severino
+2024-09-14,744803,Final,WSH,MIA,4,1,Nationals Park,,Patrick Corbin,,Valente Bellozo
+2024-09-14,746422,Final,DET,BAL,2,4,Comerica Park,,Beau Brieske,,Corbin Burnes
+2024-09-14,746584,Final,CLE,TB,6,1,Progressive Field,,Joey Cantillo,,Drew Rasmussen
+2024-09-14,745858,Final,MIN,CIN,1,11,Target Field,,Simeon Woods Richardson,,Nick Martinez
+2024-09-14,746740,Final,CWS,ATH,7,6,Guaranteed Rate Field,,Chris Flexen,,J.T. Ginn
+2024-09-14,747070,Final,ATL,LAD,10,1,Truist Park,,Chris Sale,,Jack Flaherty
+2024-09-14,746508,Final,COL,CHC,6,5,Coors Field,,Kyle Freeland,,Jameson Taillon
+2024-09-14,747148,Final,AZ,MIL,8,15,Chase Field,,Brandon Pfaadt,,Tobias Myers
+2024-09-14,745284,Final,SF,SD,0,8,Oracle Park,,Mason Black,,Joe Musgrove
+2024-09-14,746177,Final,LAA,HOU,3,5,Angel Stadium,,Tyler Anderson,,Justin Verlander
+2024-09-14,745209,Final,SEA,TEX,5,4,T-Mobile Park,,Logan Gilbert,,Max Scherzer
+2024-09-15,746419,Final,DET,BAL,4,2,Comerica Park,,Keider Montero,,Cade Povich
+2024-09-15,745852,Final,MIN,CIN,9,2,Target Field,,David Festa,,Rhett Lowder
+2024-09-15,745449,Final,PIT,KC,4,3,PNC Park,,Jared Jones,,Brady Singer
+2024-09-15,745530,Final,PHI,NYM,2,1,Citizens Bank Park,,Cristopher Sánchez,,David Peterson
+2024-09-15,744801,Final,WSH,MIA,4,3,Nationals Park,,MacKenzie Gore,,Adam Oller
+2024-09-15,745693,Final,NYY,BOS,5,2,Yankee Stadium,,Carlos Rodón,,Kutter Crawford
+2024-09-15,744883,Final,TOR,STL,3,2,Rogers Centre,,Yariel Rodríguez,,Miles Mikolas
+2024-09-15,746585,Final,CLE,TB,2,0,Progressive Field,,Ben Lively,,Taj Bradley
+2024-09-15,746741,Final,CWS,ATH,4,3,Guaranteed Rate Field,,Sean Burke,,JP Sears
+2024-09-15,746506,Final,COL,CHC,2,6,Coors Field,,Cal Quantrill,,Kyle Hendricks
+2024-09-15,745287,Final,SF,SD,3,4,Oracle Park,,Landen Roupp,,Martín Pérez
+2024-09-15,746180,Final,LAA,HOU,4,6,Angel Stadium,,Caden Dana,,Ronel Blanco
+2024-09-15,745206,Final,SEA,TEX,7,0,T-Mobile Park,,George Kirby,,Andrew Heaney
+2024-09-15,747151,Final,AZ,MIL,11,10,Chase Field,,Zac Gallen,,DL Hall
+2024-09-15,747071,Final,ATL,LAD,2,9,Truist Park,,Charlie Morton,,Walker Buehler
+2024-09-16,746588,Final,CLE,MIN,4,3,Progressive Field,,Matthew Boyd,,Pablo López
+2024-09-16,745773,Final,NYM,WSH,2,1,Citi Field,,Sean Manaea,,Jake Irvin
+2024-09-16,747067,Final,ATL,LAD,0,9,Truist Park,,Max Fried,,Yoshinobu Yamamoto
+2024-09-16,746260,Final,KC,DET,6,7,Kauffman Stadium,,Seth Lugo,,Reese Olson
+2024-09-16,746828,Final,CHC,ATH,9,2,Wrigley Field,,Shota Imanaga,,Joey Estes
+2024-09-16,745939,Final,MIL,PHI,6,2,American Family Field,,Aaron Civale,,Ranger Suárez
+2024-09-16,745130,Final,STL,PIT,4,0,Busch Stadium,,Andre Pallante,,Paul Skenes
+2024-09-16,746502,Final,COL,AZ,3,2,Coors Field,,Antonio Senzatela,,Merrill Kelly
+2024-09-16,746179,Final,LAA,CWS,4,8,Angel Stadium,,Reid Detmers,,Jonathan Cannon
+2024-09-16,745367,Final,SD,HOU,3,1,Petco Park,,Yu Darvish,,Spencer Arrighetti
+2024-09-17,746987,Final,BAL,SF,0,10,Oriole Park at Camden Yards,,Albert Suárez,,Blake Snell
+2024-09-17,746587,Final,CLE,MIN,1,4,Progressive Field,,Gavin Williams,,Zebby Matthews
+2024-09-17,746659,Final,CIN,ATL,6,5,Great American Ball Park,,Brandon Williamson,,Grant Holmes
+2024-09-17,746015,Final,MIA,LAD,11,9,loanDepot park,,Darren McCaughan,,Bobby Miller
+2024-09-17,745044,Final,TB,BOS,8,3,Tropicana Field,,Shane Baz,,Nick Pivetta
+2024-09-17,745772,Final,NYM,WSH,10,1,Citi Field,,Tylor Megill,,Mitchell Parker
+2024-09-17,746261,Final,KC,DET,1,3,Kauffman Stadium,,Cole Ragans,,Casey Mize
+2024-09-17,746830,Final,CHC,ATH,3,4,Wrigley Field,,Jordan Wicks,,Mitch Spence
+2024-09-17,745935,Final,MIL,PHI,1,5,American Family Field,,Frankie Montas,,Zack Wheeler
+2024-09-17,745122,Final,STL,PIT,3,1,Busch Stadium,,Lance Lynn,,Bailey Falter
+2024-09-17,744961,Final,TEX,TOR,13,8,Globe Life Field,,Nathan Eovaldi,,Chris Bassitt
+2024-09-17,746503,Final,COL,AZ,8,2,Coors Field,,Ryan Feltner,,Jordan Montgomery
+2024-09-17,746176,Final,LAA,CWS,5,0,Angel Stadium,,Griffin Canning,,Davis Martin
+2024-09-17,745366,Final,SD,HOU,3,4,Petco Park,,Michael King,,Hunter Brown
+2024-09-17,745205,Final,SEA,NYY,2,11,T-Mobile Park,,Bryan Woo,,Luis Gil
+2024-09-18,746831,Final,CHC,ATH,3,5,Wrigley Field,,Justin Steele,,Brady Basso
+2024-09-18,746500,Final,COL,AZ,4,9,Coors Field,,Austin Gomber,,Eduardo Rodriguez
+2024-09-18,746172,Final,LAA,CWS,4,3,Angel Stadium,,Jack Kochanowicz,,Jared Shuster
+2024-09-18,746988,Final,BAL,SF,3,5,Oriole Park at Camden Yards,,Dean Kremer,,Hayden Birdsong
+2024-09-18,745365,Final,SD,HOU,4,0,Petco Park,,Dylan Cease,,Framber Valdez
+2024-09-18,746582,Final,CLE,MIN,5,4,Progressive Field,,Tanner Bibee,,Bailey Ober
+2024-09-18,746662,Final,CIN,ATL,1,7,Great American Ball Park,,Jakob Junis,,Spencer Schwellenbach
+2024-09-18,746014,Final,MIA,LAD,4,8,loanDepot park,,Ryan Weathers,,Landon Knack
+2024-09-18,745040,Final,TB,BOS,1,2,Tropicana Field,,Ryan Pepiot,,Tanner Houck
+2024-09-18,745771,Final,NYM,WSH,10,0,Citi Field,,Jose Quintana,,DJ Herz
+2024-09-18,746254,Final,KC,DET,2,4,Kauffman Stadium,,Alec Marsh,,Tarik Skubal
+2024-09-18,745933,Final,MIL,PHI,2,1,American Family Field,,Freddy Peralta,,Aaron Nola
+2024-09-18,745121,Final,STL,PIT,10,5,Busch Stadium,,Sonny Gray,,Jake Woodford
+2024-09-18,744959,Final,TEX,TOR,2,0,Globe Life Field,,Cody Bradford,,Bowden Francis
+2024-09-18,745199,Final,SEA,NYY,1,2,T-Mobile Park,,Bryce Miller,,Nestor Cortes
+2024-09-19,746985,Final,BAL,SF,5,3,Oriole Park at Camden Yards,,Zach Eflin,,Logan Webb
+2024-09-19,746579,Final,CLE,MIN,3,2,Progressive Field,,Joey Cantillo,,Simeon Woods Richardson
+2024-09-19,746663,Final,CIN,ATL,3,15,Great American Ball Park,,Julian Aguiar,,Chris Sale
+2024-09-19,744962,Final,TEX,TOR,0,4,Globe Life Field,,Kumar Rocker,,Kevin Gausman
+2024-09-19,745204,Final,SEA,NYY,3,2,T-Mobile Park,,Logan Gilbert,,Clarke Schmidt
+2024-09-19,746011,Final,MIA,LAD,4,20,loanDepot park,,Edward Cabrera,,Jack Flaherty
+2024-09-19,745041,Final,TB,BOS,2,0,Tropicana Field,,Zack Littell,,Brayan Bello
+2024-09-19,745120,Final,STL,PIT,2,3,Busch Stadium,,Erick Fedde,,Luis Ortiz
+2024-09-19,745769,Final,NYM,PHI,10,6,Citi Field,,Luis Severino,,Taijuan Walker
+2024-09-19,745937,Final,MIL,AZ,1,5,American Family Field,,Tobias Myers,,Brandon Pfaadt
+2024-09-19,746823,Final,CHC,WSH,7,6,Wrigley Field,,Javier Assad,,Patrick Corbin
+2024-09-19,746341,Final,HOU,LAA,3,1,Minute Maid Park,,Yusei Kikuchi,,José Suarez
+2024-09-20,746824,Final,CHC,WSH,3,1,Wrigley Field,,Jameson Taillon,,Trevor Williams
+2024-09-20,746661,Final,CIN,PIT,8,3,Great American Ball Park,,Nick Martinez,,Mitch Keller
+2024-09-20,745043,Final,TB,TOR,1,0,Tropicana Field,,Tyler Alexander,,José Berríos
+2024-09-20,746984,Final,BAL,DET,7,1,Oriole Park at Camden Yards,,Corbin Burnes,,Tyler Holton
+2024-09-20,746905,Final,BOS,MIN,2,4,Fenway Park,,Richard Fitts,,David Festa
+2024-09-20,745770,Final,NYM,PHI,2,12,Citi Field,,David Peterson,,Cristopher Sánchez
+2024-09-20,746013,Final,MIA,ATL,4,3,loanDepot park,,Valente Bellozo,,Charlie Morton
+2024-09-20,744960,Final,TEX,SEA,2,8,Globe Life Field,,Jacob deGrom,,George Kirby
+2024-09-20,746340,Final,HOU,LAA,9,7,Minute Maid Park,,Justin Verlander,,Tyler Anderson
+2024-09-20,746256,Final,KC,SF,1,2,Kauffman Stadium,,Michael Wacha,,Mason Black
+2024-09-20,745934,Final,MIL,AZ,4,7,American Family Field,,Colin Rea,,Zac Gallen
+2024-09-20,745123,Final,STL,CLE,1,5,Busch Stadium,,Kyle Gibson,,Ben Lively
+2024-09-20,745364,Final,SD,CWS,3,2,Petco Park,,Joe Musgrove,,Garrett Crochet
+2024-09-20,745606,Final,ATH,NYY,2,4,Oakland Coliseum,,J.T. Ginn,,Gerrit Cole
+2024-09-20,746094,Final,LAD,COL,6,4,Dodger Stadium,,Ryan Brasier,,Kyle Freeland
+2024-09-21,746660,Final,CIN,PIT,7,1,Great American Ball Park,,Rhett Lowder,,Jared Jones
+2024-09-21,746826,Final,CHC,WSH,1,5,Wrigley Field,,Kyle Hendricks,,MacKenzie Gore
+2024-09-21,746983,Final,BAL,DET,4,6,Oriole Park at Camden Yards,,Cade Povich,,Reese Olson
+2024-09-21,745038,Final,TB,TOR,3,2,Tropicana Field,,Taj Bradley,,Yariel Rodríguez
+2024-09-21,745768,Final,NYM,PHI,6,3,Citi Field,,Sean Manaea,,Ranger Suárez
+2024-09-21,746012,Final,MIA,ATL,2,6,loanDepot park,,Adam Oller,,Max Fried
+2024-09-21,746255,Final,KC,SF,0,9,Kauffman Stadium,,Brady Singer,,Landen Roupp
+2024-09-21,744958,Final,TEX,SEA,4,8,Globe Life Field,,Dane Dunning,,Emerson Hancock
+2024-09-21,746338,Final,HOU,LAA,10,4,Minute Maid Park,,Ronel Blanco,,Reid Detmers
+2024-09-21,745936,Final,MIL,AZ,0,5,American Family Field,,Aaron Civale,,Merrill Kelly
+2024-09-21,745124,Final,STL,CLE,6,5,Busch Stadium,,Miles Mikolas,,Matthew Boyd
+2024-09-21,745360,Final,SD,CWS,6,2,Petco Park,,Martín Pérez,,Chris Flexen
+2024-09-21,745610,Final,ATH,NYY,0,10,Oakland Coliseum,,JP Sears,,Carlos Rodón
+2024-09-21,746096,Final,LAD,COL,3,6,Dodger Stadium,,Walker Buehler,,Cal Quantrill
+2024-09-22,746903,Final,BOS,MIN,8,1,Fenway Park,,Nick Pivetta,,Pablo López
+2024-09-22,746906,Final,BOS,MIN,9,3,Fenway Park,,Kutter Crawford,,Zebby Matthews
+2024-09-22,746657,Final,CIN,PIT,0,2,Great American Ball Park,,Hunter Greene,,Paul Skenes
+2024-09-22,746982,Final,BAL,DET,3,4,Oriole Park at Camden Yards,,Albert Suárez,,Tyler Holton
+2024-09-22,745036,Final,TB,TOR,4,3,Tropicana Field,,Shane Baz,,Ryan Burr
+2024-09-22,746010,Final,MIA,ATL,4,5,loanDepot park,,Darren McCaughan,,Grant Holmes
+2024-09-22,746339,Final,HOU,LAA,8,9,Minute Maid Park,,Spencer Arrighetti,,Griffin Canning
+2024-09-22,746253,Final,KC,SF,0,2,Kauffman Stadium,,Seth Lugo,,Blake Snell
+2024-09-22,745929,Final,MIL,AZ,10,9,American Family Field,,Frankie Montas,,Jordan Montgomery
+2024-09-22,745118,Final,STL,CLE,2,1,Busch Stadium,,Andre Pallante,,Gavin Williams
+2024-09-22,746825,Final,CHC,WSH,5,0,Wrigley Field,,Shota Imanaga,,Jake Irvin
+2024-09-22,744955,Final,TEX,SEA,6,5,Globe Life Field,,Andrew Heaney,,Bryan Woo
+2024-09-22,745608,Final,ATH,NYY,4,7,Oakland Coliseum,,Joey Estes,,Luis Gil
+2024-09-22,746092,Final,LAD,COL,6,5,Dodger Stadium,,Yoshinobu Yamamoto,,Antonio Senzatela
+2024-09-22,745358,Final,SD,CWS,4,2,Petco Park,,Yu Darvish,,Sean Burke
+2024-09-22,745767,Final,NYM,PHI,2,1,Citi Field,,Tylor Megill,,Zack Wheeler
+2024-09-23,745527,Final,PHI,CHC,6,2,Citizens Bank Park,,Aaron Nola,,Nate Pearson
+2024-09-23,744885,Final,TOR,BOS,1,4,Rogers Centre,,Chris Bassitt,,Tanner Houck
+2024-09-23,746334,Final,HOU,SEA,1,6,Minute Maid Park,,Hunter Brown,,Bryce Miller
+2024-09-23,747150,Final,AZ,SF,3,6,Chase Field,,Eduardo Rodriguez,,Hayden Birdsong
+2024-09-24,746421,Final,DET,TB,2,1,Comerica Park,,Tarik Skubal,,Ryan Pepiot
+2024-09-24,746581,Final,CLE,CIN,6,1,Progressive Field,,Tanner Bibee,,Carson Spiers
+2024-09-24,745526,Final,PHI,CHC,4,10,Citizens Bank Park,,Tanner Banks,,Justin Steele
+2024-09-24,745441,Final,PIT,MIL,2,7,PNC Park,,Bailey Falter,,Tobias Myers
+2024-09-24,744802,Final,WSH,KC,0,1,Nationals Park,,Mitchell Parker,,Cole Ragans
+2024-09-24,745688,Final,NYY,BAL,3,5,Yankee Stadium,,Clarke Schmidt,,Dean Kremer
+2024-09-24,744876,Final,TOR,BOS,5,6,Rogers Centre,,Bowden Francis,,Brayan Bello
+2024-09-24,747068,Final,ATL,NYM,5,1,Truist Park,,Spencer Schwellenbach,,Luis Severino
+2024-09-24,746743,Final,CWS,LAA,3,2,Guaranteed Rate Field,,Jonathan Cannon,,Jack Kochanowicz
+2024-09-24,745851,Final,MIN,MIA,1,4,Target Field,,Bailey Ober,,Ryan Weathers
+2024-09-24,746336,Final,HOU,SEA,4,3,Minute Maid Park,,Framber Valdez,,Logan Gilbert
+2024-09-24,746504,Final,COL,STL,3,7,Coors Field,,Ryan Feltner,,Michael McGreevy
+2024-09-24,747149,Final,AZ,SF,0,11,Chase Field,,Brandon Pfaadt,,Logan Webb
+2024-09-24,745605,Final,ATH,TEX,5,4,Oakland Coliseum,,Mitch Spence,,Nathan Eovaldi
+2024-09-24,746093,Final,LAD,SD,2,4,Dodger Stadium,,Landon Knack,,Michael King
+2024-09-25,746331,Final,HOU,SEA,1,8,Minute Maid Park,,Yusei Kikuchi,,George Kirby
+2024-09-25,745521,Final,PHI,CHC,9,6,Citizens Bank Park,,Cristopher Sánchez,,Javier Assad
+2024-09-25,746583,Final,CLE,CIN,5,2,Progressive Field,,Andrew Walters,,Jakob Junis
+2024-09-25,746420,Final,DET,TB,7,1,Comerica Park,,Keider Montero,,Zack Littell
+2024-09-25,745442,Final,PIT,MIL,2,1,PNC Park,,Luis Ortiz,,Freddy Peralta
+2024-09-25,744795,Final,WSH,KC,0,3,Nationals Park,,DJ Herz,,Michael Lorenzen
+2024-09-25,745690,Final,NYY,BAL,7,9,Yankee Stadium,,Marcus Stroman,,Zach Eflin
+2024-09-25,744877,Final,TOR,BOS,6,1,Rogers Centre,,Kevin Gausman,,Richard Fitts
+2024-09-25,746742,Final,CWS,LAA,4,3,Guaranteed Rate Field,,Davis Martin,,José Suarez
+2024-09-25,745854,Final,MIN,MIA,8,3,Target Field,,Simeon Woods Richardson,,Edward Cabrera
+2024-09-25,746501,Final,COL,STL,2,5,Coors Field,,Austin Gomber,,Erick Fedde
+2024-09-25,747144,Final,AZ,SF,8,2,Chase Field,,Zac Gallen,,Mason Black
+2024-09-25,745607,Final,ATH,TEX,1,5,Oakland Coliseum,,Brady Basso,,Cody Bradford
+2024-09-25,746095,Final,LAD,SD,4,3,Dodger Stadium,,Jack Flaherty,,Dylan Cease
+2024-09-26,745443,Final,PIT,MIL,2,5,PNC Park,,Mitch Keller,,Aaron Civale
+2024-09-26,744796,Final,WSH,KC,4,7,Nationals Park,,Patrick Corbin,,Michael Wacha
+2024-09-26,746415,Final,DET,TB,4,3,Comerica Park,,Reese Olson,,Tyler Alexander
+2024-09-26,746738,Final,CWS,LAA,7,0,Guaranteed Rate Field,,Chris Flexen,,Tyler Anderson
+2024-09-26,746495,Final,COL,STL,10,8,Coors Field,,Kyle Freeland,,Kyle Gibson
+2024-09-26,745609,Final,ATH,TEX,3,2,Oakland Coliseum,,J.T. Ginn,,Kumar Rocker
+2024-09-26,745691,Final,NYY,BAL,10,1,Yankee Stadium,,Gerrit Cole,,Corbin Burnes
+2024-09-26,745853,Final,MIN,MIA,6,8,Target Field,,David Festa,,Valente Bellozo
+2024-09-26,746088,Final,LAD,SD,7,2,Dodger Stadium,,Walker Buehler,,Joe Musgrove
+2024-09-27,746822,Final,CHC,CIN,1,0,Wrigley Field,,Jameson Taillon,,Nick Martinez
+2024-09-27,746417,Final,DET,CWS,4,1,Comerica Park,,Brenan Hanifee,,Garrett Crochet
+2024-09-27,744797,Final,WSH,PHI,9,1,Nationals Park,,Trevor Williams,,Ranger Suárez
+2024-09-27,745692,Final,NYY,PIT,2,4,Yankee Stadium,,Carlos Rodón,,Jared Jones
+2024-09-27,744879,Final,TOR,MIA,5,15,Rogers Centre,,José Berríos,,Adam Oller
+2024-09-27,746580,Final,CLE,HOU,2,5,Progressive Field,,Joey Cantillo,,Ronel Blanco
+2024-09-27,746904,Final,BOS,TB,1,2,Fenway Park,,Nick Pivetta,,Taj Bradley
+2024-09-27,747065,Final,ATL,KC,3,0,Truist Park,,Max Fried,,Brady Singer
+2024-09-27,746494,Final,COL,LAD,4,11,Coors Field,,Cal Quantrill,,Ryan Brasier
+2024-09-27,745847,Final,MIN,BAL,2,7,Target Field,,Pablo López,,Cade Povich
+2024-09-27,745930,Final,MIL,NYM,8,4,American Family Field,,Frankie Montas,,Sean Manaea
+2024-09-27,746173,Final,LAA,TEX,2,5,Angel Stadium,,Reid Detmers,,Jacob deGrom
+2024-09-27,747145,Final,AZ,SD,3,5,Chase Field,,Merrill Kelly,,Yu Darvish
+2024-09-27,745202,Final,SEA,ATH,2,0,T-Mobile Park,,Bryan Woo,,JP Sears
+2024-09-27,745280,Final,SF,STL,3,6,Oracle Park,,Landen Roupp,,Miles Mikolas
+2024-09-28,745685,Final,NYY,PIT,4,9,Yankee Stadium,,Luis Gil,,Paul Skenes
+2024-09-28,746414,Final,DET,CWS,0,4,Comerica Park,,Beau Brieske,,Sean Burke
+2024-09-28,746819,Final,CHC,CIN,3,0,Wrigley Field,,Kyle Hendricks,,Rhett Lowder
+2024-09-28,744878,Final,TOR,MIA,1,8,Rogers Centre,,Yariel Rodríguez,,Xzavion Curry
+2024-09-28,745281,Final,SF,STL,6,5,Oracle Park,,Tristan Beck,,Andre Pallante
+2024-09-28,744799,Final,WSH,PHI,6,3,Nationals Park,,MacKenzie Gore,,Zack Wheeler
+2024-09-28,746902,Final,BOS,TB,2,7,Fenway Park,,Kutter Crawford,,Shane Baz
+2024-09-28,746578,Final,CLE,HOU,3,4,Progressive Field,,Ben Lively,,Justin Verlander
+2024-09-28,745849,Final,MIN,BAL,2,9,Target Field,,Zebby Matthews,,Matt Bowman
+2024-09-28,745931,Final,MIL,NYM,6,0,American Family Field,,Jared Koenig,,Jose Quintana
+2024-09-28,747066,Final,ATL,KC,2,1,Truist Park,,Reynaldo López,,Seth Lugo
+2024-09-28,746499,Final,COL,LAD,2,13,Coors Field,,Antonio Senzatela,,Yoshinobu Yamamoto
+2024-09-28,747146,Final,AZ,SD,0,5,Chase Field,,Eduardo Rodriguez,,Randy Vásquez
+2024-09-28,746171,Final,LAA,TEX,8,9,Angel Stadium,,Griffin Canning,,Andrew Heaney
+2024-09-28,745203,Final,SEA,ATH,7,6,T-Mobile Park,,Emerson Hancock,,Joey Estes
+2024-09-29,745282,Final,SF,STL,1,6,Oracle Park,,Hayden Birdsong,,Michael McGreevy
+2024-09-29,746901,Final,BOS,TB,3,1,Fenway Park,,Quinn Priester,,Ryan Pepiot
+2024-09-29,744798,Final,WSH,PHI,3,6,Nationals Park,,Jake Irvin,,Aaron Nola
+2024-09-29,745686,Final,NYY,PIT,6,4,Yankee Stadium,,Clarke Schmidt,,Bailey Falter
+2024-09-29,746174,Final,LAA,TEX,0,8,Angel Stadium,,Jack Kochanowicz,,Nathan Eovaldi
+2024-09-29,744880,Final,TOR,MIA,1,3,Rogers Centre,,Ryan Burr,,Ryan Weathers
+2024-09-29,746496,Final,COL,LAD,1,2,Coors Field,,Ryan Feltner,,Anthony Banda
+2024-09-29,747147,Final,AZ,SD,11,2,Chase Field,,Brandon Pfaadt,,Martín Pérez
+2024-09-29,745201,Final,SEA,ATH,6,4,T-Mobile Park,,Logan Gilbert,,Mitch Spence
+2024-09-29,745846,Final,MIN,BAL,2,6,Target Field,,Bailey Ober,,Albert Suárez
+2024-09-29,746416,Final,DET,CWS,5,9,Comerica Park,,Kenta Maeda,,Jonathan Cannon
+2024-09-29,745932,Final,MIL,NYM,0,5,American Family Field,,Colin Rea,,David Peterson
+2024-09-29,746820,Final,CHC,CIN,0,3,Wrigley Field,,Caleb Kilian,,Hunter Greene
+2024-09-29,747061,Final,ATL,KC,2,4,Truist Park,,Charlie Morton,,Alec Marsh
+2024-09-30,747139,Final,ATL,NYM,7,8,Truist Park,,Spencer Schwellenbach,,Tylor Megill
+2024-09-30,747064,Final,ATL,NYM,3,0,Truist Park,,Grant Holmes,,Joey Lucchesi

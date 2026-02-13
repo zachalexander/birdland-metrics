@@ -16,6 +16,7 @@
   --text-5xl: 3.5rem;
 
   /* Colors */
+  --color-page: #f4f7fb;
   --color-bg: #ffffff;
   --color-bg-subtle: #f9fafb;
   --color-text: #1a1a1a;
@@ -76,6 +77,7 @@ html {
 
 body {
   min-height: 100vh;
+  background-color: var(--color-bg);
 }
 
 a {

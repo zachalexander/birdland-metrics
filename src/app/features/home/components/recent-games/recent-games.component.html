@@ -1,7 +1,7 @@
 <div class="recent-games-wrapper">
-  <h3 class="section-label">
-    {{ gameType() === 'S' ? 'Spring Training' : 'Recent Orioles Games' }}
-  </h3>
+  @if (gameType() === 'S') {
+    <h3 class="section-label">Spring Training</h3>
+  }
   <div class="games-scroll-container">
     <div class="games-grid" #gamesGrid>
       @for (game of games(); track game.id) {

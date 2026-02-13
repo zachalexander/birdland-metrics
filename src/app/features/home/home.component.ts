@@ -57,6 +57,8 @@ export class HomeComponent implements OnInit {
     return this.articles().filter(a => a.slug !== feat.slug);
   });
 
+  latestPreviewArticles = computed(() => this.remainingArticles().slice(0, 4));
+
   lastRunDate = computed(() => {
     const raw = this.modelsUpdated();
     if (!raw) return null;
@@ -68,7 +70,7 @@ export class HomeComponent implements OnInit {
     const v = day % 100;
     const suffix = s[(v - 20) % 10] || s[v] || s[0];
     const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
-    return `${month} ${day}${suffix}, ${year} at ${time} ET`;
+    return `${month} ${day}${suffix}, ${year} \u00B7 ${time} ET`;
   });
 
   private platformId = inject(PLATFORM_ID);

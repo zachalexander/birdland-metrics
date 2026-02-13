@@ -18,19 +18,20 @@
 .team-picker {
   display: flex;
   justify-content: center;
-  gap: var(--space-xs);
+  gap: 0.2rem;
   margin-bottom: var(--space-lg);
 }
 
 .team-pick {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: 0.68rem;
   font-weight: 600;
   color: var(--team-color);
   background: none;
   border: 1px solid var(--team-color);
   border-radius: 9999px;
-  padding: var(--space-xs) var(--space-md);
+  padding: 3px 0.6rem;
+  white-space: nowrap;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
@@ -98,8 +99,7 @@
     flex-wrap: wrap;
   }
   .team-pick {
-    font-size: 0.65rem;
-    padding: 2px var(--space-sm);
+    font-size: 0.62rem;
+    padding: 3px 0.5rem;
   }
 }
-

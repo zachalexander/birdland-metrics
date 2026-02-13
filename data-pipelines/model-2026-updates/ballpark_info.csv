@@ -1,0 +1,31 @@
+team,ballpark,city,lat,lon,timezone,tz_offset_utc
+ATH,Sutter Health Park,"Sacramento, CA",38.5802,-121.5111,America/Los_Angeles,-8
+ATL,Truist Park,"Atlanta, GA",33.8907,-84.4677,America/New_York,-5
+AZ,Chase Field,"Phoenix, AZ",33.4455,-112.0667,America/Phoenix,-7
+BAL,Oriole Park at Camden Yards,"Baltimore, MD",39.2838,-76.6216,America/New_York,-5
+BOS,Fenway Park,"Boston, MA",42.3467,-71.0972,America/New_York,-5
+CHC,Wrigley Field,"Chicago, IL",41.9484,-87.6553,America/Chicago,-6
+CIN,Great American Ball Park,"Cincinnati, OH",39.0974,-84.5082,America/New_York,-5
+CLE,Progressive Field,"Cleveland, OH",41.4962,-81.6852,America/New_York,-5
+COL,Coors Field,"Denver, CO",39.7559,-104.9942,America/Denver,-7
+CWS,Guaranteed Rate Field,"Chicago, IL",41.8299,-87.6338,America/Chicago,-6
+DET,Comerica Park,"Detroit, MI",42.339,-83.0485,America/Detroit,-5
+HOU,Minute Maid Park,"Houston, TX",29.7573,-95.3555,America/Chicago,-6
+KC,Kauffman Stadium,"Kansas City, MO",39.0517,-94.4803,America/Chicago,-6
+LAA,Angel Stadium,"Anaheim, CA",33.8003,-117.8827,America/Los_Angeles,-8
+LAD,Dodger Stadium,"Los Angeles, CA",34.0739,-118.24,America/Los_Angeles,-8
+MIA,LoanDepot Park,"Miami, FL",25.7781,-80.2196,America/New_York,-5
+MIL,American Family Field,"Milwaukee, WI",43.028,-87.9712,America/Chicago,-6
+MIN,Target Field,"Minneapolis, MN",44.9818,-93.2775,America/Chicago,-6
+NYM,Citi Field,"New York, NY",40.7571,-73.8458,America/New_York,-5
+NYY,Yankee Stadium,"New York, NY",40.8296,-73.9262,America/New_York,-5
+PHI,Citizens Bank Park,"Philadelphia, PA",39.9061,-75.1665,America/New_York,-5
+PIT,PNC Park,"Pittsburgh, PA",40.4469,-80.0057,America/New_York,-5
+SD,Petco Park,"San Diego, CA",32.7076,-117.157,America/Los_Angeles,-8
+SEA,T-Mobile Park,"Seattle, WA",47.5914,-122.3325,America/Los_Angeles,-8
+SF,Oracle Park,"San Francisco, CA",37.7786,-122.3893,America/Los_Angeles,-8
+STL,Busch Stadium,"St. Louis, MO",38.6226,-90.1928,America/Chicago,-6
+TB,Tropicana Field,"St. Petersburg, FL",27.7682,-82.6534,America/New_York,-5
+TEX,Globe Life Field,"Arlington, TX",32.7512,-97.0832,America/Chicago,-6
+TOR,Rogers Centre,"Toronto, ON",43.6414,-79.3894,America/Toronto,-5
+WSH,Nationals Park,"Washington, DC",38.873,-77.0074,America/New_York,-5

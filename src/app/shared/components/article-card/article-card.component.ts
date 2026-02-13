@@ -12,4 +12,5 @@ import { BlogPost } from '../../models/content.models';
 })
 export class ArticleCardComponent {
   article = input.required<BlogPost>();
+  variant = input<'default' | 'spotlight'>('default');
 }

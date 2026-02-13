@@ -1,0 +1,96 @@
+{
+  "Comment": "MLB Daily Data Pipeline — runs 5 Lambdas in sequence to update schedule, game results, ELO ratings, season projections, and Orioles dashboard.",
+  "StartAt": "ScheduleSync",
+  "States": {
+    "ScheduleSync": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:953354210097:function:mlb-schedule-sync",
+        "Payload.$": "$"
+      },
+      "ResultPath": "$.scheduleResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 30,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "GameResults"
+    },
+    "GameResults": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:953354210097:function:mlb-game-results",
+        "Payload.$": "$"
+      },
+      "ResultPath": "$.gameResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 30,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "EloCompute"
+    },
+    "EloCompute": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:953354210097:function:mlb-elo-compute",
+        "Payload.$": "$"
+      },
+      "ResultPath": "$.eloResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 30,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "SeasonProjections"
+    },
+    "SeasonProjections": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:953354210097:function:mlb-season-projections",
+        "Payload.$": "$"
+      },
+      "ResultPath": "$.projectionsResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 60,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "OriolesDashboard"
+    },
+    "OriolesDashboard": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:953354210097:function:mlb-orioles-dashboard",
+        "Payload.$": "$"
+      },
+      "ResultPath": "$.dashboardResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 30,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "End": true
+    }
+  }
+}

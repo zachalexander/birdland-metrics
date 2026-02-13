@@ -1,42 +1,102 @@
-<article class="article-card">
-  <a [routerLink]="['/articles', article().slug]" class="card-link">
-    @if (article().coverImage) {
-      <div class="card-image">
-        <picture>
-          <source
-            type="image/avif"
-            [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=avif 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=avif 600w'"
-            sizes="(max-width: 640px) 100vw, 180px"
-          />
-          <source
-            type="image/webp"
-            [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=webp 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=webp 600w'"
-            sizes="(max-width: 640px) 100vw, 180px"
-          />
-          <img
-            [src]="article().coverImage!.url + '?w=600&h=340&fit=fill'"
-            [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill 600w'"
-            sizes="(max-width: 640px) 100vw, 180px"
-            [alt]="article().coverImage!.title"
-            loading="lazy"
-            width="600"
-            height="340"
-          />
-        </picture>
-      </div>
-    }
-    <div class="card-body">
-      @if (article().tags.length) {
-        <a class="card-category" [routerLink]="['/category', article().tags[0]]"
-           (click)="$event.stopPropagation()">{{ article().tags[0] }}</a>
+<article class="article-card" [class.spotlight]="variant() === 'spotlight'">
+  @if (variant() === 'spotlight') {
+    <a [routerLink]="['/articles', article().slug]" class="spotlight-link">
+      @if (article().coverImage) {
+        <div class="spotlight-image">
+          <picture>
+            <source
+              type="image/avif"
+              [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=avif 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=avif 600w'"
+              sizes="(max-width: 640px) 100vw, 360px"
+            />
+            <source
+              type="image/webp"
+              [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=webp 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=webp 600w'"
+              sizes="(max-width: 640px) 100vw, 360px"
+            />
+            <img
+              [src]="article().coverImage!.url + '?w=600&h=340&fit=fill'"
+              [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill 600w'"
+              sizes="(max-width: 640px) 100vw, 360px"
+              [alt]="article().coverImage!.title"
+              loading="lazy"
+              width="600"
+              height="340"
+            />
+          </picture>
+          <div class="spotlight-overlay">
+            <div class="spotlight-body">
+              @if (article().tags.length) {
+                <span class="spotlight-tag">{{ article().tags[0] }}</span>
+              }
+              <h3 class="spotlight-title">{{ article().title }}</h3>
+              <div class="spotlight-meta">
+                @if (article().author?.name) {
+                  <span>{{ article().author?.name }}</span>
+                  <span class="spotlight-meta-dot">&middot;</span>
+                }
+                <span>{{ article().readingTime }} min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      } @else {
+        <div class="spotlight-fallback">
+          @if (article().tags.length) {
+            <a class="card-category" [routerLink]="['/category', article().tags[0]]"
+               (click)="$event.stopPropagation()">{{ article().tags[0] }}</a>
+          }
+          <h3 class="card-title">{{ article().title }}</h3>
+          <div class="spotlight-meta spotlight-meta-fallback">
+            @if (article().author?.name) {
+              <span>{{ article().author?.name }}</span>
+              <span class="spotlight-meta-dot">&middot;</span>
+            }
+            <span>{{ article().readingTime }} min read</span>
+          </div>
+        </div>
       }
-      <h3 class="card-title">{{ article().title }}</h3>
-      <p class="card-excerpt">{{ article().excerpt }}</p>
-      <div class="card-meta">
-        <span class="card-date">{{ article().publishedAt | date: 'MMM d, yyyy' }}</span>
-        <span class="meta-dot">·</span>
-        <span class="card-reading-time">{{ article().readingTime }} min read</span>
+    </a>
+  } @else {
+    <a [routerLink]="['/articles', article().slug]" class="card-link">
+      @if (article().coverImage) {
+        <div class="card-image">
+          <picture>
+            <source
+              type="image/avif"
+              [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=avif 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=avif 600w'"
+              sizes="(max-width: 640px) 100vw, 180px"
+            />
+            <source
+              type="image/webp"
+              [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill&fm=webp 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill&fm=webp 600w'"
+              sizes="(max-width: 640px) 100vw, 180px"
+            />
+            <img
+              [src]="article().coverImage!.url + '?w=600&h=340&fit=fill'"
+              [srcset]="article().coverImage!.url + '?w=300&h=170&fit=fill 300w, ' + article().coverImage!.url + '?w=600&h=340&fit=fill 600w'"
+              sizes="(max-width: 640px) 100vw, 180px"
+              [alt]="article().coverImage!.title"
+              loading="lazy"
+              width="600"
+              height="340"
+            />
+          </picture>
+        </div>
+      }
+      <div class="card-body">
+        @if (article().tags.length) {
+          <a class="card-category" [routerLink]="['/category', article().tags[0]]"
+             (click)="$event.stopPropagation()">{{ article().tags[0] }}</a>
+        }
+        <h3 class="card-title">{{ article().title }}</h3>
+        <p class="card-excerpt">{{ article().excerpt }}</p>
+        <div class="card-meta">
+          <span class="card-date">{{ article().publishedAt | date: 'MMM d, yyyy' }}</span>
+          <span class="meta-dot">·</span>
+          <span class="card-reading-time">{{ article().readingTime }} min read</span>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
+  }
 </article>

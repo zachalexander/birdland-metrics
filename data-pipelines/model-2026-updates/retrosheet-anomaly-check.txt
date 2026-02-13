@@ -1,0 +1,221 @@
+# Retrosheet Game Log Anomaly Check
+# Date: 2026-02-06
+# Data: gl1871_2024.zip from s3://mlb-game-log-data-retrosheet/gamelogs/
+# Total games parsed: 231,208
+
+================================================================================
+SUMMARY
+================================================================================
+
+Overall: Data is clean. No critical data integrity issues.
+One important finding: TEAM CODE MISMATCHES between retrosheet, ELO 2025,
+and ELO end-of-2024 files — see Check 4 for details and remediation.
+
+================================================================================
+CHECK 1: GAME COUNTS PER TEAM PER SEASON
+================================================================================
+
+Result: 127 team-seasons outside expected range. All are historically explained.
+
+Pre-1900 (24 anomalies):
+  Variable schedule lengths in early baseball. Not a concern for ELO.
+
+Modern era anomalies — all due to known shortened seasons:
+  1918: WWI shortened season (123-131 games/team, all 16 teams)
+  1919: Post-war shortened season (138-142 games/team, all 16 teams)
+  1972: Player strike — 8 teams at 153-154 games (BAL, CHA, CIN, HOU, KCA, MIN, SDN, TEX)
+  1981: Player strike — all 26 teams at 103-111 games
+  1995: Late start from '94 strike — all 28 teams at 143-145 games
+  2020: COVID — all 30 teams at 58-60 games (handled by separate expected range)
+
+One-off short seasons (rain-outs, unplayed games):
+  1906 PHA: 149, 1907 PHI: 149, 1933 BOS: 149, 1934 PHI: 149,
+  1935 NYA: 149, 1935 PHA: 149, 1938 CHA: 149, 1942 CHA: 148, 1945 CLE: 147
+
+Recent era summary (teams per season, games per team):
+  1998: 30 teams, 161-163 games/team
+  2012: 30 teams, 162-162 games/team
+  2024: 30 teams, 161-162 games/team
+
+Verdict: NO ACTION NEEDED. All anomalies are historically accurate.
+
+================================================================================
+CHECK 2: DUPLICATE GAMES
+================================================================================
+
+Result: No duplicate games found across all 231,208 records.
+
+Verdict: CLEAN.
+
+================================================================================
+CHECK 3: SCORE ANOMALIES
+================================================================================
+
+Null scores: 0
+Negative scores: 0
+Ties (non-forfeit): 1,177
+  Pre-1920: 782 (expected — games called for darkness, rain, curfew)
+  Post-1920: 395 (suspended games, rain-outs called as ties, etc.)
+0-0 games: 128 (mostly pre-1900, some are forfeits)
+Blowouts (20+ run differential): 139
+  Largest: 1874-06-18 CH2(1) @ NY2(38), diff=37
+
+Verdict: NO ACTION NEEDED. Ties are legitimate historical records.
+Note for ELO: Ensure tie games are handled (result=0.5 or skipped).
+The current Lambda skips ties naturally since it only processes games
+where home_score != away_score (result_home = 1 or 0).
+
+================================================================================
+CHECK 4: TEAM CODE MISMATCHES — CRITICAL FOR ELO
+================================================================================
+
+Three different code systems are in use:
+
+Retrosheet (2024) | ELO 2025 file  | ELO end-of-2024 file | Team
+------------------|----------------|----------------------|------------------
+ANA               | LAA            | LAA                  | Angels
+ARI               | AZ             | ARI                  | Diamondbacks
+CHA               | CWS            | CHW                  | White Sox
+CHN               | CHC            | CHC                  | Cubs
+KCA               | KC             | KCR                  | Royals
+LAN               | LAD            | LAD                  | Dodgers
+NYA               | NYY            | NYY                  | Yankees
+NYN               | NYM            | NYM                  | Mets
+OAK               | ATH            | OAK                  | Athletics
+SDN               | SD             | SDP                  | Padres
+SFN               | SF             | SFG                  | Giants
+SLN               | STL            | STL                  | Cardinals
+TBA               | TB             | TBR                  | Rays
+WAS               | WSH            | WSN                  | Nationals
+
+Teams that match across all systems: BAL, BOS, CIN, CLE, COL, DET, HOU,
+MIA, MIL, MIN, PHI, PIT, SEA, TEX, TOR, ATL
+
+ISSUE 1: ELO end-of-2024 → ELO 2025 code inconsistency
+  The Lambda's TEAM_ABBREV_MAP maps end-of-2024 codes to 2025 codes:
+    WSN → WSH, KCR → KC, SFG → SF, SDP → SD, CHW → CWS, ARI → AZ, OAK → ATH, TBR → TB
+  Missing from map (but happen to match): LAA, LAD, NYY, NYM, CHC, STL
+  This mapping is CORRECT for the end-of-2024 → 2025 pipeline.
+
+ISSUE 2: Retrosheet codes are NOT used by the current ELO Lambda
+  The Lambda reads from mlb-schedule-2025 (which uses MLB Stats API codes,
+  already in the 2025 format) and elo_rating_end_of_2024.csv. It does NOT
+  read retrosheet files directly. So the retrosheet code mismatch does NOT
+  affect the current daily ELO computation.
+
+ISSUE 3: Historical ELO from retrosheet (elo-ratings-1871-to-2023.csv)
+  If this file was computed from retrosheet game logs, it uses retrosheet
+  team codes. The ELO end-of-2024 file uses different codes. Need to verify
+  the historical ELO pipeline handles the retrosheet → modern code mapping.
+
+REMEDIATION:
+  - For 2026: Verify TEAM_ABBREV_MAP is updated if any teams change codes
+    (Athletics moved from OAK → ATH in 2025, confirm this carries forward)
+  - For historical retrosheet ELO: Ensure a retrosheet-to-modern mapping
+    exists if re-computing ELO from raw game logs
+  - Consider standardizing on ONE code system across all data
+
+================================================================================
+CHECK 5: HOME/AWAY BALANCE
+================================================================================
+
+4 significant imbalances found (>15% or >5 game difference):
+  1918 BSN: 52 home, 72 away (total 124, diff 20) — WWI disruption
+  1991 MON: 68 home, 93 away (total 161, diff 25) — Olympic Stadium issues
+  1994 SEA: 44 home, 68 away (total 112, diff 24) — Kingdome ceiling collapse
+  2020 SEA: 24 home, 36 away (total 60, diff 12) — COVID bubble scheduling
+
+Verdict: NO ACTION NEEDED. All are historically explained.
+Note: Home advantage in ELO should still apply per-game, these imbalances
+don't affect calculation correctness.
+
+================================================================================
+CHECK 6: DATE INTEGRITY
+================================================================================
+
+Bad dates: 0
+Out-of-year dates: 0
+
+Verdict: CLEAN.
+
+================================================================================
+CHECK 7: ELO vs RETROSHEET GAME COUNT ALIGNMENT (2020-2024)
+================================================================================
+
+Retrosheet total games per year:
+  2020: 898 games (COVID season)
+  2021: 2,429 games
+  2022: 2,430 games
+  2023: 2,430 games
+  2024: 2,429 games
+
+2024 per-team counts:
+  All 30 teams at 162 games EXCEPT:
+  CLE: 161 games **
+  HOU: 161 games **
+  (1 game cancelled — CLE vs HOU, not made up)
+
+Verdict: CLEAN. 2024 data is complete.
+
+================================================================================
+CHECK 8: LAMBDA CODE REVIEW (mlb-daily-elo-compute)
+================================================================================
+
+File: lambda_function.py (Python 3.13)
+
+ELO Parameters:
+  K-factor: 20
+  Home advantage: 55 ELO points
+  Initial ELO: 1500
+  Margin of victory multiplier: 2.2
+
+Data Flow:
+  1. Reads elo_rating_end_of_2024.csv (seed ratings, end-of-2024 codes)
+  2. Applies TEAM_ABBREV_MAP to standardize to 2025 codes
+  3. Reads schedule_2025_full.csv from mlb-schedule-2025 bucket
+  4. Applies same TEAM_ABBREV_MAP to schedule team codes
+  5. Loads existing elo-ratings-2025.csv if present
+  6. Gets latest ELO per team from most recent game in 2025 data
+  7. Filters schedule to yesterday's completed games only
+  8. Computes ELO shift per game and appends to CSV
+  9. Updates mlb-elo-team-ratings DynamoDB table
+
+TEAM_ABBREV_MAP covers 8 teams:
+  WSN→WSH, KCR→KC, SFG→SF, SDP→SD, CHW→CWS, ARI→AZ, OAK→ATH, TBR→TB
+
+Potential Issues:
+  - pip install pandas at runtime (line 4) — fragile, adds latency
+    Consider using a Lambda layer instead
+  - Ties handled implicitly: result_home = 1 if home wins, else 0
+    A tie game (score tied) would give result_home=0, treating it as away win
+    Not an issue for modern MLB (no ties) but could affect historical accuracy
+  - latest_elos groupby logic (lines 99-100) gets last homeElo_post per
+    homeTeam and last awayElo_post per awayTeam — if a team's most recent
+    game was at home, it uses homeElo_post; if away, awayElo_post. This is
+    correct since post-ELO is the same regardless of home/away perspective.
+
+Verdict: Lambda logic is sound for current daily use. Team code mapping
+is correct for end-of-2024 → 2025 conversion. No retrosheet dependency.
+
+================================================================================
+OVERALL ASSESSMENT
+================================================================================
+
+Data Quality: GOOD
+  - 231,208 games, zero duplicates, zero bad dates, zero null scores
+  - All game count anomalies are historically explained
+  - Home/away balance anomalies are historically explained
+
+Team Code Mapping: NEEDS ATTENTION
+  - Three code systems in use (retrosheet, ELO 2025, ELO end-of-2024)
+  - Current Lambda handles end-of-2024 → 2025 mapping correctly
+  - If re-computing historical ELO from retrosheet, need a retrosheet code map
+  - For 2026: update bucket names, schedule keys, and verify TEAM_ABBREV_MAP
+
+Action Items for 2026 Season:
+  1. Create elo_rating_end_of_2025.csv from final 2025 ELO values
+  2. Create mlb-predictions-2026 and mlb-schedule-2026 S3 buckets
+  3. Update Lambda bucket/key references from 2025 → 2026
+  4. Verify TEAM_ABBREV_MAP (Athletics are now ATH, confirm no other changes)
+  5. Consider adding a Lambda layer for pandas instead of runtime pip install
+  6. Re-enable EventBridge schedules before Opening Day 2026
