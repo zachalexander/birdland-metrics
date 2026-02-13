@@ -3,9 +3,9 @@
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <a routerLink="/">Home</a>
       <span class="breadcrumb-sep">/</span>
-      <span class="breadcrumb-current">{{ category() }}</span>
+      <span class="breadcrumb-current">{{ category() || 'Articles' }}</span>
     </nav>
-    <h1 class="section-title">{{ category() }}</h1>
+    <h1 class="section-title">{{ category() || 'All Articles' }}</h1>
     @if (loading()) {
       <div class="articles-grid">
         @for (_ of [1,2,3]; track $index) {

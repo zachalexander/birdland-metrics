@@ -7,6 +7,7 @@
         <th class="col-num">W</th>
         <th class="col-num">L</th>
         <th class="col-num col-pct">Playoff %</th>
+        <th class="col-num col-pct">Div %</th>
         <th class="col-num col-pct">WC %</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
           <td class="col-num">{{ team.median_wins | number: '1.0-0' }}</td>
           <td class="col-num">{{ projLosses(team.median_wins) }}</td>
           <td class="col-num">{{ playoffPct(team.team) | number: '1.0-0' }}%</td>
+          <td class="col-num">{{ divisionPct(team.team) | number: '1.0-0' }}%</td>
           <td class="col-num">{{ wildcardPct(team.team) | number: '1.0-0' }}%</td>
         </tr>
       }

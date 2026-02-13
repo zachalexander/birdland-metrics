@@ -33,6 +33,10 @@ export class StandingsTableComponent {
     return this.odds().find(o => o.team === code)?.playoff_pct ?? 0;
   }
 
+  divisionPct(code: string): number {
+    return this.odds().find(o => o.team === code)?.division_pct ?? 0;
+  }
+
   wildcardPct(code: string): number {
     return this.odds().find(o => o.team === code)?.wildcard_pct ?? 0;
   }

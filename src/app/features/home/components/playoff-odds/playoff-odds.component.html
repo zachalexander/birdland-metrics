@@ -1,16 +1,16 @@
 @if (odds(); as o) {
-  <div class="hero-stat">
-    <span class="stat-label">Orioles Playoff Probability</span>
-    <span class="stat-number">{{ o.playoff_pct | number: '1.0-0' }}<span class="stat-pct">%</span></span>
-    <div class="stat-details">
-      <div class="stat-detail">
-        <span class="detail-value">{{ o.division_pct | number: '1.0-0' }}%</span>
-        <span class="detail-label">Win AL East</span>
-      </div>
-      <div class="stat-detail">
-        <span class="detail-value">{{ o.wildcard_pct | number: '1.0-0' }}%</span>
-        <span class="detail-label">Wild Card</span>
-      </div>
+  <div class="odds-row">
+    <div class="odds-col accent">
+      <span class="odds-label">Playoff</span>
+      <span class="odds-value">{{ o.playoff_pct | number: '1.0-0' }}%</span>
+    </div>
+    <div class="odds-col">
+      <span class="odds-label">Division</span>
+      <span class="odds-value">{{ o.division_pct | number: '1.0-0' }}%</span>
+    </div>
+    <div class="odds-col">
+      <span class="odds-label">Wild Card</span>
+      <span class="odds-value">{{ o.wildcard_pct | number: '1.0-0' }}%</span>
     </div>
   </div>
 }

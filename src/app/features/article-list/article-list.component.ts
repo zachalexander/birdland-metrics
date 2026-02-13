@@ -31,23 +31,29 @@ export class ArticleListComponent implements OnInit {
     const cat = this.route.snapshot.paramMap.get('category') ?? '';
     this.category.set(cat);
 
-    const displayName = cat.charAt(0).toUpperCase() + cat.slice(1);
-    this.title.setTitle(`${displayName} — Birdland Metrics`);
-    this.meta.updateTag({ name: 'description', content: `Articles about ${displayName} on Birdland Metrics.` });
-    this.meta.updateTag({ property: 'og:title', content: `${displayName} — Birdland Metrics` });
+    const displayName = cat ? cat.charAt(0).toUpperCase() + cat.slice(1) : 'All Articles';
+    const pageTitle = cat ? `${displayName} — Birdland Metrics` : 'Articles — Birdland Metrics';
+    const pagePath = cat ? '/category/' + cat : '/articles';
+
+    this.title.setTitle(pageTitle);
+    this.meta.updateTag({ name: 'description', content: cat ? `Articles about ${displayName} on Birdland Metrics.` : 'All articles on Birdland Metrics.' });
+    this.meta.updateTag({ property: 'og:title', content: pageTitle });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/category/' + cat });
-    this.seo.setCanonicalUrl('/category/' + cat);
+    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + pagePath });
+    this.seo.setCanonicalUrl(pagePath);
     this.seo.setJsonLd(
       this.seo.getBreadcrumbSchema([
         { name: 'Home', path: '/' },
-        { name: displayName, path: '/category/' + cat },
+        { name: displayName, path: pagePath },
       ]),
       this.seo.getOrganizationSchema(),
     );
 
-    this.contentful
-      .getArticlesByCategory(cat)
+    const fetch = cat
+      ? this.contentful.getArticlesByCategory(cat)
+      : this.contentful.getArticles(100);
+
+    fetch
       .then((articles) => {
         this.articles.set(articles);
         this.loading.set(false);

@@ -38,8 +38,13 @@ src/app/
 │   └── article-list/                      — Category/tag filtered grid
 ├── shared/
 │   ├── components/header|footer|article-card
+│   ├── directives/viz-host.directive.ts   — Detects viz placeholders in article innerHTML, renders d3
 │   └── models/content.models.ts           — BlogPost, Author interfaces
-└── visualizations/spray-chart/            — d3.js spray chart at /visualizations/spray-chart
+└── visualizations/
+    ├── viz-utils.ts                       — Shared d3 helpers (team colors, responsive SVG, tooltip)
+    ├── spray-chart/                       — d3.js spray chart at /visualizations/spray-chart
+    ├── elo-trend/                         — ELO trend line chart (standalone + article embed)
+    └── win-distribution/                  — Win distribution histogram (standalone + sidebar + article embed)
 ```
 
 ## Routes
@@ -47,6 +52,8 @@ src/app/
 - `/articles/:slug` — Article detail (lazy-loaded)
 - `/category/:category` — Filtered list (lazy-loaded)
 - `/visualizations/spray-chart` — d3.js spray chart (lazy-loaded)
+- `/visualizations/elo-trends` — ELO trend line chart (lazy-loaded)
+- `/visualizations/win-distribution` — Win distribution histogram (lazy-loaded)
 - All routes use `RenderMode.Server` for SSR
 
 ## SEO
@@ -74,7 +81,7 @@ src/app/
 - **DNS**: Route 53 hosted zone, ALIAS record for apex, CNAME for www
 - **GitHub Connection**: launch-angle-github (connection ARN unchanged after repo rename)
 
-## Current State (2026-02-11)
+## Current State (2026-02-12)
 - 2 test articles in Contentful ("First Post", "Second Post") with cover images
 - Spray chart wired to /visualizations/spray-chart with nav link in header
 - Author linked to articles and displayed on article detail pages
@@ -88,6 +95,12 @@ src/app/
 - SEO technical gaps complete: robots.txt, dynamic sitemap.xml, canonical URLs, JSON-LD (Organization, BreadcrumbList, enhanced BlogPosting) on all routes
 - Responsive images: `<picture>` with AVIF/WebP srcset on article cards (300w/600w) and article hero (600w/1200w)
 - Service worker configured: `@angular/service-worker` with prefetch for app shell, lazy for images, freshness for APIs
+- d3.js visualizations: ELO trend line chart + win distribution histogram with article embedding via VizHostDirective
+- Home sidebar: Orioles win distribution histogram (95% CI overlay, interactive hover with frequency tooltip), playoff odds, AL East projected standings with wildcard %
+- Sidebar fully center-aligned, renders above articles on mobile (order: -1)
+- Favicon updated to logo-based dark mode variant (white circle background)
+- Article date format abbreviated (MMM d, yyyy) for cleaner single-line mobile display
+- Draft articles in `articles/`: AL East 2026 season preview, how-our-model-works additions (injuries, bullpen FIP, Bayesian regression)
 
 ## Completed
 - ✓ Wire spray chart into dedicated route
@@ -112,6 +125,17 @@ src/app/
 - ✓ SEO: og:url meta tags on all routes
 - ✓ Media: Responsive images with `<picture>` + AVIF/WebP sources on article cards and hero images
 - ✓ Performance: Service worker (`@angular/service-worker`) with app shell prefetch, lazy image caching, API freshness caching
+- ✓ d3 visualizations: ELO trend line chart + win distribution histogram with shared viz-utils (team colors, responsive SVG, tooltip)
+- ✓ VizHostDirective for embedding visualizations inline in Contentful articles via embedded entries
+- ✓ Win distribution histogram: discrete bars (d3.scaleBand), normal PDF → simulated frequency (10k sims), 95% CI overlay, interactive hover (opacity + stroke), tooltip with frequency count + percentage
+- ✓ ELO trend chart: multi-team line chart with d3.scaleTime, 1500 baseline, bisector tooltip, stroke-dasharray animation
+- ✓ Express API route `/api/elo-history` with in-memory CSV cache (1hr refresh)
+- ✓ Home sidebar: win distribution (BAL), playoff odds, AL East standings with W/L/Playoff%/WC%
+- ✓ Sidebar layout: center-aligned content, narrowed standings table (max-width 360px), consistent muted color palette, mobile-first (sidebar above articles via order: -1)
+- ✓ Favicon: logo-based dark mode variant (white circle background), set as default
+- ✓ Navbar letter-spacing tightened (0.08em → 0.03em)
+- ✓ Article meta: abbreviated date format (MMM d, yyyy), reduced spacing
+- ✓ Tooltip overflow fix: flip positioning when near container right edge
 
 ## Disclaimers
 - ✓ Disclaimer page at `/disclaimer` with full legal text
@@ -308,19 +332,17 @@ Benchmarks: Baseball Savant (inline viz, dashboard home), FanGraphs (taxonomy/fi
 - ✓ **Data Audit (2026-02-08)**: Cleaned S3 buckets, fixed stale DynamoDB, archived old files.
 - ✓ **Model Documentation (2026-02-09)**: `enhanced-model-reference.md` for blog article reference.
 
-**Angular work — NEXT UP:**
-- Create `MlbDataService` (`src/app/core/services/mlb-data.service.ts`) — fetches JSON from S3
-- Build 3 home page dashboard components:
-  1. **Games Back chart** — port existing d3 line chart (wildcard + division lines, projection cone)
-  2. **AL Standings table** — projected end-of-season standings
-  3. **Recent Games scoreboard** — last 10 Orioles games with logos/scores/pitchers
-- Redesign home page: dashboard section on top → article grid below
+**Angular work — ✓ COMPLETE (2026-02-11 → 2026-02-12):**
+- ✓ `MlbDataService` — fetches projections, ELO, playoff odds, recent games from S3/Express API
+- ✓ Home dashboard: playoff odds hero stat, win distribution histogram, AL East standings table, recent games slider
+- ✓ Sidebar layout with projections above articles on mobile
+- ✓ Dashboard width increased to 1220px with 420px sidebar
 
-### Phase 2: Article Experience + Deeper Viz
-- Add reading time on article cards and detail pages (`Math.ceil(wordCount / 200)`)
-- Add "Related Articles" section at bottom of article detail (2-3 cards, same tags)
-- Add breadcrumbs on article detail and category pages
-- Build reusable d3 visualization components for embedding in articles (ELO trends, simulation distributions, matchup analysis)
+### Phase 2: Article Experience + Deeper Viz — PARTIALLY COMPLETE
+- ✓ Add reading time on article cards and detail pages
+- ✓ Add "Related Articles" section at bottom of article detail (2-3 cards, same tags)
+- ✓ Add breadcrumbs on article detail and category pages
+- ✓ Build reusable d3 visualization components for embedding in articles (ELO trends, win distributions via VizHostDirective)
 - Add category nav to header (dropdown or sub-nav exposing tag taxonomy)
 
 ### Phase 3: Engagement & Growth

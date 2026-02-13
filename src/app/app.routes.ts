@@ -7,6 +7,13 @@ export const routes: Routes = [
       import('./features/home/home.component').then((m) => m.HomeComponent),
   },
   {
+    path: 'articles',
+    loadComponent: () =>
+      import('./features/article-list/article-list.component').then(
+        (m) => m.ArticleListComponent,
+      ),
+  },
+  {
     path: 'articles/:slug',
     loadComponent: () =>
       import('./features/article-detail/article-detail.component').then(

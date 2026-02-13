@@ -87,6 +87,7 @@
 
 .main-nav {
   display: flex;
+  align-items: center;
   gap: var(--space-lg);
 }
 
@@ -100,6 +101,74 @@
 
 .nav-link:hover {
   color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Category dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > .nav-link {
+  cursor: pointer;
+}
+
+.nav-link-mobile {
+  display: none;
+}
+
+.dropdown-arrow {
+  font-size: 0.65em;
+  margin-left: 4px;
+  display: inline-block;
+  transition: transform var(--transition-fast);
+  color: var(--color-text-muted);
+}
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-hover);
+  padding: var(--space-xs) 0;
+  z-index: 200;
+}
+
+/* Invisible bridge so mouse can travel from link to dropdown */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.dropdown-menu.open {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -134,5 +203,49 @@
 
   .nav-link:last-child {
     border-bottom: none;
+  }
+
+  .nav-link-desktop {
+    display: none;
+  }
+
+  .nav-link-mobile {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    border-bottom: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .nav-link-mobile .dropdown-arrow {
+    font-size: 0.65em;
+    color: var(--color-text-muted);
+  }
+
+  .nav-link-mobile .dropdown-arrow.open {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 0;
+    padding: 0 0 var(--space-md) var(--space-lg);
+  }
+
+  .dropdown-item {
+    padding: var(--space-sm) 0;
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
   }
 }
