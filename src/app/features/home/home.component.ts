@@ -12,6 +12,7 @@ import { PlayoffOddsComponent } from './components/playoff-odds/playoff-odds.com
 import { StandingsTableComponent } from './components/standings-table/standings-table.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 import { WinDistributionComponent } from '../../visualizations/win-distribution/win-distribution.component';
+import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ import { WinDistributionComponent } from '../../visualizations/win-distribution/
     StandingsTableComponent,
     RecentGamesComponent,
     WinDistributionComponent,
+    NewsletterCtaComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

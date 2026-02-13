@@ -1,0 +1,199 @@
+/* ── Inline variant ── */
+
+.cta-card {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-2xl);
+  text-align: center;
+}
+
+.cta-heading {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.cta-subtext {
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.cta-form {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.cta-input {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.cta-input:focus {
+  border-color: var(--color-accent);
+}
+
+.cta-button {
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cta-button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.cta-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.success-message {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 600;
+  padding: var(--space-md) 0;
+}
+
+.error-message {
+  margin: var(--space-sm) 0 0;
+  color: #dc2626;
+  font-size: 0.85rem;
+}
+
+/* ── Banner variant ── */
+
+.cta-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.banner-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.banner-form {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.banner-input {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-family: inherit;
+  width: 200px;
+  outline: none;
+}
+
+.banner-input:focus {
+  border-color: var(--color-accent);
+}
+
+.banner-button {
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.banner-button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.banner-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.banner-success {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.banner-error {
+  font-size: 0.8rem;
+  color: #dc2626;
+}
+
+.banner-dismiss {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0 var(--space-xs);
+  line-height: 1;
+}
+
+.banner-dismiss:hover {
+  color: var(--color-text);
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 600px) {
+  .cta-form {
+    flex-direction: column;
+  }
+
+  .cta-banner {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .banner-text {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .banner-form {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .banner-input {
+    flex: 1;
+    width: auto;
+  }
+}

@@ -9,11 +9,14 @@ import { SeoService } from '../../core/services/seo.service';
 import { BlogPost } from '../../shared/models/content.models';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
 import { VizHostDirective } from '../../shared/directives/viz-host.directive';
+import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
+import { AuthorCardComponent } from '../../shared/components/author-card/author-card.component';
 
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [DatePipe, RouterLink, ArticleCardComponent, VizHostDirective],
+  imports: [DatePipe, RouterLink, ArticleCardComponent, VizHostDirective, NewsletterCtaComponent, ShareButtonsComponent, AuthorCardComponent],
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })

@@ -1,0 +1,19 @@
+<div class="author-card">
+  @if (author().avatar) {
+    <img
+      class="author-avatar"
+      [src]="author().avatar!.url + '?w=120&h=120&fit=fill&f=face'"
+      [alt]="author().name"
+      width="60"
+      height="60"
+    />
+  }
+  <div class="author-info">
+    <span class="author-label">Written by</span>
+    <span class="author-name">{{ author().name }}</span>
+    @if (author().bio) {
+      <p class="author-bio">{{ author().bio }}</p>
+    }
+    <a class="author-link" routerLink="/articles">View all articles <span>&rsaquo;</span></a>
+  </div>
+</div>

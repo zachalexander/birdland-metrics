@@ -11,6 +11,7 @@ import { createClient } from 'contentful';
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
+app.use(express.json());
 const angularApp = new AngularNodeAppEngine();
 
 const SITE_URL = 'https://birdlandmetrics.com';
@@ -108,6 +109,52 @@ app.get('/api/elo-history', async (req, res) => {
   } catch (err) {
     console.error('ELO history fetch failed:', err);
     res.status(500).json({ error: 'Failed to fetch ELO history' });
+  }
+});
+
+/**
+ * Newsletter subscription — proxies to Buttondown API
+ */
+app.post('/api/newsletter', async (req, res) => {
+  const { email } = req.body;
+  if (!email || typeof email !== 'string') {
+    res.status(400).json({ error: 'Email is required' });
+    return;
+  }
+
+  const apiKey = process.env['BUTTONDOWN_API_KEY'];
+  if (!apiKey) {
+    console.error('BUTTONDOWN_API_KEY not set');
+    res.status(500).json({ error: 'Newsletter service is not configured' });
+    return;
+  }
+
+  try {
+    const response = await fetch('https://api.buttondown.email/v1/subscribers', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Token ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email_address: email, type: 'regular' }),
+    });
+
+    if (response.ok) {
+      res.json({ success: true });
+      return;
+    }
+
+    const body = await response.json().catch(() => ({}));
+    if (response.status === 400) {
+      res.status(400).json({ error: 'This email is already subscribed.' });
+      return;
+    }
+
+    console.error('Buttondown API error:', response.status, body);
+    res.status(500).json({ error: 'Subscription failed. Please try again later.' });
+  } catch (err) {
+    console.error('Newsletter subscription failed:', err);
+    res.status(500).json({ error: 'Subscription failed. Please try again later.' });
   }
 });
 

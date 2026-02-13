@@ -136,6 +136,9 @@ src/app/
 - ✓ Navbar letter-spacing tightened (0.08em → 0.03em)
 - ✓ Article meta: abbreviated date format (MMM d, yyyy), reduced spacing
 - ✓ Tooltip overflow fix: flip positioning when near container right edge
+- ✓ Newsletter CTA component (inline + banner variants) with Buttondown proxy (POST /api/newsletter)
+- ✓ Social share buttons on article detail (Twitter/X, Facebook, copy link)
+- ✓ Author profile card at end of articles (avatar, bio, "View all articles" link)
 
 ## Disclaimers
 - ✓ Disclaimer page at `/disclaimer` with full legal text
@@ -338,18 +341,18 @@ Benchmarks: Baseball Savant (inline viz, dashboard home), FanGraphs (taxonomy/fi
 - ✓ Sidebar layout with projections above articles on mobile
 - ✓ Dashboard width increased to 1220px with 420px sidebar
 
-### Phase 2: Article Experience + Deeper Viz — PARTIALLY COMPLETE
+### Phase 2: Article Experience + Deeper Viz — ✓ COMPLETE
 - ✓ Add reading time on article cards and detail pages
 - ✓ Add "Related Articles" section at bottom of article detail (2-3 cards, same tags)
 - ✓ Add breadcrumbs on article detail and category pages
 - ✓ Build reusable d3 visualization components for embedding in articles (ELO trends, win distributions via VizHostDirective)
-- Add category nav to header (dropdown or sub-nav exposing tag taxonomy)
+- ✓ Add category nav to header (hover dropdown on desktop, accordion on mobile) + `/articles` route for all articles
 
-### Phase 3: Engagement & Growth
-- Newsletter CTA in 3 spots: home (between sections), article footer, subtle sticky banner
-- Social share buttons on article detail (Twitter/X, Facebook, copy link)
-- Author profile cards at end of articles (avatar, bio, link to all their posts)
-- Set up newsletter for email capture (Buttondown or ConvertKit)
+### Phase 3: Engagement & Growth — ✓ COMPLETE
+- ✓ Newsletter CTA in 3 spots: home (between sections), article footer, subtle sticky banner (Buttondown via Express proxy at POST /api/newsletter)
+- ✓ Social share buttons on article detail (Twitter/X, Facebook, copy link) — inline in article meta bar, pushed right with margin-left: auto
+- ✓ Author profile cards at end of articles (avatar, bio, link to all their posts) — card with bg-subtle background after article body
+- ✓ Set up newsletter for email capture (Buttondown — requires BUTTONDOWN_API_KEY env var on App Runner)
 
 ### Phase 4: Polish & Delight
 - Search (Contentful full-text search in header)

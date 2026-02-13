@@ -75,6 +75,10 @@
   color: var(--color-border-strong);
 }
 
+app-share-buttons {
+  margin-left: auto;
+}
+
 .article-body {
   font-size: var(--text-lg);
   line-height: 1.65;
@@ -174,6 +178,16 @@
 
 .breadcrumb-current {
   color: var(--color-text-muted);
+}
+
+app-author-card {
+  display: block;
+  margin-top: var(--space-3xl);
+}
+
+app-newsletter-cta {
+  display: block;
+  margin-top: var(--space-3xl);
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,53 @@
+@if (variant() === 'inline') {
+  <div class="cta-card">
+    @if (state() === 'success') {
+      <p class="success-message">You're in! Check your email to confirm.</p>
+    } @else {
+      <h3 class="cta-heading">Stay in the Loop</h3>
+      <p class="cta-subtext">Get Orioles projections and analysis delivered to your inbox.</p>
+      <form class="cta-form" (submit)="$event.preventDefault(); submit()">
+        <input
+          type="email"
+          class="cta-input"
+          placeholder="you@email.com"
+          required
+          [(ngModel)]="email"
+          [disabled]="state() === 'loading'"
+        />
+        <button type="submit" class="cta-button" [disabled]="state() === 'loading'">
+          {{ state() === 'loading' ? '...' : 'Subscribe' }}
+        </button>
+      </form>
+      @if (state() === 'error') {
+        <p class="error-message">{{ errorMessage() }}</p>
+      }
+    }
+  </div>
+}
+
+@if (variant() === 'banner' && !dismissed() && visible()) {
+  <div class="cta-banner">
+    @if (state() === 'success') {
+      <p class="banner-success">You're in! Check your email to confirm.</p>
+    } @else {
+      <span class="banner-text">Get Orioles analysis in your inbox.</span>
+      <form class="banner-form" (submit)="$event.preventDefault(); submit()">
+        <input
+          type="email"
+          class="banner-input"
+          placeholder="you@email.com"
+          required
+          [(ngModel)]="email"
+          [disabled]="state() === 'loading'"
+        />
+        <button type="submit" class="banner-button" [disabled]="state() === 'loading'">
+          {{ state() === 'loading' ? '...' : 'Subscribe' }}
+        </button>
+      </form>
+      @if (state() === 'error') {
+        <span class="banner-error">{{ errorMessage() }}</span>
+      }
+    }
+    <button class="banner-dismiss" (click)="dismiss()" aria-label="Dismiss">&times;</button>
+  </div>
+}
