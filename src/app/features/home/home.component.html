@@ -4,7 +4,7 @@
     @if (oriolesOdds(); as odds) {
       <div class="hero-question">
         <h1 class="hero-label">
-          <span class="hero-label-full">Are the O's Making the Playoffs in 2026?</span>
+          <span class="hero-label-full">Are the O's Making the Playoffs?</span>
           <span class="hero-label-short">Are the O's Making the Playoffs?</span>
         </h1>
         <p class="hero-meta hero-meta-full">Updated daily, based on 10,000 simulated seasons</p>
@@ -22,7 +22,7 @@
             </svg>
             <div class="gauge-inner">
               <span class="hero-big">{{ odds.playoff_pct | number: '1.0-0' }}<span class="hero-pct">%</span></span>
-              <span class="hero-big-label">chance</span>
+              <span class="hero-big-label">probability</span>
             </div>
           </div>
           <span class="hero-breakdown">AL East {{ odds.division_pct | number: '1.0-0' }}% &middot; Wild Card {{ odds.wildcard_pct | number: '1.0-0' }}%</span>
