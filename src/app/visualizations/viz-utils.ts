@@ -18,6 +18,30 @@ const COLOR_BG = '#ffffff';
 
 export { FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER, COLOR_BG };
 
+export interface VizColorTheme {
+  text: string;
+  textSecondary: string;
+  textMuted: string;
+  border: string;
+  bg: string;
+}
+
+export const LIGHT_THEME: VizColorTheme = {
+  text: COLOR_TEXT,
+  textSecondary: COLOR_TEXT_SECONDARY,
+  textMuted: COLOR_TEXT_MUTED,
+  border: COLOR_BORDER,
+  bg: COLOR_BG,
+};
+
+export const DARK_THEME: VizColorTheme = {
+  text: '#f0f0f5',
+  textSecondary: 'rgba(255, 255, 255, 0.72)',
+  textMuted: 'rgba(255, 255, 255, 0.50)',
+  border: 'rgba(255, 255, 255, 0.12)',
+  bg: '#1a1a1a',
+};
+
 export interface Margin {
   top: number;
   right: number;

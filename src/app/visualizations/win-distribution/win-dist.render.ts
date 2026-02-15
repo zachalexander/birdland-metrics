@@ -1,12 +1,15 @@
 import {
   TEAM_COLORS, createResponsiveSvg, createTooltip,
-  FONT_MONO, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
+  FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
+  VizColorTheme, LIGHT_THEME,
 } from '../viz-utils';
 import { TEAM_NAMES, TeamProjection } from '../../shared/models/mlb.models';
 
 export interface WinDistributionConfig {
   teams: string[];
   title?: string;
+  theme?: VizColorTheme;
+  compact?: boolean;
 }
 
 function normalPdf(x: number, mean: number, std: number): number {
@@ -45,10 +48,15 @@ export function renderWinDistribution(
     return;
   }
 
+  const theme = config.theme ?? LIGHT_THEME;
+  const compact = config.compact ?? false;
+
   const width = 700;
   const hasTitle = !!config.title;
-  const height = hasTitle ? 480 : 450;
-  const margin = { top: hasTitle ? 36 : 28, right: 48, bottom: 80, left: 64 };
+  const height = compact ? 380 : hasTitle ? 480 : 450;
+  const margin = compact
+    ? { top: 68, right: 36, bottom: 56, left: 48 }
+    : { top: hasTitle ? 36 : 28, right: 48, bottom: 80, left: 64 };
 
   const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
 
@@ -62,8 +70,51 @@ export function renderWinDistribution(
       .attr('font-size', '14px')
       .attr('font-weight', '700')
       .attr('letter-spacing', '0.04em')
-      .attr('fill', COLOR_TEXT)
+      .attr('fill', theme.text)
       .text(config.title!);
+  }
+
+  // Compact title (rendered after we know median, but we need teamData now for the text)
+  if (compact && teamData.length) {
+    const medianForTitle = Math.round(teamData[0].avg_wins);
+    const titleY = 24;
+    const fontSize = 20;
+    const prefix = 'A majority of simulations predict an ';
+    const highlight = `${medianForTitle}-win`;
+    const suffix = ' season.';
+
+    // Render the text first so we can measure the tspan
+    const titleText = svg.append('text')
+      .attr('x', width / 2)
+      .attr('y', titleY)
+      .attr('text-anchor', 'middle')
+      .attr('font-family', FONT_SANS)
+      .attr('font-size', `${fontSize}px`)
+      .attr('font-weight', '700')
+      .attr('fill', theme.text);
+
+    titleText.append('tspan').text(prefix);
+    const hlSpan = titleText.append('tspan')
+      .attr('font-weight', '800')
+      .attr('fill', '#ffffff')
+      .text(highlight);
+    titleText.append('tspan').text(suffix);
+
+    // Measure the highlight tspan and insert pill behind
+    const hlNode = hlSpan.node() as SVGTSpanElement;
+    if (hlNode) {
+      const startPos = hlNode.getStartPositionOfChar(0);
+      const hlW = hlNode.getComputedTextLength();
+      const padX = 3;
+      const padY = 2;
+      svg.insert('rect', 'text')
+        .attr('x', startPos.x - padX)
+        .attr('y', startPos.y - fontSize + 3 - padY)
+        .attr('width', hlW + padX * 2)
+        .attr('height', fontSize + padY * 2)
+        .attr('rx', 5)
+        .attr('fill', '#df4a00');
+    }
   }
 
   // Compute x domain from all teams (whole win numbers)
@@ -111,7 +162,7 @@ export function renderWinDistribution(
     .attr('class', 'grid')
     .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(() => ''))
     .call(g => g.select('.domain').remove())
-    .call(g => g.selectAll('.tick line').attr('stroke', COLOR_BORDER));
+    .call(g => g.selectAll('.tick line').attr('stroke', theme.border));
 
   // X axis — show every Nth tick to avoid crowding
   const winCount = xMax - xMin + 1;
@@ -124,22 +175,22 @@ export function renderWinDistribution(
         .tickValues(winValues.filter(w => w % tickInterval === 0))
         .tickSize(0),
     )
-    .call(g => g.select('.domain').attr('stroke', COLOR_TEXT))
+    .call(g => g.select('.domain').attr('stroke', theme.text))
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '22px')
+      .attr('font-size', compact ? '16px' : '22px')
       .attr('font-weight', '600')
       .attr('dy', '1.2em'));
 
   // X axis label
   g.append('text')
     .attr('x', innerWidth / 2)
-    .attr('y', innerHeight + 68)
+    .attr('y', innerHeight + (compact ? 44 : 68))
     .attr('text-anchor', 'middle')
-    .attr('fill', COLOR_TEXT_MUTED)
+    .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', '18px')
+    .attr('font-size', compact ? '13px' : '18px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text('PROJECTED WINS');
@@ -149,20 +200,20 @@ export function renderWinDistribution(
     .call(d3.axisLeft(y).ticks(5).tickSize(0).tickFormat(d3.format(',.0f')))
     .call(g => g.select('.domain').remove())
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '16px')
+      .attr('font-size', compact ? '13px' : '16px')
       .attr('dx', '-0.4em'));
 
   // Y axis label
   g.append('text')
     .attr('transform', 'rotate(-90)')
-    .attr('y', -50)
+    .attr('y', compact ? -36 : -50)
     .attr('x', -innerHeight / 2)
     .attr('text-anchor', 'middle')
-    .attr('fill', COLOR_TEXT_MUTED)
+    .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', '18px')
+    .attr('font-size', compact ? '13px' : '18px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text(`FREQUENCY (${(NUM_SIMULATIONS).toLocaleString()} sims)`);
@@ -182,7 +233,7 @@ export function renderWinDistribution(
       .attr('width', ciHiX - ciLoX)
       .attr('height', innerHeight)
       .attr('fill', color)
-      .attr('opacity', 0.04);
+      .attr('opacity', compact ? 0.08 : 0.04);
 
     // Dashed boundary lines
     for (const bound of [ciLo, ciHi]) {
@@ -199,17 +250,45 @@ export function renderWinDistribution(
         .attr('opacity', 0.5);
     }
 
-    // Label above the CI region
-    const labelX = (ciLoX + ciHiX) / 2;
-    g.append('text')
-      .attr('x', labelX)
-      .attr('y', -4)
-      .attr('text-anchor', 'middle')
-      .attr('font-family', FONT_MONO)
-      .attr('font-size', '18px')
-      .attr('font-weight', '600')
-      .attr('fill', COLOR_TEXT_MUTED)
-      .text(`95% Confidence Interval: ${ciLo}–${ciHi} Wins`);
+    // Label + bracket above the CI region
+    const ciMidX = (ciLoX + ciHiX) / 2;
+    if (compact) {
+      // Bracket: left tick, horizontal line, right tick
+      const bracketY = -10;
+      const tickH = 6;
+      g.append('line')
+        .attr('x1', ciLoX).attr('x2', ciLoX)
+        .attr('y1', bracketY).attr('y2', bracketY + tickH)
+        .attr('stroke', theme.textMuted).attr('stroke-width', 1.2);
+      g.append('line')
+        .attr('x1', ciLoX).attr('x2', ciHiX)
+        .attr('y1', bracketY).attr('y2', bracketY)
+        .attr('stroke', theme.textMuted).attr('stroke-width', 1.2);
+      g.append('line')
+        .attr('x1', ciHiX).attr('x2', ciHiX)
+        .attr('y1', bracketY).attr('y2', bracketY + tickH)
+        .attr('stroke', theme.textMuted).attr('stroke-width', 1.2);
+      // Text above bracket
+      g.append('text')
+        .attr('x', ciMidX)
+        .attr('y', bracketY - 8)
+        .attr('text-anchor', 'middle')
+        .attr('font-family', FONT_MONO)
+        .attr('font-size', '12px')
+        .attr('font-weight', '600')
+        .attr('fill', theme.textMuted)
+        .text(`95% CI: ${ciLo}–${ciHi} Wins`);
+    } else {
+      g.append('text')
+        .attr('x', ciMidX)
+        .attr('y', -4)
+        .attr('text-anchor', 'middle')
+        .attr('font-family', FONT_MONO)
+        .attr('font-size', '18px')
+        .attr('font-weight', '600')
+        .attr('fill', theme.textMuted)
+        .text(`95% Confidence Interval: ${ciLo}–${ciHi} Wins`);
+    }
   }
 
   // Draw bars
@@ -243,18 +322,37 @@ export function renderWinDistribution(
     const avgFreq = densityToFrequency(winProbability(medianWin, td.avg_wins, td.std_dev), NUM_SIMULATIONS);
     const avgBarTop = y(avgFreq);
 
-    g.append('line')
-      .attr('x1', avgBandX).attr('x2', avgBandX)
-      .attr('y1', avgBarTop - 24).attr('y2', avgBarTop - 4)
+    // Curved arrow from label to bar top
+    const arrowId = `arrow-${team}`;
+    svg.select('defs').empty() && svg.append('defs');
+    svg.select('defs').append('marker')
+      .attr('id', arrowId)
+      .attr('viewBox', '0 0 10 10')
+      .attr('refX', 5).attr('refY', 5)
+      .attr('markerWidth', 5).attr('markerHeight', 5)
+      .attr('orient', 'auto-start-reverse')
+      .append('path')
+      .attr('d', 'M 0 1 L 10 5 L 0 9 Z')
+      .attr('fill', color);
+
+    const labelOffsetX = compact ? 55 : 60;
+    const labelX = avgBandX + labelOffsetX;
+    const curveTopY = avgBarTop - 28;
+    const curveBottomY = avgBarTop - 4;
+    g.append('path')
+      .attr('d', `M ${labelX} ${curveTopY} Q ${avgBandX} ${curveTopY} ${avgBandX} ${curveBottomY}`)
+      .attr('fill', 'none')
       .attr('stroke', color)
-      .attr('stroke-width', 1.5);
+      .attr('stroke-width', 1.5)
+      .attr('marker-end', `url(#${arrowId})`);
 
     g.append('text')
-      .attr('x', avgBandX)
-      .attr('y', avgBarTop - 28)
-      .attr('text-anchor', 'middle')
-      .attr('font-family', FONT_MONO)
-      .attr('font-size', '24px')
+      .attr('x', avgBandX + 58)
+      .attr('y', curveBottomY - 24)
+      .attr('text-anchor', 'start')
+      .attr('dominant-baseline', 'central')
+      .attr('font-family', FONT_SANS)
+      .attr('font-size', compact ? '18px' : '24px')
       .attr('font-weight', '700')
       .attr('fill', color)
       .text(`${medianWin} wins`);
