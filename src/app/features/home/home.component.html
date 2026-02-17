@@ -9,14 +9,6 @@
             <span class="hero-label-short">Are the O's Making the Playoffs in 2026?</span>
           </h1>
           <p class="hero-meta hero-meta-full">Model updated daily in-season from 10,000 simulated seasons.</p>
-          <div class="hero-inline-meta hero-inline-meta-desktop" aria-label="Hero supporting metrics">
-            @if (lastRunDate(); as runDate) {
-              <span class="hero-inline-item">
-                <span class="hero-inline-label">Latest Model Run:</span>
-                <span class="hero-inline-value">{{ runDate }}</span>
-              </span>
-            }
-          </div>
         </div>
         <div class="hero-numbers">
           <div class="hero-big-wrap">
@@ -31,28 +23,16 @@
                 <span class="hero-big-label">chance</span>
               </div>
             </div>
-            @if (featuredArticle(); as explainer) {
-              <a [routerLink]="['/articles', explainer.slug]" class="hero-readmore">Why 39%? Read the full breakdown &rsaquo;</a>
-            } @else {
-              <a [routerLink]="['/']" class="hero-readmore">Why 39%? Read the full breakdown &rsaquo;</a>
+            @if (lastRunDate(); as runDate) {
+              <span class="hero-run-date">Updated {{ runDate }}</span>
             }
-            <div class="hero-inline-meta hero-inline-meta-mobile" aria-label="Hero supporting metrics">
-              @if (lastRunDate(); as runDate) {
-                <span class="hero-inline-item">
-                  <span class="hero-inline-label">Latest Model Run:</span>
-                  <span class="hero-inline-value">{{ runDate }}</span>
-                </span>
-              }
-            </div>
           </div>
         </div>
       </div>
-      @if (!dashboardLoading() && projections().length) {
-        <div class="hero-histogram">
-          <app-win-distribution
-            [config]="{ teams: ['BAL'], compact: true }"
-            [projections]="projections()"
-            [theme]="darkTheme" />
+      @if (oriolesWins(); as wins) {
+        <div class="hero-outcome">
+          <p class="hero-outcome-text">Most likely outcome: <strong>{{ wins }} wins</strong></p>
+          <a routerLink="/visualizations/win-distribution" class="hero-outcome-link">See all possible outcomes &rsaquo;</a>
         </div>
       }
     } @else {

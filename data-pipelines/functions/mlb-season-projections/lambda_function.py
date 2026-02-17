@@ -258,12 +258,15 @@ def compute_playoff_odds(df_sim, teams, injury_adjusted=False):
         })
     odds.sort(key=lambda x: x['playoff_pct'], reverse=True)
 
-    write_json_to_s3({
+    odds_payload = {
         'updated': datetime.utcnow().isoformat(),
         'simulations': n_sims,
         'injury_adjusted': injury_adjusted,
         'odds': odds,
-    }, PREDICTIONS_BUCKET, 'playoff-odds-latest.json')
+    }
+    today_str = datetime.utcnow().strftime('%Y-%m-%d')
+    write_json_to_s3(odds_payload, PREDICTIONS_BUCKET, 'playoff-odds-latest.json')
+    write_json_to_s3(odds_payload, PREDICTIONS_BUCKET, f'playoff-odds_{today_str}.json')
 
     # Log Orioles specifically
     bal = next((o for o in odds if o['team'] == 'BAL'), None)

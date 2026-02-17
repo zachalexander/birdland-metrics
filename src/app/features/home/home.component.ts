@@ -11,7 +11,6 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 import { StandingsTableComponent } from './components/standings-table/standings-table.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 import { WinDistributionComponent } from '../../visualizations/win-distribution/win-distribution.component';
-import { DARK_THEME } from '../../visualizations/viz-utils';
 import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
 
 @Component({
@@ -30,7 +29,6 @@ import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/n
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  darkTheme = DARK_THEME;
   articles = signal<BlogPost[]>([]);
   categories = signal<string[]>([]);
   loading = signal(true);

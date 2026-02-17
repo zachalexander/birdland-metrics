@@ -85,6 +85,60 @@ export interface EloHistoryResponse {
   teams: Record<string, EloHistoryPoint[]>;
 }
 
+// --- Player stats ---
+
+export interface PlayerBatting {
+  player_id: string;
+  mlb_id?: number;
+  name: string;
+  team: string;
+  g: number;
+  pa: number;
+  ab: number;
+  h: number;
+  doubles: number;
+  triples: number;
+  hr: number;
+  rbi: number;
+  bb: number;
+  so: number;
+  sb: number;
+  cs: number;
+  avg: number;
+  obp: number;
+  slg: number;
+  ops: number;
+}
+
+export interface PlayerPitching {
+  player_id: string;
+  mlb_id?: number;
+  name: string;
+  team: string;
+  g: number;
+  gs: number;
+  ip: number;
+  h: number;
+  er: number;
+  bb: number;
+  so: number;
+  hr: number;
+  w: number;
+  l: number;
+  sv: number;
+  era: number;
+  whip: number;
+  k_per_9: number;
+  fip: number;
+}
+
+export interface PlayerStatsResponse {
+  updated: string;
+  season: number;
+  batting: PlayerBatting[];
+  pitching: PlayerPitching[];
+}
+
 // --- Team display helpers ---
 
 export const TEAM_NAMES: Record<string, string> = {

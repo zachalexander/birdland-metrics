@@ -14,6 +14,7 @@ import {
   RecentGame,
   RecentGamesResponse,
   EloHistoryPoint,
+  PlayerStatsResponse,
 } from '../../shared/models/mlb.models';
 
 @Injectable({ providedIn: 'root' })
@@ -21,6 +22,7 @@ export class MlbDataService {
   private http = inject(HttpClient);
   private eloBase = environment.s3.eloRatings;
   private predBase = environment.s3.predictions;
+  private statsBase = environment.s3.playerStats;
 
   async getPlayoffOdds(): Promise<{ updated: string; odds: PlayoffOdds[] }> {
     const res = await firstValueFrom(
@@ -125,5 +127,11 @@ export class MlbDataService {
       this.http.get<RecentGamesResponse>(`${this.predBase}/recent-games-latest.json`)
     );
     return { gameType: res.game_type ?? 'R', games: res.games };
+  }
+
+  async getPlayerStats(): Promise<PlayerStatsResponse> {
+    return firstValueFrom(
+      this.http.get<PlayerStatsResponse>(`${this.statsBase}/player-stats-latest.json`)
+    );
   }
 }

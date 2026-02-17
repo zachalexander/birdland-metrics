@@ -14,6 +14,7 @@ SCHEDULE_BUCKET = os.getenv('SCHEDULE_BUCKET', f'mlb-schedule-{SEASON_YEAR}')
 PREDICTIONS_BUCKET = os.getenv('PREDICTIONS_BUCKET', f'mlb-predictions-{SEASON_YEAR}')
 ELO_BUCKET = os.getenv('ELO_BUCKET', 'mlb-elo-ratings-output')
 LOGOS_BUCKET = os.getenv('LOGOS_BUCKET', 'mlb-logos-for-visuals')
+PLAYER_STATS_BUCKET = os.getenv('PLAYER_STATS_BUCKET', 'mlb-player-stats-retrosheet')
 
 # S3 keys
 SCHEDULE_KEY = os.getenv('SCHEDULE_KEY', f'schedule_{SEASON_YEAR}_full.csv')
