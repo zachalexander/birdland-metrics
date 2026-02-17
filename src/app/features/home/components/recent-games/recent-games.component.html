@@ -37,14 +37,14 @@
         </div>
       }
     </div>
-    @if (canScrollLeft) {
+    @if (canScrollLeft()) {
       <button class="scroll-arrow scroll-left" (click)="scrollLeft()" aria-label="Scroll left">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     }
-    @if (canScrollRight) {
+    @if (canScrollRight()) {
       <button class="scroll-arrow scroll-right" (click)="scrollRight()" aria-label="Scroll right">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

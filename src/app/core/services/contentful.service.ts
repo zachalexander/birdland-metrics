@@ -52,7 +52,7 @@ export class ContentfulService {
       select: ['fields.tags'],
     });
     const tags = entries.items.flatMap(
-      (entry) => ((entry.fields as Record<string, unknown>)['tags'] as string[]) ?? []
+      (entry) => ((entry.fields as Record<string, unknown>)?.['tags'] as string[] | undefined) ?? []
     );
     return [...new Set(tags)];
   }

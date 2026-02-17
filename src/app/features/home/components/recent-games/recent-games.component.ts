@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit, input, viewChild, effect } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, input, viewChild, effect, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { RecentGame, teamAbbr } from '../../../../shared/models/mlb.models';
 
@@ -14,8 +14,8 @@ export class RecentGamesComponent implements AfterViewInit {
   gameType = input<'R' | 'S'>('R');
   gamesGrid = viewChild<ElementRef>('gamesGrid');
 
-  canScrollLeft = false;
-  canScrollRight = false;
+  canScrollLeft = signal(false);
+  canScrollRight = signal(false);
 
   constructor() {
     // Re-check scroll state whenever games input changes
@@ -64,7 +64,7 @@ export class RecentGamesComponent implements AfterViewInit {
   private updateScrollState(): void {
     const el = this.gamesGrid()?.nativeElement;
     if (!el) return;
-    this.canScrollLeft = el.scrollLeft > 0;
-    this.canScrollRight = el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
+    this.canScrollLeft.set(el.scrollLeft > 0);
+    this.canScrollRight.set(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
   }
 }

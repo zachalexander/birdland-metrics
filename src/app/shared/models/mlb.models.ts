@@ -81,6 +81,12 @@ export interface EloHistoryPoint {
   elo: number;
 }
 
+export interface PlayoffOddsHistoryPoint {
+  date: string;
+  team: string;
+  playoff_pct: number;
+}
+
 export interface EloHistoryResponse {
   teams: Record<string, EloHistoryPoint[]>;
 }
@@ -108,6 +114,7 @@ export interface PlayerBatting {
   obp: number;
   slg: number;
   ops: number;
+  war?: number;
 }
 
 export interface PlayerPitching {
@@ -130,6 +137,7 @@ export interface PlayerPitching {
   whip: number;
   k_per_9: number;
   fip: number;
+  war?: number;
 }
 
 export interface PlayerStatsResponse {
@@ -137,6 +145,71 @@ export interface PlayerStatsResponse {
   season: number;
   batting: PlayerBatting[];
   pitching: PlayerPitching[];
+}
+
+export interface PlayerSeasonStats {
+  season: number;
+  games: number;
+  pa: number;
+  avg: number;
+  obp: number;
+  slg: number;
+  ops: number;
+  hr: number;
+  sb: number;
+  runs: number;
+  rbi: number;
+  bb_pct: number;
+  k_pct: number;
+  iso: number;
+  babip: number;
+  woba: number;
+  wrc_plus: number;
+  war: number;
+  hard_pct: number;
+  barrel_pct: number;
+  ev: number;
+  launch_angle: number;
+  gb_pct: number;
+  fb_pct: number;
+  ld_pct: number;
+  pull_pct: number;
+  spd: number;
+  bsr: number;
+  off: number;
+  def_val: number;
+}
+
+// --- Core player benchmarks ---
+
+export type BenchmarkDirection = 'gte' | 'lte';
+export type BenchmarkCategory = 'power' | 'contact' | 'discipline' | 'production' | 'health';
+
+export interface PlayerBenchmark {
+  key: string;
+  label: string;
+  description: string;
+  target: number;
+  direction: BenchmarkDirection;
+  current: number | null;
+  actual?: number;
+  met: boolean;
+  category: BenchmarkCategory;
+}
+
+export interface BenchmarkPlayer {
+  name: string;
+  playerId: string;
+  position: string;
+  type: 'batter' | 'pitcher';
+  photoUrl?: string;
+  benchmarks: PlayerBenchmark[];
+}
+
+export interface CoreBenchmarksResponse {
+  updated: string;
+  season: number;
+  players: BenchmarkPlayer[];
 }
 
 // --- Team display helpers ---

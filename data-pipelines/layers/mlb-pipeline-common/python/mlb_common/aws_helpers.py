@@ -42,7 +42,13 @@ def append_csv_to_s3(df, bucket, key):
 def write_json_to_s3(data, bucket, key):
     """Write a Python dict/list to S3 as JSON."""
     body = json.dumps(data, default=str)
-    s3.put_object(Bucket=bucket, Key=key, Body=body, ContentType='application/json')
+    s3.put_object(
+        Bucket=bucket,
+        Key=key,
+        Body=body,
+        ContentType='application/json',
+        CacheControl='no-cache, must-revalidate',
+    )
     logger.info(f"Wrote JSON to s3://{bucket}/{key}")
 
 

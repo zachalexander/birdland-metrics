@@ -268,6 +268,22 @@ def compute_playoff_odds(df_sim, teams, injury_adjusted=False):
     write_json_to_s3(odds_payload, PREDICTIONS_BUCKET, 'playoff-odds-latest.json')
     write_json_to_s3(odds_payload, PREDICTIONS_BUCKET, f'playoff-odds_{today_str}.json')
 
+    # Append daily snapshot to playoff-odds-history.json
+    try:
+        history = read_json_from_s3(PREDICTIONS_BUCKET, 'playoff-odds-history.json')
+    except Exception:
+        history = []
+    for o in odds:
+        history.append({
+            'date': today_str,
+            'team': o['team'],
+            'playoff_pct': o['playoff_pct'],
+            'division_pct': o['division_pct'],
+            'wildcard_pct': o['wildcard_pct'],
+        })
+    write_json_to_s3(history, PREDICTIONS_BUCKET, 'playoff-odds-history.json')
+    logger.info(f"Appended {len(odds)} rows to playoff-odds-history.json for {today_str}")
+
     # Log Orioles specifically
     bal = next((o for o in odds if o['team'] == 'BAL'), None)
     if bal:

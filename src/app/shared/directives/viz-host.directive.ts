@@ -69,6 +69,14 @@ export class VizHostDirective implements AfterViewInit, OnDestroy {
             renderWinDistribution(el, projections, { teams, title: config.title }, d3);
             break;
           }
+          case 'player-stats': {
+            const { renderPlayerStats } = await import('../../visualizations/player-stats/player-stats.render');
+            const playerId: string = config.playerId ?? 'hendegu01';
+            const metrics: string[] = config.metrics ?? ['war'];
+            const data = await this.mlbData.getPlayerCareerStats(playerId);
+            renderPlayerStats(el, data, { playerId, metrics, title: config.title }, d3);
+            break;
+          }
           default:
             console.warn(`Unknown viz type: ${vizType}`);
         }

@@ -19,7 +19,7 @@ rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR/python"
 
 echo "Installing dependencies..."
-python3.13 -m pip install pandas pyarrow requests MLB-StatsAPI pybaseball \
+python3.13 -m pip install pandas pyarrow requests MLB-StatsAPI \
     -t "$BUILD_DIR/python" \
     --no-cache-dir \
     --platform manylinux2014_x86_64 \

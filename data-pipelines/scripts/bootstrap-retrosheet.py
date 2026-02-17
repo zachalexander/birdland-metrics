@@ -27,6 +27,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import unicodedata
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -289,12 +290,161 @@ def aggregate_pitching_season(pitching_daily: pd.DataFrame, year: int) -> pd.Dat
     return agg
 
 
-def build_player_id_map(roster_names: dict[str, str]) -> list[dict]:
-    """Build player ID map from roster data. MLB IDs added if available."""
-    return [
-        {"retro_id": pid, "name": name}
-        for pid, name in sorted(roster_names.items())
-    ]
+def _normalize_name(name: str) -> str:
+    """Normalize a player name for fuzzy matching: lowercase, strip accents, remove punctuation."""
+    # Decompose unicode, strip combining marks (accents)
+    nfkd = unicodedata.normalize("NFKD", name)
+    ascii_name = "".join(c for c in nfkd if not unicodedata.combining(c))
+    # Lowercase, strip extra whitespace, remove periods/hyphens
+    return ascii_name.lower().replace(".", "").replace("-", " ").strip()
+
+
+def enrich_with_war(
+    batting_season: pd.DataFrame,
+    pitching_season: pd.DataFrame,
+    year: int,
+) -> tuple[pd.DataFrame, pd.DataFrame, dict[str, int], dict[str, int]]:
+    """
+    Enrich season DataFrames with FanGraphs WAR via pybaseball.
+
+    Returns:
+        (batting_season, pitching_season, retro_to_mlb, retro_to_fg) —
+        DataFrames gain 'war', 'mlb_id', 'fangraphs_id' columns;
+        dicts map retro_id → mlb_id and retro_id → fangraphs_id.
+    """
+    from pybaseball import batting_stats, pitching_stats, playerid_reverse_lookup
+
+    # --- 1. Build retro → fangraphs/mlb ID maps ---
+    all_retro_ids = set()
+    if not batting_season.empty:
+        all_retro_ids.update(batting_season["player_id"].unique())
+    if not pitching_season.empty:
+        all_retro_ids.update(pitching_season["player_id"].unique())
+
+    retro_to_fg: dict[str, int] = {}
+    retro_to_mlb: dict[str, int] = {}
+
+    if all_retro_ids:
+        print(f"  Looking up {len(all_retro_ids)} retro IDs in Chadwick register ...")
+        try:
+            xref = playerid_reverse_lookup(list(all_retro_ids), key_type="retro")
+            for _, row in xref.iterrows():
+                retro_id = row.get("key_retro")
+                fg_id = row.get("key_fangraphs")
+                mlb_id = row.get("key_mlbam")
+                if retro_id and fg_id and fg_id != -1 and not pd.isna(fg_id):
+                    retro_to_fg[retro_id] = int(fg_id)
+                if retro_id and mlb_id and not pd.isna(mlb_id):
+                    retro_to_mlb[retro_id] = int(mlb_id)
+        except Exception as e:
+            print(f"  WARNING: Chadwick register lookup failed: {e}")
+
+    print(f"  ID map: {len(retro_to_fg)} fangraphs IDs, {len(retro_to_mlb)} MLB IDs")
+
+    # --- 2. Fetch FanGraphs WAR ---
+    bat_war: dict[int, float] = {}
+    pit_war: dict[int, float] = {}
+    bat_fg_names: dict[int, tuple[str, str]] = {}  # fg_id → (name, team) for fallback
+    pit_fg_names: dict[int, tuple[str, str]] = {}
+
+    try:
+        print(f"  Fetching FanGraphs batting stats for {year} ...")
+        bat = batting_stats(year, qual=0)
+        bat_war = dict(zip(bat["IDfg"], bat["WAR"]))
+        # Build name→WAR lookup for fallback matching
+        for _, row in bat.iterrows():
+            bat_fg_names[row["IDfg"]] = (_normalize_name(row["Name"]), row.get("Team", ""))
+    except Exception as e:
+        print(f"  WARNING: Could not load {year} FanGraphs batting stats: {e}")
+
+    try:
+        print(f"  Fetching FanGraphs pitching stats for {year} ...")
+        pit = pitching_stats(year, qual=0)
+        pit_war = dict(zip(pit["IDfg"], pit["WAR"]))
+        for _, row in pit.iterrows():
+            pit_fg_names[row["IDfg"]] = (_normalize_name(row["Name"]), row.get("Team", ""))
+    except Exception as e:
+        print(f"  WARNING: Could not load {year} FanGraphs pitching stats: {e}")
+
+    print(f"  FanGraphs WAR: {len(bat_war)} batters, {len(pit_war)} pitchers")
+
+    # --- 3. Build name-based fallback lookups ---
+    # {normalized_name: WAR} — only used for players not matched via ID
+    bat_name_war: dict[str, float] = {}
+    for fg_id, war_val in bat_war.items():
+        if fg_id in bat_fg_names:
+            norm_name = bat_fg_names[fg_id][0]
+            bat_name_war[norm_name] = war_val
+
+    pit_name_war: dict[str, float] = {}
+    for fg_id, war_val in pit_war.items():
+        if fg_id in pit_fg_names:
+            norm_name = pit_fg_names[fg_id][0]
+            pit_name_war[norm_name] = war_val
+
+    # --- 4. Join WAR onto season DataFrames ---
+    def _assign_war(df: pd.DataFrame, war_lookup: dict, name_war_fallback: dict) -> pd.DataFrame:
+        """Add war, mlb_id, fangraphs_id columns to a season DataFrame."""
+        if df.empty:
+            return df
+        df = df.copy()
+        wars = []
+        mlb_ids = []
+        fg_ids = []
+        matched_id = 0
+        matched_name = 0
+        for _, row in df.iterrows():
+            pid = row["player_id"]
+            fg_id = retro_to_fg.get(pid)
+            fg_ids.append(fg_id)
+            mlb_ids.append(retro_to_mlb.get(pid))
+
+            # Try ID-based match first
+            if fg_id is not None and fg_id in war_lookup:
+                wars.append(float(war_lookup[fg_id]))
+                matched_id += 1
+            else:
+                # Fallback: normalized name match
+                norm = _normalize_name(row["name"])
+                if norm in name_war_fallback:
+                    wars.append(float(name_war_fallback[norm]))
+                    matched_name += 1
+                else:
+                    wars.append(None)
+
+        df["war"] = wars
+        df["mlb_id"] = mlb_ids
+        df["fangraphs_id"] = fg_ids
+        total = len(df)
+        print(f"    WAR matched: {matched_id} by ID, {matched_name} by name, "
+              f"{total - matched_id - matched_name} unmatched (of {total})")
+        return df
+
+    if not batting_season.empty:
+        batting_season = _assign_war(batting_season, bat_war, bat_name_war)
+    if not pitching_season.empty:
+        pitching_season = _assign_war(pitching_season, pit_war, pit_name_war)
+
+    return batting_season, pitching_season, retro_to_mlb, retro_to_fg
+
+
+def build_player_id_map(
+    roster_names: dict[str, str],
+    retro_to_mlb: dict[str, int] | None = None,
+    retro_to_fg: dict[str, int] | None = None,
+) -> list[dict]:
+    """Build player ID map from roster data with optional MLB/FanGraphs IDs."""
+    retro_to_mlb = retro_to_mlb or {}
+    retro_to_fg = retro_to_fg or {}
+    result = []
+    for pid, name in sorted(roster_names.items()):
+        entry: dict = {"retro_id": pid, "name": name}
+        if pid in retro_to_mlb:
+            entry["mlb_id"] = retro_to_mlb[pid]
+        if pid in retro_to_fg:
+            entry["fangraphs_id"] = retro_to_fg[pid]
+        result.append(entry)
+    return result
 
 
 def build_latest_json(
@@ -326,6 +476,7 @@ def build_latest_json(
                 "obp": float(r["obp"]),
                 "slg": float(r["slg"]),
                 "ops": float(r["ops"]),
+                "war": round(float(r["war"]), 1) if pd.notna(r.get("war")) else None,
             })
 
     pitching_records = []
@@ -350,6 +501,7 @@ def build_latest_json(
                 "whip": float(r["whip"]),
                 "k_per_9": float(r["k_per_9"]),
                 "fip": float(r["fip"]),
+                "war": round(float(r["war"]), 1) if pd.notna(r.get("war")) else None,
             })
 
     return {
@@ -385,6 +537,7 @@ def main():
     parser.add_argument("--upload", action="store_true", help="Upload output to S3")
     parser.add_argument("--output", type=str, default=None, help="Output directory (default: data-pipelines/output/player-stats)")
     parser.add_argument("--bucket", type=str, default=PLAYER_STATS_BUCKET, help="S3 bucket name")
+    parser.add_argument("--skip-war", action="store_true", help="Skip FanGraphs WAR enrichment")
     args = parser.parse_args()
 
     years = parse_year_range(args.years)
@@ -459,19 +612,33 @@ def main():
                 latest_batting_season = batting_season
                 latest_pitching_season = pitching_season
 
-    # 8. Player ID map
-    id_map = build_player_id_map(all_roster_names)
+    # 8. Enrich with WAR (optional)
+    retro_to_mlb: dict[str, int] = {}
+    retro_to_fg: dict[str, int] = {}
+
+    if not args.skip_war:
+        print(f"\n{'='*60}")
+        print(f"Enriching {latest_year} season stats with FanGraphs WAR ...")
+        print(f"{'='*60}")
+        latest_batting_season, latest_pitching_season, retro_to_mlb, retro_to_fg = (
+            enrich_with_war(latest_batting_season, latest_pitching_season, latest_year)
+        )
+    else:
+        print("\nSkipping WAR enrichment (--skip-war)")
+
+    # 9. Player ID map
+    id_map = build_player_id_map(all_roster_names, retro_to_mlb, retro_to_fg)
     with open(output_dir / "player-id-map.json", "w") as f:
         json.dump(id_map, f, indent=2)
     print(f"\nPlayer ID map: {len(id_map)} players")
 
-    # 9. Build latest JSON
+    # 10. Build latest JSON
     latest = build_latest_json(latest_batting_season, latest_pitching_season, latest_year)
     with open(output_dir / "player-stats-latest.json", "w") as f:
         json.dump(latest, f, indent=2)
     print(f"player-stats-latest.json: {len(latest['batting'])} batters, {len(latest['pitching'])} pitchers")
 
-    # 10. Upload to S3
+    # 11. Upload to S3
     if args.upload:
         print(f"\nUploading to s3://{args.bucket}/ ...")
         upload_to_s3(output_dir, args.bucket)

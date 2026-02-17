@@ -9,6 +9,10 @@
             <span class="hero-label-short">Are the O's Making the Playoffs in 2026?</span>
           </h1>
           <p class="hero-meta hero-meta-full">Model updated daily in-season from 10,000 simulated seasons.</p>
+          <div class="hero-question-divider"></div>
+          @if (lastRunDate(); as runDate) {
+            <span class="hero-run-date">Updated {{ runDate }}</span>
+          }
         </div>
         <div class="hero-numbers">
           <div class="hero-big-wrap">
@@ -23,18 +27,22 @@
                 <span class="hero-big-label">chance</span>
               </div>
             </div>
-            @if (lastRunDate(); as runDate) {
-              <span class="hero-run-date">Updated {{ runDate }}</span>
-            }
           </div>
+          @if (oriolesWins(); as wins) {
+            <div class="hero-stat-divider"></div>
+            <div class="hero-outcome">
+              <p class="hero-outcome-label">Most likely model outcome</p>
+              <p class="hero-outcome-wins">
+                <span class="hero-outcome-number">{{ wins }}</span>
+                <span class="hero-outcome-unit">wins</span>
+              </p>
+              <a routerLink="/visualizations/win-distribution" class="hero-outcome-link">
+                See all possible outcomes &rsaquo;
+              </a>
+            </div>
+          }
         </div>
       </div>
-      @if (oriolesWins(); as wins) {
-        <div class="hero-outcome">
-          <p class="hero-outcome-text">Most likely outcome: <strong>{{ wins }} wins</strong></p>
-          <a routerLink="/visualizations/win-distribution" class="hero-outcome-link">See all possible outcomes &rsaquo;</a>
-        </div>
-      }
     } @else {
       <div class="hero-question">
         <h1 class="hero-label">Birdland Metrics</h1>
@@ -43,12 +51,37 @@
     }
   </section>
   @if (!dashboardLoading()) {
+    <!-- Core Player Benchmarks -->
+    @if (benchmarkPlayers().length) {
+      <section class="section-card section-card-benchmarks">
+        <p class="section-kicker">{{ viewing2025() ? '2025 Season' : '2026 Season' }}</p>
+        <div class="section-heading-row">
+          <h2 class="section-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
+          <button class="pill-toggle" [class.active]="viewing2025()" (click)="toggle2025()">
+            {{ viewing2025() ? 'Back to 2026' : '2025 Results' }}
+          </button>
+        </div>
+        <p class="section-explainer">
+          @if (viewing2025()) {
+            Here's the breakdown of how each player performed against these same benchmarks during the 2025 season.
+          } @else {
+            Each player has key statistical benchmarks that will be updated daily throughout the season. The more targets the core roster hits, the better the Orioles' chances are of making it back to the playoffs.
+          }
+        </p>
+        <app-core-benchmarks
+          [players]="benchmarkPlayers()"
+          [updated]="benchmarksUpdated()"
+          [overrideStats]="stats2025"
+          [showOverride]="viewing2025()"
+        />
+      </section>
+    }
     <!-- AL East Race -->
     @if (projections().length) {
       <div class="race-split">
         <section class="race-panel section-card section-card-race">
-          <p class="section-kicker race-kicker">Model Win Distribution</p>
-          <app-win-distribution [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }" />
+          <p class="section-kicker race-kicker">AL East Playoff Odds</p>
+          <app-playoff-race [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }" />
         </section>
         <section class="race-panel section-card section-card-race">
           <p class="section-kicker race-kicker">Projected AL East Standings</p>
@@ -159,4 +192,5 @@ height="520"
       <app-recent-games [games]="recentGames()" [gameType]="gamesType()" />
     </section>
   }
+
 </div>

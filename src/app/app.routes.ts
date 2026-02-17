@@ -42,10 +42,24 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'visualizations/playoff-race',
+    loadComponent: () =>
+      import('./visualizations/playoff-race/playoff-race.component').then(
+        (m) => m.PlayoffRaceComponent,
+      ),
+  },
+  {
     path: 'visualizations/win-distribution',
     loadComponent: () =>
       import('./visualizations/win-distribution/win-distribution.component').then(
         (m) => m.WinDistributionComponent,
+      ),
+  },
+  {
+    path: 'visualizations/player-stats',
+    loadComponent: () =>
+      import('./visualizations/player-stats/player-stats.component').then(
+        (m) => m.PlayerStatsComponent,
       ),
   },
   {

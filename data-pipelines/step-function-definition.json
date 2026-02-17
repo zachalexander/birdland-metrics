@@ -1,5 +1,5 @@
 {
-  "Comment": "MLB Daily Data Pipeline — runs 5 Lambdas in sequence to update schedule, game results, ELO ratings, season projections, and Orioles dashboard.",
+  "Comment": "MLB Daily Data Pipeline — runs 6 Lambdas in sequence to update schedule, game results, ELO ratings, season projections, Orioles dashboard, and core player benchmarks.",
   "StartAt": "ScheduleSync",
   "States": {
     "ScheduleSync": {
@@ -86,6 +86,24 @@
         {
           "ErrorEquals": ["States.ALL"],
           "IntervalSeconds": 30,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "CoreBenchmarks"
+    },
+    "CoreBenchmarks": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:953354210097:function:mlb-core-benchmarks",
+        "Payload.$": "$"
+      },
+      "ResultPath": "$.benchmarksResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 60,
           "MaxAttempts": 2,
           "BackoffRate": 2
         }

@@ -14,7 +14,10 @@ import {
   RecentGame,
   RecentGamesResponse,
   EloHistoryPoint,
+  PlayoffOddsHistoryPoint,
   PlayerStatsResponse,
+  PlayerSeasonStats,
+  CoreBenchmarksResponse,
 } from '../../shared/models/mlb.models';
 
 @Injectable({ providedIn: 'root' })
@@ -132,6 +135,44 @@ export class MlbDataService {
   async getPlayerStats(): Promise<PlayerStatsResponse> {
     return firstValueFrom(
       this.http.get<PlayerStatsResponse>(`${this.statsBase}/player-stats-latest.json`)
+    );
+  }
+
+  async getPlayerCareerStats(playerId: string): Promise<PlayerSeasonStats[]> {
+    return firstValueFrom(
+      this.http.get<PlayerSeasonStats[]>(`${this.statsBase}/career-stats/${playerId}.json`)
+    );
+  }
+
+  async getPlayoffOddsHistory(teams: string[]): Promise<Record<string, PlayoffOddsHistoryPoint[]>> {
+    const result: Record<string, PlayoffOddsHistoryPoint[]> = {};
+    const teamSet = new Set(teams);
+    for (const team of teams) {
+      result[team] = [];
+    }
+
+    try {
+      const rows = await firstValueFrom(
+        this.http.get<PlayoffOddsHistoryPoint[]>(`${this.predBase}/playoff-odds-history.json`)
+      );
+      for (const row of rows) {
+        if (!teamSet.has(row.team)) continue;
+        result[row.team].push(row);
+      }
+      for (const team of teams) {
+        result[team].sort((a, b) => a.date.localeCompare(b.date));
+      }
+    } catch {
+      // History not yet available
+    }
+
+    return result;
+  }
+
+  async getCoreBenchmarks(): Promise<CoreBenchmarksResponse> {
+    const cacheBust = Date.now();
+    return firstValueFrom(
+      this.http.get<CoreBenchmarksResponse>(`${this.statsBase}/benchmarks/core-benchmarks-latest.json?t=${cacheBust}`)
     );
   }
 }
