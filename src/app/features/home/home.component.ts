@@ -8,7 +8,6 @@ import { BlogPost } from '../../shared/models/content.models';
 import { PlayoffOdds, TeamProjection, RecentGame, BenchmarkPlayer } from '../../shared/models/mlb.models';
 import { RouterLink } from '@angular/router';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
-import { StandingsTableComponent } from './components/standings-table/standings-table.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 import { PlayoffRaceComponent } from '../../visualizations/playoff-race/playoff-race.component';
 import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
@@ -21,7 +20,6 @@ import { CoreBenchmarksComponent } from './components/core-benchmarks/core-bench
     DecimalPipe,
     RouterLink,
     ArticleCardComponent,
-    StandingsTableComponent,
     RecentGamesComponent,
     PlayoffRaceComponent,
     NewsletterCtaComponent,
@@ -46,6 +44,8 @@ export class HomeComponent implements OnInit {
   dashboardLoading = signal(true);
 
   viewing2025 = signal(false);
+  viewingOdds2025 = signal(false);
+  oddsSeasonYear = computed(() => this.viewingOdds2025() ? 2025 : 2026);
 
   /** 2025 final stats for each benchmark player, keyed by playerId → benchmarkKey → value */
   private static readonly STATS_2025: Record<string, Record<string, number | null>> = {
@@ -147,6 +147,10 @@ export class HomeComponent implements OnInit {
 
   toggle2025(): void {
     this.viewing2025.set(!this.viewing2025());
+  }
+
+  toggleOdds2025(): void {
+    this.viewingOdds2025.set(!this.viewingOdds2025());
   }
 
   private async loadDashboard(): Promise<void> {

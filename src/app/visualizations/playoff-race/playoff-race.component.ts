@@ -6,11 +6,13 @@ import {
   viewChild,
   PLATFORM_ID,
   inject,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { PlayoffRaceConfig, renderPlayoffRace } from './playoff-race.render';
-import { AL_EAST } from '../../shared/models/mlb.models';
+import { AL_EAST, TeamProjection, PlayoffOdds } from '../../shared/models/mlb.models';
 
 @Component({
   selector: 'app-playoff-race',
@@ -18,8 +20,11 @@ import { AL_EAST } from '../../shared/models/mlb.models';
   templateUrl: './playoff-race.component.html',
   styleUrl: './playoff-race.component.css',
 })
-export class PlayoffRaceComponent implements AfterViewInit {
+export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
   @Input() config?: PlayoffRaceConfig;
+  @Input() season?: number;
+  @Input() projections?: TeamProjection[];
+  @Input() odds?: PlayoffOdds[];
 
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
@@ -27,6 +32,9 @@ export class PlayoffRaceComponent implements AfterViewInit {
   isBrowser = false;
   loading = true;
   error = '';
+  private initialized = false;
+  private lastData: Record<string, import('../../shared/models/mlb.models').PlayoffOddsHistoryPoint[]> | null = null;
+  private lastD3: typeof import('d3') | null = null;
 
   private get resolvedConfig(): PlayoffRaceConfig {
     return this.config ?? { teams: AL_EAST };
@@ -38,23 +46,54 @@ export class PlayoffRaceComponent implements AfterViewInit {
 
   async ngAfterViewInit(): Promise<void> {
     if (!this.isBrowser) return;
+    this.initialized = true;
+    await this.loadAndRender();
+  }
+
+  async ngOnChanges(changes: SimpleChanges): Promise<void> {
+    if (!this.initialized) return;
+    if (changes['season']) {
+      await this.loadAndRender();
+    } else if (changes['projections'] || changes['odds']) {
+      // Re-render with updated standings data (no data reload needed)
+      await this.rerender();
+    }
+  }
+
+  private async loadAndRender(): Promise<void> {
+    this.loading = true;
+    this.error = '';
 
     const cfg = this.resolvedConfig;
 
     try {
       const [d3, data] = await Promise.all([
         import('d3'),
-        this.mlbData.getPlayoffOddsHistory(cfg.teams),
+        this.mlbData.getPlayoffOddsHistory(cfg.teams, this.season),
       ]);
 
       this.loading = false;
+      this.lastData = data;
+      this.lastD3 = d3;
       const container = this.chartContainer()?.nativeElement;
       if (!container) return;
 
-      renderPlayoffRace(container, data, cfg, d3);
+      // Clear previous chart
+      container.innerHTML = '';
+
+      const is2025 = this.season === 2025;
+      renderPlayoffRace(container, data, cfg, d3, is2025 ? undefined : this.projections, is2025 ? undefined : this.odds);
     } catch {
       this.loading = false;
       this.error = 'Unable to load playoff odds data. The season may not have started yet.';
     }
+  }
+
+  private async rerender(): Promise<void> {
+    if (!this.lastData || !this.lastD3) return;
+    const container = this.chartContainer()?.nativeElement;
+    if (!container) return;
+    container.innerHTML = '';
+    renderPlayoffRace(container, this.lastData, this.resolvedConfig, this.lastD3, this.projections, this.odds);
   }
 }

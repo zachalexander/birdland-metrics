@@ -85,6 +85,8 @@ export interface PlayoffOddsHistoryPoint {
   date: string;
   team: string;
   playoff_pct: number;
+  division_pct?: number;
+  wildcard_pct?: number;
 }
 
 export interface EloHistoryResponse {

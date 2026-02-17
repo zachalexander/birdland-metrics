@@ -51,6 +51,22 @@
     }
   </section>
   @if (!dashboardLoading()) {
+    <!-- AL East Race -->
+    <section class="section-card section-card-race">
+      <p class="section-kicker race-kicker">{{ viewingOdds2025() ? '2025 Season' : 'AL East Playoff Odds' }}</p>
+      <div class="section-heading-row">
+        <h2 class="section-heading race-heading">{{ viewingOdds2025() ? '2025 Playoff Odds Trend' : 'Playoff Odds Over Time' }}</h2>
+        <button class="pill-toggle" [class.active]="viewingOdds2025()" (click)="toggleOdds2025()">
+          {{ viewingOdds2025() ? 'Back to 2026' : '2025 Results' }}
+        </button>
+      </div>
+      <app-playoff-race
+        [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }"
+        [season]="oddsSeasonYear()"
+        [projections]="projections()"
+        [odds]="allOdds()"
+      />
+    </section>
     <!-- Core Player Benchmarks -->
     @if (benchmarkPlayers().length) {
       <section class="section-card section-card-benchmarks">
@@ -75,19 +91,6 @@
           [showOverride]="viewing2025()"
         />
       </section>
-    }
-    <!-- AL East Race -->
-    @if (projections().length) {
-      <div class="race-split">
-        <section class="race-panel section-card section-card-race">
-          <p class="section-kicker race-kicker">AL East Playoff Odds</p>
-          <app-playoff-race [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }" />
-        </section>
-        <section class="race-panel section-card section-card-race">
-          <p class="section-kicker race-kicker">Projected AL East Standings</p>
-          <app-standings-table [projections]="projections()" [odds]="allOdds()" />
-        </section>
-      </div>
     }
   }
 

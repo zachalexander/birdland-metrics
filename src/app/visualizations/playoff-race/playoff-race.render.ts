@@ -2,7 +2,7 @@ import {
   TEAM_COLORS, createResponsiveSvg, createTooltip,
   FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
 } from '../viz-utils';
-import { TEAM_NAMES, PlayoffOddsHistoryPoint } from '../../shared/models/mlb.models';
+import { TEAM_NAMES, PlayoffOddsHistoryPoint, TeamProjection, PlayoffOdds, AL_EAST } from '../../shared/models/mlb.models';
 
 export interface PlayoffRaceConfig {
   teams: string[];
@@ -13,6 +13,8 @@ export function renderPlayoffRace(
   data: Record<string, PlayoffOddsHistoryPoint[]>,
   config: PlayoffRaceConfig,
   d3: typeof import('d3'),
+  projections?: TeamProjection[],
+  odds?: PlayoffOdds[],
 ): void {
   container.innerHTML = '';
 
@@ -27,7 +29,7 @@ export function renderPlayoffRace(
 
   const width = 700;
   const height = 380;
-  const margin = { top: 12, right: 16, bottom: 56, left: 48 };
+  const margin = { top: 12, right: 48, bottom: 28, left: 38 };
 
   const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
 
@@ -45,8 +47,17 @@ export function renderPlayoffRace(
     allDates = allDates.concat(points.map(p => p.date));
   }
 
+  // Extend domain to full season so early-season data starts at the left edge
+  const [minDate, maxDate] = d3.extent(allDates) as [Date, Date];
+  const seasonEnd = new Date(maxDate);
+  // If the data spans less than 4 months, extend to late September of the same year
+  const spanMonths = (maxDate.getTime() - minDate.getTime()) / (1000 * 60 * 60 * 24 * 30);
+  if (spanMonths < 4) {
+    seasonEnd.setFullYear(minDate.getFullYear());
+    seasonEnd.setMonth(8, 28); // Sep 28
+  }
   const x = d3.scaleTime()
-    .domain(d3.extent(allDates) as [Date, Date])
+    .domain([minDate, seasonEnd > maxDate ? seasonEnd : maxDate])
     .range([0, innerWidth]);
 
   const y = d3.scaleLinear()
@@ -56,7 +67,8 @@ export function renderPlayoffRace(
   // Grid lines
   g.append('g')
     .attr('class', 'grid')
-    .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(() => ''))
+    .attr('transform', `translate(${innerWidth},0)`)
+    .call(d3.axisRight(y).ticks(5).tickSize(-innerWidth).tickFormat(() => ''))
     .call(g => g.select('.domain').remove())
     .call(g => g.selectAll('.tick line').attr('stroke', COLOR_BORDER).attr('stroke-dasharray', 'none'));
 
@@ -73,21 +85,22 @@ export function renderPlayoffRace(
       .attr('text-transform', 'uppercase')
       .attr('dy', '1em'));
 
-  // Y axis
+  // Y axis (right side)
   g.append('g')
-    .call(d3.axisLeft(y).ticks(5).tickSize(0).tickFormat(d => `${d}%`))
+    .attr('transform', `translate(${innerWidth},0)`)
+    .call(d3.axisRight(y).ticks(5).tickSize(0).tickFormat(d => `${d}%`))
     .call(g => g.select('.domain').remove())
     .call(g => g.selectAll('.tick text')
       .attr('fill', COLOR_TEXT_MUTED)
       .attr('font-family', FONT_MONO)
       .attr('font-size', '10px')
-      .attr('dx', '-0.5em'));
+      .attr('dx', '0.5em'));
 
-  // Y axis label
+  // Y axis label (right side)
   g.append('text')
-    .attr('transform', 'rotate(-90)')
-    .attr('y', -38)
-    .attr('x', -innerHeight / 2)
+    .attr('transform', 'rotate(90)')
+    .attr('y', -innerWidth - 38)
+    .attr('x', innerHeight / 2)
     .attr('text-anchor', 'middle')
     .attr('fill', COLOR_TEXT_MUTED)
     .attr('font-family', FONT_MONO)
@@ -96,46 +109,60 @@ export function renderPlayoffRace(
     .attr('letter-spacing', '0.06em')
     .text('PLAYOFF ODDS');
 
+  // --- Team visibility state ---
+  const otherTeams = teams.filter(t => t !== 'BAL');
+  let showALEast = false;
+
   // Lines
   const line = d3.line<{ date: Date; playoff_pct: number }>()
     .x(d => x(d.date))
     .y(d => y(d.playoff_pct))
     .curve(d3.curveMonotoneX);
 
+  const teamPaths: Record<string, d3.Selection<SVGPathElement | SVGCircleElement, any, any, any>> = {};
+
   for (const team of teams) {
     const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
     const pts = parsedData[team];
+    const isOther = team !== 'BAL';
 
     if (pts.length === 1) {
-      // Single data point — draw a dot instead of a line
-      g.append('circle')
+      const dot = g.append('circle')
         .attr('cx', x(pts[0].date))
         .attr('cy', y(pts[0].playoff_pct))
         .attr('r', 4)
         .attr('fill', color)
         .attr('stroke', '#fff')
         .attr('stroke-width', 1.5)
-        .style('opacity', 0)
-        .transition()
-        .duration(600)
-        .style('opacity', 1);
+        .style('opacity', isOther ? '0' : '1');
+
+      if (!isOther) {
+        dot.style('opacity', 0)
+          .transition().duration(600).style('opacity', 1);
+      }
+      teamPaths[team] = dot as any;
     } else {
       const path = g.append('path')
         .datum(pts)
         .attr('fill', 'none')
         .attr('stroke', color)
-        .attr('stroke-width', 2)
+        .attr('stroke-width', team === 'BAL' ? 2.5 : 2)
         .attr('d', line);
 
-      // Animate line drawing
-      const totalLength = (path.node() as SVGPathElement).getTotalLength();
-      path
-        .attr('stroke-dasharray', `${totalLength} ${totalLength}`)
-        .attr('stroke-dashoffset', totalLength)
-        .transition()
-        .duration(1200)
-        .ease(d3.easeCubicOut)
-        .attr('stroke-dashoffset', 0);
+      if (isOther) {
+        path.style('opacity', 0);
+      } else {
+        // Animate BAL line drawing
+        const totalLength = (path.node() as SVGPathElement).getTotalLength();
+        path
+          .attr('stroke-dasharray', `${totalLength} ${totalLength}`)
+          .attr('stroke-dashoffset', totalLength)
+          .transition()
+          .duration(1200)
+          .ease(d3.easeCubicOut)
+          .attr('stroke-dashoffset', 0);
+      }
+      teamPaths[team] = path as any;
     }
   }
 
@@ -178,10 +205,11 @@ export function renderPlayoffRace(
 
       let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${COLOR_TEXT_MUTED};text-transform:uppercase;letter-spacing:0.04em">${d3.timeFormat('%b %d, %Y')(hoveredDate)}</span>`;
 
-      // Sort teams by playoff_pct descending at this date
+      const visibleTeams = showALEast ? teams : ['BAL'];
       const teamValues: { team: string; pct: number; d: { date: Date; playoff_pct: number } }[] = [];
-      for (const team of teams) {
+      for (const team of visibleTeams) {
         const pts = parsedData[team];
+        if (!pts) continue;
         const i = bisect(pts, hoveredDate, 1);
         const d0 = pts[i - 1];
         const d1 = pts[i];
@@ -190,6 +218,11 @@ export function renderPlayoffRace(
         teamValues.push({ team, pct: d.playoff_pct, d });
       }
       teamValues.sort((a, b) => b.pct - a.pct);
+
+      for (const team of teams) {
+        const isVisible = visibleTeams.includes(team);
+        focus.select(`.focus-dot-${team}`).style('display', isVisible ? 'inline' : 'none');
+      }
 
       for (const { team, pct, d } of teamValues) {
         focus.select(`.focus-dot-${team}`)
@@ -209,31 +242,166 @@ export function renderPlayoffRace(
       tooltip.move(event);
     });
 
-  // Legend (below chart, inline)
-  const legend = g.append('g')
-    .attr('transform', `translate(0, ${innerHeight + 32})`);
-
-  let legendX = 0;
+  // Team labels on the left y-axis, positioned at each team's first data point
+  const teamLabels: Record<string, d3.Selection<SVGTextElement, unknown, null, undefined>> = {};
   for (const team of teams) {
     const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
-    const name = TEAM_NAMES[team] ?? team;
-    const lg = legend.append('g').attr('transform', `translate(${legendX}, 0)`);
+    const pts = parsedData[team];
+    const firstPt = pts[0];
+    const isOther = team !== 'BAL';
 
-    lg.append('line')
-      .attr('x1', 0).attr('x2', 16)
-      .attr('y1', 0).attr('y2', 0)
-      .attr('stroke', color)
-      .attr('stroke-width', 2);
+    const label = g.append('text')
+      .attr('x', -8)
+      .attr('y', y(firstPt.playoff_pct))
+      .attr('text-anchor', 'end')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-family', FONT_MONO)
+      .attr('font-size', '10px')
+      .attr('font-weight', '700')
+      .attr('fill', color)
+      .style('opacity', isOther ? '0' : '1')
+      .text(team);
 
-    lg.append('text')
-      .attr('x', 22)
-      .attr('y', 4)
-      .attr('font-family', FONT_SANS)
-      .attr('font-size', '11px')
-      .attr('font-weight', '500')
-      .attr('fill', COLOR_TEXT_SECONDARY)
-      .text(name);
-
-    legendX += name.length * 7 + 40;
+    teamLabels[team] = label;
   }
+
+  // --- "Show AL East" toggle button ---
+  const toggleWrap = d3.select(container).insert('div', ':first-child')
+    .style('max-width', '700px')
+    .style('margin', '0 auto 4px')
+    .style('display', 'flex')
+    .style('justify-content', 'flex-end');
+
+  const toggleBtn = toggleWrap.append('button')
+    .style('font-family', FONT_MONO)
+    .style('font-size', '0.68rem')
+    .style('font-weight', '700')
+    .style('letter-spacing', '0.03em')
+    .style('color', '#df4a00')
+    .style('background', 'transparent')
+    .style('border', '1.5px solid #df4a00')
+    .style('border-radius', '999px')
+    .style('padding', '3px 10px')
+    .style('cursor', 'pointer')
+    .style('transition', 'background 0.15s ease, color 0.15s ease')
+    .text('Show AL East')
+    .on('mouseenter', function() {
+      d3.select(this).style('background', '#df4a00').style('color', '#fff');
+    })
+    .on('mouseleave', function() {
+      if (!showALEast) {
+        d3.select(this).style('background', 'transparent').style('color', '#df4a00');
+      }
+    })
+    .on('click', function() {
+      showALEast = !showALEast;
+      const btn = d3.select(this);
+      btn.text(showALEast ? 'Orioles Only' : 'Show AL East');
+
+      if (showALEast) {
+        btn.style('background', '#df4a00').style('color', '#fff');
+      } else {
+        btn.style('background', 'transparent').style('color', '#df4a00');
+      }
+
+      // Toggle other team lines
+      for (const team of otherTeams) {
+        const el = teamPaths[team];
+        if (!el) continue;
+        el.transition().duration(400)
+          .style('opacity', showALEast ? 1 : 0);
+      }
+
+      // Toggle team labels
+      for (const team of otherTeams) {
+        const label = teamLabels[team];
+        if (!label) continue;
+        label.transition().duration(400)
+          .style('opacity', showALEast ? 1 : 0);
+      }
+    });
+
+  // --- Standings table below chart ---
+  // Build odds lookup: use provided odds, or fall back to latest snapshot from history data
+  const oddsMap: Record<string, { playoff_pct: number; division_pct: number; wildcard_pct: number }> = {};
+  if (odds?.length) {
+    for (const o of odds) {
+      if (teams.includes(o.team)) {
+        oddsMap[o.team] = { playoff_pct: o.playoff_pct, division_pct: o.division_pct, wildcard_pct: o.wildcard_pct };
+      }
+    }
+  } else {
+    // Fallback: use the last data point from history
+    for (const team of teams) {
+      const pts = data[team];
+      if (pts?.length) {
+        const last = pts[pts.length - 1];
+        oddsMap[team] = {
+          playoff_pct: last.playoff_pct,
+          division_pct: last.division_pct ?? 0,
+          wildcard_pct: last.wildcard_pct ?? 0,
+        };
+      }
+    }
+  }
+
+  // Build projections lookup
+  const projMap: Record<string, TeamProjection> = {};
+  const hasProjections = !!projections?.length;
+  if (hasProjections) {
+    for (const p of projections!) {
+      if (teams.includes(p.team)) {
+        projMap[p.team] = p;
+      }
+    }
+  }
+
+  // Sort teams by playoff % descending
+  const sortedTeams = [...teams].sort((a, b) => (oddsMap[b]?.playoff_pct ?? 0) - (oddsMap[a]?.playoff_pct ?? 0));
+
+  // Only render if we have odds data
+  if (Object.keys(oddsMap).length === 0) return;
+
+  const thStyle = `font-family:${FONT_MONO};font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:${COLOR_TEXT_MUTED};padding:0.5rem 0.6rem;border-bottom:2px solid ${COLOR_BORDER};text-align:right`;
+  const thTeamStyle = `${thStyle};text-align:left`;
+  const tdStyle = `padding:0.45rem 0.6rem;border-bottom:1px solid ${COLOR_BORDER};color:${COLOR_TEXT}`;
+  const tdTeamStyle = `${tdStyle};font-weight:600;white-space:nowrap`;
+  const tdNumStyle = `${tdStyle};text-align:right;font-family:${FONT_MONO};font-size:0.8rem;font-weight:600`;
+  const dotStyle = (c: string) => `display:inline-block;width:8px;height:8px;border-radius:50%;background:${c};margin-right:6px;vertical-align:middle`;
+
+  const tableDiv = d3.select(container).append('div')
+    .style('max-width', '700px')
+    .style('margin', '24px auto 0');
+
+  let headerHtml = `<tr><th style="${thTeamStyle}">Team</th>`;
+  if (hasProjections) {
+    headerHtml += `<th style="${thStyle}">W</th><th style="${thStyle}">L</th>`;
+  }
+  headerHtml += `<th style="${thStyle}">Playoff %</th><th style="${thStyle}">Div %</th><th style="${thStyle}">WC %</th></tr>`;
+
+  let bodyHtml = '';
+  for (const team of sortedTeams) {
+    const o = oddsMap[team];
+    if (!o) continue;
+    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const name = TEAM_NAMES[team] ?? team;
+    const isBAL = team === 'BAL';
+    const bgHighlight = isBAL ? 'background:rgba(223,74,0,0.06);' : '';
+    const teamColor = isBAL ? 'color:#df4a00;' : '';
+
+    bodyHtml += '<tr>';
+    bodyHtml += `<td style="${tdTeamStyle};${bgHighlight}${teamColor}"><span style="${dotStyle(color)}"></span>${name}</td>`;
+    if (hasProjections) {
+      const proj = projMap[team];
+      const wins = proj ? Math.round(proj.median_wins) : '\u2014';
+      const losses = proj ? 162 - Math.round(proj.median_wins) : '\u2014';
+      bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${wins}</td><td style="${tdNumStyle};${bgHighlight}">${losses}</td>`;
+    }
+    bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${Math.round(o.playoff_pct)}%</td>`;
+    bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${Math.round(o.division_pct)}%</td>`;
+    bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${Math.round(o.wildcard_pct)}%</td>`;
+    bodyHtml += '</tr>';
+  }
+
+  tableDiv.html(`<table style="width:100%;border-collapse:collapse;font-family:${FONT_SANS};font-size:0.85rem"><thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody></table>`);
 }

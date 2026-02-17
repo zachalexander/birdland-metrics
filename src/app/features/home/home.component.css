@@ -377,26 +377,11 @@ text-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
 .featured-meta-dot {
 color: rgba(255, 255, 255, 0.55);
 }
-.race-panel .section-kicker {
-font-family: var(--font-mono);
-position: relative;
-display: inline-block;
-margin-bottom: var(--home-kicker-gap);
-padding-bottom: 0.35rem;
-}
 .race-kicker {
 font-family: var(--font-mono) !important;
 font-size: 0.78rem;
 font-weight: 700;
 letter-spacing: 0.09em;
-}
-.race-split {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: var(--home-section-gap);
-}
-.race-panel {
-padding: var(--home-card-padding);
 }
 .articles-section {
 --spotlight-aspect-ratio: 21 / 14;
@@ -562,13 +547,6 @@ font-size: 1.3rem;
 border-radius: 0;
 margin-left: calc(-1 * var(--space-md));
 margin-right: calc(-1 * var(--space-md));
-}
-.race-split {
-grid-template-columns: 1fr;
-gap: var(--home-section-gap);
-}
-.race-panel {
-padding: var(--home-card-padding);
 }
 .articles-section {
 padding: 0;

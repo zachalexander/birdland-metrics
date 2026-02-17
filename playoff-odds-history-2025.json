@@ -1,0 +1,2942 @@
+[
+  {
+    "date": "2025-03-24",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-24",
+    "team": "BAL",
+    "playoff_pct": 37.8,
+    "division_pct": 16.1,
+    "wildcard_pct": 21.7
+  },
+  {
+    "date": "2025-03-24",
+    "team": "BOS",
+    "playoff_pct": 4.3,
+    "division_pct": 0.9,
+    "wildcard_pct": 3.4
+  },
+  {
+    "date": "2025-03-24",
+    "team": "CLE",
+    "playoff_pct": 71.2,
+    "division_pct": 18.4,
+    "wildcard_pct": 52.8
+  },
+  {
+    "date": "2025-03-24",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-24",
+    "team": "DET",
+    "playoff_pct": 95.7,
+    "division_pct": 72.2,
+    "wildcard_pct": 23.5
+  },
+  {
+    "date": "2025-03-24",
+    "team": "HOU",
+    "playoff_pct": 99.8,
+    "division_pct": 34.6,
+    "wildcard_pct": 65.2
+  },
+  {
+    "date": "2025-03-24",
+    "team": "KC",
+    "playoff_pct": 58.7,
+    "division_pct": 9.4,
+    "wildcard_pct": 49.3
+  },
+  {
+    "date": "2025-03-24",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-24",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-24",
+    "team": "NYY",
+    "playoff_pct": 61.0,
+    "division_pct": 38.7,
+    "wildcard_pct": 22.3
+  },
+  {
+    "date": "2025-03-24",
+    "team": "SEA",
+    "playoff_pct": 100.0,
+    "division_pct": 65.4,
+    "wildcard_pct": 34.6
+  },
+  {
+    "date": "2025-03-24",
+    "team": "TB",
+    "playoff_pct": 67.8,
+    "division_pct": 44.2,
+    "wildcard_pct": 23.6
+  },
+  {
+    "date": "2025-03-24",
+    "team": "TEX",
+    "playoff_pct": 3.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 3.5
+  },
+  {
+    "date": "2025-03-24",
+    "team": "TOR",
+    "playoff_pct": 0.2,
+    "division_pct": 0.1,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-03-31",
+    "team": "ATH",
+    "playoff_pct": 0.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-03-31",
+    "team": "BAL",
+    "playoff_pct": 34.8,
+    "division_pct": 3.1,
+    "wildcard_pct": 31.7
+  },
+  {
+    "date": "2025-03-31",
+    "team": "BOS",
+    "playoff_pct": 1.7,
+    "division_pct": 0.2,
+    "wildcard_pct": 1.5
+  },
+  {
+    "date": "2025-03-31",
+    "team": "CLE",
+    "playoff_pct": 94.3,
+    "division_pct": 66.1,
+    "wildcard_pct": 28.2
+  },
+  {
+    "date": "2025-03-31",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-31",
+    "team": "DET",
+    "playoff_pct": 86.6,
+    "division_pct": 32.7,
+    "wildcard_pct": 53.9
+  },
+  {
+    "date": "2025-03-31",
+    "team": "HOU",
+    "playoff_pct": 99.9,
+    "division_pct": 78.8,
+    "wildcard_pct": 21.1
+  },
+  {
+    "date": "2025-03-31",
+    "team": "KC",
+    "playoff_pct": 16.6,
+    "division_pct": 1.2,
+    "wildcard_pct": 15.4
+  },
+  {
+    "date": "2025-03-31",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-31",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-03-31",
+    "team": "NYY",
+    "playoff_pct": 98.8,
+    "division_pct": 89.4,
+    "wildcard_pct": 9.4
+  },
+  {
+    "date": "2025-03-31",
+    "team": "SEA",
+    "playoff_pct": 96.8,
+    "division_pct": 21.2,
+    "wildcard_pct": 75.6
+  },
+  {
+    "date": "2025-03-31",
+    "team": "TB",
+    "playoff_pct": 64.6,
+    "division_pct": 7.3,
+    "wildcard_pct": 57.3
+  },
+  {
+    "date": "2025-03-31",
+    "team": "TEX",
+    "playoff_pct": 5.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 5.5
+  },
+  {
+    "date": "2025-03-31",
+    "team": "TOR",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-07",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-07",
+    "team": "BAL",
+    "playoff_pct": 11.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 11.7
+  },
+  {
+    "date": "2025-04-07",
+    "team": "BOS",
+    "playoff_pct": 84.3,
+    "division_pct": 10.4,
+    "wildcard_pct": 73.9
+  },
+  {
+    "date": "2025-04-07",
+    "team": "CLE",
+    "playoff_pct": 27.0,
+    "division_pct": 0.4,
+    "wildcard_pct": 26.6
+  },
+  {
+    "date": "2025-04-07",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-07",
+    "team": "DET",
+    "playoff_pct": 99.8,
+    "division_pct": 98.6,
+    "wildcard_pct": 1.2
+  },
+  {
+    "date": "2025-04-07",
+    "team": "HOU",
+    "playoff_pct": 89.5,
+    "division_pct": 62.7,
+    "wildcard_pct": 26.8
+  },
+  {
+    "date": "2025-04-07",
+    "team": "KC",
+    "playoff_pct": 40.3,
+    "division_pct": 1.0,
+    "wildcard_pct": 39.3
+  },
+  {
+    "date": "2025-04-07",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-07",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-07",
+    "team": "NYY",
+    "playoff_pct": 99.9,
+    "division_pct": 88.7,
+    "wildcard_pct": 11.2
+  },
+  {
+    "date": "2025-04-07",
+    "team": "SEA",
+    "playoff_pct": 64.0,
+    "division_pct": 22.1,
+    "wildcard_pct": 41.9
+  },
+  {
+    "date": "2025-04-07",
+    "team": "TB",
+    "playoff_pct": 25.6,
+    "division_pct": 0.9,
+    "wildcard_pct": 24.7
+  },
+  {
+    "date": "2025-04-07",
+    "team": "TEX",
+    "playoff_pct": 57.1,
+    "division_pct": 15.2,
+    "wildcard_pct": 41.9
+  },
+  {
+    "date": "2025-04-07",
+    "team": "TOR",
+    "playoff_pct": 0.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.8
+  },
+  {
+    "date": "2025-04-14",
+    "team": "ATH",
+    "playoff_pct": 0.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.5
+  },
+  {
+    "date": "2025-04-14",
+    "team": "BAL",
+    "playoff_pct": 18.7,
+    "division_pct": 1.8,
+    "wildcard_pct": 16.9
+  },
+  {
+    "date": "2025-04-14",
+    "team": "BOS",
+    "playoff_pct": 5.9,
+    "division_pct": 0.5,
+    "wildcard_pct": 5.4
+  },
+  {
+    "date": "2025-04-14",
+    "team": "CLE",
+    "playoff_pct": 77.4,
+    "division_pct": 1.7,
+    "wildcard_pct": 75.7
+  },
+  {
+    "date": "2025-04-14",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-14",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 98.1,
+    "wildcard_pct": 1.9
+  },
+  {
+    "date": "2025-04-14",
+    "team": "HOU",
+    "playoff_pct": 90.4,
+    "division_pct": 33.1,
+    "wildcard_pct": 57.3
+  },
+  {
+    "date": "2025-04-14",
+    "team": "KC",
+    "playoff_pct": 23.5,
+    "division_pct": 0.2,
+    "wildcard_pct": 23.3
+  },
+  {
+    "date": "2025-04-14",
+    "team": "LAA",
+    "playoff_pct": 0.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.2
+  },
+  {
+    "date": "2025-04-14",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-14",
+    "team": "NYY",
+    "playoff_pct": 96.7,
+    "division_pct": 89.8,
+    "wildcard_pct": 6.9
+  },
+  {
+    "date": "2025-04-14",
+    "team": "SEA",
+    "playoff_pct": 97.2,
+    "division_pct": 66.1,
+    "wildcard_pct": 31.1
+  },
+  {
+    "date": "2025-04-14",
+    "team": "TB",
+    "playoff_pct": 21.6,
+    "division_pct": 2.1,
+    "wildcard_pct": 19.5
+  },
+  {
+    "date": "2025-04-14",
+    "team": "TEX",
+    "playoff_pct": 27.4,
+    "division_pct": 0.8,
+    "wildcard_pct": 26.6
+  },
+  {
+    "date": "2025-04-14",
+    "team": "TOR",
+    "playoff_pct": 40.5,
+    "division_pct": 5.8,
+    "wildcard_pct": 34.7
+  },
+  {
+    "date": "2025-04-21",
+    "team": "ATH",
+    "playoff_pct": 9.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 9.2
+  },
+  {
+    "date": "2025-04-21",
+    "team": "BAL",
+    "playoff_pct": 8.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 8.0
+  },
+  {
+    "date": "2025-04-21",
+    "team": "BOS",
+    "playoff_pct": 4.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 4.8
+  },
+  {
+    "date": "2025-04-21",
+    "team": "CLE",
+    "playoff_pct": 94.2,
+    "division_pct": 5.9,
+    "wildcard_pct": 88.3
+  },
+  {
+    "date": "2025-04-21",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-21",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 94.1,
+    "wildcard_pct": 5.9
+  },
+  {
+    "date": "2025-04-21",
+    "team": "HOU",
+    "playoff_pct": 93.0,
+    "division_pct": 8.7,
+    "wildcard_pct": 84.3
+  },
+  {
+    "date": "2025-04-21",
+    "team": "KC",
+    "playoff_pct": 4.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 4.2
+  },
+  {
+    "date": "2025-04-21",
+    "team": "LAA",
+    "playoff_pct": 0.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-04-21",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-21",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 99.7,
+    "wildcard_pct": 0.3
+  },
+  {
+    "date": "2025-04-21",
+    "team": "SEA",
+    "playoff_pct": 100.0,
+    "division_pct": 90.7,
+    "wildcard_pct": 9.3
+  },
+  {
+    "date": "2025-04-21",
+    "team": "TB",
+    "playoff_pct": 3.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 3.7
+  },
+  {
+    "date": "2025-04-21",
+    "team": "TEX",
+    "playoff_pct": 56.8,
+    "division_pct": 0.6,
+    "wildcard_pct": 56.2
+  },
+  {
+    "date": "2025-04-21",
+    "team": "TOR",
+    "playoff_pct": 25.7,
+    "division_pct": 0.3,
+    "wildcard_pct": 25.4
+  },
+  {
+    "date": "2025-04-28",
+    "team": "ATH",
+    "playoff_pct": 1.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.5
+  },
+  {
+    "date": "2025-04-28",
+    "team": "BAL",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-04-28",
+    "team": "BOS",
+    "playoff_pct": 42.9,
+    "division_pct": 0.1,
+    "wildcard_pct": 42.8
+  },
+  {
+    "date": "2025-04-28",
+    "team": "CLE",
+    "playoff_pct": 20.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 20.6
+  },
+  {
+    "date": "2025-04-28",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-28",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-28",
+    "team": "HOU",
+    "playoff_pct": 97.6,
+    "division_pct": 23.6,
+    "wildcard_pct": 74.0
+  },
+  {
+    "date": "2025-04-28",
+    "team": "KC",
+    "playoff_pct": 13.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 13.6
+  },
+  {
+    "date": "2025-04-28",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-04-28",
+    "team": "MIN",
+    "playoff_pct": 0.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.2
+  },
+  {
+    "date": "2025-04-28",
+    "team": "NYY",
+    "playoff_pct": 99.9,
+    "division_pct": 98.3,
+    "wildcard_pct": 1.6
+  },
+  {
+    "date": "2025-04-28",
+    "team": "SEA",
+    "playoff_pct": 99.8,
+    "division_pct": 75.8,
+    "wildcard_pct": 24.0
+  },
+  {
+    "date": "2025-04-28",
+    "team": "TB",
+    "playoff_pct": 76.5,
+    "division_pct": 1.6,
+    "wildcard_pct": 74.9
+  },
+  {
+    "date": "2025-04-28",
+    "team": "TEX",
+    "playoff_pct": 45.9,
+    "division_pct": 0.6,
+    "wildcard_pct": 45.3
+  },
+  {
+    "date": "2025-04-28",
+    "team": "TOR",
+    "playoff_pct": 1.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.4
+  },
+  {
+    "date": "2025-05-05",
+    "team": "ATH",
+    "playoff_pct": 33.5,
+    "division_pct": 0.2,
+    "wildcard_pct": 33.3
+  },
+  {
+    "date": "2025-05-05",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-05",
+    "team": "BOS",
+    "playoff_pct": 28.0,
+    "division_pct": 1.3,
+    "wildcard_pct": 26.7
+  },
+  {
+    "date": "2025-05-05",
+    "team": "CLE",
+    "playoff_pct": 23.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 23.4
+  },
+  {
+    "date": "2025-05-05",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-05",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 99.6,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-05-05",
+    "team": "HOU",
+    "playoff_pct": 95.1,
+    "division_pct": 16.0,
+    "wildcard_pct": 79.1
+  },
+  {
+    "date": "2025-05-05",
+    "team": "KC",
+    "playoff_pct": 88.1,
+    "division_pct": 0.4,
+    "wildcard_pct": 87.7
+  },
+  {
+    "date": "2025-05-05",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-05",
+    "team": "MIN",
+    "playoff_pct": 0.9,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.9
+  },
+  {
+    "date": "2025-05-05",
+    "team": "NYY",
+    "playoff_pct": 99.7,
+    "division_pct": 98.0,
+    "wildcard_pct": 1.7
+  },
+  {
+    "date": "2025-05-05",
+    "team": "SEA",
+    "playoff_pct": 100.0,
+    "division_pct": 83.8,
+    "wildcard_pct": 16.2
+  },
+  {
+    "date": "2025-05-05",
+    "team": "TB",
+    "playoff_pct": 25.2,
+    "division_pct": 0.7,
+    "wildcard_pct": 24.5
+  },
+  {
+    "date": "2025-05-05",
+    "team": "TEX",
+    "playoff_pct": 6.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 6.0
+  },
+  {
+    "date": "2025-05-05",
+    "team": "TOR",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-05-12",
+    "team": "ATH",
+    "playoff_pct": 3.2,
+    "division_pct": 0.2,
+    "wildcard_pct": 3.0
+  },
+  {
+    "date": "2025-05-12",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-12",
+    "team": "BOS",
+    "playoff_pct": 67.8,
+    "division_pct": 2.9,
+    "wildcard_pct": 64.9
+  },
+  {
+    "date": "2025-05-12",
+    "team": "CLE",
+    "playoff_pct": 29.1,
+    "division_pct": 0.6,
+    "wildcard_pct": 28.5
+  },
+  {
+    "date": "2025-05-12",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-12",
+    "team": "DET",
+    "playoff_pct": 99.7,
+    "division_pct": 96.2,
+    "wildcard_pct": 3.5
+  },
+  {
+    "date": "2025-05-12",
+    "team": "HOU",
+    "playoff_pct": 94.6,
+    "division_pct": 72.2,
+    "wildcard_pct": 22.4
+  },
+  {
+    "date": "2025-05-12",
+    "team": "KC",
+    "playoff_pct": 54.1,
+    "division_pct": 2.1,
+    "wildcard_pct": 52.0
+  },
+  {
+    "date": "2025-05-12",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-12",
+    "team": "MIN",
+    "playoff_pct": 29.7,
+    "division_pct": 1.1,
+    "wildcard_pct": 28.6
+  },
+  {
+    "date": "2025-05-12",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 97.1,
+    "wildcard_pct": 2.9
+  },
+  {
+    "date": "2025-05-12",
+    "team": "SEA",
+    "playoff_pct": 71.5,
+    "division_pct": 21.7,
+    "wildcard_pct": 49.8
+  },
+  {
+    "date": "2025-05-12",
+    "team": "TB",
+    "playoff_pct": 1.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.0
+  },
+  {
+    "date": "2025-05-12",
+    "team": "TEX",
+    "playoff_pct": 41.2,
+    "division_pct": 5.9,
+    "wildcard_pct": 35.3
+  },
+  {
+    "date": "2025-05-12",
+    "team": "TOR",
+    "playoff_pct": 8.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 8.1
+  },
+  {
+    "date": "2025-05-19",
+    "team": "ATH",
+    "playoff_pct": 1.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.8
+  },
+  {
+    "date": "2025-05-19",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-19",
+    "team": "BOS",
+    "playoff_pct": 10.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 10.7
+  },
+  {
+    "date": "2025-05-19",
+    "team": "CLE",
+    "playoff_pct": 7.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 7.5
+  },
+  {
+    "date": "2025-05-19",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-19",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 97.6,
+    "wildcard_pct": 2.4
+  },
+  {
+    "date": "2025-05-19",
+    "team": "HOU",
+    "playoff_pct": 95.6,
+    "division_pct": 32.7,
+    "wildcard_pct": 62.9
+  },
+  {
+    "date": "2025-05-19",
+    "team": "KC",
+    "playoff_pct": 27.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 27.2
+  },
+  {
+    "date": "2025-05-19",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-19",
+    "team": "MIN",
+    "playoff_pct": 94.7,
+    "division_pct": 2.4,
+    "wildcard_pct": 92.3
+  },
+  {
+    "date": "2025-05-19",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-19",
+    "team": "SEA",
+    "playoff_pct": 98.2,
+    "division_pct": 64.0,
+    "wildcard_pct": 34.2
+  },
+  {
+    "date": "2025-05-19",
+    "team": "TB",
+    "playoff_pct": 2.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 2.5
+  },
+  {
+    "date": "2025-05-19",
+    "team": "TEX",
+    "playoff_pct": 60.2,
+    "division_pct": 3.3,
+    "wildcard_pct": 56.9
+  },
+  {
+    "date": "2025-05-19",
+    "team": "TOR",
+    "playoff_pct": 1.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.6
+  },
+  {
+    "date": "2025-05-26",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-26",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-26",
+    "team": "BOS",
+    "playoff_pct": 1.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.7
+  },
+  {
+    "date": "2025-05-26",
+    "team": "CLE",
+    "playoff_pct": 66.6,
+    "division_pct": 4.2,
+    "wildcard_pct": 62.4
+  },
+  {
+    "date": "2025-05-26",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-26",
+    "team": "DET",
+    "playoff_pct": 99.7,
+    "division_pct": 85.1,
+    "wildcard_pct": 14.6
+  },
+  {
+    "date": "2025-05-26",
+    "team": "HOU",
+    "playoff_pct": 93.8,
+    "division_pct": 64.4,
+    "wildcard_pct": 29.4
+  },
+  {
+    "date": "2025-05-26",
+    "team": "KC",
+    "playoff_pct": 48.6,
+    "division_pct": 2.4,
+    "wildcard_pct": 46.2
+  },
+  {
+    "date": "2025-05-26",
+    "team": "LAA",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-05-26",
+    "team": "MIN",
+    "playoff_pct": 79.9,
+    "division_pct": 8.3,
+    "wildcard_pct": 71.6
+  },
+  {
+    "date": "2025-05-26",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-05-26",
+    "team": "SEA",
+    "playoff_pct": 83.5,
+    "division_pct": 35.4,
+    "wildcard_pct": 48.1
+  },
+  {
+    "date": "2025-05-26",
+    "team": "TB",
+    "playoff_pct": 23.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 23.4
+  },
+  {
+    "date": "2025-05-26",
+    "team": "TEX",
+    "playoff_pct": 2.1,
+    "division_pct": 0.2,
+    "wildcard_pct": 1.9
+  },
+  {
+    "date": "2025-05-26",
+    "team": "TOR",
+    "playoff_pct": 0.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.6
+  },
+  {
+    "date": "2025-06-02",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-02",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-02",
+    "team": "BOS",
+    "playoff_pct": 1.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.8
+  },
+  {
+    "date": "2025-06-02",
+    "team": "CLE",
+    "playoff_pct": 52.6,
+    "division_pct": 0.3,
+    "wildcard_pct": 52.3
+  },
+  {
+    "date": "2025-06-02",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-02",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 98.9,
+    "wildcard_pct": 1.1
+  },
+  {
+    "date": "2025-06-02",
+    "team": "HOU",
+    "playoff_pct": 86.7,
+    "division_pct": 76.8,
+    "wildcard_pct": 9.9
+  },
+  {
+    "date": "2025-06-02",
+    "team": "KC",
+    "playoff_pct": 11.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 11.8
+  },
+  {
+    "date": "2025-06-02",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-02",
+    "team": "MIN",
+    "playoff_pct": 70.3,
+    "division_pct": 0.8,
+    "wildcard_pct": 69.5
+  },
+  {
+    "date": "2025-06-02",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 99.5,
+    "wildcard_pct": 0.5
+  },
+  {
+    "date": "2025-06-02",
+    "team": "SEA",
+    "playoff_pct": 40.6,
+    "division_pct": 15.9,
+    "wildcard_pct": 24.7
+  },
+  {
+    "date": "2025-06-02",
+    "team": "TB",
+    "playoff_pct": 93.1,
+    "division_pct": 0.5,
+    "wildcard_pct": 92.6
+  },
+  {
+    "date": "2025-06-02",
+    "team": "TEX",
+    "playoff_pct": 24.2,
+    "division_pct": 7.3,
+    "wildcard_pct": 16.9
+  },
+  {
+    "date": "2025-06-02",
+    "team": "TOR",
+    "playoff_pct": 18.9,
+    "division_pct": 0.0,
+    "wildcard_pct": 18.9
+  },
+  {
+    "date": "2025-06-09",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-09",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-09",
+    "team": "BOS",
+    "playoff_pct": 11.9,
+    "division_pct": 0.1,
+    "wildcard_pct": 11.8
+  },
+  {
+    "date": "2025-06-09",
+    "team": "CLE",
+    "playoff_pct": 42.0,
+    "division_pct": 0.3,
+    "wildcard_pct": 41.7
+  },
+  {
+    "date": "2025-06-09",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-09",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 99.2,
+    "wildcard_pct": 0.8
+  },
+  {
+    "date": "2025-06-09",
+    "team": "HOU",
+    "playoff_pct": 98.4,
+    "division_pct": 95.6,
+    "wildcard_pct": 2.8
+  },
+  {
+    "date": "2025-06-09",
+    "team": "KC",
+    "playoff_pct": 21.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 21.6
+  },
+  {
+    "date": "2025-06-09",
+    "team": "LAA",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-06-09",
+    "team": "MIN",
+    "playoff_pct": 55.5,
+    "division_pct": 0.5,
+    "wildcard_pct": 55.0
+  },
+  {
+    "date": "2025-06-09",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 84.4,
+    "wildcard_pct": 15.6
+  },
+  {
+    "date": "2025-06-09",
+    "team": "SEA",
+    "playoff_pct": 1.3,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.3
+  },
+  {
+    "date": "2025-06-09",
+    "team": "TB",
+    "playoff_pct": 96.4,
+    "division_pct": 15.2,
+    "wildcard_pct": 81.2
+  },
+  {
+    "date": "2025-06-09",
+    "team": "TEX",
+    "playoff_pct": 30.1,
+    "division_pct": 4.4,
+    "wildcard_pct": 25.7
+  },
+  {
+    "date": "2025-06-09",
+    "team": "TOR",
+    "playoff_pct": 42.7,
+    "division_pct": 0.3,
+    "wildcard_pct": 42.4
+  },
+  {
+    "date": "2025-06-16",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "BOS",
+    "playoff_pct": 58.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 58.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "CLE",
+    "playoff_pct": 4.9,
+    "division_pct": 0.1,
+    "wildcard_pct": 4.8
+  },
+  {
+    "date": "2025-06-16",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 99.9,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-06-16",
+    "team": "HOU",
+    "playoff_pct": 99.4,
+    "division_pct": 80.5,
+    "wildcard_pct": 18.9
+  },
+  {
+    "date": "2025-06-16",
+    "team": "KC",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "MIN",
+    "playoff_pct": 4.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 4.5
+  },
+  {
+    "date": "2025-06-16",
+    "team": "NYY",
+    "playoff_pct": 99.9,
+    "division_pct": 43.1,
+    "wildcard_pct": 56.8
+  },
+  {
+    "date": "2025-06-16",
+    "team": "SEA",
+    "playoff_pct": 2.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 2.8
+  },
+  {
+    "date": "2025-06-16",
+    "team": "TB",
+    "playoff_pct": 100.0,
+    "division_pct": 56.9,
+    "wildcard_pct": 43.1
+  },
+  {
+    "date": "2025-06-16",
+    "team": "TEX",
+    "playoff_pct": 93.5,
+    "division_pct": 19.5,
+    "wildcard_pct": 74.0
+  },
+  {
+    "date": "2025-06-16",
+    "team": "TOR",
+    "playoff_pct": 37.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 37.0
+  },
+  {
+    "date": "2025-06-23",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-23",
+    "team": "BAL",
+    "playoff_pct": 1.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.0
+  },
+  {
+    "date": "2025-06-23",
+    "team": "BOS",
+    "playoff_pct": 63.3,
+    "division_pct": 0.7,
+    "wildcard_pct": 62.6
+  },
+  {
+    "date": "2025-06-23",
+    "team": "CLE",
+    "playoff_pct": 36.9,
+    "division_pct": 0.6,
+    "wildcard_pct": 36.3
+  },
+  {
+    "date": "2025-06-23",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-23",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 99.3,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-06-23",
+    "team": "HOU",
+    "playoff_pct": 99.2,
+    "division_pct": 95.0,
+    "wildcard_pct": 4.2
+  },
+  {
+    "date": "2025-06-23",
+    "team": "KC",
+    "playoff_pct": 11.1,
+    "division_pct": 0.1,
+    "wildcard_pct": 11.0
+  },
+  {
+    "date": "2025-06-23",
+    "team": "LAA",
+    "playoff_pct": 5.9,
+    "division_pct": 0.1,
+    "wildcard_pct": 5.8
+  },
+  {
+    "date": "2025-06-23",
+    "team": "MIN",
+    "playoff_pct": 0.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-06-23",
+    "team": "NYY",
+    "playoff_pct": 99.5,
+    "division_pct": 50.2,
+    "wildcard_pct": 49.3
+  },
+  {
+    "date": "2025-06-23",
+    "team": "SEA",
+    "playoff_pct": 38.6,
+    "division_pct": 3.2,
+    "wildcard_pct": 35.4
+  },
+  {
+    "date": "2025-06-23",
+    "team": "TB",
+    "playoff_pct": 99.6,
+    "division_pct": 48.9,
+    "wildcard_pct": 50.7
+  },
+  {
+    "date": "2025-06-23",
+    "team": "TEX",
+    "playoff_pct": 29.6,
+    "division_pct": 1.7,
+    "wildcard_pct": 27.9
+  },
+  {
+    "date": "2025-06-23",
+    "team": "TOR",
+    "playoff_pct": 14.6,
+    "division_pct": 0.2,
+    "wildcard_pct": 14.4
+  },
+  {
+    "date": "2025-06-30",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-30",
+    "team": "BAL",
+    "playoff_pct": 4.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 4.2
+  },
+  {
+    "date": "2025-06-30",
+    "team": "BOS",
+    "playoff_pct": 8.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 8.4
+  },
+  {
+    "date": "2025-06-30",
+    "team": "CLE",
+    "playoff_pct": 0.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-06-30",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-30",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-06-30",
+    "team": "HOU",
+    "playoff_pct": 99.9,
+    "division_pct": 98.8,
+    "wildcard_pct": 1.1
+  },
+  {
+    "date": "2025-06-30",
+    "team": "KC",
+    "playoff_pct": 2.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 2.2
+  },
+  {
+    "date": "2025-06-30",
+    "team": "LAA",
+    "playoff_pct": 10.3,
+    "division_pct": 0.1,
+    "wildcard_pct": 10.2
+  },
+  {
+    "date": "2025-06-30",
+    "team": "MIN",
+    "playoff_pct": 2.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 2.4
+  },
+  {
+    "date": "2025-06-30",
+    "team": "NYY",
+    "playoff_pct": 98.3,
+    "division_pct": 26.3,
+    "wildcard_pct": 72.0
+  },
+  {
+    "date": "2025-06-30",
+    "team": "SEA",
+    "playoff_pct": 64.1,
+    "division_pct": 0.8,
+    "wildcard_pct": 63.3
+  },
+  {
+    "date": "2025-06-30",
+    "team": "TB",
+    "playoff_pct": 99.9,
+    "division_pct": 71.9,
+    "wildcard_pct": 28.0
+  },
+  {
+    "date": "2025-06-30",
+    "team": "TEX",
+    "playoff_pct": 33.2,
+    "division_pct": 0.3,
+    "wildcard_pct": 32.9
+  },
+  {
+    "date": "2025-06-30",
+    "team": "TOR",
+    "playoff_pct": 76.4,
+    "division_pct": 1.8,
+    "wildcard_pct": 74.6
+  },
+  {
+    "date": "2025-07-07",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-07",
+    "team": "BAL",
+    "playoff_pct": 3.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 3.6
+  },
+  {
+    "date": "2025-07-07",
+    "team": "BOS",
+    "playoff_pct": 57.0,
+    "division_pct": 2.7,
+    "wildcard_pct": 54.3
+  },
+  {
+    "date": "2025-07-07",
+    "team": "CLE",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-07",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-07",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 99.9,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-07-07",
+    "team": "HOU",
+    "playoff_pct": 100.0,
+    "division_pct": 99.8,
+    "wildcard_pct": 0.2
+  },
+  {
+    "date": "2025-07-07",
+    "team": "KC",
+    "playoff_pct": 5.9,
+    "division_pct": 0.1,
+    "wildcard_pct": 5.8
+  },
+  {
+    "date": "2025-07-07",
+    "team": "LAA",
+    "playoff_pct": 3.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 3.8
+  },
+  {
+    "date": "2025-07-07",
+    "team": "MIN",
+    "playoff_pct": 1.8,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.8
+  },
+  {
+    "date": "2025-07-07",
+    "team": "NYY",
+    "playoff_pct": 41.1,
+    "division_pct": 2.0,
+    "wildcard_pct": 39.1
+  },
+  {
+    "date": "2025-07-07",
+    "team": "SEA",
+    "playoff_pct": 72.3,
+    "division_pct": 0.2,
+    "wildcard_pct": 72.1
+  },
+  {
+    "date": "2025-07-07",
+    "team": "TB",
+    "playoff_pct": 92.9,
+    "division_pct": 32.2,
+    "wildcard_pct": 60.7
+  },
+  {
+    "date": "2025-07-07",
+    "team": "TEX",
+    "playoff_pct": 22.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 22.7
+  },
+  {
+    "date": "2025-07-07",
+    "team": "TOR",
+    "playoff_pct": 98.9,
+    "division_pct": 63.1,
+    "wildcard_pct": 35.8
+  },
+  {
+    "date": "2025-07-14",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-14",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-14",
+    "team": "BOS",
+    "playoff_pct": 90.0,
+    "division_pct": 36.1,
+    "wildcard_pct": 53.9
+  },
+  {
+    "date": "2025-07-14",
+    "team": "CLE",
+    "playoff_pct": 3.0,
+    "division_pct": 2.2,
+    "wildcard_pct": 0.8
+  },
+  {
+    "date": "2025-07-14",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-14",
+    "team": "DET",
+    "playoff_pct": 94.7,
+    "division_pct": 93.6,
+    "wildcard_pct": 1.1
+  },
+  {
+    "date": "2025-07-14",
+    "team": "HOU",
+    "playoff_pct": 88.3,
+    "division_pct": 53.4,
+    "wildcard_pct": 34.9
+  },
+  {
+    "date": "2025-07-14",
+    "team": "KC",
+    "playoff_pct": 2.4,
+    "division_pct": 1.1,
+    "wildcard_pct": 1.3
+  },
+  {
+    "date": "2025-07-14",
+    "team": "LAA",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-07-14",
+    "team": "MIN",
+    "playoff_pct": 5.6,
+    "division_pct": 3.1,
+    "wildcard_pct": 2.5
+  },
+  {
+    "date": "2025-07-14",
+    "team": "NYY",
+    "playoff_pct": 60.7,
+    "division_pct": 11.6,
+    "wildcard_pct": 49.1
+  },
+  {
+    "date": "2025-07-14",
+    "team": "SEA",
+    "playoff_pct": 83.9,
+    "division_pct": 35.7,
+    "wildcard_pct": 48.2
+  },
+  {
+    "date": "2025-07-14",
+    "team": "TB",
+    "playoff_pct": 28.3,
+    "division_pct": 2.7,
+    "wildcard_pct": 25.6
+  },
+  {
+    "date": "2025-07-14",
+    "team": "TEX",
+    "playoff_pct": 51.4,
+    "division_pct": 10.9,
+    "wildcard_pct": 40.5
+  },
+  {
+    "date": "2025-07-14",
+    "team": "TOR",
+    "playoff_pct": 91.6,
+    "division_pct": 49.6,
+    "wildcard_pct": 42.0
+  },
+  {
+    "date": "2025-07-21",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-21",
+    "team": "BAL",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-07-21",
+    "team": "BOS",
+    "playoff_pct": 88.2,
+    "division_pct": 19.3,
+    "wildcard_pct": 68.9
+  },
+  {
+    "date": "2025-07-21",
+    "team": "CLE",
+    "playoff_pct": 2.7,
+    "division_pct": 2.0,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-07-21",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-21",
+    "team": "DET",
+    "playoff_pct": 95.9,
+    "division_pct": 95.5,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-07-21",
+    "team": "HOU",
+    "playoff_pct": 92.2,
+    "division_pct": 65.0,
+    "wildcard_pct": 27.2
+  },
+  {
+    "date": "2025-07-21",
+    "team": "KC",
+    "playoff_pct": 2.6,
+    "division_pct": 1.7,
+    "wildcard_pct": 0.9
+  },
+  {
+    "date": "2025-07-21",
+    "team": "LAA",
+    "playoff_pct": 1.4,
+    "division_pct": 0.1,
+    "wildcard_pct": 1.3
+  },
+  {
+    "date": "2025-07-21",
+    "team": "MIN",
+    "playoff_pct": 1.1,
+    "division_pct": 0.8,
+    "wildcard_pct": 0.3
+  },
+  {
+    "date": "2025-07-21",
+    "team": "NYY",
+    "playoff_pct": 66.8,
+    "division_pct": 7.4,
+    "wildcard_pct": 59.4
+  },
+  {
+    "date": "2025-07-21",
+    "team": "SEA",
+    "playoff_pct": 76.8,
+    "division_pct": 27.1,
+    "wildcard_pct": 49.7
+  },
+  {
+    "date": "2025-07-21",
+    "team": "TB",
+    "playoff_pct": 31.5,
+    "division_pct": 2.1,
+    "wildcard_pct": 29.4
+  },
+  {
+    "date": "2025-07-21",
+    "team": "TEX",
+    "playoff_pct": 43.3,
+    "division_pct": 7.8,
+    "wildcard_pct": 35.5
+  },
+  {
+    "date": "2025-07-21",
+    "team": "TOR",
+    "playoff_pct": 97.4,
+    "division_pct": 71.2,
+    "wildcard_pct": 26.2
+  },
+  {
+    "date": "2025-07-28",
+    "team": "ATH",
+    "playoff_pct": 0.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-07-28",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-28",
+    "team": "BOS",
+    "playoff_pct": 92.7,
+    "division_pct": 6.3,
+    "wildcard_pct": 86.4
+  },
+  {
+    "date": "2025-07-28",
+    "team": "CLE",
+    "playoff_pct": 21.7,
+    "division_pct": 19.7,
+    "wildcard_pct": 2.0
+  },
+  {
+    "date": "2025-07-28",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-28",
+    "team": "DET",
+    "playoff_pct": 55.7,
+    "division_pct": 50.0,
+    "wildcard_pct": 5.7
+  },
+  {
+    "date": "2025-07-28",
+    "team": "HOU",
+    "playoff_pct": 62.8,
+    "division_pct": 10.1,
+    "wildcard_pct": 52.7
+  },
+  {
+    "date": "2025-07-28",
+    "team": "KC",
+    "playoff_pct": 37.0,
+    "division_pct": 30.0,
+    "wildcard_pct": 7.0
+  },
+  {
+    "date": "2025-07-28",
+    "team": "LAA",
+    "playoff_pct": 0.5,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.5
+  },
+  {
+    "date": "2025-07-28",
+    "team": "MIN",
+    "playoff_pct": 0.3,
+    "division_pct": 0.3,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-07-28",
+    "team": "NYY",
+    "playoff_pct": 58.4,
+    "division_pct": 1.5,
+    "wildcard_pct": 56.9
+  },
+  {
+    "date": "2025-07-28",
+    "team": "SEA",
+    "playoff_pct": 74.1,
+    "division_pct": 23.0,
+    "wildcard_pct": 51.1
+  },
+  {
+    "date": "2025-07-28",
+    "team": "TB",
+    "playoff_pct": 2.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 2.0
+  },
+  {
+    "date": "2025-07-28",
+    "team": "TEX",
+    "playoff_pct": 94.4,
+    "division_pct": 66.9,
+    "wildcard_pct": 27.5
+  },
+  {
+    "date": "2025-07-28",
+    "team": "TOR",
+    "playoff_pct": 100.0,
+    "division_pct": 92.2,
+    "wildcard_pct": 7.8
+  },
+  {
+    "date": "2025-08-04",
+    "team": "ATH",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-08-04",
+    "team": "BAL",
+    "playoff_pct": 1.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.0
+  },
+  {
+    "date": "2025-08-04",
+    "team": "BOS",
+    "playoff_pct": 99.8,
+    "division_pct": 78.3,
+    "wildcard_pct": 21.5
+  },
+  {
+    "date": "2025-08-04",
+    "team": "CLE",
+    "playoff_pct": 10.2,
+    "division_pct": 4.0,
+    "wildcard_pct": 6.2
+  },
+  {
+    "date": "2025-08-04",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-04",
+    "team": "DET",
+    "playoff_pct": 89.2,
+    "division_pct": 74.6,
+    "wildcard_pct": 14.6
+  },
+  {
+    "date": "2025-08-04",
+    "team": "HOU",
+    "playoff_pct": 49.3,
+    "division_pct": 15.7,
+    "wildcard_pct": 33.6
+  },
+  {
+    "date": "2025-08-04",
+    "team": "KC",
+    "playoff_pct": 51.1,
+    "division_pct": 21.4,
+    "wildcard_pct": 29.7
+  },
+  {
+    "date": "2025-08-04",
+    "team": "LAA",
+    "playoff_pct": 1.2,
+    "division_pct": 0.1,
+    "wildcard_pct": 1.1
+  },
+  {
+    "date": "2025-08-04",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-04",
+    "team": "NYY",
+    "playoff_pct": 46.6,
+    "division_pct": 2.5,
+    "wildcard_pct": 44.1
+  },
+  {
+    "date": "2025-08-04",
+    "team": "SEA",
+    "playoff_pct": 84.6,
+    "division_pct": 53.6,
+    "wildcard_pct": 31.0
+  },
+  {
+    "date": "2025-08-04",
+    "team": "TB",
+    "playoff_pct": 0.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.6
+  },
+  {
+    "date": "2025-08-04",
+    "team": "TEX",
+    "playoff_pct": 74.0,
+    "division_pct": 30.6,
+    "wildcard_pct": 43.4
+  },
+  {
+    "date": "2025-08-04",
+    "team": "TOR",
+    "playoff_pct": 92.3,
+    "division_pct": 19.2,
+    "wildcard_pct": 73.1
+  },
+  {
+    "date": "2025-08-11",
+    "team": "ATH",
+    "playoff_pct": 0.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-08-11",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-11",
+    "team": "BOS",
+    "playoff_pct": 99.5,
+    "division_pct": 55.0,
+    "wildcard_pct": 44.5
+  },
+  {
+    "date": "2025-08-11",
+    "team": "CLE",
+    "playoff_pct": 72.1,
+    "division_pct": 52.0,
+    "wildcard_pct": 20.1
+  },
+  {
+    "date": "2025-08-11",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-11",
+    "team": "DET",
+    "playoff_pct": 66.0,
+    "division_pct": 38.0,
+    "wildcard_pct": 28.0
+  },
+  {
+    "date": "2025-08-11",
+    "team": "HOU",
+    "playoff_pct": 98.0,
+    "division_pct": 41.5,
+    "wildcard_pct": 56.5
+  },
+  {
+    "date": "2025-08-11",
+    "team": "KC",
+    "playoff_pct": 26.4,
+    "division_pct": 9.9,
+    "wildcard_pct": 16.5
+  },
+  {
+    "date": "2025-08-11",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-11",
+    "team": "MIN",
+    "playoff_pct": 0.8,
+    "division_pct": 0.1,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-08-11",
+    "team": "NYY",
+    "playoff_pct": 21.7,
+    "division_pct": 0.1,
+    "wildcard_pct": 21.6
+  },
+  {
+    "date": "2025-08-11",
+    "team": "SEA",
+    "playoff_pct": 98.8,
+    "division_pct": 58.3,
+    "wildcard_pct": 40.5
+  },
+  {
+    "date": "2025-08-11",
+    "team": "TB",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-08-11",
+    "team": "TEX",
+    "playoff_pct": 18.0,
+    "division_pct": 0.2,
+    "wildcard_pct": 17.8
+  },
+  {
+    "date": "2025-08-11",
+    "team": "TOR",
+    "playoff_pct": 98.2,
+    "division_pct": 44.9,
+    "wildcard_pct": 53.3
+  },
+  {
+    "date": "2025-08-18",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-18",
+    "team": "BAL",
+    "playoff_pct": 1.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 1.6
+  },
+  {
+    "date": "2025-08-18",
+    "team": "BOS",
+    "playoff_pct": 98.7,
+    "division_pct": 42.7,
+    "wildcard_pct": 56.0
+  },
+  {
+    "date": "2025-08-18",
+    "team": "CLE",
+    "playoff_pct": 12.9,
+    "division_pct": 2.6,
+    "wildcard_pct": 10.3
+  },
+  {
+    "date": "2025-08-18",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-18",
+    "team": "DET",
+    "playoff_pct": 95.3,
+    "division_pct": 83.0,
+    "wildcard_pct": 12.3
+  },
+  {
+    "date": "2025-08-18",
+    "team": "HOU",
+    "playoff_pct": 75.9,
+    "division_pct": 33.8,
+    "wildcard_pct": 42.1
+  },
+  {
+    "date": "2025-08-18",
+    "team": "KC",
+    "playoff_pct": 56.0,
+    "division_pct": 14.4,
+    "wildcard_pct": 41.6
+  },
+  {
+    "date": "2025-08-18",
+    "team": "LAA",
+    "playoff_pct": 0.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-08-18",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-18",
+    "team": "NYY",
+    "playoff_pct": 62.5,
+    "division_pct": 4.0,
+    "wildcard_pct": 58.5
+  },
+  {
+    "date": "2025-08-18",
+    "team": "SEA",
+    "playoff_pct": 90.7,
+    "division_pct": 65.4,
+    "wildcard_pct": 25.3
+  },
+  {
+    "date": "2025-08-18",
+    "team": "TB",
+    "playoff_pct": 0.6,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.6
+  },
+  {
+    "date": "2025-08-18",
+    "team": "TEX",
+    "playoff_pct": 6.2,
+    "division_pct": 0.8,
+    "wildcard_pct": 5.4
+  },
+  {
+    "date": "2025-08-18",
+    "team": "TOR",
+    "playoff_pct": 98.9,
+    "division_pct": 53.3,
+    "wildcard_pct": 45.6
+  },
+  {
+    "date": "2025-08-25",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-25",
+    "team": "BAL",
+    "playoff_pct": 0.4,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.4
+  },
+  {
+    "date": "2025-08-25",
+    "team": "BOS",
+    "playoff_pct": 97.7,
+    "division_pct": 29.8,
+    "wildcard_pct": 67.9
+  },
+  {
+    "date": "2025-08-25",
+    "team": "CLE",
+    "playoff_pct": 0.6,
+    "division_pct": 0.1,
+    "wildcard_pct": 0.5
+  },
+  {
+    "date": "2025-08-25",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-25",
+    "team": "DET",
+    "playoff_pct": 99.9,
+    "division_pct": 98.9,
+    "wildcard_pct": 1.0
+  },
+  {
+    "date": "2025-08-25",
+    "team": "HOU",
+    "playoff_pct": 85.1,
+    "division_pct": 49.6,
+    "wildcard_pct": 35.5
+  },
+  {
+    "date": "2025-08-25",
+    "team": "KC",
+    "playoff_pct": 50.3,
+    "division_pct": 1.0,
+    "wildcard_pct": 49.3
+  },
+  {
+    "date": "2025-08-25",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-25",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-08-25",
+    "team": "NYY",
+    "playoff_pct": 69.8,
+    "division_pct": 3.8,
+    "wildcard_pct": 66.0
+  },
+  {
+    "date": "2025-08-25",
+    "team": "SEA",
+    "playoff_pct": 83.3,
+    "division_pct": 47.6,
+    "wildcard_pct": 35.7
+  },
+  {
+    "date": "2025-08-25",
+    "team": "TB",
+    "playoff_pct": 0.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-08-25",
+    "team": "TEX",
+    "playoff_pct": 13.4,
+    "division_pct": 2.8,
+    "wildcard_pct": 10.6
+  },
+  {
+    "date": "2025-08-25",
+    "team": "TOR",
+    "playoff_pct": 99.4,
+    "division_pct": 66.4,
+    "wildcard_pct": 33.0
+  },
+  {
+    "date": "2025-09-01",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-01",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-01",
+    "team": "BOS",
+    "playoff_pct": 98.7,
+    "division_pct": 26.9,
+    "wildcard_pct": 71.8
+  },
+  {
+    "date": "2025-09-01",
+    "team": "CLE",
+    "playoff_pct": 0.7,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.7
+  },
+  {
+    "date": "2025-09-01",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-01",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 99.8,
+    "wildcard_pct": 0.2
+  },
+  {
+    "date": "2025-09-01",
+    "team": "HOU",
+    "playoff_pct": 32.0,
+    "division_pct": 12.5,
+    "wildcard_pct": 19.5
+  },
+  {
+    "date": "2025-09-01",
+    "team": "KC",
+    "playoff_pct": 26.4,
+    "division_pct": 0.2,
+    "wildcard_pct": 26.2
+  },
+  {
+    "date": "2025-09-01",
+    "team": "LAA",
+    "playoff_pct": 0.1,
+    "division_pct": 0.1,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-01",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-01",
+    "team": "NYY",
+    "playoff_pct": 98.9,
+    "division_pct": 38.3,
+    "wildcard_pct": 60.6
+  },
+  {
+    "date": "2025-09-01",
+    "team": "SEA",
+    "playoff_pct": 82.6,
+    "division_pct": 61.9,
+    "wildcard_pct": 20.7
+  },
+  {
+    "date": "2025-09-01",
+    "team": "TB",
+    "playoff_pct": 0.3,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.3
+  },
+  {
+    "date": "2025-09-01",
+    "team": "TEX",
+    "playoff_pct": 61.0,
+    "division_pct": 25.5,
+    "wildcard_pct": 35.5
+  },
+  {
+    "date": "2025-09-01",
+    "team": "TOR",
+    "playoff_pct": 99.3,
+    "division_pct": 34.8,
+    "wildcard_pct": 64.5
+  },
+  {
+    "date": "2025-09-08",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "BOS",
+    "playoff_pct": 97.9,
+    "division_pct": 5.7,
+    "wildcard_pct": 92.2
+  },
+  {
+    "date": "2025-09-08",
+    "team": "CLE",
+    "playoff_pct": 19.4,
+    "division_pct": 3.5,
+    "wildcard_pct": 15.9
+  },
+  {
+    "date": "2025-09-08",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "DET",
+    "playoff_pct": 99.3,
+    "division_pct": 96.4,
+    "wildcard_pct": 2.9
+  },
+  {
+    "date": "2025-09-08",
+    "team": "HOU",
+    "playoff_pct": 56.9,
+    "division_pct": 26.9,
+    "wildcard_pct": 30.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "KC",
+    "playoff_pct": 3.2,
+    "division_pct": 0.1,
+    "wildcard_pct": 3.1
+  },
+  {
+    "date": "2025-09-08",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "NYY",
+    "playoff_pct": 99.9,
+    "division_pct": 34.8,
+    "wildcard_pct": 65.1
+  },
+  {
+    "date": "2025-09-08",
+    "team": "SEA",
+    "playoff_pct": 88.1,
+    "division_pct": 65.1,
+    "wildcard_pct": 23.0
+  },
+  {
+    "date": "2025-09-08",
+    "team": "TB",
+    "playoff_pct": 0.2,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.2
+  },
+  {
+    "date": "2025-09-08",
+    "team": "TEX",
+    "playoff_pct": 35.2,
+    "division_pct": 8.0,
+    "wildcard_pct": 27.2
+  },
+  {
+    "date": "2025-09-08",
+    "team": "TOR",
+    "playoff_pct": 99.9,
+    "division_pct": 59.5,
+    "wildcard_pct": 40.4
+  },
+  {
+    "date": "2025-09-15",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "BOS",
+    "playoff_pct": 92.6,
+    "division_pct": 0.7,
+    "wildcard_pct": 91.9
+  },
+  {
+    "date": "2025-09-15",
+    "team": "CLE",
+    "playoff_pct": 25.9,
+    "division_pct": 4.1,
+    "wildcard_pct": 21.8
+  },
+  {
+    "date": "2025-09-15",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "DET",
+    "playoff_pct": 99.0,
+    "division_pct": 95.9,
+    "wildcard_pct": 3.1
+  },
+  {
+    "date": "2025-09-15",
+    "team": "HOU",
+    "playoff_pct": 34.4,
+    "division_pct": 9.9,
+    "wildcard_pct": 24.5
+  },
+  {
+    "date": "2025-09-15",
+    "team": "KC",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "NYY",
+    "playoff_pct": 99.3,
+    "division_pct": 8.0,
+    "wildcard_pct": 91.3
+  },
+  {
+    "date": "2025-09-15",
+    "team": "SEA",
+    "playoff_pct": 96.1,
+    "division_pct": 83.2,
+    "wildcard_pct": 12.9
+  },
+  {
+    "date": "2025-09-15",
+    "team": "TB",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-15",
+    "team": "TEX",
+    "playoff_pct": 52.7,
+    "division_pct": 6.9,
+    "wildcard_pct": 45.8
+  },
+  {
+    "date": "2025-09-15",
+    "team": "TOR",
+    "playoff_pct": 100.0,
+    "division_pct": 91.3,
+    "wildcard_pct": 8.7
+  },
+  {
+    "date": "2025-09-22",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "BOS",
+    "playoff_pct": 97.1,
+    "division_pct": 0.0,
+    "wildcard_pct": 97.1
+  },
+  {
+    "date": "2025-09-22",
+    "team": "CLE",
+    "playoff_pct": 95.9,
+    "division_pct": 90.5,
+    "wildcard_pct": 5.4
+  },
+  {
+    "date": "2025-09-22",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "DET",
+    "playoff_pct": 49.3,
+    "division_pct": 9.5,
+    "wildcard_pct": 39.8
+  },
+  {
+    "date": "2025-09-22",
+    "team": "HOU",
+    "playoff_pct": 57.7,
+    "division_pct": 0.1,
+    "wildcard_pct": 57.6
+  },
+  {
+    "date": "2025-09-22",
+    "team": "KC",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 34.2,
+    "wildcard_pct": 65.8
+  },
+  {
+    "date": "2025-09-22",
+    "team": "SEA",
+    "playoff_pct": 100.0,
+    "division_pct": 99.9,
+    "wildcard_pct": 0.1
+  },
+  {
+    "date": "2025-09-22",
+    "team": "TB",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "TEX",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-22",
+    "team": "TOR",
+    "playoff_pct": 100.0,
+    "division_pct": 65.8,
+    "wildcard_pct": 34.2
+  },
+  {
+    "date": "2025-09-29",
+    "team": "ATH",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "BAL",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "BOS",
+    "playoff_pct": 100.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 100.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "CLE",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "CWS",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "DET",
+    "playoff_pct": 100.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 100.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "HOU",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "KC",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "LAA",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "MIN",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "NYY",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "SEA",
+    "playoff_pct": 100.0,
+    "division_pct": 100.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "TB",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "TEX",
+    "playoff_pct": 0.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 0.0
+  },
+  {
+    "date": "2025-09-29",
+    "team": "TOR",
+    "playoff_pct": 100.0,
+    "division_pct": 0.0,
+    "wildcard_pct": 100.0
+  }
+]

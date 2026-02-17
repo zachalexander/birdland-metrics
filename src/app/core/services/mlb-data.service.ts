@@ -29,28 +29,28 @@ export class MlbDataService {
 
   async getPlayoffOdds(): Promise<{ updated: string; odds: PlayoffOdds[] }> {
     const res = await firstValueFrom(
-      this.http.get<PlayoffOddsResponse>(`${this.predBase}/playoff-odds-latest.json`)
+      this.http.get<PlayoffOddsResponse>(`${this.predBase}/playoff-odds-latest.json?t=${Date.now()}`)
     );
     return { updated: res.updated, odds: res.odds };
   }
 
   async getStandings(): Promise<TeamStanding[]> {
     const res = await firstValueFrom(
-      this.http.get<StandingsResponse>(`${this.predBase}/standings-latest.json`)
+      this.http.get<StandingsResponse>(`${this.predBase}/standings-latest.json?t=${Date.now()}`)
     );
     return res.standings;
   }
 
   async getProjections(): Promise<TeamProjection[]> {
     const res = await firstValueFrom(
-      this.http.get<ProjectionsResponse>(`${this.predBase}/projections-latest.json`)
+      this.http.get<ProjectionsResponse>(`${this.predBase}/projections-latest.json?t=${Date.now()}`)
     );
     return res.projections;
   }
 
   async getEloRatings(): Promise<EloRating[]> {
     const res = await firstValueFrom(
-      this.http.get<EloResponse>(`${this.eloBase}/elo-latest.json`)
+      this.http.get<EloResponse>(`${this.eloBase}/elo-latest.json?t=${Date.now()}`)
     );
     return res.ratings;
   }
@@ -127,14 +127,14 @@ export class MlbDataService {
 
   async getRecentGames(): Promise<{ gameType: 'R' | 'S'; games: RecentGame[] }> {
     const res = await firstValueFrom(
-      this.http.get<RecentGamesResponse>(`${this.predBase}/recent-games-latest.json`)
+      this.http.get<RecentGamesResponse>(`${this.predBase}/recent-games-latest.json?t=${Date.now()}`)
     );
     return { gameType: res.game_type ?? 'R', games: res.games };
   }
 
   async getPlayerStats(): Promise<PlayerStatsResponse> {
     return firstValueFrom(
-      this.http.get<PlayerStatsResponse>(`${this.statsBase}/player-stats-latest.json`)
+      this.http.get<PlayerStatsResponse>(`${this.statsBase}/player-stats-latest.json?t=${Date.now()}`)
     );
   }
 
@@ -144,16 +144,22 @@ export class MlbDataService {
     );
   }
 
-  async getPlayoffOddsHistory(teams: string[]): Promise<Record<string, PlayoffOddsHistoryPoint[]>> {
+  async getPlayoffOddsHistory(teams: string[], season?: number): Promise<Record<string, PlayoffOddsHistoryPoint[]>> {
     const result: Record<string, PlayoffOddsHistoryPoint[]> = {};
     const teamSet = new Set(teams);
     for (const team of teams) {
       result[team] = [];
     }
 
+    const isCurrentSeason = !season || season === 2026;
+    const file = isCurrentSeason
+      ? 'playoff-odds-history.json'
+      : `playoff-odds-history-${season}.json`;
+    const url = isCurrentSeason ? `${this.predBase}/${file}?t=${Date.now()}` : `${this.predBase}/${file}`;
+
     try {
       const rows = await firstValueFrom(
-        this.http.get<PlayoffOddsHistoryPoint[]>(`${this.predBase}/playoff-odds-history.json`)
+        this.http.get<PlayoffOddsHistoryPoint[]>(url)
       );
       for (const row of rows) {
         if (!teamSet.has(row.team)) continue;
