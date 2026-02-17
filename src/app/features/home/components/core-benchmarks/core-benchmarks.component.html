@@ -1,0 +1,159 @@
+<div class="benchmarks-header">
+  <div class="benchmarks-meta">
+    @if (formattedUpdated(); as date) {
+      <span class="benchmarks-updated">Updated {{ date }}</span>
+    }
+    <span class="benchmarks-source">Data via FanGraphs</span>
+  </div>
+  <div class="progress-display">
+    <span class="progress-met">{{ totalMet() }}</span>
+    <span class="progress-separator">/</span>
+    <span class="progress-total">{{ totalBenchmarks() }}</span>
+    <span class="progress-label">benchmarks met</span>
+  </div>
+  <div class="progress-bar-track">
+    <div class="progress-bar-fill" [style.width.%]="progressPct()"></div>
+  </div>
+</div>
+
+<select class="mobile-filter" [value]="mobileFilter()" (change)="mobileFilter.set($any($event.target).value)">
+  <option value="all">All Players</option>
+  <option value="batters">All Position Players</option>
+  <option value="pitchers">All Pitchers</option>
+  <optgroup label="Position Players">
+    @for (player of batters(); track player.playerId) {
+      <option [value]="player.playerId">{{ player.name }}</option>
+    }
+  </optgroup>
+  <optgroup label="Pitchers">
+    @for (player of pitchers(); track player.playerId) {
+      <option [value]="player.playerId">{{ player.name }}</option>
+    }
+  </optgroup>
+</select>
+
+@if (filteredBatters().length) {
+<div class="group">
+  <p class="group-label">Position Players</p>
+  <div class="players-grid">
+    @for (player of filteredBatters(); track player.playerId) {
+      <div class="player-card" [class.all-met]="playerMetCount(player) === player.benchmarks.length" [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
+        <div class="card-header">
+          @if (avatarUrl(player.playerId); as avatar) {
+            <img class="player-avatar" [src]="avatar" [alt]="player.name">
+          } @else {
+            <span class="jersey-number">{{ jerseyNumber(player.playerId) }}</span>
+          }
+          <div class="player-info">
+            <span class="player-name">{{ player.name }}</span>
+            <span class="player-position">{{ player.position }}</span>
+          </div>
+        </div>
+        <div class="benchmark-rows">
+          @for (bm of player.benchmarks; track bm.key) {
+            <div class="benchmark-row" [class.met]="isMet(player.playerId, bm)" [class.unmet]="!isMet(player.playerId, bm)">
+              <span class="benchmark-icon">
+                @if (isMet(player.playerId, bm)) {
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.1"/>
+                    <path d="M5 8.5L7 10.5L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                } @else {
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                }
+              </span>
+              <span class="benchmark-text">
+                <span class="benchmark-label">
+                  {{ bm.label }}
+                  @if (tooltip(bm.key); as tip) {
+                    <span class="info-trigger" [attr.aria-label]="tip">
+                      <svg class="info-icon" width="11" height="11" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 7.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="8" cy="5.5" r="0.75" fill="currentColor"/>
+                      </svg>
+                      <span class="info-tooltip">{{ tip }}</span>
+                    </span>
+                  }
+                </span>
+                <span class="benchmark-desc">{{ bm.description }}</span>
+              </span>
+              <span class="benchmark-values">
+                <span class="benchmark-value">{{ formatValue(player.playerId, bm) }}</span>
+                @if (formatActual(bm); as actualText) {
+                  <span class="benchmark-actual">{{ actualText }}</span>
+                }
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
+}
+
+@if (filteredPitchers().length) {
+<div class="group">
+  <p class="group-label">Pitchers</p>
+  <div class="players-grid">
+    @for (player of filteredPitchers(); track player.playerId) {
+      <div class="player-card" [class.all-met]="playerMetCount(player) === player.benchmarks.length" [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
+        <div class="card-header">
+          @if (avatarUrl(player.playerId); as avatar) {
+            <img class="player-avatar" [src]="avatar" [alt]="player.name">
+          } @else {
+            <span class="jersey-number">{{ jerseyNumber(player.playerId) }}</span>
+          }
+          <div class="player-info">
+            <span class="player-name">{{ player.name }}</span>
+            <span class="player-position">{{ player.position }}</span>
+          </div>
+        </div>
+        <div class="benchmark-rows">
+          @for (bm of player.benchmarks; track bm.key) {
+            <div class="benchmark-row" [class.met]="isMet(player.playerId, bm)" [class.unmet]="!isMet(player.playerId, bm)">
+              <span class="benchmark-icon">
+                @if (isMet(player.playerId, bm)) {
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.1"/>
+                    <path d="M5 8.5L7 10.5L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                } @else {
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                }
+              </span>
+              <span class="benchmark-text">
+                <span class="benchmark-label">
+                  {{ bm.label }}
+                  @if (tooltip(bm.key); as tip) {
+                    <span class="info-trigger" [attr.aria-label]="tip">
+                      <svg class="info-icon" width="11" height="11" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 7.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="8" cy="5.5" r="0.75" fill="currentColor"/>
+                      </svg>
+                      <span class="info-tooltip">{{ tip }}</span>
+                    </span>
+                  }
+                </span>
+                <span class="benchmark-desc">{{ bm.description }}</span>
+              </span>
+              <span class="benchmark-values">
+                <span class="benchmark-value">{{ formatValue(player.playerId, bm) }}</span>
+                @if (formatActual(bm); as actualText) {
+                  <span class="benchmark-actual">{{ actualText }}</span>
+                }
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
+}
