@@ -28,9 +28,23 @@ export function renderPlayoffRace(
     return;
   }
 
-  const width = 700;
-  const height = 260;
-  const margin = { top: 12, right: 48, bottom: 28, left: 38 };
+  const isCurrent = projections !== undefined || odds !== undefined;
+  const containerWidth = container.getBoundingClientRect().width || 700;
+  const isMobile = containerWidth < 500;
+  const width = isMobile ? 380 : 700;
+  const height = isMobile ? 280 : 260;
+  const margin = isMobile
+    ? { top: 10, right: 44, bottom: 24, left: 32 }
+    : { top: 12, right: 62, bottom: 28, left: 38 };
+  const axisFontSize = isMobile ? '10px' : '13px';
+  const labelFontSize = isMobile ? '10px' : '13px';
+  const xTickCount = isMobile ? 6 : 6;
+  const balStroke = isMobile ? 2.5 : 3.5;
+  const otherStroke = isMobile ? 2 : 3;
+  const endDotR = isMobile ? 3.5 : 5;
+  const endDotStroke = isMobile ? 1.5 : 2;
+  const focusDotR = isMobile ? 3 : 3.5;
+  const labelSpacing = isMobile ? 12 : 15;
 
   const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
 
@@ -76,12 +90,12 @@ export function renderPlayoffRace(
   // X axis
   g.append('g')
     .attr('transform', `translate(0,${innerHeight})`)
-    .call(d3.axisBottom(x).ticks(6).tickFormat(d3.timeFormat('%b') as any).tickSize(0))
+    .call(d3.axisBottom(x).ticks(xTickCount).tickFormat(d3.timeFormat('%b') as any).tickSize(0))
     .call(g => g.select('.domain').attr('stroke', COLOR_TEXT))
     .call(g => g.selectAll('.tick text')
       .attr('fill', COLOR_TEXT_MUTED)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '13px')
+      .attr('font-size', axisFontSize)
       .attr('font-weight', '600')
       .attr('text-transform', 'uppercase')
       .attr('dy', '1em'));
@@ -94,18 +108,19 @@ export function renderPlayoffRace(
     .call(g => g.selectAll('.tick text')
       .attr('fill', COLOR_TEXT_MUTED)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '13px')
+      .attr('font-size', axisFontSize)
+      .attr('font-weight', '700')
       .attr('dx', '0.5em'));
 
   // Y axis label (right side)
   g.append('text')
     .attr('transform', 'rotate(90)')
-    .attr('y', -innerWidth - 42)
+    .attr('y', -(innerWidth + margin.right * 0.8))
     .attr('x', innerHeight / 2)
     .attr('text-anchor', 'middle')
     .attr('fill', COLOR_TEXT_MUTED)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', '11px')
+    .attr('font-size', isMobile ? '9px' : '11px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text('PLAYOFF ODDS');
@@ -127,13 +142,38 @@ export function renderPlayoffRace(
     const isOther = team !== 'BAL';
 
     if (pts.length === 1) {
+      // Pulsing ring behind BAL dot (current season only)
+      if (!isOther && isCurrent) {
+        const pulseRing = g.append('circle')
+          .attr('cx', x(pts[0].date))
+          .attr('cy', y(pts[0].playoff_pct))
+          .attr('fill', 'none')
+          .attr('stroke', color)
+          .attr('stroke-width', 2)
+          .attr('r', endDotR + 2.5)
+          .style('opacity', '0.6');
+
+        function pulseSingle() {
+          pulseRing
+            .attr('r', endDotR + 2.5)
+            .style('opacity', '0.6')
+            .transition()
+            .duration(1200)
+            .ease(d3.easeCubicOut)
+            .attr('r', isMobile ? 14 : 18)
+            .style('opacity', '0')
+            .on('end', pulseSingle);
+        }
+        pulseSingle();
+      }
+
       const dot = g.append('circle')
         .attr('cx', x(pts[0].date))
         .attr('cy', y(pts[0].playoff_pct))
-        .attr('r', 4)
+        .attr('r', !isOther ? endDotR + 1 : 4)
         .attr('fill', color)
-        .attr('stroke', '#fff')
-        .attr('stroke-width', 1.5)
+        .attr('stroke', !isOther ? '#000' : '#fff')
+        .attr('stroke-width', !isOther ? 2.5 : 1.5)
         .style('opacity', (isOther && !showAllTeams) ? '0' : '1');
 
       if (!isOther || showAllTeams) {
@@ -146,7 +186,7 @@ export function renderPlayoffRace(
         .datum(pts)
         .attr('fill', 'none')
         .attr('stroke', color)
-        .attr('stroke-width', team === 'BAL' ? 3.5 : 3)
+        .attr('stroke-width', team === 'BAL' ? balStroke : otherStroke)
         .attr('d', line);
 
       if (isOther && !showAllTeams) {
@@ -168,13 +208,39 @@ export function renderPlayoffRace(
 
       // Endpoint dot on the last data point
       const lastPt = pts[pts.length - 1];
+
+      // Pulsing ring behind BAL end dot (current season only, inserted first so it renders beneath)
+      if (!isOther && isCurrent) {
+        const pulseRing = g.append('circle')
+          .attr('cx', x(lastPt.date))
+          .attr('cy', y(lastPt.playoff_pct))
+          .attr('r', endDotR)
+          .attr('fill', 'none')
+          .attr('stroke', color)
+          .attr('stroke-width', 2)
+          .style('opacity', '0.6');
+
+        function pulse() {
+          pulseRing
+            .attr('r', endDotR + 2.5)
+            .style('opacity', '0.6')
+            .transition()
+            .duration(1200)
+            .ease(d3.easeCubicOut)
+            .attr('r', isMobile ? 14 : 18)
+            .style('opacity', '0')
+            .on('end', pulse);
+        }
+        pulse();
+      }
+
       const endDot = g.append('circle')
         .attr('cx', x(lastPt.date))
         .attr('cy', y(lastPt.playoff_pct))
-        .attr('r', 5)
+        .attr('r', !isOther ? endDotR + 1 : endDotR)
         .attr('fill', color)
-        .attr('stroke', '#fff')
-        .attr('stroke-width', 2);
+        .attr('stroke', !isOther ? '#000' : '#fff')
+        .attr('stroke-width', !isOther ? 2.5 : endDotStroke);
 
       if (isOther && !showAllTeams) {
         endDot.style('opacity', '0');
@@ -203,7 +269,7 @@ export function renderPlayoffRace(
   for (const team of teams) {
     focus.append('circle')
       .attr('class', `focus-dot-${team}`)
-      .attr('r', 3.5)
+      .attr('r', focusDotR)
       .attr('fill', TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY)
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5);
@@ -266,7 +332,7 @@ export function renderPlayoffRace(
 
   // Team labels on the left y-axis, positioned at each team's first data point
   // Resolve overlapping labels by nudging them apart
-  const labelHeight = 15;
+  const labelHeight = labelSpacing;
   const labelPositions = teams
     .map(team => ({ team, rawY: y(parsedData[team][0].playoff_pct) }))
     .sort((a, b) => a.rawY - b.rawY); // sort top-to-bottom (smallest y = top)
@@ -307,10 +373,10 @@ export function renderPlayoffRace(
     const label = g.append('text')
       .attr('x', -8)
       .attr('y', resolvedY[team])
+      .attr('dy', '0.35em')
       .attr('text-anchor', 'end')
-      .attr('dominant-baseline', 'middle')
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '13px')
+      .attr('font-size', labelFontSize)
       .attr('font-weight', '800')
       .attr('fill', color)
       .style('opacity', (isOther && !showAllTeams) ? '0' : '1')
@@ -360,16 +426,29 @@ export function renderPlayoffRace(
   // Only render if we have odds data
   if (Object.keys(oddsMap).length === 0) return;
 
-  const thStyle = `font-family:${FONT_MONO};font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:${COLOR_TEXT_MUTED};padding:0.5rem 0.6rem;border-bottom:2px solid ${COLOR_BORDER};text-align:right`;
+  const cellPad = isMobile ? '0.35rem 0.35rem' : '0.5rem 0.6rem';
+  const tdCellPad = isMobile ? '0.3rem 0.35rem' : '0.45rem 0.6rem';
+  const thFontSize = isMobile ? '0.58rem' : '0.7rem';
+  const tdNumFontSize = isMobile ? '0.7rem' : '0.8rem';
+  const thStyle = `font-family:${FONT_MONO};font-size:${thFontSize};font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:${COLOR_TEXT_MUTED};padding:${cellPad};border-bottom:2px solid ${COLOR_BORDER};text-align:right`;
   const thTeamStyle = `${thStyle};text-align:left`;
-  const tdStyle = `padding:0.45rem 0.6rem;border-bottom:1px solid ${COLOR_BORDER};color:${COLOR_TEXT}`;
-  const tdTeamStyle = `${tdStyle};font-weight:600;white-space:nowrap`;
-  const tdNumStyle = `${tdStyle};text-align:right;font-family:${FONT_MONO};font-size:0.8rem;font-weight:600`;
+  const tdStyle = `padding:${tdCellPad};border-bottom:1px solid ${COLOR_BORDER};color:${COLOR_TEXT}`;
+  const tdTeamStyle = `${tdStyle};font-weight:400;white-space:nowrap`;
+  const tdNumStyle = `${tdStyle};text-align:right;font-family:${FONT_MONO};font-size:${tdNumFontSize};font-weight:400`;
   const dotStyle = (c: string) => `display:inline-block;width:8px;height:8px;border-radius:50%;background:${c};margin-right:6px;vertical-align:middle`;
 
   const tableDiv = d3.select(container).append('div')
     .style('max-width', '480px')
     .style('margin', '24px auto 0');
+
+  tableDiv.append('h3')
+    .style('font-family', FONT_MONO)
+    .style('font-size', '0.78rem')
+    .style('font-weight', '500')
+    .style('color', COLOR_TEXT_MUTED)
+    .style('margin', '0 0 8px')
+    .style('text-align', 'center')
+    .text(hasProjections ? 'Projected AL East Standings' : 'AL East Standings');
 
   let headerHtml = `<tr><th style="${thTeamStyle}">Team</th>`;
   if (hasProjections) {
@@ -401,5 +480,7 @@ export function renderPlayoffRace(
     bodyHtml += '</tr>';
   }
 
-  tableDiv.html(`<table style="width:100%;border-collapse:collapse;font-family:${FONT_SANS};font-size:0.85rem"><thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody></table>`);
+  tableDiv.append('table')
+    .attr('style', `width:100%;border-collapse:collapse;font-family:${FONT_SANS};font-size:${isMobile ? '0.75rem' : '0.85rem'}`)
+    .html(`<thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody>`);
 }

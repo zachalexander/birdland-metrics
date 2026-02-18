@@ -53,23 +53,31 @@
   @if (!dashboardLoading()) {
     <!-- AL East Race -->
     <section class="section-card section-card-race">
-      <p class="section-kicker race-kicker">{{ oddsSeason() === 2026 ? 'AL East Playoff Odds' : oddsSeason() + ' Season' }}</p>
-      <h2 class="section-heading race-heading">{{ oddsSeason() === 2026 ? "Let's Track the O's Playoff Chances This Season" : oddsSeason() + ' Playoff Odds Trend' }}</h2>
-      <div class="toggle-controls">
-        <div class="seg-toggle">
-          @for (year of [2024, 2025, 2026]; track year) {
-            <button class="seg-btn" [class.seg-active]="oddsSeason() === year"
-                    (click)="setOddsSeason(year)">
-              {{ year === 2026 ? 'Current' : year }}
-            </button>
-          }
+      <p class="section-kicker race-kicker">{{ oddsSeason() + ' Season' }}</p>
+      <h2 class="section-heading race-heading">{{ oddsSeason() === 2026 ? "The Daily Playoff Pulse" : oddsSeason() + ' Playoff In-Season Projections' }}</h2>
+      @if (oddsSeason() === 2026) {
+        <p class="race-subtext">Every win, every loss, every shake-up shifts the odds. Check back daily to see where the O's stand in the playoff race.</p>
+      }
+      <div class="race-controls">
+        <div class="toggle-controls">
+          <div class="seg-toggle">
+            @for (year of [2024, 2025, 2026]; track year) {
+              <button class="seg-btn" [class.seg-active]="oddsSeason() === year"
+                      (click)="setOddsSeason(year)">
+                {{ year === 2026 ? 'Current' : year }}
+              </button>
+            }
+          </div>
+          <div class="seg-toggle">
+            <button class="seg-btn" [class.seg-active]="!showAllTeams()"
+                    (click)="showAllTeams.set(false)">Orioles</button>
+            <button class="seg-btn" [class.seg-active]="showAllTeams()"
+                    (click)="showAllTeams.set(true)">AL East</button>
+          </div>
         </div>
-        <div class="seg-toggle">
-          <button class="seg-btn" [class.seg-active]="!showAllTeams()"
-                  (click)="showAllTeams.set(false)">Orioles</button>
-          <button class="seg-btn" [class.seg-active]="showAllTeams()"
-                  (click)="showAllTeams.set(true)">AL East</button>
-        </div>
+        @if (oddsSeason() === 2026 && lastRunDate(); as runDate) {
+          <span class="race-updated">Updated {{ runDate }}</span>
+        }
       </div>
       <app-playoff-race
         [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }"
@@ -82,13 +90,7 @@
     <!-- Core Player Benchmarks -->
     @if (benchmarkPlayers().length) {
       <section class="section-card section-card-benchmarks">
-        <p class="section-kicker">{{ viewing2025() ? '2025 Season' : '2026 Season' }}</p>
-        <div class="section-heading-row">
-          <h2 class="section-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
-          <button class="pill-toggle" [class.active]="viewing2025()" (click)="toggle2025()">
-            {{ viewing2025() ? 'Back to 2026' : '2025 Results' }}
-          </button>
-        </div>
+        <h2 class="section-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
         <p class="section-explainer">
           @if (viewing2025()) {
             Here's the breakdown of how each player performed against these same benchmarks during the 2025 season.
@@ -96,6 +98,14 @@
             Each player has key statistical benchmarks that will be updated daily throughout the season. The more targets the core roster hits, the better the Orioles' chances are of making it back to the playoffs.
           }
         </p>
+        <div class="benchmarks-controls">
+          <div class="seg-toggle">
+            <button class="seg-btn" [class.seg-active]="!viewing2025()"
+                    (click)="viewing2025() && toggle2025()">Current</button>
+            <button class="seg-btn" [class.seg-active]="viewing2025()"
+                    (click)="!viewing2025() && toggle2025()">2025</button>
+          </div>
+        </div>
         <app-core-benchmarks
           [players]="benchmarkPlayers()"
           [updated]="benchmarksUpdated()"

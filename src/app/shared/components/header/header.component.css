@@ -151,7 +151,7 @@
 }
 
 .dropdown-arrow {
-  font-size: 0.65em;
+  font-size: 0.85em;
   margin-left: 4px;
   display: inline-block;
   transition: transform var(--transition-fast);
@@ -312,7 +312,16 @@
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
 
+  :host(.header-dark) .dropdown-menu {
+    background-color: #1a1a1a;
+  }
+
   :host(.header-dark) .dropdown-item {
     color: rgba(255, 255, 255, 0.6);
+  }
+
+  :host(.header-dark) .dropdown-item:hover {
+    color: var(--color-accent);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 }

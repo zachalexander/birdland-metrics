@@ -1,5 +1,5 @@
 export const TEAM_COLORS: Record<string, string> = {
-  BAL: '#df4a00', NYY: '#003087', BOS: '#BD3039', TB: '#092C5C', TOR: '#134A8E',
+  BAL: '#df4a00', NYY: '#7a7a7a', BOS: '#8b1a2b', TB: '#5bb5e8', TOR: '#134A8E',
   CLE: '#00385D', CWS: '#27251F', DET: '#0C2340', KC: '#004687', MIN: '#002B5C',
   HOU: '#002D62', LAA: '#BA0021', ATH: '#003831', SEA: '#0C2C56', TEX: '#003278',
   ATL: '#CE1141', MIA: '#00A3E0', NYM: '#002D72', PHI: '#E81828', WSH: '#AB0003',
