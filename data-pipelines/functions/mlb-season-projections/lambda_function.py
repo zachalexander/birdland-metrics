@@ -27,6 +27,7 @@ from collections import defaultdict
 from mlb_common.config import (
     SCHEDULE_BUCKET, SCHEDULE_KEY, PREDICTIONS_BUCKET,
     ELO_BUCKET, ELO_TABLE, ELO_HFA, SIM_COUNT, FIP_KEY,
+    SEASON_YEAR,
 )
 from mlb_common.aws_helpers import (
     read_csv_from_s3, write_csv_to_s3, write_json_to_s3,
@@ -334,6 +335,58 @@ def compute_standings_and_gb(df_summary, injury_adjusted=False):
     }, PREDICTIONS_BUCKET, 'projections-latest.json')
 
 
+def load_preseason_elo():
+    """Load preseason ELO baseline from S3 for regression."""
+    try:
+        data = read_json_from_s3(ELO_BUCKET, f'preseason-elo-{SEASON_YEAR}.json')
+        logger.info(f"Loaded preseason ELO baseline for {len(data)} teams")
+        return data
+    except Exception as e:
+        logger.warning(f"Could not load preseason ELO baseline — skipping regression: {e}")
+        return None
+
+
+FADE_GAMES = 100  # Games until preseason WAR influence fully fades (backtest-optimal)
+
+
+def regress_elo_to_preseason(current_elo, preseason_elo, schedule_df):
+    """
+    Blend current ELO with preseason ELO based on games played.
+
+    Early season: heavily weight preseason (small sample, don't overreact).
+    Late season: heavily weight current ELO (season speaks for itself).
+
+    Formula: sim_elo = pct * current + (1 - pct) * preseason
+    where pct = min(games_played / FADE_GAMES, 1.0)
+    """
+    completed = schedule_df.dropna(subset=['homeScore', 'awayScore'])
+    games_played = defaultdict(int)
+    for _, row in completed.iterrows():
+        games_played[row['homeTeam']] += 1
+        games_played[row['awayTeam']] += 1
+
+    regressed = {}
+    for team, elo in current_elo.items():
+        pre = preseason_elo.get(team)
+        if pre is None:
+            regressed[team] = elo
+            continue
+        gp = games_played.get(team, 0)
+        pct = min(gp / float(FADE_GAMES), 1.0)
+        regressed[team] = round(pct * elo + (1 - pct) * pre, 2)
+
+    total_gp = sum(games_played.values()) // 2  # each game counted twice
+    logger.info(f"ELO regression: {total_gp} games played, blending current/preseason (fade={FADE_GAMES})")
+    if 'BAL' in regressed:
+        bal_gp = games_played.get('BAL', 0)
+        logger.info(
+            f"  BAL: current={current_elo.get('BAL', 0):.1f}, "
+            f"preseason={preseason_elo.get('BAL', 0):.1f}, "
+            f"regressed={regressed['BAL']:.1f} ({bal_gp} GP, {min(bal_gp/FADE_GAMES, 1.0):.0%} weight)"
+        )
+    return regressed
+
+
 def load_injury_adjustments():
     """Load injury ELO adjustments from S3 (written by mlb-elo-compute)."""
     try:
@@ -364,6 +417,11 @@ def lambda_handler(event=None, context=None):
         team: elo + injury_adj.get(team, 0)
         for team, elo in elo_ratings.items()
     }
+
+    # Regress ELO toward preseason baseline (reduces early-season volatility)
+    preseason_elo = load_preseason_elo()
+    if preseason_elo:
+        adjusted_elo = regress_elo_to_preseason(adjusted_elo, preseason_elo, schedule_df)
 
     generate_next_game_predictions(schedule_df, adjusted_elo, fip_dict, lg_fip)
     df_summary, df_sim = simulate_season(schedule_df, adjusted_elo, fip_dict, lg_fip)

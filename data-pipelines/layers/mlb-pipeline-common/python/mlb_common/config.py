@@ -27,7 +27,7 @@ GAMES_TABLE = os.getenv('GAMES_TABLE', 'Orioles-Games')
 GAMES_BACK_TABLE = os.getenv('GAMES_BACK_TABLE', 'Orioles-Games_Back')
 
 # ELO parameters
-ELO_K = int(os.getenv('ELO_K', '20'))
+ELO_K = int(os.getenv('ELO_K', '6'))
 ELO_HFA = int(os.getenv('ELO_HFA', '55'))
 ELO_INIT = int(os.getenv('ELO_INIT', '1500'))
 MOV_MULTIPLIER = float(os.getenv('MOV_MULTIPLIER', '2.2'))

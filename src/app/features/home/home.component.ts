@@ -44,8 +44,8 @@ export class HomeComponent implements OnInit {
   dashboardLoading = signal(true);
 
   viewing2025 = signal(false);
-  viewingOdds2025 = signal(false);
-  oddsSeasonYear = computed(() => this.viewingOdds2025() ? 2025 : 2026);
+  oddsSeason = signal<number>(2026);
+  showAllTeams = signal(false);
 
   /** 2025 final stats for each benchmark player, keyed by playerId → benchmarkKey → value */
   private static readonly STATS_2025: Record<string, Record<string, number | null>> = {
@@ -149,8 +149,8 @@ export class HomeComponent implements OnInit {
     this.viewing2025.set(!this.viewing2025());
   }
 
-  toggleOdds2025(): void {
-    this.viewingOdds2025.set(!this.viewingOdds2025());
+  setOddsSeason(year: number): void {
+    this.oddsSeason.set(year);
   }
 
   private async loadDashboard(): Promise<void> {

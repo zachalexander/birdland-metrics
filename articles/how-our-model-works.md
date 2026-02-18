@@ -11,7 +11,7 @@ Birdland Metrics uses an **ELO rating system** — the same type of system used 
 1. **ELO ratings** track team strength based on game results, updated daily
 2. **Starting pitcher adjustments** shift each game's probability based on who's on the mound, with early-season Bayesian regression and a separate bullpen adjustment
 3. **Probability calibration** corrects for ELO's tendency to be overconfident
-4. **Preseason roster adjustments** account for offseason trades and signings before Opening Day
+4. **Preseason projections** blend mean-reverted ELO with team WAR forecasts, fading into in-season performance over the first 100 games
 5. **In-season injury adjustments** penalize teams for WAR lost to the injured list
 6. **Contextual game adjustments** account for park factors and cross-country travel
 
@@ -145,51 +145,66 @@ The shrinkage parameter was optimized through a grid search across 150 parameter
 
 ---
 
-## Layer 4: Preseason Roster Adjustment
+## Layer 4: Preseason Projection
 
 ### The Offseason Changes Everything
 
-ELO ratings carry over from the prior season, but rosters can transform over the winter. A team that loses a 6-WAR star in free agency and replaces him with a 2-WAR journeyman enters the season measurably weaker — but ELO has no way to know this until enough new games are played for the rating to "catch up."
+ELO ratings carry over from the prior season, but rosters can transform over the winter. A team that loses star players in free agency and replaces them with a mix of veterans and prospects enters the season measurably different — but ELO has no way to know this until enough new games are played for the rating to "catch up."
 
-### WAR-Based ELO Shifts
+### Two Signals, One Preseason Rating
 
-Before Opening Day, the model automatically adjusts each team's ELO baseline by quantifying the net **WAR (Wins Above Replacement)** exchanged through offseason transactions — trades, free agent signings, waiver claims, and releases.
+Before Opening Day, the model constructs a preseason ELO for each team by blending two independent signals:
 
-The process works in four steps:
+**Signal 1: Mean-Reverted ELO.** End-of-season ELO ratings overstate the gap between the best and worst teams because some of that gap is luck. Before carrying ratings into the new season, the model regresses every team **40% toward the league average** of 1500:
 
-**1. Compute every player's value.** We calculate WAR for every MLB player using two parallel tracks:
+> **mean_reverted = 0.6 × end_of_season_elo + 0.4 × 1500**
 
-- **Batting WAR** uses wOBA (weighted on-base average) — a metric that assigns run values to each offensive event (a home run is worth about 3x a walk, a double about 1.4x a single, etc.) and converts the result to wins above replacement.
-- **Pitching WAR** uses FIP — the same metric from our in-season pitcher adjustment — to estimate runs saved above a replacement-level arm.
+A team that finished at 1650 starts the new season anchored at 1590. A team at 1350 moves up to 1410. This compression reflects the historical tendency for teams to regress toward the middle — last year's best team rarely stays the best, and last year's worst team rarely stays the worst. An additional spread compression factor of **0.75** further tightens the ratings, preventing any single dominant team from distorting the preseason landscape.
 
-For two-way players, we take the higher of their batting or pitching value.
+**Signal 2: Team WAR.** WAR (Wins Above Replacement) measures total roster talent on a single scale. A team with 48 WAR has a roster roughly 9 wins better than a 39-WAR team, all else equal.
 
-**2. Average across three seasons.** Single-season WAR can be noisy. A reliever might post 2.3 WAR one year and 0.2 the next. By averaging across the three most recent seasons, we get a more stable estimate of true player value.
+For the current season, we use **FanGraphs projected WAR** from their depth chart projections — pre-season forecasts that account for aging curves, injury risk, and expected playing time. Each team's WAR is converted to an ELO-scale rating centered on 1500:
 
-**3. Track every roster move.** We catalog all offseason transactions that change a player's organization: trades, major-league signings, DFAs, releases, waiver claims, and Rule 5 selections. Minor-league signings are excluded.
+> **war_elo = 1500 + (team_war - league_average_war) × 5.0**
 
-**4. Convert net WAR to ELO.** For each team, we sum WAR gained from incoming players and subtract WAR lost from departing players. The net change is converted at a rate of **5.5 ELO points per 1.0 WAR** — derived from the empirical relationship between wins and ELO ratings across MLB history.
+A team with WAR 8 points above the league average gets a WAR-based ELO of 1540. A team 8 points below gets 1460.
+
+**Blending the signals.** The final preseason ELO is a **50/50 blend** of the two signals:
+
+> **preseason_elo = 0.5 × war_elo + 0.5 × mean_reverted_elo**
+
+This blending is deliberate. Mean-reverted ELO carries information about organizational quality, coaching, and intangibles that WAR doesn't capture. WAR captures roster talent that end-of-season ELO hasn't yet processed — particularly offseason moves. Neither signal is sufficient on its own; the blend outperforms either individually in backtesting.
 
 ### 2026 Example
 
-The biggest movers this offseason:
+Using FanGraphs projected WAR for the 2026 season:
 
-| Team | Net WAR | ELO Adjustment |
-|------|---------|---------------|
-| BAL | +7.3 | +40.2 |
-| COL | +6.7 | +36.6 |
-| MIN | +4.6 | +25.5 |
-| MIL | -14.8 | -81.1 |
-| SD | -13.9 | -76.7 |
-| STL | -11.9 | -65.4 |
+| Team | Projected WAR | Mean-Reverted ELO | WAR ELO | Preseason ELO |
+|------|--------------|-------------------|---------|---------------|
+| LAD | 56.6 | 1611 | 1586 | 1577 |
+| NYY | 47.5 | 1605 | 1540 | 1558 |
+| TOR | 48.0 | 1569 | 1543 | 1545 |
+| BAL | 45.4 | 1506 | 1530 | 1516 |
+| DET | 44.3 | 1486 | 1524 | 1507 |
+| COL | 23.1 | 1376 | 1418 | 1426 |
 
-The Orioles' offseason additions translated to a +40 ELO point boost — roughly equivalent to 7 additional projected wins.
+Notice how the blend works in practice: The Dodgers start highest because they combine a strong 2025 ELO with the league's best projected roster. Detroit's projected WAR (44.3, 10th in MLB) pulls their preseason rating *up* from a below-average 2025 ELO, reflecting their improved roster. Colorado's combination of weak prior results and the league's lowest projected WAR puts them at the bottom.
+
+### Fading Into the Season
+
+The preseason ELO doesn't persist all year. As games are played, the model gradually shifts from the preseason anchor toward each team's in-season ELO:
+
+> **effective_elo = (games_played / 100) × current_elo + (1 - games_played / 100) × preseason_elo**
+
+For the first game of the season, the effective rating is almost entirely the preseason ELO. By game 50 (late May), it's a 50/50 mix. By game 100 (early July), the preseason signal has fully faded and the model relies entirely on current performance.
+
+The fade rate of **100 games** was determined through backtesting across the 2024 and 2025 seasons, testing fade values from 0 (no preseason influence) to 300 (preseason persists deep into September). A 100-game fade produced the best early-season prediction accuracy while allowing the model to fully adapt by the second half.
 
 ### Limitations We're Transparent About
 
-- **Defense isn't captured.** Our batting WAR only measures offense. Elite defensive players with average bats are undervalued.
-- **Prospects are invisible.** A player with no MLB stats gets zero WAR. Teams adding top prospects via trade receive no credit.
-- **Aging isn't modeled.** A 35-year-old's 3-year average may overstate future value; a 24-year-old's may understate it.
+- **Historical seasons use prior-year WAR**, not projected WAR (which doesn't exist for past seasons). The backfill for 2024 and 2025 uses actual WAR totals from the prior year plus offseason transaction adjustments as a proxy.
+- **Projected WAR isn't perfect.** FanGraphs projections are the best publicly available forecast, but they still miss on players who break out or collapse unexpectedly.
+- **Prospects and minor leaguers** with no MLB track record receive no WAR credit. Teams adding top prospects via trade get no preseason boost until those players accumulate MLB stats.
 
 ---
 
@@ -201,7 +216,7 @@ A team's ELO rating reflects its results with a full roster. But when a key play
 
 ### How It Works
 
-Each day, the model pulls the current injured list for every team. For each IL player, it looks up that player's WAR — using current-season data when available, falling back to the prior season for players injured early in the year. The total WAR on the IL is converted to an ELO penalty at the same rate used for preseason adjustments:
+Each day, the model pulls the current injured list for every team. For each IL player, it looks up that player's WAR — using current-season data when available, falling back to the prior season for players injured early in the year. The total WAR on the IL is converted to an ELO penalty:
 
 > **injury_penalty = -1 x total_IL_WAR x 5.5**
 
@@ -287,9 +302,9 @@ For reference, a pure coinflip achieves 50% accuracy and a log loss of 0.693 (th
 
 ## What to Know as a Reader
 
-**The model is at its weakest in the preseason.** Before any 2026 games are played, the projections are anchored almost entirely to 2025 results plus our offseason roster adjustment. The confidence intervals are widest in March and April.
+**The model is at its weakest in the preseason.** Before any 2026 games are played, the projections blend last season's ELO (regressed toward average) with FanGraphs projected WAR. The confidence intervals are widest in March and April.
 
-**It self-corrects as the season unfolds.** Every game updates the ELO ratings, gradually incorporating 2026 performance. By mid-season, the model reflects a blend of prior baseline and current results. By September, current-season performance dominates.
+**It self-corrects as the season unfolds.** Every game updates the ELO ratings, and the preseason anchor fades over the first 100 games (~early July). By mid-season, the model reflects current performance more than preseason projections. By September, current-season results are all that matter.
 
 **The range matters more than the median.** A projection of "85 wins" with a 10th-to-90th percentile range of 78-92 means the model sees roughly an 80% chance the Orioles land somewhere in that 14-game window. The median is the most likely outcome, but the distribution tells you how confident the model is.
 
@@ -308,6 +323,11 @@ For reference, a pure coinflip achieves 50% accuracy and a log loss of 0.693 (th
 | Bullpen FIP weight | 15 pts | ELO shift per 1.0 bullpen FIP below league average |
 | FIP regression prior | 50 IP | Innings of league-average prior for Bayesian FIP regression |
 | Probability shrinkage | 0.16 | Compresses predictions toward 50/50 |
-| WAR-to-ELO conversion | 5.5 pts | ELO shift per 1.0 WAR of roster or injury change |
+| Mean reversion | 40% | Fraction of end-of-season ELO regressed toward 1500 |
+| Spread compression | 0.75 | Post-reversion tightening of ratings toward league average |
+| WAR ELO factor | 5.0 pts | Preseason ELO points per 1.0 WAR above league average |
+| WAR blend weight | 0.50 | Weight of WAR signal in preseason ELO (vs. mean-reverted ELO) |
+| Preseason fade | 100 games | Games until preseason ELO fully gives way to in-season ELO |
+| Injury WAR-to-ELO | 5.5 pts | ELO penalty per 1.0 WAR on the injured list |
 | Travel penalty | 10 pts | ELO deduction for eastward cross-country travel |
 | Simulations | 10,000 | Monte Carlo season simulations per daily run |

@@ -53,18 +53,30 @@
   @if (!dashboardLoading()) {
     <!-- AL East Race -->
     <section class="section-card section-card-race">
-      <p class="section-kicker race-kicker">{{ viewingOdds2025() ? '2025 Season' : 'AL East Playoff Odds' }}</p>
-      <div class="section-heading-row">
-        <h2 class="section-heading race-heading">{{ viewingOdds2025() ? '2025 Playoff Odds Trend' : 'Playoff Odds Over Time' }}</h2>
-        <button class="pill-toggle" [class.active]="viewingOdds2025()" (click)="toggleOdds2025()">
-          {{ viewingOdds2025() ? 'Back to 2026' : '2025 Results' }}
-        </button>
+      <p class="section-kicker race-kicker">{{ oddsSeason() === 2026 ? 'AL East Playoff Odds' : oddsSeason() + ' Season' }}</p>
+      <h2 class="section-heading race-heading">{{ oddsSeason() === 2026 ? "Let's Track the O's Playoff Chances This Season" : oddsSeason() + ' Playoff Odds Trend' }}</h2>
+      <div class="toggle-controls">
+        <div class="seg-toggle">
+          @for (year of [2024, 2025, 2026]; track year) {
+            <button class="seg-btn" [class.seg-active]="oddsSeason() === year"
+                    (click)="setOddsSeason(year)">
+              {{ year === 2026 ? 'Current' : year }}
+            </button>
+          }
+        </div>
+        <div class="seg-toggle">
+          <button class="seg-btn" [class.seg-active]="!showAllTeams()"
+                  (click)="showAllTeams.set(false)">Orioles</button>
+          <button class="seg-btn" [class.seg-active]="showAllTeams()"
+                  (click)="showAllTeams.set(true)">AL East</button>
+        </div>
       </div>
       <app-playoff-race
         [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }"
-        [season]="oddsSeasonYear()"
+        [season]="oddsSeason()"
         [projections]="projections()"
         [odds]="allOdds()"
+        [showAllTeams]="showAllTeams()"
       />
     </section>
     <!-- Core Player Benchmarks -->

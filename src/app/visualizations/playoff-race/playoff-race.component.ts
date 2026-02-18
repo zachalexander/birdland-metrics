@@ -25,6 +25,7 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
   @Input() season?: number;
   @Input() projections?: TeamProjection[];
   @Input() odds?: PlayoffOdds[];
+  @Input() showAllTeams = false;
 
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
@@ -54,8 +55,7 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
     if (!this.initialized) return;
     if (changes['season']) {
       await this.loadAndRender();
-    } else if (changes['projections'] || changes['odds']) {
-      // Re-render with updated standings data (no data reload needed)
+    } else if (changes['projections'] || changes['odds'] || changes['showAllTeams']) {
       await this.rerender();
     }
   }
@@ -81,8 +81,8 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
       // Clear previous chart
       container.innerHTML = '';
 
-      const is2025 = this.season === 2025;
-      renderPlayoffRace(container, data, cfg, d3, is2025 ? undefined : this.projections, is2025 ? undefined : this.odds);
+      const isHistorical = this.season != null && this.season !== 2026;
+      renderPlayoffRace(container, data, cfg, d3, isHistorical ? undefined : this.projections, isHistorical ? undefined : this.odds, this.showAllTeams);
     } catch {
       this.loading = false;
       this.error = 'Unable to load playoff odds data. The season may not have started yet.';
@@ -94,6 +94,7 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
     const container = this.chartContainer()?.nativeElement;
     if (!container) return;
     container.innerHTML = '';
-    renderPlayoffRace(container, this.lastData, this.resolvedConfig, this.lastD3, this.projections, this.odds);
+    const isHistorical = this.season != null && this.season !== 2026;
+    renderPlayoffRace(container, this.lastData, this.resolvedConfig, this.lastD3, isHistorical ? undefined : this.projections, isHistorical ? undefined : this.odds, this.showAllTeams);
   }
 }
