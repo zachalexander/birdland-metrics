@@ -8,6 +8,11 @@
   background-color: var(--color-bg-subtle);
 }
 
+.article-card.spotlight {
+  background: transparent;
+  border-bottom: none;
+}
+
 .card-link {
   text-decoration: none;
   color: inherit;
@@ -98,7 +103,7 @@
 
 .spotlight-image {
   position: relative;
-  border-radius: var(--radius-md);
+  border-radius: var(--home-card-radius, var(--radius-md));
   overflow: hidden;
   aspect-ratio: var(--spotlight-aspect-ratio, 21 / 10);
 }

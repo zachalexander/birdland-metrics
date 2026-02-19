@@ -87,6 +87,113 @@
         [showAllTeams]="showAllTeams()"
       />
     </section>
+  }
+</div>
+
+<section class="editorial-band">
+
+  <!-- Section header -->
+  <div class="editorial-header">
+    <h2 class="section-heading editorial-heading">The Latest</h2>
+    <a routerLink="/articles" class="editorial-view-all">View All Articles &#8250;</a>
+  </div>
+
+  <!-- Content area -->
+  <div class="editorial-content">
+    <!-- Featured Article -->
+    @if (!loading() && featuredArticle(); as feat) {
+      <section class="featured section-card section-card-featured">
+        <a [routerLink]="['/articles', feat.slug]" class="featured-link">
+          @if (feat.coverImage) {
+            <div class="featured-image">
+              <picture>
+                <source
+                  type="image/avif"
+                  [srcset]="feat.coverImage.url + '?w=600&h=320&fit=fill&fm=avif 600w, ' + feat.coverImage.url + '?w=1200&h=520&fit=fill&fm=avif 1200w'"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+                <source
+                  type="image/webp"
+                  [srcset]="feat.coverImage.url + '?w=600&h=320&fit=fill&fm=webp 600w, ' + feat.coverImage.url + '?w=1200&h=520&fit=fill&fm=webp 1200w'"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+                <img
+                  [src]="feat.coverImage.url + '?w=1200&h=520&fit=fill'"
+                  [alt]="feat.coverImage.title"
+                  width="1200"
+                  height="520"
+                />
+              </picture>
+              <div class="featured-overlay">
+                <div class="featured-overlay-content">
+                  <p class="section-kicker featured-kicker-overlay">Spotlight</p>
+                  <div class="featured-body featured-body-overlay">
+                    @if (feat.tags.length) {
+                      <span class="featured-tag">{{ feat.tags[0] }}</span>
+                    }
+                    <h2 class="featured-title">{{ feat.title }}</h2>
+                    <div class="featured-meta">
+                      @if (feat.author?.name) {
+                        <span>{{ feat.author?.name }}</span>
+                        <span class="featured-meta-dot">&middot;</span>
+                      }
+                      <span>{{ feat.readingTime }} min read</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          } @else {
+            <div class="featured-body">
+              <p class="section-kicker">Spotlight</p>
+              @if (feat.tags.length) {
+                <span class="featured-tag">{{ feat.tags[0] }}</span>
+              }
+              <h2 class="featured-title">{{ feat.title }}</h2>
+              <div class="featured-meta">
+                @if (feat.author?.name) {
+                  <span>{{ feat.author?.name }}</span>
+                  <span class="featured-meta-dot">&middot;</span>
+                }
+                <span>{{ feat.readingTime }} min read</span>
+              </div>
+            </div>
+          }
+        </a>
+      </section>
+    }
+
+    <!-- Latest Articles -->
+    <section class="articles-section">
+      @if (loading()) {
+        <div class="loading-area">
+          @for (_ of [1,2,3]; track $index) {
+            <div class="skeleton-article">
+              <div class="skeleton-thumb"></div>
+              <div class="skeleton-text">
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line medium"></div>
+              </div>
+            </div>
+          }
+        </div>
+      } @else if (latestPreviewArticles().length === 0) {
+        <p class="empty-state">No articles yet. Check back soon for data-driven baseball analysis.</p>
+      } @else {
+        <div class="articles-list">
+          @for (article of latestPreviewArticles(); track article.slug) {
+            <app-article-card [article]="article" variant="spotlight" />
+          }
+        </div>
+      }
+    </section>
+  </div>
+
+</section>
+
+<div class="home-layout home-layout-bottom">
+  @if (!dashboardLoading()) {
     <!-- Core Player Benchmarks -->
     @if (benchmarkPlayers().length) {
       <section class="section-card section-card-benchmarks">
@@ -115,97 +222,6 @@
       </section>
     }
   }
-
-  <div class="editorial-split">
-    <!-- Featured Article -->
-    @if (!loading() && featuredArticle(); as feat) {
-<section class="featured section-card section-card-featured">
-<a [routerLink]="['/articles', feat.slug]" class="featured-link">
-          @if (feat.coverImage) {
-            <div class="featured-image">
-              <picture>
-                <source
-                  type="image/avif"
-                  [srcset]="feat.coverImage.url + '?w=600&h=320&fit=fill&fm=avif 600w, ' + feat.coverImage.url + '?w=1200&h=520&fit=fill&fm=avif 1200w'"
-                  sizes="(max-width: 768px) 100vw, 800px"
-                />
-                <source
-                  type="image/webp"
-                  [srcset]="feat.coverImage.url + '?w=600&h=320&fit=fill&fm=webp 600w, ' + feat.coverImage.url + '?w=1200&h=520&fit=fill&fm=webp 1200w'"
-                  sizes="(max-width: 768px) 100vw, 800px"
-                />
-<img
-[src]="feat.coverImage.url + '?w=1200&h=520&fit=fill'"
-[alt]="feat.coverImage.title"
-width="1200"
-height="520"
-/>
-</picture>
-<div class="featured-overlay">
-<div class="featured-overlay-content">
-<p class="section-kicker featured-kicker-overlay">Spotlight</p>
-<div class="featured-body featured-body-overlay">
-@if (feat.tags.length) {
-<span class="featured-tag">{{ feat.tags[0] }}</span>
-}
-<h2 class="featured-title">{{ feat.title }}</h2>
-<div class="featured-meta">
-@if (feat.author?.name) {
-<span>{{ feat.author?.name }}</span>
-<span class="featured-meta-dot">&middot;</span>
-}
-<span>{{ feat.readingTime }} min read</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-        } @else {
-          <div class="featured-body">
-<p class="section-kicker">Spotlight</p>
-@if (feat.tags.length) {
-<span class="featured-tag">{{ feat.tags[0] }}</span>
-}
-            <h2 class="featured-title">{{ feat.title }}</h2>
-            <div class="featured-meta">
-              @if (feat.author?.name) {
-                <span>{{ feat.author?.name }}</span>
-                <span class="featured-meta-dot">&middot;</span>
-              }
-              <span>{{ feat.readingTime }} min read</span>
-            </div>
-          </div>
-        }
-      </a>
-      </section>
-    }
-
-    <!-- Latest Articles -->
-    <section class="articles-section section-card section-card-articles">
-      @if (loading()) {
-        <div class="loading-area">
-          @for (_ of [1,2,3]; track $index) {
-            <div class="skeleton-article">
-              <div class="skeleton-thumb"></div>
-              <div class="skeleton-text">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line medium"></div>
-              </div>
-            </div>
-          }
-        </div>
-      } @else if (latestPreviewArticles().length === 0) {
-        <p class="empty-state">No articles yet. Check back soon for data-driven baseball analysis.</p>
-      } @else {
-        <div class="articles-list">
-          @for (article of latestPreviewArticles(); track article.slug) {
-            <app-article-card [article]="article" variant="spotlight" />
-          }
-        </div>
-      }
-    </section>
-  </div>
 
   <!-- Newsletter -->
   <app-newsletter-cta />

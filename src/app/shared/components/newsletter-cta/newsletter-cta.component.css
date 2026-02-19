@@ -3,7 +3,7 @@
 .cta-card {
   background: var(--color-accent-light);
   border: 1px solid rgba(223, 74, 0, 0.15);
-  border-radius: var(--radius-md);
+  border-radius: var(--home-card-radius, var(--radius-md));
   padding: var(--space-xl) var(--space-2xl);
   text-align: center;
 }
