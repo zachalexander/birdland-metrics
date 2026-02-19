@@ -63,6 +63,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'visualizations/core-benchmarks',
+    loadComponent: () =>
+      import('./visualizations/core-benchmarks-page/core-benchmarks-page.component').then(
+        (m) => m.CoreBenchmarksPageComponent,
+      ),
+  },
+  {
     path: 'disclaimer',
     loadComponent: () =>
       import('./features/disclaimer/disclaimer.component').then(

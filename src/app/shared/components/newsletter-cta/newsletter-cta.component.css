@@ -1,22 +1,24 @@
 /* ── Inline variant ── */
 
 .cta-card {
-  background: var(--color-accent-light);
-  border: 1px solid rgba(223, 74, 0, 0.15);
-  border-radius: var(--home-card-radius, var(--radius-md));
+  background: linear-gradient(165deg, #1a1a1a 0%, #2a2a2f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
   padding: var(--space-xl) var(--space-2xl);
   text-align: center;
+  max-width: 960px;
+  margin: var(--space-lg) auto;
 }
 
 .cta-heading {
   margin: 0 0 var(--space-xs);
   font-size: 1.25rem;
-  color: var(--color-text);
+  color: #ffffff;
 }
 
 .cta-subtext {
   margin: 0 0 var(--space-lg);
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 0.95rem;
 }
 
@@ -68,7 +70,7 @@
 
 .success-message {
   margin: 0;
-  color: var(--color-text);
+  color: #ffffff;
   font-weight: 600;
   padding: var(--space-md) 0;
 }
@@ -174,6 +176,12 @@
 /* ── Mobile ── */
 
 @media (max-width: 600px) {
+  .cta-card {
+    margin-top: calc(-1 * var(--space-xl));
+    border-radius: 0;
+    max-width: none;
+  }
+
   .cta-form {
     flex-direction: column;
   }

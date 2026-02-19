@@ -1,0 +1,68 @@
+.benchmarks-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
+}
+
+.page-heading {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0 0 var(--space-sm);
+}
+
+.page-explainer {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto var(--space-md);
+}
+
+.page-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.seg-toggle {
+  display: inline-flex;
+  background: var(--color-border);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.seg-btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.seg-btn:hover {
+  color: var(--color-text);
+}
+
+.seg-active {
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .benchmarks-page {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  }
+}

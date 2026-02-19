@@ -24,8 +24,9 @@ export class ShareButtonsComponent {
     window.open(url, '_blank', 'noopener,width=550,height=420');
   }
 
-  shareFacebook(): void {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.getUrl())}`;
+  shareBluesky(): void {
+    const text = `${this.title()} ${this.getUrl()}`;
+    const url = `https://bsky.app/intent/compose?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener,width=550,height=420');
   }
 

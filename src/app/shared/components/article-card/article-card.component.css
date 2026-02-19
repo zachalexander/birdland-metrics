@@ -120,7 +120,7 @@
   inset: 0;
   display: flex;
   align-items: flex-end;
-  padding: 0.75rem 0.85rem;
+  padding: 1.25rem 1.4rem;
   background: linear-gradient(180deg, rgba(7, 7, 10, 0.05) 10%, rgba(7, 7, 10, 0.68) 82%);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .spotlight-tag {
-  font-size: var(--text-xs);
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -140,7 +140,7 @@
 
 .spotlight-title {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   line-height: 1.2;
   font-weight: 800;
   color: #ffffff;
@@ -152,11 +152,21 @@
   align-items: center;
   gap: 0.3rem;
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.84);
   letter-spacing: 0.02em;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
+}
+
+.spotlight-avatar {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px;
+  max-height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .spotlight-meta-dot {

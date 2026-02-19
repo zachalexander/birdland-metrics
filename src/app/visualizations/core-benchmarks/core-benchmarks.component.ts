@@ -1,5 +1,5 @@
 import { Component, input, computed, signal } from '@angular/core';
-import { BenchmarkPlayer, PlayerBenchmark } from '../../../../shared/models/mlb.models';
+import { BenchmarkPlayer, PlayerBenchmark } from '../../shared/models/mlb.models';
 
 @Component({
   selector: 'app-core-benchmarks',

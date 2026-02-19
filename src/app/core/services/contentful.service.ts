@@ -60,7 +60,7 @@ export class ContentfulService {
   private mapBlogPost(entry: Entry): BlogPost {
     const fields = entry.fields as Record<string, unknown>;
     const imageEntry = fields['coverImage'] as Entry | undefined;
-    const imageFile = imageEntry
+    const imageFile = imageEntry?.fields
       ? (imageEntry.fields as Record<string, unknown>)['file'] as Record<string, unknown> | undefined
       : undefined;
     const imageDetails = imageFile?.['details'] as Record<string, unknown> | undefined;
@@ -78,6 +78,7 @@ export class ContentfulService {
         ? {
             url: `https:${imageFile['url'] as string}`,
             title: (imageEntry!.fields as Record<string, unknown>)['title'] as string,
+            description: ((imageEntry!.fields as Record<string, unknown>)['description'] as string | undefined) || undefined,
             width: (imageSize?.['width'] as number) ?? 800,
             height: (imageSize?.['height'] as number) ?? 450,
           }
@@ -117,7 +118,7 @@ export class ContentfulService {
   private mapAuthor(entry: Entry): Author {
     const fields = entry.fields as Record<string, unknown>;
     const avatarEntry = fields['avatar'] as Entry | undefined;
-    const avatarFile = avatarEntry
+    const avatarFile = avatarEntry?.fields
       ? (avatarEntry.fields as Record<string, unknown>)['file'] as Record<string, unknown> | undefined
       : undefined;
 

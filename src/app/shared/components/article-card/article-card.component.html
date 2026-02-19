@@ -31,6 +31,9 @@
               }
               <h3 class="spotlight-title">{{ article().title }}</h3>
               <div class="spotlight-meta">
+                @if (article().author?.avatar) {
+                  <img class="spotlight-avatar" [src]="article().author!.avatar!.url + '?w=48&h=48&fit=fill&fm=webp'" [alt]="article().author!.name" width="16" height="16" />
+                }
                 @if (article().author?.name) {
                   <span>{{ article().author?.name }}</span>
                   <span class="spotlight-meta-dot">&middot;</span>

@@ -90,6 +90,8 @@
   }
 </div>
 
+<app-newsletter-cta />
+
 <section class="editorial-band">
 
   <!-- Section header -->
@@ -133,6 +135,9 @@
                     }
                     <h2 class="featured-title">{{ feat.title }}</h2>
                     <div class="featured-meta">
+                      @if (feat.author?.avatar) {
+                        <img class="featured-avatar" [src]="feat.author!.avatar!.url + '?w=48&h=48&fit=fill&fm=webp'" [alt]="feat.author!.name" width="18" height="18" />
+                      }
                       @if (feat.author?.name) {
                         <span>{{ feat.author?.name }}</span>
                         <span class="featured-meta-dot">&middot;</span>
@@ -151,6 +156,9 @@
               }
               <h2 class="featured-title">{{ feat.title }}</h2>
               <div class="featured-meta">
+                @if (feat.author?.avatar) {
+                  <img class="featured-avatar" [src]="feat.author!.avatar!.url + '?w=48&h=48&fit=fill&fm=webp'" [alt]="feat.author!.name" width="18" height="18" />
+                }
                 @if (feat.author?.name) {
                   <span>{{ feat.author?.name }}</span>
                   <span class="featured-meta-dot">&middot;</span>
@@ -192,40 +200,39 @@
 
 </section>
 
-<div class="home-layout home-layout-bottom">
-  @if (!dashboardLoading()) {
-    <!-- Core Player Benchmarks -->
-    @if (benchmarkPlayers().length) {
-      <section class="section-card section-card-benchmarks">
-        <h2 class="section-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
-        <p class="section-explainer">
-          @if (viewing2025()) {
-            Here's the breakdown of how each player performed against these same benchmarks during the 2025 season.
-          } @else {
-            Each player has key statistical benchmarks that will be updated daily throughout the season. The more targets the core roster hits, the better the Orioles' chances are of making it back to the playoffs.
-          }
-        </p>
-        <div class="benchmarks-controls">
-          <div class="seg-toggle">
-            <button class="seg-btn" [class.seg-active]="!viewing2025()"
-                    (click)="viewing2025() && toggle2025()">Current</button>
-            <button class="seg-btn" [class.seg-active]="viewing2025()"
-                    (click)="!viewing2025() && toggle2025()">2025</button>
-          </div>
+<!-- Data Visualizations divider -->
+<div class="divider-band">
+  <div class="divider-line"></div>
+  <span class="divider-label">Data Visualizations</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- Core Players Promo -->
+<section class="promo-band">
+  <a routerLink="/visualizations/core-benchmarks" class="promo-link">
+    <div class="promo-image">
+      <img src="assets/covers/cowser-westburg-bradish-cover-1.jpg"
+           alt="Colton Cowser, Jordan Westburg, and Kyle Bradish"
+           width="1200" height="630" loading="lazy" />
+      <div class="promo-overlay">
+        <div class="promo-body">
+          <span class="promo-tag">Player Analysis</span>
+          <h2 class="promo-title">Are the O's Core Players Living Up to the Hype?</h2>
+          <p class="promo-subtext">Track their personalized benchmarks for the 2026 season and monitor their progress with daily in-season stat updates.</p>
         </div>
-        <app-core-benchmarks
-          [players]="benchmarkPlayers()"
-          [updated]="benchmarksUpdated()"
-          [overrideStats]="stats2025"
-          [showOverride]="viewing2025()"
-        />
-      </section>
-    }
-  }
+      </div>
+    </div>
+  </a>
+</section>
 
-  <!-- Newsletter -->
-  <app-newsletter-cta />
+<!-- Win Expectancy divider -->
+<div class="divider-band">
+  <div class="divider-line"></div>
+  <span class="divider-label">Win Expectancy</span>
+  <div class="divider-line"></div>
+</div>
 
+<div class="home-layout home-layout-bottom">
   @if (!dashboardLoading() && recentGames().length) {
     <!-- Recent Games -->
     <section class="recent-section section-card section-card-momentum">
