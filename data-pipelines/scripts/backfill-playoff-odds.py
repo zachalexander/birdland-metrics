@@ -37,6 +37,7 @@ logger = logging.getLogger(__name__)
 K = 6
 HFA = 55
 MOV_MULTIPLIER = 2.2
+MOV_CAP = 1.25
 DEFAULT_SIMS = 1000
 PREDICTIONS_BUCKET = "mlb-predictions-2026"
 
@@ -76,7 +77,8 @@ def expected_score(elo_a: float, elo_b: float, hfa: float = 0.0) -> float:
 
 
 def mov_mult(score_diff: int, elo_diff: float) -> float:
-    return math.log(abs(score_diff) + 1) * (MOV_MULTIPLIER / (0.001 * abs(elo_diff) + MOV_MULTIPLIER))
+    raw = math.log(abs(score_diff) + 1) * (MOV_MULTIPLIER / (0.001 * abs(elo_diff) + MOV_MULTIPLIER))
+    return min(raw, MOV_CAP)
 
 
 def elo_shift(elo: float, exp: float, actual: float, mov: float = 1.0) -> float:
@@ -175,19 +177,41 @@ def replay_elo_to_date(
 FADE_GAMES = 100  # Games until preseason influence fully fades (backtest-optimal)
 
 
+def fade_pct(gp: int, curve: str) -> float:
+    """
+    Compute the current-ELO weight (0→1) based on games played and fade curve.
+    At gp=0 returns 0 (100% preseason), at gp>=FADE_GAMES returns 1 (100% current).
+    """
+    if gp >= FADE_GAMES:
+        return 1.0
+    t = gp / float(FADE_GAMES)  # normalized 0→1
+    if curve == "linear":
+        return t
+    elif curve == "cosine":
+        return 0.5 * (1.0 - math.cos(math.pi * t))
+    elif curve == "sigmoid":
+        k = 10  # steepness — higher = sharper transition in the middle
+        return 1.0 / (1.0 + math.exp(-k * (t - 0.5)))
+    elif curve == "quadratic":
+        return 1.0 - (1.0 - t) ** 2
+    else:
+        raise ValueError(f"Unknown fade curve: {curve}")
+
+
 def regress_elo(
     current_elo: dict[str, float],
     preseason_elo: dict[str, float],
     games_played: dict[str, int],
+    curve: str = "linear",
 ) -> dict[str, float]:
     """
-    Regress current ELO toward preseason baseline.
-    pct = min(gp / FADE_GAMES, 1.0); regressed = pct * current + (1-pct) * preseason
+    Regress current ELO toward preseason baseline using the specified fade curve.
+    regressed = pct * current + (1-pct) * preseason
     """
     regressed = {}
     for team, cur in current_elo.items():
         gp = games_played.get(team, 0)
-        pct = min(gp / float(FADE_GAMES), 1.0)
+        pct = fade_pct(gp, curve)
         pre = preseason_elo.get(team, cur)
         regressed[team] = pct * cur + (1.0 - pct) * pre
     return regressed
@@ -308,10 +332,11 @@ def compute_all_snapshots(
     preseason_elo: dict[str, float],
     season: int,
     sim_count: int,
+    fade_curve: str = "linear",
 ) -> list[dict]:
     start, end = SEASON_DATES[season]
     mondays = get_monday_dates(start, end)
-    logger.info(f"Computing {len(mondays)} weekly snapshots for {season}")
+    logger.info(f"Computing {len(mondays)} weekly snapshots for {season} (fade={fade_curve})")
 
     all_results = []
 
@@ -322,7 +347,7 @@ def compute_all_snapshots(
         current_elo, games_played = replay_elo_to_date(schedule_df, preseason_elo, snap_ts)
 
         # 2. Regress toward preseason
-        regressed = regress_elo(current_elo, preseason_elo, games_played)
+        regressed = regress_elo(current_elo, preseason_elo, games_played, fade_curve)
 
         # 3. Compute actual W-L before cutoff
         before = schedule_df[schedule_df["date"] < snap_ts]
@@ -377,25 +402,29 @@ def main():
     parser.add_argument("--season", type=int, required=True, choices=list(SEASON_DATES.keys()),
                         help="Season year to backfill (2024 or 2025)")
     parser.add_argument("--sims", type=int, default=DEFAULT_SIMS, help="Monte Carlo sims per snapshot")
+    parser.add_argument("--fade-curve", type=str, default="linear",
+                        choices=["linear", "cosine", "sigmoid", "quadratic"],
+                        help="Fade curve for preseason→in-season ELO transition")
     parser.add_argument("--upload", action="store_true", help="Upload result to S3")
     parser.add_argument("--output", type=str, default=None, help="Local output file path override")
     args = parser.parse_args()
 
     season = args.season
+    fade_curve = args.fade_curve
 
-    logger.info(f"Backfilling {season} season with K={K}, HFA={HFA}, {args.sims} sims/snapshot")
+    logger.info(f"Backfilling {season} season with K={K}, HFA={HFA}, {args.sims} sims/snapshot, fade={fade_curve}")
 
     preseason_elo = load_prior_season_elo(season)
     schedule_df = load_schedule(season)
 
-    all_results = compute_all_snapshots(schedule_df, preseason_elo, season, args.sims)
+    all_results = compute_all_snapshots(schedule_df, preseason_elo, season, args.sims, fade_curve)
 
     al_teams_per_snap = len([t for t in TEAM_LEAGUE if TEAM_LEAGUE[t] == "AL"])
     n_snaps = len(all_results) // al_teams_per_snap if al_teams_per_snap else 0
     logger.info(f"Total: {len(all_results)} rows ({n_snaps} snapshots × {al_teams_per_snap} AL teams)")
 
     # Save locally
-    output_path = args.output or f"playoff-odds-history-{season}.json"
+    output_path = args.output or f"playoff-odds-history-{season}-{fade_curve}.json"
     with open(output_path, "w") as f:
         json.dump(all_results, f, indent=2)
     logger.info(f"Wrote {output_path}")

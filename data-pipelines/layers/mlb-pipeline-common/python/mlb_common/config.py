@@ -31,6 +31,7 @@ ELO_K = int(os.getenv('ELO_K', '6'))
 ELO_HFA = int(os.getenv('ELO_HFA', '55'))
 ELO_INIT = int(os.getenv('ELO_INIT', '1500'))
 MOV_MULTIPLIER = float(os.getenv('MOV_MULTIPLIER', '2.2'))
+MOV_CAP = float(os.getenv('MOV_CAP', '1.25'))
 
 # Enhanced model parameters (FIP adjustment + probability shrinkage)
 FIP_WEIGHT = int(os.getenv('FIP_WEIGHT', '50'))

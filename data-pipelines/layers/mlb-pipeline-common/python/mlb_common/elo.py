@@ -3,7 +3,7 @@ Shared ELO rating math.
 Canonical formula from mlb-daily-elo-compute: K=20, HFA=55, log-based MOV.
 """
 import math
-from mlb_common.config import ELO_K, ELO_HFA, MOV_MULTIPLIER
+from mlb_common.config import ELO_K, ELO_HFA, MOV_MULTIPLIER, MOV_CAP
 
 
 def expected_score(elo_a, elo_b, hfa=0):
@@ -35,7 +35,8 @@ def margin_of_victory_mult(score_diff, elo_diff):
     Returns:
         Multiplier (typically 0.5 to 2.5)
     """
-    return math.log(abs(score_diff) + 1) * (MOV_MULTIPLIER / (0.001 * abs(elo_diff) + MOV_MULTIPLIER))
+    raw = math.log(abs(score_diff) + 1) * (MOV_MULTIPLIER / (0.001 * abs(elo_diff) + MOV_MULTIPLIER))
+    return min(raw, MOV_CAP)
 
 
 def update_elo(elo, expected, actual, k=ELO_K, mov_mult=1.0):
