@@ -29,9 +29,6 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 
-# Data Pipeline Work
-.data-pipelines/*
-
 # Miscellaneous
 /.angular/cache
 .sass-cache/
