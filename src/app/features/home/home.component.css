@@ -691,9 +691,6 @@ font-size: 0.72rem;
 }
 .promo-band {
 margin: var(--space-md) 0;
-padding: 0;
-}
-.promo-band {
 padding: 0 var(--space-md);
 }
 .promo-image {
