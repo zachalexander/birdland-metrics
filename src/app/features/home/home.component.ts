@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, computed, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, signal, computed, inject, PLATFORM_ID, effect } from '@angular/core';
 import { isPlatformBrowser, DecimalPipe } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
@@ -42,6 +42,32 @@ export class HomeComponent implements OnInit {
 
   oddsSeason = signal<number>(2026);
   showAllTeams = signal(false);
+  animatedPct = signal(0);
+  animatedWins = signal(0);
+
+  private countUpEffect = effect(() => {
+    const odds = this.oriolesOdds();
+    if (!odds || !isPlatformBrowser(this.platformId)) return;
+    const target = odds.playoff_pct;
+    this.countUp(target, 1000, v => this.animatedPct.set(v));
+  });
+
+  private countUpWinsEffect = effect(() => {
+    const wins = this.oriolesWins();
+    if (!wins || !isPlatformBrowser(this.platformId)) return;
+    this.countUp(wins, 1000, v => this.animatedWins.set(v));
+  });
+
+  private countUp(target: number, duration: number, setter: (v: number) => void): void {
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setter(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
 
   oriolesWins = computed(() => {
     const bal = this.projections().find(p => p.team === 'BAL');

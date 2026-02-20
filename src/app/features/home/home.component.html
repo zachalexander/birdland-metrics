@@ -23,7 +23,7 @@
                   [style.stroke-dashoffset]="339.29 - (339.29 * odds.playoff_pct / 100)" />
               </svg>
               <div class="gauge-inner">
-                <span class="hero-big">{{ odds.playoff_pct | number: '1.0-0' }}<span class="hero-pct">%</span></span>
+                <span class="hero-big">{{ animatedPct() }}<span class="hero-pct">%</span></span>
                 <span class="hero-big-label">chance</span>
               </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="hero-outcome">
               <p class="hero-outcome-label">Most likely model outcome</p>
               <p class="hero-outcome-wins">
-                <span class="hero-outcome-number">{{ wins }}</span>
+                <span class="hero-outcome-number">{{ animatedWins() }}</span>
                 <span class="hero-outcome-unit">wins</span>
               </p>
               <a routerLink="/visualizations/win-distribution" class="hero-outcome-link">

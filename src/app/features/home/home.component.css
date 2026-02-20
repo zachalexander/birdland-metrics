@@ -17,14 +17,38 @@ padding-bottom: var(--space-3xl);
 }
 .hero {
 --hero-accent: var(--color-accent);
+position: relative;
 display: flex;
 flex-direction: column;
 gap: var(--space-lg);
 padding: var(--space-2xl) var(--space-2xl);
-background: linear-gradient(165deg, #1a1a1a 0%, #2a2a2f 100%);
+background:
+  radial-gradient(ellipse at 75% 50%, rgba(223, 74, 0, 0.06) 0%, transparent 60%),
+  linear-gradient(165deg, #1a1a1a 0%, #2a2a2f 100%);
 border-radius: var(--home-card-radius) var(--home-card-radius) 0 0;
 margin-top: var(--space-lg);
-box-shadow: none;
+box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+overflow: hidden;
+}
+.hero::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 2px;
+background: linear-gradient(90deg, transparent 10%, rgba(223, 74, 0, 0.7) 50%, transparent 90%);
+z-index: 1;
+border-radius: var(--home-card-radius) var(--home-card-radius) 0 0;
+}
+.hero::after {
+content: "";
+position: absolute;
+inset: 0;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+opacity: 0.035;
+pointer-events: none;
+border-radius: inherit;
 }
 .hero-top {
 display: grid;
@@ -105,9 +129,12 @@ max-width: 36ch;
 .hero-label {
 font-size: clamp(1.9rem, 1.6rem + 1vw, 2.35rem);
 font-weight: 700;
-color: #ffffff;
 margin: 0;
 line-height: 1.1;
+background: linear-gradient(180deg, #ffffff 30%, #f0d9c8 100%);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
 }
 .hero-label-short {
 display: none;
@@ -139,6 +166,14 @@ position: relative;
 width: 140px;
 height: 140px;
 }
+.hero-gauge::before {
+content: "";
+position: absolute;
+inset: -40px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(223, 74, 0, 0.18) 0%, rgba(223, 74, 0, 0.06) 40%, transparent 70%);
+pointer-events: none;
+}
 .gauge-ring {
 width: 100%;
 height: 100%;
@@ -147,12 +182,12 @@ transform: rotate(-90deg);
 .gauge-track {
 fill: none;
 stroke: rgba(255, 255, 255, 0.18);
-stroke-width: 6;
+stroke-width: 8;
 }
 .gauge-fill {
 fill: none;
 stroke: var(--hero-accent);
-stroke-width: 6;
+stroke-width: 8;
 stroke-dasharray: 339.29;
 stroke-linecap: butt;
 transition: stroke-dashoffset 0.8s ease;
@@ -592,9 +627,9 @@ margin-top: var(--space-sm);
 display: flex;
 align-items: center;
 gap: var(--space-lg);
-max-width: 1440px;
+max-width: 960px;
 margin: var(--space-2xl) auto var(--space-sm);
-padding: 0 var(--space-xl);
+padding: 0 var(--space-lg);
 }
 .divider-line {
 flex: 1;
@@ -611,9 +646,9 @@ color: var(--color-text-muted);
 white-space: nowrap;
 }
 .promo-band {
-max-width: 1440px;
+max-width: 960px;
 margin: var(--space-lg) auto;
-padding: 0 var(--space-xl);
+padding: 0 var(--space-lg);
 }
 .promo-link {
 display: block;
