@@ -1,6 +1,6 @@
 import {
-  TEAM_COLORS, createResponsiveSvg, createTooltip,
-  FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
+  TEAM_COLORS, createResponsiveSvg, createTooltip, getActiveTheme,
+  FONT_MONO, FONT_SANS,
 } from '../viz-utils';
 import { TEAM_NAMES } from '../../shared/models/mlb.models';
 
@@ -22,6 +22,7 @@ export function renderEloTrend(
   d3: typeof import('d3'),
 ): void {
   container.innerHTML = '';
+  const theme = getActiveTheme();
 
   const teams = config.teams.filter(t => data[t]?.length);
   if (!teams.length) {
@@ -70,15 +71,15 @@ export function renderEloTrend(
     .attr('class', 'grid')
     .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(() => ''))
     .call(g => g.select('.domain').remove())
-    .call(g => g.selectAll('.tick line').attr('stroke', COLOR_BORDER).attr('stroke-dasharray', 'none'));
+    .call(g => g.selectAll('.tick line').attr('stroke', theme.border).attr('stroke-dasharray', 'none'));
 
   // X axis
   g.append('g')
     .attr('transform', `translate(0,${innerHeight})`)
     .call(d3.axisBottom(x).ticks(6).tickFormat(d3.timeFormat('%b') as any).tickSize(0))
-    .call(g => g.select('.domain').attr('stroke', COLOR_TEXT))
+    .call(g => g.select('.domain').attr('stroke', theme.text))
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
       .attr('font-size', '10px')
       .attr('font-weight', '600')
@@ -90,7 +91,7 @@ export function renderEloTrend(
     .call(d3.axisLeft(y).ticks(5).tickSize(0))
     .call(g => g.select('.domain').remove())
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
       .attr('font-size', '10px')
       .attr('dx', '-0.5em'));
@@ -101,7 +102,7 @@ export function renderEloTrend(
     .attr('y', -38)
     .attr('x', -innerHeight / 2)
     .attr('text-anchor', 'middle')
-    .attr('fill', COLOR_TEXT_MUTED)
+    .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
     .attr('font-size', '9px')
     .attr('font-weight', '600')
@@ -115,7 +116,7 @@ export function renderEloTrend(
       .attr('x2', innerWidth)
       .attr('y1', y(1500))
       .attr('y2', y(1500))
-      .attr('stroke', COLOR_TEXT_MUTED)
+      .attr('stroke', theme.textMuted)
       .attr('stroke-dasharray', '4,3')
       .attr('stroke-width', 1);
 
@@ -124,7 +125,7 @@ export function renderEloTrend(
       .attr('y', y(1500))
       .attr('dx', '4')
       .attr('dy', '0.35em')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
       .attr('font-size', '9px')
       .attr('font-weight', '600')
@@ -141,7 +142,7 @@ export function renderEloTrend(
     const path = g.append('path')
       .datum(parsedData[team])
       .attr('fill', 'none')
-      .attr('stroke', TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY)
+      .attr('stroke', TEAM_COLORS[team] ?? theme.textSecondary)
       .attr('stroke-width', 2)
       .attr('d', line);
 
@@ -165,14 +166,14 @@ export function renderEloTrend(
     .attr('class', 'focus-line')
     .attr('y1', 0)
     .attr('y2', innerHeight)
-    .attr('stroke', COLOR_BORDER)
+    .attr('stroke', theme.border)
     .attr('stroke-width', 1);
 
   for (const team of teams) {
     focus.append('circle')
       .attr('class', `focus-dot-${team}`)
       .attr('r', 3.5)
-      .attr('fill', TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY)
+      .attr('fill', TEAM_COLORS[team] ?? theme.textSecondary)
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5);
   }
@@ -193,7 +194,7 @@ export function renderEloTrend(
 
       focus.select('.focus-line').attr('x1', mx).attr('x2', mx);
 
-      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${COLOR_TEXT_MUTED};text-transform:uppercase;letter-spacing:0.04em">${d3.timeFormat('%b %d, %Y')(hoveredDate)}</span>`;
+      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${theme.textMuted};text-transform:uppercase;letter-spacing:0.04em">${d3.timeFormat('%b %d, %Y')(hoveredDate)}</span>`;
       for (const team of teams) {
         const pts = parsedData[team];
         const i = bisect(pts, hoveredDate, 1);
@@ -206,12 +207,12 @@ export function renderEloTrend(
           .attr('cx', x(d.date))
           .attr('cy', y(d.elo));
 
-        const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+        const color = TEAM_COLORS[team] ?? theme.textSecondary;
         const name = TEAM_NAMES[team] ?? team;
         html += `<div style="display:flex;align-items:center;gap:6px;margin-top:4px">`;
         html += `<span style="width:8px;height:8px;border-radius:50%;background:${color};flex-shrink:0"></span>`;
-        html += `<span style="font-weight:500;color:${COLOR_TEXT}">${name}</span>`;
-        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${COLOR_TEXT};margin-left:auto">${Math.round(d.elo)}</span>`;
+        html += `<span style="font-weight:500;color:${theme.text}">${name}</span>`;
+        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${theme.text};margin-left:auto">${Math.round(d.elo)}</span>`;
         html += `</div>`;
       }
 
@@ -225,7 +226,7 @@ export function renderEloTrend(
 
   let legendX = 0;
   for (const team of teams) {
-    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const color = TEAM_COLORS[team] ?? theme.textSecondary;
     const name = TEAM_NAMES[team] ?? team;
     const lg = legend.append('g').attr('transform', `translate(${legendX}, 0)`);
 
@@ -242,7 +243,7 @@ export function renderEloTrend(
       .attr('font-family', FONT_SANS)
       .attr('font-size', '11px')
       .attr('font-weight', '500')
-      .attr('fill', COLOR_TEXT_SECONDARY)
+      .attr('fill', theme.textSecondary)
       .text(name);
 
     legendX += name.length * 7 + 40;

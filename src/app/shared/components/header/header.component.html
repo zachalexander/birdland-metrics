@@ -1,33 +1,13 @@
 <header class="site-header">
-  <div class="header-inner">
+  <div class="header-inner" [class.search-expanded]="searchExpanded">
     <a routerLink="/" class="logo">
       <img class="logo-icon" src="logo.png" alt="Birdland Metrics logo" width="28" height="36">
       <span class="logo-text">BIRDLAND</span>
       <span class="logo-accent">METRICS</span>
     </a>
-    <button class="menu-toggle" (click)="menuOpen = !menuOpen" aria-label="Toggle menu">
-      <span class="menu-bar" [class.open]="menuOpen"></span>
-      <span class="menu-bar" [class.open]="menuOpen"></span>
-      <span class="menu-bar" [class.open]="menuOpen"></span>
-    </button>
-    <nav class="main-nav" [class.open]="menuOpen">
-      <a routerLink="/" class="nav-link" (click)="menuOpen = false">Home</a>
-      <div class="nav-dropdown">
-        <a routerLink="/articles" class="nav-link nav-link-desktop" (click)="menuOpen = false; categoriesOpen = false">
-          Articles <span class="dropdown-arrow">&#9662;</span>
-        </a>
-        <button class="nav-link nav-link-mobile" (click)="categoriesOpen = !categoriesOpen">
-          Articles <span class="dropdown-arrow" [class.open]="categoriesOpen">&#9662;</span>
-        </button>
-        @if (categories().length) {
-          <div class="dropdown-menu" [class.open]="categoriesOpen">
-            <a routerLink="/articles" class="dropdown-item dropdown-item-all" (click)="menuOpen = false; categoriesOpen = false">All Articles</a>
-            @for (cat of categories(); track cat) {
-              <a [routerLink]="['/category', cat]" class="dropdown-item" (click)="menuOpen = false; categoriesOpen = false">{{ cat }}</a>
-            }
-          </div>
-        }
-      </div>
-    </nav>
+    <div class="header-actions">
+      <app-search-overlay (expandedChange)="searchExpanded = $event" />
+      <app-theme-toggle />
+    </div>
   </div>
 </header>

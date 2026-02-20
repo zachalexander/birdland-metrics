@@ -2,6 +2,7 @@ import {
   Component,
   AfterViewInit,
   OnInit,
+  OnDestroy,
   Input,
   ElementRef,
   viewChild,
@@ -20,7 +21,7 @@ import { EloTrendConfig, renderEloTrend } from './elo-trend.render';
   templateUrl: './elo-trend.component.html',
   styleUrl: './elo-trend.component.css',
 })
-export class EloTrendComponent implements OnInit, AfterViewInit {
+export class EloTrendComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() config?: EloTrendConfig;
 
   chartContainer = viewChild<ElementRef>('chartContainer');
@@ -32,6 +33,10 @@ export class EloTrendComponent implements OnInit, AfterViewInit {
   isBrowser = false;
   loading = true;
   error = '';
+
+  private lastD3: typeof import('d3') | null = null;
+  private lastData: Record<string, import('./elo-trend.render').EloTrendDataPoint[]> | null = null;
+  private themeHandler?: () => void;
 
   private get resolvedConfig(): EloTrendConfig {
     return this.config ?? {
@@ -56,6 +61,11 @@ export class EloTrendComponent implements OnInit, AfterViewInit {
       this.seo.setCanonicalUrl('/visualizations/elo-trends');
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }
+
+    if (this.isBrowser) {
+      this.themeHandler = () => this.rerender();
+      window.addEventListener('theme-changed', this.themeHandler);
+    }
   }
 
   async ngAfterViewInit(): Promise<void> {
@@ -70,6 +80,8 @@ export class EloTrendComponent implements OnInit, AfterViewInit {
       ]);
 
       this.loading = false;
+      this.lastD3 = d3;
+      this.lastData = data;
       const container = this.chartContainer()?.nativeElement;
       if (!container) return;
 
@@ -78,5 +90,19 @@ export class EloTrendComponent implements OnInit, AfterViewInit {
       this.loading = false;
       this.error = 'Unable to load ELO data. The season may not have started yet.';
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.themeHandler && this.isBrowser) {
+      window.removeEventListener('theme-changed', this.themeHandler);
+    }
+  }
+
+  private rerender(): void {
+    if (!this.lastD3 || !this.lastData) return;
+    const container = this.chartContainer()?.nativeElement;
+    if (!container) return;
+    container.innerHTML = '';
+    renderEloTrend(container, this.lastData, this.resolvedConfig, this.lastD3);
   }
 }

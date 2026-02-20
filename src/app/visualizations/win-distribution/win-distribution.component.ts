@@ -2,6 +2,7 @@ import {
   Component,
   AfterViewInit,
   OnInit,
+  OnDestroy,
   Input,
   ElementRef,
   viewChild,
@@ -23,7 +24,7 @@ import { WinDistributionConfig, renderWinDistribution } from './win-dist.render'
   templateUrl: './win-distribution.component.html',
   styleUrl: './win-distribution.component.css',
 })
-export class WinDistributionComponent implements OnInit, AfterViewInit {
+export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() config?: WinDistributionConfig;
   @Input() projections?: TeamProjection[];
   @Input() theme?: VizColorTheme;
@@ -43,6 +44,7 @@ export class WinDistributionComponent implements OnInit, AfterViewInit {
 
   private loadedProjections: TeamProjection[] = [];
   private d3Module: typeof import('d3') | null = null;
+  private themeHandler?: () => void;
 
   private get resolvedConfig(): WinDistributionConfig {
     return this.config ?? {
@@ -56,6 +58,11 @@ export class WinDistributionComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    if (this.isBrowser) {
+      this.themeHandler = () => this.renderChart();
+      window.addEventListener('theme-changed', this.themeHandler);
+    }
+
     if (!this.config) {
       this.title.setTitle('Win Distribution — Birdland Metrics');
       this.meta.updateTag({ name: 'description', content: 'Projected win distribution curves for MLB teams.' });
@@ -108,6 +115,12 @@ export class WinDistributionComponent implements OnInit, AfterViewInit {
   onTeamChange(abbr: string): void {
     this.selectedTeam.set(abbr);
     this.renderChart();
+  }
+
+  ngOnDestroy(): void {
+    if (this.themeHandler && this.isBrowser) {
+      window.removeEventListener('theme-changed', this.themeHandler);
+    }
   }
 
   private renderChart(): void {

@@ -1,6 +1,6 @@
 import {
-  createResponsiveSvg, createTooltip,
-  FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
+  createResponsiveSvg, createTooltip, getActiveTheme,
+  FONT_MONO, FONT_SANS,
 } from '../viz-utils';
 import { PlayerSeasonStats } from '../../shared/models/mlb.models';
 
@@ -47,6 +47,7 @@ export function renderPlayerStats(
   d3: typeof import('d3'),
 ): void {
   container.innerHTML = '';
+  const theme = getActiveTheme();
 
   const metrics = config.metrics.filter(m => m in METRIC_REGISTRY);
   if (!metrics.length || !data.length) {
@@ -75,7 +76,7 @@ export function renderPlayerStats(
       .attr('font-size', '11px')
       .attr('font-weight', '700')
       .attr('letter-spacing', '0.06em')
-      .attr('fill', COLOR_TEXT_SECONDARY)
+      .attr('fill', theme.textSecondary)
       .text(config.title.toUpperCase());
   }
 
@@ -108,16 +109,16 @@ export function renderPlayerStats(
     .attr('x2', d => x(d)!)
     .attr('y1', 0)
     .attr('y2', innerHeight)
-    .attr('stroke', COLOR_BORDER)
+    .attr('stroke', theme.border)
     .attr('stroke-width', 1);
 
   // X axis
   g.append('g')
     .attr('transform', `translate(0,${innerHeight})`)
     .call(d3.axisBottom(x).tickSize(0).tickFormat(d => `${d}`))
-    .call(g => g.select('.domain').attr('stroke', COLOR_TEXT))
+    .call(g => g.select('.domain').attr('stroke', theme.text))
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
       .attr('font-size', '10px')
       .attr('font-weight', '600')
@@ -195,7 +196,7 @@ export function renderPlayerStats(
     .attr('class', 'focus-line')
     .attr('y1', 0)
     .attr('y2', innerHeight)
-    .attr('stroke', COLOR_BORDER)
+    .attr('stroke', theme.border)
     .attr('stroke-width', 1);
 
   for (const key of metrics) {
@@ -238,7 +239,7 @@ export function renderPlayerStats(
 
       focus.select('.focus-line').attr('x1', seasonX).attr('x2', seasonX);
 
-      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${COLOR_TEXT_MUTED};text-transform:uppercase;letter-spacing:0.04em">${closestSeason} SEASON</span>`;
+      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${theme.textMuted};text-transform:uppercase;letter-spacing:0.04em">${closestSeason} SEASON</span>`;
 
       for (const key of metrics) {
         const meta = METRIC_REGISTRY[key];
@@ -250,8 +251,8 @@ export function renderPlayerStats(
 
         html += `<div style="display:flex;align-items:center;gap:6px;margin-top:4px">`;
         html += `<span style="width:8px;height:8px;border-radius:50%;background:${meta.color};flex-shrink:0"></span>`;
-        html += `<span style="font-weight:500;color:${COLOR_TEXT}">${meta.shortLabel}</span>`;
-        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${COLOR_TEXT};margin-left:auto">${meta.format(val)}</span>`;
+        html += `<span style="font-weight:500;color:${theme.text}">${meta.shortLabel}</span>`;
+        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${theme.text};margin-left:auto">${meta.format(val)}</span>`;
         html += `</div>`;
       }
 
@@ -280,7 +281,7 @@ export function renderPlayerStats(
       .attr('font-family', FONT_SANS)
       .attr('font-size', '11px')
       .attr('font-weight', '500')
-      .attr('fill', COLOR_TEXT_SECONDARY)
+      .attr('fill', theme.textSecondary)
       .text(meta.label);
 
     legendX += meta.label.length * 6.5 + 40;

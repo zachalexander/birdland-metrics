@@ -2,6 +2,7 @@ import {
   Component,
   AfterViewInit,
   OnInit,
+  OnDestroy,
   Input,
   ElementRef,
   viewChild,
@@ -20,7 +21,7 @@ import { PlayerStatsVizConfig, renderPlayerStats } from './player-stats.render';
   templateUrl: './player-stats.component.html',
   styleUrl: './player-stats.component.css',
 })
-export class PlayerStatsComponent implements OnInit, AfterViewInit {
+export class PlayerStatsComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() config?: PlayerStatsVizConfig;
 
   chartContainer = viewChild<ElementRef>('chartContainer');
@@ -32,6 +33,10 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit {
   isBrowser = false;
   loading = true;
   error = '';
+
+  private lastD3: typeof import('d3') | null = null;
+  private lastData: import('../../shared/models/mlb.models').PlayerSeasonStats[] | null = null;
+  private themeHandler?: () => void;
 
   private get resolvedConfig(): PlayerStatsVizConfig {
     return this.config ?? {
@@ -46,6 +51,11 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    if (this.isBrowser) {
+      this.themeHandler = () => this.rerender();
+      window.addEventListener('theme-changed', this.themeHandler);
+    }
+
     if (!this.config) {
       this.title.setTitle('Player Stats — Birdland Metrics');
       this.meta.updateTag({ name: 'description', content: 'Explore player career statistics across MLB seasons.' });
@@ -70,6 +80,8 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit {
       ]);
 
       this.loading = false;
+      this.lastD3 = d3;
+      this.lastData = data;
       const container = this.chartContainer()?.nativeElement;
       if (!container) return;
 
@@ -78,5 +90,19 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit {
       this.loading = false;
       this.error = 'Unable to load player stats data.';
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.themeHandler && this.isBrowser) {
+      window.removeEventListener('theme-changed', this.themeHandler);
+    }
+  }
+
+  private rerender(): void {
+    if (!this.lastD3 || !this.lastData) return;
+    const container = this.chartContainer()?.nativeElement;
+    if (!container) return;
+    container.innerHTML = '';
+    renderPlayerStats(container, this.lastData, this.resolvedConfig, this.lastD3);
   }
 }

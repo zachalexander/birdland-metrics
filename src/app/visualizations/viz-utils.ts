@@ -35,12 +35,18 @@ export const LIGHT_THEME: VizColorTheme = {
 };
 
 export const DARK_THEME: VizColorTheme = {
-  text: '#f0f0f5',
-  textSecondary: 'rgba(255, 255, 255, 0.72)',
-  textMuted: 'rgba(255, 255, 255, 0.50)',
-  border: 'rgba(255, 255, 255, 0.12)',
-  bg: '#1a1a1a',
+  text: '#e8e8ed',
+  textSecondary: '#a0a0ab',
+  textMuted: '#6b6b78',
+  border: '#2a2a32',
+  bg: '#1a1a1f',
 };
+
+/** Read the current theme from the DOM data-theme attribute */
+export function getActiveTheme(): VizColorTheme {
+  if (typeof document === 'undefined') return LIGHT_THEME;
+  return document.documentElement.getAttribute('data-theme') === 'dark' ? DARK_THEME : LIGHT_THEME;
+}
 
 export interface Margin {
   top: number;
@@ -78,6 +84,7 @@ export interface TooltipHelper {
 }
 
 export function createTooltip(d3: typeof import('d3'), container: HTMLElement): TooltipHelper {
+  const theme = getActiveTheme();
   const el = d3
     .select(container)
     .append('div')
@@ -85,14 +92,14 @@ export function createTooltip(d3: typeof import('d3'), container: HTMLElement): 
     .style('position', 'absolute')
     .style('pointer-events', 'none')
     .style('z-index', '10')
-    .style('background', COLOR_BG)
-    .style('border', `1px solid ${COLOR_BORDER}`)
+    .style('background', theme.bg)
+    .style('border', `1px solid ${theme.border}`)
     .style('border-radius', '4px')
     .style('padding', '8px 12px')
     .style('font-family', FONT_SANS)
     .style('font-size', '12px')
     .style('line-height', '1.5')
-    .style('color', COLOR_TEXT)
+    .style('color', theme.text)
     .style('white-space', 'nowrap')
     .style('opacity', '0')
     .style('transition', 'opacity 150ms ease');

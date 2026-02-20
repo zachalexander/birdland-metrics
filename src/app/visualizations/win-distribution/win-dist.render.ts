@@ -1,7 +1,7 @@
 import {
-  TEAM_COLORS, createResponsiveSvg, createTooltip,
-  FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
-  VizColorTheme, LIGHT_THEME,
+  TEAM_COLORS, createResponsiveSvg, createTooltip, getActiveTheme,
+  FONT_MONO, FONT_SANS,
+  VizColorTheme,
 } from '../viz-utils';
 import { TEAM_NAMES, TeamProjection } from '../../shared/models/mlb.models';
 
@@ -35,6 +35,7 @@ export function renderWinDistribution(
   d3: typeof import('d3'),
 ): void {
   container.innerHTML = '';
+  const activeTheme = getActiveTheme();
 
   const teamData = config.teams
     .map(t => projections.find(p => p.team === t))
@@ -48,7 +49,7 @@ export function renderWinDistribution(
     return;
   }
 
-  const theme = config.theme ?? LIGHT_THEME;
+  const theme = config.theme ?? activeTheme;
   const compact = config.compact ?? false;
 
   const width = 700;
@@ -220,7 +221,7 @@ export function renderWinDistribution(
 
   // 95% confidence interval (mean ± 1.96σ)
   for (const { team, projection: td } of teamBars) {
-    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const color = TEAM_COLORS[team] ?? theme.textSecondary;
     const ciLo = Math.round(td.avg_wins - 1.96 * td.std_dev);
     const ciHi = Math.round(td.avg_wins + 1.96 * td.std_dev);
 
@@ -299,7 +300,7 @@ export function renderWinDistribution(
 
   for (let ti = 0; ti < teamBars.length; ti++) {
     const { team, bars, projection: td } = teamBars[ti];
-    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const color = TEAM_COLORS[team] ?? theme.textSecondary;
     const medianWin = Math.round(td.avg_wins);
 
     // Bars — median gets full color, others are more transparent
@@ -386,22 +387,22 @@ export function renderWinDistribution(
 
       // Update bar opacities + stroke on hovered bar
       for (const { team } of teamBars) {
-        const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+        const color = TEAM_COLORS[team] ?? theme.textSecondary;
         g.selectAll(`.bar-${team}`)
           .attr('opacity', (d: any) => d.wins === clampedWin ? OPACITY_HOVER : OPACITY_HOVER_REST)
           .attr('stroke', (d: any) => d.wins === clampedWin ? color : 'none')
           .attr('stroke-width', (d: any) => d.wins === clampedWin ? 2 : 0);
       }
 
-      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${COLOR_TEXT_MUTED};text-transform:uppercase;letter-spacing:0.04em">${clampedWin} WINS</span>`;
+      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${theme.textMuted};text-transform:uppercase;letter-spacing:0.04em">${clampedWin} WINS</span>`;
       for (const { bars } of teamBars) {
         const bar = bars.find(b => b.wins === clampedWin);
         const freq = bar?.freq ?? 0;
         const pct = (bar?.density ?? 0) * 100;
         html += `<div style="margin-top:4px;font-family:${FONT_MONO};font-size:12px">`;
-        html += `<span style="font-weight:700;color:${COLOR_TEXT}">${freq}</span>`;
-        html += `<span style="font-weight:500;color:${COLOR_TEXT_SECONDARY}"> times </span>`;
-        html += `<span style="font-weight:500;color:${COLOR_TEXT_MUTED}">(${pct.toFixed(1)}%)</span>`;
+        html += `<span style="font-weight:700;color:${theme.text}">${freq}</span>`;
+        html += `<span style="font-weight:500;color:${theme.textSecondary}"> times </span>`;
+        html += `<span style="font-weight:500;color:${theme.textMuted}">(${pct.toFixed(1)}%)</span>`;
         html += `</div>`;
       }
       tooltip.show(html);

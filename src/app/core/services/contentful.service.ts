@@ -46,6 +46,16 @@ export class ContentfulService {
     return entries.items.map((entry) => this.mapBlogPost(entry));
   }
 
+  async searchArticles(query: string): Promise<BlogPost[]> {
+    const entries = await this.client.getEntries({
+      content_type: environment.contentful.contentTypeIds.blogPost,
+      query,
+      include: 2,
+      order: ['-sys.createdAt'],
+    });
+    return entries.items.map((entry) => this.mapBlogPost(entry));
+  }
+
   async getCategories(): Promise<string[]> {
     const entries = await this.client.getEntries({
       content_type: environment.contentful.contentTypeIds.blogPost,

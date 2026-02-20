@@ -7,6 +7,8 @@ import {
   PLATFORM_ID,
   inject,
   OnChanges,
+  OnDestroy,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -20,7 +22,7 @@ import { AL_EAST, TeamProjection, PlayoffOdds } from '../../shared/models/mlb.mo
   templateUrl: './playoff-race.component.html',
   styleUrl: './playoff-race.component.css',
 })
-export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
+export class PlayoffRaceComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() config?: PlayoffRaceConfig;
   @Input() season?: number;
   @Input() projections?: TeamProjection[];
@@ -36,6 +38,7 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
   private initialized = false;
   private lastData: Record<string, import('../../shared/models/mlb.models').PlayoffOddsHistoryPoint[]> | null = null;
   private lastD3: typeof import('d3') | null = null;
+  private themeHandler?: () => void;
 
   private get resolvedConfig(): PlayoffRaceConfig {
     return this.config ?? { teams: AL_EAST };
@@ -43,6 +46,13 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
 
   constructor() {
     this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
+  ngOnInit(): void {
+    if (this.isBrowser) {
+      this.themeHandler = () => this.rerender();
+      window.addEventListener('theme-changed', this.themeHandler);
+    }
   }
 
   async ngAfterViewInit(): Promise<void> {
@@ -86,6 +96,12 @@ export class PlayoffRaceComponent implements AfterViewInit, OnChanges {
     } catch {
       this.loading = false;
       this.error = 'Unable to load playoff odds data. The season may not have started yet.';
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.themeHandler && this.isBrowser) {
+      window.removeEventListener('theme-changed', this.themeHandler);
     }
   }
 

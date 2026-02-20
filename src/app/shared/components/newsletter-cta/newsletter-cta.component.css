@@ -173,6 +173,18 @@
   color: var(--color-text);
 }
 
+/* ── Dark mode ── */
+
+:host-context([data-theme="dark"]) .cta-card {
+  background: linear-gradient(165deg, #0f0f13 0%, #1a1a1f 100%);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+:host-context([data-theme="dark"]) .cta-banner {
+  background: var(--color-bg);
+  border-top-color: var(--color-border);
+}
+
 /* ── Mobile ── */
 
 @media (max-width: 600px) {

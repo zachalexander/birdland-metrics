@@ -1,0 +1,54 @@
+<div class="search-pill" [class.expanded]="expanded" (click)="expand()">
+  <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+    <circle cx="8.5" cy="8.5" r="5.5"/>
+    <line x1="13" y1="13" x2="18" y2="18" stroke-linecap="round"/>
+  </svg>
+  @if (!expanded) {
+    <span class="search-label">Discover</span>
+  }
+  @if (expanded) {
+    <input
+      #searchInput
+      class="search-input"
+      type="text"
+      placeholder="Search articles..."
+      [value]="query"
+      (input)="onInput($event)"
+      autocomplete="off"
+    />
+    <button class="search-close" (click)="collapse(); $event.stopPropagation()" aria-label="Close search">
+      <svg viewBox="0 0 20 20" fill="currentColor" width="12" height="12">
+        <path d="M5.293 5.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z"/>
+      </svg>
+    </button>
+  }
+</div>
+
+@if (expanded && (loading || (searched && !results.length) || results.length)) {
+  <div class="search-dropdown">
+    @if (loading) {
+      <div class="search-status">Searching...</div>
+    } @else if (searched && !results.length) {
+      <div class="search-status">No articles found for "{{ query }}"</div>
+    } @else if (results.length) {
+      <ul class="search-results">
+        @for (post of results; track post.slug) {
+          <li class="search-result" (click)="selectResult(post)">
+            @if (post.coverImage) {
+              <img class="result-thumb" [src]="post.coverImage.url + '?w=120&h=80&fit=fill&fm=webp'" [alt]="post.coverImage.title" width="48" height="32" loading="lazy" />
+            }
+            <div class="result-body">
+              <span class="result-title">{{ post.title }}</span>
+              <span class="result-meta">
+                @if (post.tags.length) {
+                  <span class="result-tag">{{ post.tags[0] }}</span>
+                }
+                <span class="result-date">{{ post.publishedAt | date:'MMM d, yyyy' }}</span>
+              </span>
+            </div>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+}

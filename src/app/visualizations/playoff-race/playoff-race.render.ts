@@ -1,6 +1,6 @@
 import {
-  TEAM_COLORS, createResponsiveSvg, createTooltip,
-  FONT_MONO, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
+  TEAM_COLORS, createResponsiveSvg, createTooltip, getActiveTheme,
+  FONT_MONO,
 } from '../viz-utils';
 import { TEAM_NAMES, PlayoffOddsHistoryPoint, TeamProjection, PlayoffOdds } from '../../shared/models/mlb.models';
 
@@ -18,6 +18,7 @@ export function renderPlayoffRace(
   showAllTeams = false,
 ): void {
   container.innerHTML = '';
+  const theme = getActiveTheme();
 
   const teams = config.teams.filter(t => data[t]?.length);
   if (!teams.length) {
@@ -85,15 +86,15 @@ export function renderPlayoffRace(
     .attr('transform', `translate(${innerWidth},0)`)
     .call(d3.axisRight(y).ticks(5).tickSize(-innerWidth).tickFormat(() => ''))
     .call(g => g.select('.domain').remove())
-    .call(g => g.selectAll('.tick line').attr('stroke', COLOR_BORDER).attr('stroke-dasharray', 'none'));
+    .call(g => g.selectAll('.tick line').attr('stroke', theme.border).attr('stroke-dasharray', 'none'));
 
   // X axis
   g.append('g')
     .attr('transform', `translate(0,${innerHeight})`)
     .call(d3.axisBottom(x).ticks(xTickCount).tickFormat(d3.timeFormat('%b') as any).tickSize(0))
-    .call(g => g.select('.domain').attr('stroke', COLOR_TEXT))
+    .call(g => g.select('.domain').attr('stroke', theme.text))
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
       .attr('font-size', axisFontSize)
       .attr('font-weight', '600')
@@ -106,7 +107,7 @@ export function renderPlayoffRace(
     .call(d3.axisRight(y).ticks(5).tickSize(0).tickFormat(d => `${d}%`))
     .call(g => g.select('.domain').remove())
     .call(g => g.selectAll('.tick text')
-      .attr('fill', COLOR_TEXT_MUTED)
+      .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
       .attr('font-size', axisFontSize)
       .attr('font-weight', '700')
@@ -118,7 +119,7 @@ export function renderPlayoffRace(
     .attr('y', -(innerWidth + margin.right * 0.8))
     .attr('x', innerHeight / 2)
     .attr('text-anchor', 'middle')
-    .attr('fill', COLOR_TEXT_MUTED)
+    .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
     .attr('font-size', isMobile ? '9px' : '11px')
     .attr('font-weight', '600')
@@ -137,7 +138,7 @@ export function renderPlayoffRace(
       g.append('line')
         .attr('x1', oxPos).attr('x2', oxPos)
         .attr('y1', 0).attr('y2', innerHeight)
-        .attr('stroke', COLOR_TEXT_MUTED)
+        .attr('stroke', theme.textMuted)
         .attr('stroke-width', 1)
         .attr('stroke-dasharray', '4,3')
         .attr('opacity', 0.6);
@@ -154,12 +155,12 @@ export function renderPlayoffRace(
         .attr('orient', 'auto')
         .append('path')
         .attr('d', 'M0,0 L6,3 L0,6 Z')
-        .attr('fill', COLOR_TEXT_MUTED);
+        .attr('fill', theme.textMuted);
 
       g.append('path')
         .attr('d', arrowPath)
         .attr('fill', 'none')
-        .attr('stroke', COLOR_TEXT_MUTED)
+        .attr('stroke', theme.textMuted)
         .attr('stroke-width', 1)
         .attr('opacity', 0.7)
         .attr('marker-end', 'url(#arrow-opening)');
@@ -170,7 +171,7 @@ export function renderPlayoffRace(
         .attr('font-family', FONT_MONO)
         .attr('font-size', isMobile ? '8px' : '9px')
         .attr('font-weight', '600')
-        .attr('fill', COLOR_TEXT_MUTED)
+        .attr('fill', theme.textMuted)
         .attr('text-anchor', 'start')
         .text('(3/26) Regular season starts');
     }
@@ -260,11 +261,11 @@ export function renderPlayoffRace(
       const tickDy = Math.cos(bAngle) * tickLen;
 
       g.append('line').attr('x1', bx1).attr('y1', bby1).attr('x2', bx1 + tickDx).attr('y2', bby1 + tickDy)
-        .attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+        .attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
       g.append('line').attr('x1', bx2).attr('y1', bby2).attr('x2', bx2 + tickDx).attr('y2', bby2 + tickDy)
-        .attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+        .attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
       g.append('line').attr('x1', bx1).attr('y1', bby1).attr('x2', bx2).attr('y2', bby2)
-        .attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+        .attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
 
       const bmx = (bx1 + bx2) / 2;
       const bmy = (bby1 + bby2) / 2;
@@ -276,17 +277,17 @@ export function renderPlayoffRace(
 
       g.append('path')
         .attr('d', `M${bmx},${bmy} C${bmx},${bmy - stemH * 0.4} ${tipX - curveOffsetX * 0.3 * dir},${tipY + stemH * 0.2} ${tipX},${tipY}`)
-        .attr('fill', 'none').attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+        .attr('fill', 'none').attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
 
       g.append('text').attr('x', tipX).attr('y', tipY - (isMobile ? 10 : 12))
         .attr('font-family', FONT_MONO).attr('font-size', isMobile ? '8px' : '9px')
-        .attr('font-weight', '600').attr('fill', COLOR_TEXT_MUTED).attr('text-anchor', 'middle').text(line1);
+        .attr('font-weight', '600').attr('fill', theme.textMuted).attr('text-anchor', 'middle').text(line1);
       g.append('text').attr('x', tipX).attr('y', tipY - (isMobile ? 2 : 3))
         .attr('font-family', FONT_MONO).attr('font-size', isMobile ? '8px' : '9px')
-        .attr('font-weight', '600').attr('fill', COLOR_TEXT_MUTED).attr('text-anchor', 'middle').text(line2);
+        .attr('font-weight', '600').attr('fill', theme.textMuted).attr('text-anchor', 'middle').text(line2);
     };
 
-    drawBracket(new Date(2025, 3, 20), new Date(2025, 3, 29), 'Lost 7', 'out of 9', -0.08, 0, -14, true);
+    drawBracket(new Date(2025, 3, 20), new Date(2025, 3, 29), 'Lost 7', 'out of 9', -0.8, 0, -14, true);
     drawBracket(new Date(2025, 4, 4), new Date(2025, 4, 11), '5-game losing', 'streak', null);
     drawBracket(new Date(2025, 4, 14), new Date(2025, 4, 20), '8-game losing', 'streak', -0.08);
   }
@@ -303,7 +304,7 @@ export function renderPlayoffRace(
   const teamPaths: Record<string, d3.Selection<SVGPathElement | SVGCircleElement, any, any, any>> = {};
 
   for (const team of teams) {
-    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const color = TEAM_COLORS[team] ?? theme.textSecondary;
     const pts = parsedData[team];
     const isOther = team !== 'BAL';
 
@@ -437,14 +438,14 @@ export function renderPlayoffRace(
     .attr('class', 'focus-line')
     .attr('y1', 0)
     .attr('y2', innerHeight)
-    .attr('stroke', COLOR_BORDER)
+    .attr('stroke', theme.border)
     .attr('stroke-width', 1);
 
   for (const team of teams) {
     focus.append('circle')
       .attr('class', `focus-dot-${team}`)
       .attr('r', focusDotR)
-      .attr('fill', TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY)
+      .attr('fill', TEAM_COLORS[team] ?? theme.textSecondary)
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5);
   }
@@ -472,7 +473,7 @@ export function renderPlayoffRace(
 
       focus.select('.focus-line').attr('x1', mx).attr('x2', mx);
 
-      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${COLOR_TEXT_MUTED};text-transform:uppercase;letter-spacing:0.04em">${d3.timeFormat('%b %d, %Y')(hoveredDate)}</span>`;
+      let html = `<span style="font-family:${FONT_MONO};font-size:10px;font-weight:600;color:${theme.textMuted};text-transform:uppercase;letter-spacing:0.04em">${d3.timeFormat('%b %d, %Y')(hoveredDate)}</span>`;
 
       const visibleTeams = showAllTeams ? teams : ['BAL'];
       const teamValues: { team: string; pct: number; d: { date: Date; playoff_pct: number } }[] = [];
@@ -498,12 +499,12 @@ export function renderPlayoffRace(
           .attr('cx', x(d.date))
           .attr('cy', y(d.playoff_pct));
 
-        const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+        const color = TEAM_COLORS[team] ?? theme.textSecondary;
         const name = TEAM_NAMES[team] ?? team;
         html += `<div style="display:flex;align-items:center;gap:6px;margin-top:4px">`;
         html += `<span style="width:8px;height:8px;border-radius:50%;background:${color};flex-shrink:0"></span>`;
-        html += `<span style="font-weight:500;color:${COLOR_TEXT}">${name}</span>`;
-        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${COLOR_TEXT};margin-left:auto">${pct.toFixed(1)}%</span>`;
+        html += `<span style="font-weight:500;color:${theme.text}">${name}</span>`;
+        html += `<span style="font-family:${FONT_MONO};font-weight:700;color:${theme.text};margin-left:auto">${pct.toFixed(1)}%</span>`;
         html += `</div>`;
       }
 
@@ -548,7 +549,7 @@ export function renderPlayoffRace(
 
   const teamLabels: Record<string, d3.Selection<SVGTextElement, unknown, null, undefined>> = {};
   for (const team of teams) {
-    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
+    const color = TEAM_COLORS[team] ?? theme.textSecondary;
     const isOther = team !== 'BAL';
 
     const label = g.append('text')

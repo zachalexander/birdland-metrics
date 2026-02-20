@@ -17,6 +17,17 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <script>
+    // Prevent flash of wrong theme on load
+    (function() {
+      var t;
+      try { t = localStorage.getItem('bm-theme'); } catch(e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <app-root></app-root>
 </body>
 </html>
