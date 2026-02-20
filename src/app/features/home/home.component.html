@@ -10,9 +10,6 @@
           </h1>
           <p class="hero-meta hero-meta-full">Model updated daily in-season from 10,000 simulated seasons.</p>
           <div class="hero-question-divider"></div>
-          @if (lastRunDate(); as runDate) {
-            <span class="hero-run-date">Updated {{ runDate }}</span>
-          }
         </div>
         <div class="hero-numbers">
           <div class="hero-big-wrap">
@@ -50,45 +47,47 @@
       </div>
     }
   </section>
-  @if (!dashboardLoading()) {
-    <!-- AL East Race -->
-    <section class="section-card section-card-race">
-      <p class="section-kicker race-kicker">{{ oddsSeason() + ' Season' }}</p>
-      <h2 class="section-heading race-heading">{{ oddsSeason() === 2026 ? "The Daily Playoff Pulse" : oddsSeason() + ' Playoff In-Season Projections' }}</h2>
-      @if (oddsSeason() === 2026) {
-        <p class="race-subtext">Every win, every loss, every shake-up shifts the odds. Check back daily to see where the O's stand in the playoff race.</p>
-      }
-      <div class="race-controls">
-        <div class="toggle-controls">
-          <div class="seg-toggle">
-            @for (year of [2024, 2025, 2026]; track year) {
-              <button class="seg-btn" [class.seg-active]="oddsSeason() === year"
-                      (click)="setOddsSeason(year)">
-                {{ year === 2026 ? 'Current' : year }}
-              </button>
-            }
-          </div>
-          <div class="seg-toggle">
-            <button class="seg-btn" [class.seg-active]="!showAllTeams()"
-                    (click)="showAllTeams.set(false)">Orioles</button>
-            <button class="seg-btn" [class.seg-active]="showAllTeams()"
-                    (click)="showAllTeams.set(true)">AL East</button>
-          </div>
-        </div>
-        @if (oddsSeason() === 2026 && lastRunDate(); as runDate) {
-          <span class="race-updated">Updated {{ runDate }}</span>
-        }
-      </div>
-      <app-playoff-race
-        [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }"
-        [season]="oddsSeason()"
-        [projections]="projections()"
-        [odds]="allOdds()"
-        [showAllTeams]="showAllTeams()"
-      />
-    </section>
-  }
+
 </div>
+
+@if (!dashboardLoading()) {
+  <!-- AL East Race -->
+  <section class="race-band">
+    <p class="section-kicker race-kicker">{{ oddsSeason() + ' Season' }}</p>
+    <h2 class="section-heading race-heading">{{ oddsSeason() === 2026 ? "The Daily Playoff Pulse" : oddsSeason() + ' Playoff In-Season Projections' }}</h2>
+    @if (oddsSeason() === 2026) {
+      <p class="race-subtext">Every win, every loss, every shake-up shifts the odds. Check back daily to see where the O's stand in the playoff race.</p>
+    }
+    <div class="race-controls">
+      <div class="toggle-controls">
+        <div class="seg-toggle">
+          @for (year of [2024, 2025, 2026]; track year) {
+            <button class="seg-btn" [class.seg-active]="oddsSeason() === year"
+                    (click)="setOddsSeason(year)">
+              {{ year === 2026 ? 'Current' : year }}
+            </button>
+          }
+        </div>
+        <div class="seg-toggle">
+          <button class="seg-btn" [class.seg-active]="!showAllTeams()"
+                  (click)="showAllTeams.set(false)">Orioles</button>
+          <button class="seg-btn" [class.seg-active]="showAllTeams()"
+                  (click)="showAllTeams.set(true)">AL East</button>
+        </div>
+      </div>
+      @if (oddsSeason() === 2026 && lastRunDate(); as runDate) {
+        <span class="race-updated">Updated {{ runDate }}</span>
+      }
+    </div>
+    <app-playoff-race
+      [config]="{ teams: ['BAL', 'NYY', 'BOS', 'TB', 'TOR'] }"
+      [season]="oddsSeason()"
+      [projections]="projections()"
+      [odds]="allOdds()"
+      [showAllTeams]="showAllTeams()"
+    />
+  </section>
+}
 
 <app-newsletter-cta />
 

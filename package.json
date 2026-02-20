@@ -48,6 +48,7 @@
     "@angular/compiler-cli": "^21.1.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "puppeteer": "^24.37.5",
     "typescript": "~5.9.2"
   }
 }

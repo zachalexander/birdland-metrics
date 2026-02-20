@@ -31,8 +31,8 @@ export function renderPlayoffRace(
   const isCurrent = projections !== undefined || odds !== undefined;
   const containerWidth = container.getBoundingClientRect().width || 700;
   const isMobile = containerWidth < 500;
-  const width = isMobile ? 380 : 700;
-  const height = isMobile ? 280 : 260;
+  const width = isMobile ? 380 : Math.min(containerWidth * 0.7, 900);
+  const height = isMobile ? 280 : 320;
   const margin = isMobile
     ? { top: 10, right: 44, bottom: 24, left: 32 }
     : { top: 12, right: 62, bottom: 28, left: 38 };
@@ -46,7 +46,28 @@ export function renderPlayoffRace(
   const focusDotR = isMobile ? 3 : 3.5;
   const labelSpacing = isMobile ? 12 : 15;
 
-  const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
+  // Flex wrapper: side-by-side on desktop, stacked on mobile
+  const flexWrapper = d3.select(container).append('div')
+    .style('display', 'flex')
+    .style('flex-direction', isMobile ? 'column' : 'row')
+    .style('align-items', isMobile ? 'center' : 'flex-start')
+    .style('gap', isMobile ? '0' : '16px');
+
+  const chartColumn = flexWrapper.append('div')
+    .style('flex', isMobile ? 'none' : '7')
+    .style('width', isMobile ? '100%' : 'auto')
+    .style('min-width', '0');
+
+  const standingsColumn = flexWrapper.append('div')
+    .style('flex', isMobile ? 'none' : '3')
+    .style('width', isMobile ? '100%' : 'auto')
+    .style('min-width', '0')
+    .style('display', 'flex')
+    .style('flex-direction', 'column')
+    .style('justify-content', 'center');
+
+  const chartEl = chartColumn.node() as HTMLElement;
+  const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, chartEl, width, height, margin);
 
   // Parse dates and build typed arrays
   const parsedData: Record<string, { date: Date; playoff_pct: number }[]> = {};
@@ -255,7 +276,7 @@ export function renderPlayoffRace(
   }
 
   // Tooltip + hover interaction
-  const tooltip = createTooltip(d3, container);
+  const tooltip = createTooltip(d3, chartEl);
   const bisect = d3.bisector<{ date: Date; playoff_pct: number }, Date>(d => d.date).left;
 
   const focus = g.append('g').style('display', 'none');
@@ -426,29 +447,32 @@ export function renderPlayoffRace(
   // Only render if we have odds data
   if (Object.keys(oddsMap).length === 0) return;
 
-  const cellPad = isMobile ? '0.35rem 0.35rem' : '0.5rem 0.6rem';
-  const tdCellPad = isMobile ? '0.3rem 0.35rem' : '0.45rem 0.6rem';
-  const thFontSize = isMobile ? '0.58rem' : '0.7rem';
-  const tdNumFontSize = isMobile ? '0.7rem' : '0.8rem';
+  const cellPad = isMobile ? '0.35rem 0.35rem' : '0.4rem 0.4rem';
+  const tdCellPad = isMobile ? '0.3rem 0.35rem' : '0.35rem 0.4rem';
+  const thFontSize = isMobile ? '0.58rem' : '0.62rem';
+  const tdNumFontSize = isMobile ? '0.7rem' : '0.72rem';
   const thStyle = `font-family:${FONT_MONO};font-size:${thFontSize};font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:${COLOR_TEXT_MUTED};padding:${cellPad};border-bottom:2px solid ${COLOR_BORDER};text-align:right`;
   const thTeamStyle = `${thStyle};text-align:left`;
   const tdStyle = `padding:${tdCellPad};border-bottom:1px solid ${COLOR_BORDER};color:${COLOR_TEXT}`;
   const tdTeamStyle = `${tdStyle};font-weight:400;white-space:nowrap`;
   const tdNumStyle = `${tdStyle};text-align:right;font-family:${FONT_MONO};font-size:${tdNumFontSize};font-weight:400`;
-  const dotStyle = (c: string) => `display:inline-block;width:8px;height:8px;border-radius:50%;background:${c};margin-right:6px;vertical-align:middle`;
+  const dotStyle = (c: string) => `display:inline-block;width:${isMobile ? 8 : 6}px;height:${isMobile ? 8 : 6}px;border-radius:50%;background:${c};margin-right:${isMobile ? 6 : 4}px;vertical-align:middle`;
 
-  const tableDiv = d3.select(container).append('div')
-    .style('max-width', '480px')
-    .style('margin', '24px auto 0');
+  if (!isMobile) {
+    standingsColumn.append('h3')
+      .style('font-family', FONT_SANS)
+      .style('font-size', '0.82rem')
+      .style('font-weight', '700')
+      .style('color', COLOR_TEXT)
+      .style('margin', '0 0 0.5rem')
+      .style('text-align', 'center')
+      .text('Projected AL East Standings');
+  }
 
-  tableDiv.append('h3')
-    .style('font-family', FONT_MONO)
-    .style('font-size', '0.78rem')
-    .style('font-weight', '500')
-    .style('color', COLOR_TEXT_MUTED)
-    .style('margin', '0 0 8px')
-    .style('text-align', 'center')
-    .text(hasProjections ? 'Projected AL East Standings' : 'AL East Standings');
+  const tableDiv = standingsColumn.append('div')
+    .style('width', '100%')
+    .style('margin', isMobile ? '24px auto 0' : '0')
+    .style('max-width', isMobile ? '480px' : 'none');
 
   let headerHtml = `<tr><th style="${thTeamStyle}">Team</th>`;
   if (hasProjections) {
@@ -481,6 +505,6 @@ export function renderPlayoffRace(
   }
 
   tableDiv.append('table')
-    .attr('style', `width:100%;border-collapse:collapse;font-family:${FONT_SANS};font-size:${isMobile ? '0.75rem' : '0.85rem'}`)
+    .attr('style', `width:100%;border-collapse:collapse;font-family:${FONT_SANS};font-size:${isMobile ? '0.75rem' : '0.78rem'}`)
     .html(`<thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody>`);
 }

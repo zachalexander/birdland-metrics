@@ -134,8 +134,6 @@ export class HomeComponent implements OnInit {
 
     if (isPlatformBrowser(this.platformId)) {
       this.loadDashboard();
-    } else {
-      this.dashboardLoading.set(false);
     }
   }
 
