@@ -1,8 +1,8 @@
 import {
   TEAM_COLORS, createResponsiveSvg, createTooltip,
-  FONT_MONO, FONT_SANS, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
+  FONT_MONO, COLOR_TEXT, COLOR_TEXT_SECONDARY, COLOR_TEXT_MUTED, COLOR_BORDER,
 } from '../viz-utils';
-import { TEAM_NAMES, PlayoffOddsHistoryPoint, TeamProjection, PlayoffOdds, AL_EAST } from '../../shared/models/mlb.models';
+import { TEAM_NAMES, PlayoffOddsHistoryPoint, TeamProjection, PlayoffOdds } from '../../shared/models/mlb.models';
 
 export interface PlayoffRaceConfig {
   teams: string[];
@@ -31,12 +31,12 @@ export function renderPlayoffRace(
   const isCurrent = projections !== undefined || odds !== undefined;
   const containerWidth = container.getBoundingClientRect().width || 700;
   const isMobile = containerWidth < 500;
-  const width = isMobile ? 380 : Math.min(containerWidth * 0.7, 900);
-  const height = isMobile ? 280 : 320;
+  const width = isMobile ? 380 : Math.min(containerWidth * 0.75, 720);
+  const height = isMobile ? 280 : 260;
   const margin = isMobile
-    ? { top: 10, right: 44, bottom: 24, left: 32 }
-    : { top: 12, right: 62, bottom: 28, left: 38 };
-  const axisFontSize = isMobile ? '10px' : '13px';
+    ? { top: 28, right: 44, bottom: 24, left: 32 }
+    : { top: 30, right: 62, bottom: 28, left: 38 };
+  const axisFontSize = isMobile ? '9px' : '11px';
   const labelFontSize = isMobile ? '10px' : '13px';
   const xTickCount = isMobile ? 6 : 6;
   const balStroke = isMobile ? 2.5 : 3.5;
@@ -46,28 +46,7 @@ export function renderPlayoffRace(
   const focusDotR = isMobile ? 3 : 3.5;
   const labelSpacing = isMobile ? 12 : 15;
 
-  // Flex wrapper: side-by-side on desktop, stacked on mobile
-  const flexWrapper = d3.select(container).append('div')
-    .style('display', 'flex')
-    .style('flex-direction', isMobile ? 'column' : 'row')
-    .style('align-items', isMobile ? 'center' : 'flex-start')
-    .style('gap', isMobile ? '0' : '16px');
-
-  const chartColumn = flexWrapper.append('div')
-    .style('flex', isMobile ? 'none' : '7')
-    .style('width', isMobile ? '100%' : 'auto')
-    .style('min-width', '0');
-
-  const standingsColumn = flexWrapper.append('div')
-    .style('flex', isMobile ? 'none' : '3')
-    .style('width', isMobile ? '100%' : 'auto')
-    .style('min-width', '0')
-    .style('display', 'flex')
-    .style('flex-direction', 'column')
-    .style('justify-content', 'center');
-
-  const chartEl = chartColumn.node() as HTMLElement;
-  const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, chartEl, width, height, margin);
+  const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
 
   // Parse dates and build typed arrays
   const parsedData: Record<string, { date: Date; playoff_pct: number }[]> = {};
@@ -145,6 +124,172 @@ export function renderPlayoffRace(
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text('PLAYOFF ODDS');
+
+  // --- Chart annotations ---
+  const seasonYear = minDate.getFullYear();
+  const balColor = TEAM_COLORS['BAL'];
+
+  // 2026: Opening Day dashed line + muted arrow/label above chart
+  if (isCurrent) {
+    const openingDay = new Date(seasonYear, 2, 26);
+    const oxPos = x(openingDay);
+    if (oxPos >= 0 && oxPos <= innerWidth) {
+      g.append('line')
+        .attr('x1', oxPos).attr('x2', oxPos)
+        .attr('y1', 0).attr('y2', innerHeight)
+        .attr('stroke', COLOR_TEXT_MUTED)
+        .attr('stroke-width', 1)
+        .attr('stroke-dasharray', '4,3')
+        .attr('opacity', 0.6);
+
+      const labelY = isMobile ? -18 : -22;
+      const curveOffset = isMobile ? 30 : 40;
+      const arrowPath = `M${oxPos + curveOffset},${labelY} C${oxPos + curveOffset * 0.5},${labelY - 6} ${oxPos + 6},${labelY - 2} ${oxPos},${-2}`;
+
+      svg.append('defs').append('marker')
+        .attr('id', 'arrow-opening')
+        .attr('viewBox', '0 0 6 6')
+        .attr('refX', 5).attr('refY', 3)
+        .attr('markerWidth', 5).attr('markerHeight', 5)
+        .attr('orient', 'auto')
+        .append('path')
+        .attr('d', 'M0,0 L6,3 L0,6 Z')
+        .attr('fill', COLOR_TEXT_MUTED);
+
+      g.append('path')
+        .attr('d', arrowPath)
+        .attr('fill', 'none')
+        .attr('stroke', COLOR_TEXT_MUTED)
+        .attr('stroke-width', 1)
+        .attr('opacity', 0.7)
+        .attr('marker-end', 'url(#arrow-opening)');
+
+      g.append('text')
+        .attr('x', oxPos + curveOffset + 2)
+        .attr('y', labelY + 4)
+        .attr('font-family', FONT_MONO)
+        .attr('font-size', isMobile ? '8px' : '9px')
+        .attr('font-weight', '600')
+        .attr('fill', COLOR_TEXT_MUTED)
+        .attr('text-anchor', 'start')
+        .text('(3/26) Regular season starts');
+    }
+  }
+
+  // 2025: Brandon Hyde annotation — orange arrow pointing at BAL line (Orioles view only)
+  if (seasonYear === 2025 && !showAllTeams) {
+    const hydeDate = new Date(2025, 4, 17);
+    const hxPos = x(hydeDate);
+    if (hxPos >= 0 && hxPos <= innerWidth) {
+      const balPts = parsedData['BAL'];
+      const bisectDate = d3.bisector<{ date: Date; playoff_pct: number }, Date>(d => d.date).left;
+      let targetY = y(50);
+      if (balPts?.length) {
+        const i = bisectDate(balPts, hydeDate, 1);
+        const d0 = balPts[i - 1];
+        const d1 = balPts[i];
+        const closest = d1 && (hydeDate.getTime() - d0.date.getTime() > d1.date.getTime() - hydeDate.getTime()) ? d1 : (d0 ?? balPts[0]);
+        targetY = y(closest.playoff_pct);
+      }
+
+      svg.append('defs').append('marker')
+        .attr('id', 'arrow-hyde')
+        .attr('viewBox', '0 0 6 6')
+        .attr('refX', 5).attr('refY', 3)
+        .attr('markerWidth', 5).attr('markerHeight', 5)
+        .attr('orient', 'auto')
+        .append('path')
+        .attr('d', 'M0,0 L6,3 L0,6 Z')
+        .attr('fill', balColor);
+
+      const curveOffset = isMobile ? 40 : 50;
+      const labelY = targetY - (isMobile ? 38 : 48);
+      const arrowPath = `M${hxPos + curveOffset},${labelY} C${hxPos + curveOffset * 0.5},${labelY + 10} ${hxPos + 8},${targetY - 12} ${hxPos + 2},${targetY - 6}`;
+
+      g.append('path')
+        .attr('d', arrowPath)
+        .attr('fill', 'none')
+        .attr('stroke', balColor)
+        .attr('stroke-width', 1)
+        .attr('opacity', 0.8)
+        .attr('marker-end', 'url(#arrow-hyde)');
+
+      g.append('text')
+        .attr('x', hxPos + curveOffset + 2)
+        .attr('y', labelY + 4)
+        .attr('font-family', FONT_MONO)
+        .attr('font-size', isMobile ? '8px' : '9px')
+        .attr('font-weight', '700')
+        .attr('fill', balColor)
+        .attr('text-anchor', 'start')
+        .text('(5/17) Brandon Hyde fired');
+    }
+
+    // Bracket annotation helper
+    const drawBracket = (startDate: Date, endDate: Date, line1: string, line2: string, rotateOffset: number | null = -0.08, extraX = 0, extraY = 0, curveLeft = false) => {
+      const bsx1 = x(startDate);
+      const bsx2 = x(endDate);
+      if (bsx1 < 0 || bsx2 > innerWidth) return;
+
+      const balPts = parsedData['BAL'];
+      const bisectDate = d3.bisector<{ date: Date; playoff_pct: number }, Date>(d => d.date).left;
+      let by1Val = y(50), by2Val = y(50);
+      if (balPts?.length) {
+        const i1 = bisectDate(balPts, startDate, 1);
+        const p1 = balPts[i1 - 1] ?? balPts[0];
+        by1Val = y(p1.playoff_pct);
+        const i2 = bisectDate(balPts, endDate, 1);
+        const p2 = balPts[i2] ?? balPts[i2 - 1] ?? balPts[balPts.length - 1];
+        by2Val = y(p2.playoff_pct);
+      }
+
+      const rawAngle = Math.atan2(by2Val - by1Val, bsx2 - bsx1);
+      const bAngle = rotateOffset === null ? 0 : rawAngle + rotateOffset;
+      const perpDist = isMobile ? 9 : 12;
+      const perpX = Math.sin(bAngle) * perpDist;
+      const perpY = -Math.cos(bAngle) * perpDist;
+      const shiftLeft = isMobile ? 2 : 4;
+      // When flattened, use average y so the bar is truly horizontal
+      const flatY = rotateOffset === null ? (by1Val + by2Val) / 2 - (isMobile ? 6 : 8) : null;
+      const bx1 = bsx1 + perpX - shiftLeft + extraX;
+      const bby1 = (flatY ?? by1Val) + perpY + extraY;
+      const bx2 = bsx2 + perpX - shiftLeft + extraX + (rotateOffset === null && curveLeft ? (isMobile ? -8 : -12) : rotateOffset === null ? (isMobile ? -3 : -4) : 0);
+      const bby2 = (flatY ?? by2Val) + perpY + extraY + (rotateOffset === null && curveLeft ? (isMobile ? 10 : 14) : rotateOffset === null ? (isMobile ? 4 : 5) : 0);
+      const tickLen = isMobile ? 3 : 4;
+      const tickDx = -Math.sin(bAngle) * tickLen;
+      const tickDy = Math.cos(bAngle) * tickLen;
+
+      g.append('line').attr('x1', bx1).attr('y1', bby1).attr('x2', bx1 + tickDx).attr('y2', bby1 + tickDy)
+        .attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+      g.append('line').attr('x1', bx2).attr('y1', bby2).attr('x2', bx2 + tickDx).attr('y2', bby2 + tickDy)
+        .attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+      g.append('line').attr('x1', bx1).attr('y1', bby1).attr('x2', bx2).attr('y2', bby2)
+        .attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+
+      const bmx = (bx1 + bx2) / 2;
+      const bmy = (bby1 + bby2) / 2;
+      const stemH = isMobile ? 38 : 52;
+      const curveOffsetX = curveLeft ? (isMobile ? 3 : 4) : (isMobile ? 25 : 35);
+      const dir = curveLeft ? -1 : 1;
+      const tipX = bmx + curveOffsetX * dir;
+      const tipY = bmy - stemH;
+
+      g.append('path')
+        .attr('d', `M${bmx},${bmy} C${bmx},${bmy - stemH * 0.4} ${tipX - curveOffsetX * 0.3 * dir},${tipY + stemH * 0.2} ${tipX},${tipY}`)
+        .attr('fill', 'none').attr('stroke', COLOR_TEXT_MUTED).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
+
+      g.append('text').attr('x', tipX).attr('y', tipY - (isMobile ? 10 : 12))
+        .attr('font-family', FONT_MONO).attr('font-size', isMobile ? '8px' : '9px')
+        .attr('font-weight', '600').attr('fill', COLOR_TEXT_MUTED).attr('text-anchor', 'middle').text(line1);
+      g.append('text').attr('x', tipX).attr('y', tipY - (isMobile ? 2 : 3))
+        .attr('font-family', FONT_MONO).attr('font-size', isMobile ? '8px' : '9px')
+        .attr('font-weight', '600').attr('fill', COLOR_TEXT_MUTED).attr('text-anchor', 'middle').text(line2);
+    };
+
+    drawBracket(new Date(2025, 3, 20), new Date(2025, 3, 29), 'Lost 7', 'out of 9', -0.08, 0, -14, true);
+    drawBracket(new Date(2025, 4, 4), new Date(2025, 4, 11), '5-game losing', 'streak', null);
+    drawBracket(new Date(2025, 4, 14), new Date(2025, 4, 20), '8-game losing', 'streak', -0.08);
+  }
 
   // --- Team visibility state ---
   const otherTeams = teams.filter(t => t !== 'BAL');
@@ -276,8 +421,16 @@ export function renderPlayoffRace(
   }
 
   // Tooltip + hover interaction
-  const tooltip = createTooltip(d3, chartEl);
+  const tooltip = createTooltip(d3, container);
   const bisect = d3.bisector<{ date: Date; playoff_pct: number }, Date>(d => d.date).left;
+
+  // For 2026 (current season), find the last date with actual data
+  const maxDataDate = isCurrent
+    ? d3.max(teams, team => {
+        const pts = parsedData[team];
+        return pts?.length ? pts[pts.length - 1].date : undefined;
+      }) ?? null
+    : null;
 
   const focus = g.append('g').style('display', 'none');
   focus.append('line')
@@ -309,6 +462,13 @@ export function renderPlayoffRace(
     .on('mousemove', (event: MouseEvent) => {
       const [mx] = d3.pointer(event);
       const hoveredDate = x.invert(mx);
+
+      if (maxDataDate && hoveredDate > maxDataDate) {
+        focus.style('display', 'none');
+        tooltip.hide();
+        return;
+      }
+      focus.style('display', null);
 
       focus.select('.focus-line').attr('x1', mx).attr('x2', mx);
 
@@ -406,105 +566,4 @@ export function renderPlayoffRace(
     teamLabels[team] = label;
   }
 
-  // --- Standings table below chart ---
-  // Build odds lookup: use provided odds, or fall back to latest snapshot from history data
-  const oddsMap: Record<string, { playoff_pct: number; division_pct: number; wildcard_pct: number }> = {};
-  if (odds?.length) {
-    for (const o of odds) {
-      if (teams.includes(o.team)) {
-        oddsMap[o.team] = { playoff_pct: o.playoff_pct, division_pct: o.division_pct, wildcard_pct: o.wildcard_pct };
-      }
-    }
-  } else {
-    // Fallback: use the last data point from history
-    for (const team of teams) {
-      const pts = data[team];
-      if (pts?.length) {
-        const last = pts[pts.length - 1];
-        oddsMap[team] = {
-          playoff_pct: last.playoff_pct,
-          division_pct: last.division_pct ?? 0,
-          wildcard_pct: last.wildcard_pct ?? 0,
-        };
-      }
-    }
-  }
-
-  // Build projections lookup
-  const projMap: Record<string, TeamProjection> = {};
-  const hasProjections = !!projections?.length;
-  if (hasProjections) {
-    for (const p of projections!) {
-      if (teams.includes(p.team)) {
-        projMap[p.team] = p;
-      }
-    }
-  }
-
-  // Sort teams by playoff % descending
-  const sortedTeams = [...teams].sort((a, b) => (oddsMap[b]?.playoff_pct ?? 0) - (oddsMap[a]?.playoff_pct ?? 0));
-
-  // Only render if we have odds data
-  if (Object.keys(oddsMap).length === 0) return;
-
-  const cellPad = isMobile ? '0.35rem 0.35rem' : '0.4rem 0.4rem';
-  const tdCellPad = isMobile ? '0.3rem 0.35rem' : '0.35rem 0.4rem';
-  const thFontSize = isMobile ? '0.58rem' : '0.62rem';
-  const tdNumFontSize = isMobile ? '0.7rem' : '0.72rem';
-  const thStyle = `font-family:${FONT_MONO};font-size:${thFontSize};font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:${COLOR_TEXT_MUTED};padding:${cellPad};border-bottom:2px solid ${COLOR_BORDER};text-align:right`;
-  const thTeamStyle = `${thStyle};text-align:left`;
-  const tdStyle = `padding:${tdCellPad};border-bottom:1px solid ${COLOR_BORDER};color:${COLOR_TEXT}`;
-  const tdTeamStyle = `${tdStyle};font-weight:400;white-space:nowrap`;
-  const tdNumStyle = `${tdStyle};text-align:right;font-family:${FONT_MONO};font-size:${tdNumFontSize};font-weight:400`;
-  const dotStyle = (c: string) => `display:inline-block;width:${isMobile ? 8 : 6}px;height:${isMobile ? 8 : 6}px;border-radius:50%;background:${c};margin-right:${isMobile ? 6 : 4}px;vertical-align:middle`;
-
-  if (!isMobile) {
-    standingsColumn.append('h3')
-      .style('font-family', FONT_SANS)
-      .style('font-size', '0.82rem')
-      .style('font-weight', '700')
-      .style('color', COLOR_TEXT)
-      .style('margin', '0 0 0.5rem')
-      .style('text-align', 'center')
-      .text('Projected AL East Standings');
-  }
-
-  const tableDiv = standingsColumn.append('div')
-    .style('width', '100%')
-    .style('margin', isMobile ? '24px auto 0' : '0')
-    .style('max-width', isMobile ? '480px' : 'none');
-
-  let headerHtml = `<tr><th style="${thTeamStyle}">Team</th>`;
-  if (hasProjections) {
-    headerHtml += `<th style="${thStyle}">W</th><th style="${thStyle}">L</th>`;
-  }
-  headerHtml += `<th style="${thStyle}">Playoff %</th><th style="${thStyle}">Div %</th><th style="${thStyle}">WC %</th></tr>`;
-
-  let bodyHtml = '';
-  for (const team of sortedTeams) {
-    const o = oddsMap[team];
-    if (!o) continue;
-    const color = TEAM_COLORS[team] ?? COLOR_TEXT_SECONDARY;
-    const name = TEAM_NAMES[team] ?? team;
-    const isBAL = team === 'BAL';
-    const bgHighlight = isBAL ? 'background:rgba(223,74,0,0.06);' : '';
-    const teamColor = isBAL ? 'color:#df4a00;' : '';
-
-    bodyHtml += '<tr>';
-    bodyHtml += `<td style="${tdTeamStyle};${bgHighlight}${teamColor}"><span style="${dotStyle(color)}"></span>${name}</td>`;
-    if (hasProjections) {
-      const proj = projMap[team];
-      const wins = proj ? Math.round(proj.median_wins) : '\u2014';
-      const losses = proj ? 162 - Math.round(proj.median_wins) : '\u2014';
-      bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${wins}</td><td style="${tdNumStyle};${bgHighlight}">${losses}</td>`;
-    }
-    bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${Math.round(o.playoff_pct)}%</td>`;
-    bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${Math.round(o.division_pct)}%</td>`;
-    bodyHtml += `<td style="${tdNumStyle};${bgHighlight}">${Math.round(o.wildcard_pct)}%</td>`;
-    bodyHtml += '</tr>';
-  }
-
-  tableDiv.append('table')
-    .attr('style', `width:100%;border-collapse:collapse;font-family:${FONT_SANS};font-size:${isMobile ? '0.75rem' : '0.78rem'}`)
-    .html(`<thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody>`);
 }

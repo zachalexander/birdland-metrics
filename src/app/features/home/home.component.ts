@@ -5,7 +5,8 @@ import { ContentfulService } from '../../core/services/contentful.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { SeoService } from '../../core/services/seo.service';
 import { BlogPost } from '../../shared/models/content.models';
-import { PlayoffOdds, TeamProjection, RecentGame } from '../../shared/models/mlb.models';
+import { PlayoffOdds, TeamProjection, RecentGame, PlayoffOddsHistoryPoint, TEAM_NAMES, AL_EAST } from '../../shared/models/mlb.models';
+import { TEAM_COLORS } from '../../visualizations/viz-utils';
 import { RouterLink } from '@angular/router';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
@@ -44,6 +45,30 @@ export class HomeComponent implements OnInit {
   showAllTeams = signal(false);
   animatedPct = signal(0);
   animatedWins = signal(0);
+  historicalOdds = signal<PlayoffOdds[]>([]);
+
+  private seasonChangeEffect = effect(() => {
+    const season = this.oddsSeason();
+    if (season === 2026) {
+      this.historicalOdds.set([]);
+      return;
+    }
+    this.mlbData.getPlayoffOddsHistory(AL_EAST, season).then(data => {
+      const endOfSeason: PlayoffOdds[] = [];
+      for (const team of AL_EAST) {
+        const pts = data[team];
+        if (!pts?.length) continue;
+        const last = pts[pts.length - 1];
+        endOfSeason.push({
+          team,
+          playoff_pct: last.playoff_pct,
+          division_pct: last.division_pct ?? 0,
+          wildcard_pct: last.wildcard_pct ?? 0,
+        });
+      }
+      this.historicalOdds.set(endOfSeason);
+    }).catch(() => this.historicalOdds.set([]));
+  });
 
   private countUpEffect = effect(() => {
     const odds = this.oriolesOdds();
@@ -72,6 +97,53 @@ export class HomeComponent implements OnInit {
   oriolesWins = computed(() => {
     const bal = this.projections().find(p => p.team === 'BAL');
     return bal ? Math.round(bal.median_wins) : null;
+  });
+
+  // [wins, losses, playoff%, division%, wildcard%]
+  private static readonly HISTORICAL_RESULTS: Record<number, Record<string, [number, number, number, number, number]>> = {
+    2024: {
+      NYY: [94, 68, 100, 100, 0],
+      BAL: [91, 71, 100, 0, 100],
+      BOS: [81, 81, 0, 0, 0],
+      TB:  [80, 82, 0, 0, 0],
+      TOR: [74, 88, 0, 0, 0],
+    },
+    2025: {
+      TOR: [94, 68, 100, 100, 0],
+      NYY: [94, 68, 100, 0, 100],
+      BOS: [89, 73, 100, 0, 100],
+      TB:  [77, 85, 0, 0, 0],
+      BAL: [75, 87, 0, 0, 0],
+    },
+  };
+
+  sortedOdds = computed(() => {
+    const season = this.oddsSeason();
+    const historical = HomeComponent.HISTORICAL_RESULTS[season];
+    if (historical) {
+      return AL_EAST
+        .filter(t => historical[t])
+        .map(t => {
+          const [w, l, pp, dp, wc] = historical[t];
+          return {
+            team: t, name: TEAM_NAMES[t] ?? t, color: TEAM_COLORS[t] ?? '#6b7280',
+            playoff_pct: pp, division_pct: dp, wildcard_pct: wc, wins: w, losses: l,
+          };
+        })
+        .sort((a, b) => (b.wins ?? 0) - (a.wins ?? 0) || b.division_pct - a.division_pct);
+    }
+    const odds = this.allOdds();
+    const projs = this.projections();
+    const projMap = new Map(projs.map(p => [p.team, p]));
+    return odds
+      .filter(o => AL_EAST.includes(o.team))
+      .map(o => ({
+        team: o.team, name: TEAM_NAMES[o.team] ?? o.team, color: TEAM_COLORS[o.team] ?? '#6b7280',
+        playoff_pct: o.playoff_pct, division_pct: o.division_pct, wildcard_pct: o.wildcard_pct,
+        wins: projMap.has(o.team) ? Math.round(projMap.get(o.team)!.median_wins) : null,
+        losses: projMap.has(o.team) ? 162 - Math.round(projMap.get(o.team)!.median_wins) : null,
+      }))
+      .sort((a, b) => (b.wins ?? 0) - (a.wins ?? 0) || b.playoff_pct - a.playoff_pct);
   });
 
   featuredArticle = computed(() => {

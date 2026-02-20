@@ -21,7 +21,7 @@ position: relative;
 display: flex;
 flex-direction: column;
 gap: var(--space-lg);
-padding: var(--space-2xl) var(--space-2xl);
+padding: var(--space-xl) var(--space-2xl);
 background:
   radial-gradient(ellipse at 75% 50%, rgba(223, 74, 0, 0.06) 0%, transparent 60%),
   linear-gradient(165deg, #1a1a1a 0%, #2a2a2f 100%);
@@ -29,17 +29,6 @@ border-radius: var(--home-card-radius) var(--home-card-radius) 0 0;
 margin-top: var(--space-lg);
 box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 overflow: hidden;
-}
-.hero::before {
-content: "";
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 2px;
-background: linear-gradient(90deg, transparent 10%, rgba(223, 74, 0, 0.7) 50%, transparent 90%);
-z-index: 1;
-border-radius: var(--home-card-radius) var(--home-card-radius) 0 0;
 }
 .hero::after {
 content: "";
@@ -56,21 +45,6 @@ grid-template-columns: auto auto;
 justify-content: center;
 align-items: center;
 gap: var(--space-lg);
-}
-.hero-run-date {
-display: block;
-margin-top: 0.3rem;
-font-family: var(--font-mono);
-font-size: 0.75rem;
-font-weight: 600;
-letter-spacing: 0.04em;
-color: rgba(255, 255, 255, 0.50);
-}
-.hero-question-divider {
-width: 60px;
-height: 1px;
-margin: var(--space-xs) 0 var(--space-sm);
-background: rgba(255, 255, 255, 0.12);
 }
 .hero-outcome {
 display: flex;
@@ -274,13 +248,6 @@ letter-spacing: -0.02em;
 color: var(--color-text);
 margin: 0 0 var(--space-sm);
 }
-.section-explainer {
-font-size: 0.92rem;
-line-height: 1.5;
-color: var(--color-text-secondary);
-margin: 0 0 var(--space-md);
-max-width: 65ch;
-}
 .featured {
 padding: 0;
 border: 0;
@@ -428,19 +395,21 @@ font-size: 0.78rem;
 font-weight: 700;
 letter-spacing: 0.09em;
 text-align: center;
+margin-bottom: var(--space-sm);
 }
 .race-heading {
 text-align: center;
 color: var(--color-text);
 font-size: 1.75rem;
 line-height: 1.1;
+margin-bottom: var(--space-sm);
 }
 .race-subtext {
 text-align: center;
 color: var(--color-text-secondary);
-font-size: 0.92rem;
-max-width: 480px;
-margin: var(--space-xs) auto var(--space-md);
+font-size: 0.82rem;
+max-width: 320px;
+margin: 0 0 var(--space-md);
 line-height: 1.4;
 }
 .race-controls {
@@ -463,6 +432,45 @@ color: var(--color-text-muted);
 .race-band .toggle-controls {
 justify-content: center;
 }
+.race-header-row {
+display: flex;
+gap: var(--space-2xl);
+align-items: center;
+justify-content: center;
+margin-bottom: var(--space-md);
+}
+.race-title-col {
+flex: 0 1 auto;
+min-width: 0;
+display: flex;
+flex-direction: column;
+}
+.race-title-col .race-kicker,
+.race-title-col .race-heading,
+.race-title-col .race-subtext {
+text-align: left;
+}
+.race-title-col .race-heading {
+max-width: 320px;
+}
+.race-title-col .race-controls {
+align-items: flex-start;
+margin-bottom: 0;
+}
+.race-title-col .toggle-controls {
+justify-content: flex-start;
+}
+.race-standings-col { flex: 0 0 auto; }
+.race-standings-heading { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; text-align: center; }
+.race-standings-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.race-standings-table th { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); padding: 0.4rem; border-bottom: 2px solid var(--color-border); text-align: right; }
+.race-standings-table .th-team { text-align: left; }
+.race-standings-table td { padding: 0.35rem 0.4rem; border-bottom: 1px solid var(--color-border); color: var(--color-text); }
+.race-standings-table .td-team { white-space: nowrap; }
+.race-standings-table .td-num { text-align: right; font-family: var(--font-mono); font-size: 0.72rem; }
+.race-standings-table .row-bal td { background: rgba(223,74,0,0.06); }
+.race-standings-table .row-bal .td-team { color: #df4a00; }
+.team-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
 .race-band {
 position: relative;
 z-index: 1;
@@ -470,11 +478,12 @@ display: flex;
 flex-direction: column;
 padding: var(--space-xl) var(--space-2xl);
 overflow: visible;
-border-radius: 28px;
+border-radius: 0 0 28px 28px;
 background: linear-gradient(180deg, #fff 0%, #faf8f5 100%);
 border: 1px solid var(--color-border);
+border-top: none;
 box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06), 0 8px 22px rgba(15, 23, 42, 0.07);
-max-width: 1440px;
+max-width: calc(960px - 2 * var(--space-lg));
 margin: 0 auto;
 }
 .articles-section {
@@ -541,13 +550,13 @@ to { opacity: 1; transform: translateY(0); }
 --home-kicker-size: 0.76rem;
 --home-kicker-gap: var(--space-xs);
 gap: var(--home-section-gap);
-padding: 0 var(--space-md) var(--space-2xl);
+padding: 0 var(--space-md) 0;
 }
 .hero {
 gap: var(--space-md);
 padding: var(--space-2xl) var(--space-md);
 margin-top: 0;
-margin-bottom: calc(-1 * var(--home-section-gap));
+margin-bottom: 0;
 border-radius: 0;
 margin-left: calc(-1 * var(--space-md));
 margin-right: calc(-1 * var(--space-md));
@@ -572,9 +581,6 @@ display: none;
 .hero-label-short {
 display: inline;
 }
-.hero-meta-full { display: none; }
-.hero-run-date { text-align: center; margin-top: 0.15rem; }
-.hero-question-divider { display: none; }
 .hero-gauge { width: 110px; height: 110px; }
 .hero-big { font-size: 2.1rem; }
 .hero-pct { font-size: 0.85rem; }
@@ -600,9 +606,36 @@ font-size: 0.68rem;
 .featured-title { font-size: 1.3rem; }
 .race-band {
 border-radius: 0;
-margin: var(--space-md) 0;
+margin: 0 0 var(--space-xl) 0;
 padding: var(--space-md);
 }
+.race-header-row {
+flex-direction: column;
+align-items: center;
+}
+.race-title-col {
+align-items: center;
+text-align: center;
+}
+.race-title-col .race-kicker,
+.race-title-col .race-heading,
+.race-title-col .race-subtext {
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+.race-title-col .race-controls {
+align-items: center;
+}
+.race-title-col .toggle-controls {
+justify-content: center;
+}
+.race-standings-col { order: 1; }
+.race-standings-table { font-size: 0.75rem; max-width: 480px; margin: 0 auto; }
+.race-standings-table th { font-size: 0.58rem; padding: 0.35rem; }
+.race-standings-table td { padding: 0.3rem 0.35rem; }
+.race-standings-table .td-num { font-size: 0.7rem; }
+.team-dot { width: 8px; height: 8px; margin-right: 6px; }
 .race-heading {
 margin-top: var(--space-sm);
 }
