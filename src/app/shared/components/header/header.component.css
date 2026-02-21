@@ -70,15 +70,6 @@
   .header-inner.search-expanded .header-actions ::ng-deep app-theme-toggle {
     display: none;
   }
-
-  .header-inner.search-expanded .header-actions ::ng-deep app-search-overlay {
-    flex: 1;
-    max-width: 450px;
-  }
-
-  .header-inner.search-expanded .header-actions ::ng-deep .search-pill.expanded {
-    width: 100%;
-  }
 }
 
 .header-inner {

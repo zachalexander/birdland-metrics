@@ -190,6 +190,7 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ property: 'og:description', content: 'Data-driven baseball analysis, visualizations, and insights.' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
     this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/' });
     this.seo.setCanonicalUrl('/');
     this.seo.setJsonLd(this.seo.getOrganizationSchema());

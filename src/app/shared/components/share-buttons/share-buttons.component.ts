@@ -20,12 +20,13 @@ export class ShareButtonsComponent {
   }
 
   shareTwitter(): void {
-    const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(this.getUrl())}&text=${encodeURIComponent(this.title())}`;
+    const text = `${this.title()} via @birdlandmetrics`;
+    const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(this.getUrl())}&text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener,width=550,height=420');
   }
 
   shareBluesky(): void {
-    const text = `${this.title()} ${this.getUrl()}`;
+    const text = `${this.title()} via @birdlandmetrics.com ${this.getUrl()}`;
     const url = `https://bsky.app/intent/compose?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener,width=550,height=420');
   }

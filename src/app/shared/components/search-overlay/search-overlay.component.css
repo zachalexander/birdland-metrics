@@ -33,6 +33,33 @@
   background: var(--color-bg);
 }
 
+/* Dark header on mobile — transparent pill */
+@media (max-width: 600px) {
+  :host-context(.header-dark) .search-pill,
+  :host-context(.header-dark) .search-pill.expanded,
+  :host-context(.header-dark) .search-pill.expanded:hover {
+    background: transparent;
+    border-color: #ffffff;
+    box-shadow: none;
+  }
+
+  :host-context(.header-dark) .search-icon {
+    color: #ffffff;
+  }
+
+  :host-context(.header-dark) .search-input {
+    color: #ffffff;
+  }
+
+  :host-context(.header-dark) .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  :host-context(.header-dark) .search-close {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
 .search-icon {
   flex-shrink: 0;
   color: var(--color-text);
@@ -176,12 +203,22 @@
 
 @media (max-width: 600px) {
   .search-pill {
-    width: 90px;
-    padding: 0 10px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .search-label {
+    display: none;
   }
 
   .search-pill.expanded {
     width: 200px;
+    border-radius: 16px;
+    padding: 0 12px;
+    justify-content: flex-start;
   }
 
   .search-dropdown {

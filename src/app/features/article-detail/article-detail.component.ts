@@ -98,6 +98,7 @@ export class ArticleDetailComponent implements OnInit {
     this.meta.updateTag({ property: 'og:type', content: 'article' });
     this.meta.updateTag({ property: 'og:url', content: articleUrl });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
     if (article.coverImage) {
       this.meta.updateTag({ property: 'og:image', content: article.coverImage.url });
       this.meta.updateTag({ name: 'twitter:image', content: article.coverImage.url });
