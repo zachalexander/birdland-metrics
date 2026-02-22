@@ -10,14 +10,15 @@ import {
   inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { EloTrendConfig, renderEloTrend } from './elo-trend.render';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
 @Component({
   selector: 'app-elo-trend',
   standalone: true,
+  imports: [ShareButtonsComponent],
   templateUrl: './elo-trend.component.html',
   styleUrl: './elo-trend.component.css',
 })
@@ -26,8 +27,6 @@ export class EloTrendComponent implements OnInit, AfterViewInit, OnDestroy {
 
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
-  private title = inject(Title);
-  private meta = inject(Meta);
   private seo = inject(SeoService);
   private mlbData = inject(MlbDataService);
   isBrowser = false;
@@ -52,13 +51,11 @@ export class EloTrendComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     if (!this.config) {
-      this.title.setTitle('ELO Trends — Birdland Metrics');
-      this.meta.updateTag({ name: 'description', content: 'Track ELO rating trends throughout the MLB season.' });
-      this.meta.updateTag({ property: 'og:title', content: 'ELO Trends — Birdland Metrics' });
-      this.meta.updateTag({ property: 'og:description', content: 'Track ELO rating trends throughout the MLB season.' });
-      this.meta.updateTag({ property: 'og:type', content: 'website' });
-      this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/visualizations/elo-trends' });
-      this.seo.setCanonicalUrl('/visualizations/elo-trends');
+      this.seo.setPageMeta({
+        title: 'ELO Trends — Birdland Metrics',
+        description: 'Track ELO rating trends throughout the MLB season.',
+        path: '/visualizations/elo-trends',
+      });
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }
 

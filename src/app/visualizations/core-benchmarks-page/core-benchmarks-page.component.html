@@ -1,5 +1,8 @@
 <div class="benchmarks-page">
-  <h2 class="page-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
+  <div class="chart-header">
+    <h2 class="page-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
+    <app-share-buttons title="Core Player Benchmarks — Birdland Metrics" path="/visualizations/core-benchmarks" />
+  </div>
   <p class="page-explainer">
     @if (viewing2025()) {
       Here's the breakdown of how each player performed against these same benchmarks during the 2025 season.

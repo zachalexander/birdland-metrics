@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from '../../core/services/seo.service';
 
 @Component({
@@ -11,15 +10,12 @@ import { SeoService } from '../../core/services/seo.service';
 export class ContactComponent implements OnInit {
   private seo = inject(SeoService);
 
-  constructor(
-    private title: Title,
-    private meta: Meta,
-  ) {}
-
   ngOnInit(): void {
-    this.title.setTitle('Contact — Birdland Metrics');
-    this.meta.updateTag({ name: 'description', content: 'Get in touch with Birdland Metrics for guest writing opportunities, questions, or feedback.' });
-    this.seo.setCanonicalUrl('/contact');
+    this.seo.setPageMeta({
+      title: 'Contact — Birdland Metrics',
+      description: 'Get in touch with Birdland Metrics for guest writing opportunities, questions, or feedback.',
+      path: '/contact',
+    });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
   }
 }

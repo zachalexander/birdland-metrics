@@ -1,5 +1,8 @@
 <div class="spray-chart-wrapper">
-  <h3 class="chart-title">Spray Chart</h3>
+  <div class="chart-header">
+    <h3 class="chart-title">Spray Chart</h3>
+    <app-share-buttons title="Spray Chart — Birdland Metrics" path="/visualizations/spray-chart" />
+  </div>
   @if (isBrowser) {
     <div #chartContainer class="chart-container"></div>
   } @else {

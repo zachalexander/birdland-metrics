@@ -1,6 +1,9 @@
 <div class="win-dist-wrapper">
   @if (!config) {
-    <h3 class="chart-title">Projected Win Distribution</h3>
+    <div class="chart-header">
+      <h3 class="chart-title">Projected Win Distribution</h3>
+      <app-share-buttons title="Win Distribution — Birdland Metrics" path="/visualizations/win-distribution" />
+    </div>
   }
   @if (teamOptions().length > 1) {
     <div class="team-picker">

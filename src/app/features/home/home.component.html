@@ -82,6 +82,7 @@
           @if (oddsSeason() === 2026 && lastRunDate(); as runDate) {
             <span class="race-updated">Updated {{ runDate }}</span>
           }
+          <app-share-buttons title="Birdland Metrics — Baseball Analytics & Insights" path="/" />
         </div>
       </div>
       @if (sortedOdds().length) {

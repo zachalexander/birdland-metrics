@@ -1,13 +1,58 @@
 import { Injectable, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
+
+export interface PageMeta {
+  title: string;
+  description: string;
+  path: string;
+  type?: string;
+  image?: string;
+  twitterCard?: string;
+  article?: { publishedTime?: string; author?: string };
+}
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
   private document = inject(DOCUMENT);
+  private titleService = inject(Title);
+  private meta = inject(Meta);
+
+  private readonly defaultImage = environment.siteUrl + '/og-default.png';
 
   getSiteUrl(): string {
     return environment.siteUrl;
+  }
+
+  setPageMeta(page: PageMeta): void {
+    const url = environment.siteUrl + page.path;
+    const image = page.image ?? this.defaultImage;
+    const twitterCard = page.twitterCard ?? 'summary_large_image';
+    const ogType = page.type ?? 'website';
+
+    this.titleService.setTitle(page.title);
+    this.meta.updateTag({ name: 'description', content: page.description });
+    this.meta.updateTag({ property: 'og:title', content: page.title });
+    this.meta.updateTag({ property: 'og:description', content: page.description });
+    this.meta.updateTag({ property: 'og:type', content: ogType });
+    this.meta.updateTag({ property: 'og:url', content: url });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ property: 'og:site_name', content: 'Birdland Metrics' });
+    this.meta.updateTag({ name: 'twitter:card', content: twitterCard });
+    this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
+
+    if (page.article) {
+      if (page.article.publishedTime) {
+        this.meta.updateTag({ property: 'article:published_time', content: page.article.publishedTime });
+      }
+      if (page.article.author) {
+        this.meta.updateTag({ property: 'article:author', content: page.article.author });
+      }
+    }
+
+    this.setCanonicalUrl(page.path);
   }
 
   setCanonicalUrl(path: string): void {

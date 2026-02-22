@@ -1,15 +1,15 @@
 import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { BenchmarkPlayer } from '../../shared/models/mlb.models';
 import { CoreBenchmarksComponent } from '../core-benchmarks/core-benchmarks.component';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
 @Component({
   selector: 'app-core-benchmarks-page',
   standalone: true,
-  imports: [CoreBenchmarksComponent],
+  imports: [CoreBenchmarksComponent, ShareButtonsComponent],
   templateUrl: './core-benchmarks-page.component.html',
   styleUrl: './core-benchmarks-page.component.css',
 })
@@ -48,19 +48,15 @@ export class CoreBenchmarksPageComponent implements OnInit {
   readonly stats2025 = CoreBenchmarksPageComponent.STATS_2025;
 
   private platformId = inject(PLATFORM_ID);
-  private title = inject(Title);
-  private meta = inject(Meta);
   private seo = inject(SeoService);
   private mlbData = inject(MlbDataService);
 
   ngOnInit(): void {
-    this.title.setTitle('Core Player Benchmarks — Birdland Metrics');
-    this.meta.updateTag({ name: 'description', content: 'Track key statistical benchmarks for Orioles core players throughout the 2026 season.' });
-    this.meta.updateTag({ property: 'og:title', content: 'Core Player Benchmarks — Birdland Metrics' });
-    this.meta.updateTag({ property: 'og:description', content: 'Track key statistical benchmarks for Orioles core players throughout the 2026 season.' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/visualizations/core-benchmarks' });
-    this.seo.setCanonicalUrl('/visualizations/core-benchmarks');
+    this.seo.setPageMeta({
+      title: 'Core Player Benchmarks — Birdland Metrics',
+      description: 'Track key statistical benchmarks for Orioles core players throughout the 2026 season.',
+      path: '/visualizations/core-benchmarks',
+    });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
 
     if (isPlatformBrowser(this.platformId)) {

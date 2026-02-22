@@ -4,6 +4,18 @@
   padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
 }
 
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.chart-header .page-heading {
+  margin-bottom: 0;
+}
+
 .page-heading {
   font-family: var(--font-sans);
   font-size: 1.75rem;

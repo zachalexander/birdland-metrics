@@ -8,8 +8,8 @@ import {
   inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from '../../core/services/seo.service';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
 interface HitData {
   x: number;
@@ -20,14 +20,13 @@ interface HitData {
 @Component({
   selector: 'app-spray-chart',
   standalone: true,
+  imports: [ShareButtonsComponent],
   templateUrl: './spray-chart.component.html',
   styleUrl: './spray-chart.component.css',
 })
 export class SprayChartComponent implements OnInit, AfterViewInit {
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
-  private title = inject(Title);
-  private meta = inject(Meta);
   private seo = inject(SeoService);
   isBrowser = false;
 
@@ -54,13 +53,11 @@ export class SprayChartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('Spray Chart — Birdland Metrics');
-    this.meta.updateTag({ name: 'description', content: 'Interactive spray chart visualization for baseball hit data.' });
-    this.meta.updateTag({ property: 'og:title', content: 'Spray Chart — Birdland Metrics' });
-    this.meta.updateTag({ property: 'og:description', content: 'Interactive spray chart visualization for baseball hit data.' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/visualizations/spray-chart' });
-    this.seo.setCanonicalUrl('/visualizations/spray-chart');
+    this.seo.setPageMeta({
+      title: 'Spray Chart — Birdland Metrics',
+      description: 'Interactive spray chart visualization for baseball hit data.',
+      path: '/visualizations/spray-chart',
+    });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
   }
 

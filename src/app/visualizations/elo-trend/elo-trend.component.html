@@ -1,6 +1,9 @@
 <div class="elo-trend-wrapper">
   @if (!config) {
-    <h3 class="chart-title">ELO Rating Trend</h3>
+    <div class="chart-header">
+      <h3 class="chart-title">ELO Rating Trend</h3>
+      <app-share-buttons title="ELO Trends — Birdland Metrics" path="/visualizations/elo-trends" />
+    </div>
   }
   @if (isBrowser) {
     @if (error) {

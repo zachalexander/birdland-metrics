@@ -75,7 +75,7 @@
         <time class="article-date">{{ art.publishedAt | date: 'MMM d, yyyy' }}</time>
         <span class="meta-separator">·</span>
         <span class="reading-time">{{ art.readingTime }} min read</span>
-        <app-share-buttons [title]="art.title" [slug]="art.slug" />
+        <app-share-buttons [title]="art.title" [path]="'/articles/' + art.slug" />
       </div>
       <div class="article-body" appVizHost [innerHTML]="bodyHtml()"></div>
       @if (art.author) {

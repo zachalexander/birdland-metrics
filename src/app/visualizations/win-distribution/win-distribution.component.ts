@@ -11,16 +11,17 @@ import {
   signal,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { TEAM_NAMES, TeamProjection } from '../../shared/models/mlb.models';
 import { TEAM_COLORS, VizColorTheme } from '../viz-utils';
 import { WinDistributionConfig, renderWinDistribution } from './win-dist.render';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
 @Component({
   selector: 'app-win-distribution',
   standalone: true,
+  imports: [ShareButtonsComponent],
   templateUrl: './win-distribution.component.html',
   styleUrl: './win-distribution.component.css',
 })
@@ -31,8 +32,6 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
 
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
-  private title = inject(Title);
-  private meta = inject(Meta);
   private seo = inject(SeoService);
   private mlbData = inject(MlbDataService);
   isBrowser = false;
@@ -64,13 +63,11 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
     }
 
     if (!this.config) {
-      this.title.setTitle('Win Distribution — Birdland Metrics');
-      this.meta.updateTag({ name: 'description', content: 'Projected win distribution curves for MLB teams.' });
-      this.meta.updateTag({ property: 'og:title', content: 'Win Distribution — Birdland Metrics' });
-      this.meta.updateTag({ property: 'og:description', content: 'Projected win distribution curves for MLB teams.' });
-      this.meta.updateTag({ property: 'og:type', content: 'website' });
-      this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/visualizations/win-distribution' });
-      this.seo.setCanonicalUrl('/visualizations/win-distribution');
+      this.seo.setPageMeta({
+        title: 'Win Distribution — Birdland Metrics',
+        description: 'Projected win distribution curves for MLB teams.',
+        path: '/visualizations/win-distribution',
+      });
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }
   }

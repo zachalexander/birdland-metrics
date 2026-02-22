@@ -1,6 +1,9 @@
 <div class="player-stats-wrapper">
   @if (!config) {
-    <h3 class="chart-title">Player Career Stats</h3>
+    <div class="chart-header">
+      <h3 class="chart-title">Player Career Stats</h3>
+      <app-share-buttons title="Player Stats — Birdland Metrics" path="/visualizations/player-stats" />
+    </div>
   }
   @if (isBrowser) {
     @if (error) {

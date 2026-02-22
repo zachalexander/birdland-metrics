@@ -5,6 +5,18 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md, 1rem);
+  margin-bottom: 1rem;
+}
+
+.chart-header .chart-title {
+  margin-bottom: 0;
+}
+
 .chart-title {
   font-size: 1.1rem;
   font-weight: 600;

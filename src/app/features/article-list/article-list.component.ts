@@ -1,6 +1,5 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { SeoService } from '../../core/services/seo.service';
 import { BlogPost } from '../../shared/models/content.models';
@@ -23,8 +22,6 @@ export class ArticleListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private contentful: ContentfulService,
-    private title: Title,
-    private meta: Meta,
   ) {}
 
   ngOnInit(): void {
@@ -35,12 +32,11 @@ export class ArticleListComponent implements OnInit {
     const pageTitle = cat ? `${displayName} — Birdland Metrics` : 'Articles — Birdland Metrics';
     const pagePath = cat ? '/category/' + cat : '/articles';
 
-    this.title.setTitle(pageTitle);
-    this.meta.updateTag({ name: 'description', content: cat ? `Articles about ${displayName} on Birdland Metrics.` : 'All articles on Birdland Metrics.' });
-    this.meta.updateTag({ property: 'og:title', content: pageTitle });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + pagePath });
-    this.seo.setCanonicalUrl(pagePath);
+    this.seo.setPageMeta({
+      title: pageTitle,
+      description: cat ? `Articles about ${displayName} on Birdland Metrics.` : 'All articles on Birdland Metrics.',
+      path: pagePath,
+    });
     this.seo.setJsonLd(
       this.seo.getBreadcrumbSchema([
         { name: 'Home', path: '/' },

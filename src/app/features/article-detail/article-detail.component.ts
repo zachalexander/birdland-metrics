@@ -1,7 +1,7 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { ContentfulService } from '../../core/services/contentful.service';
@@ -33,8 +33,6 @@ export class ArticleDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private contentful: ContentfulService,
-    private title: Title,
-    private meta: Meta,
   ) {}
 
   ngOnInit(): void {
@@ -90,20 +88,17 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   private setMeta(article: BlogPost): void {
-    const articleUrl = this.seo.getSiteUrl() + '/articles/' + article.slug;
-    this.title.setTitle(`${article.title} — Birdland Metrics`);
-    this.meta.updateTag({ name: 'description', content: article.excerpt });
-    this.meta.updateTag({ property: 'og:title', content: article.title });
-    this.meta.updateTag({ property: 'og:description', content: article.excerpt });
-    this.meta.updateTag({ property: 'og:type', content: 'article' });
-    this.meta.updateTag({ property: 'og:url', content: articleUrl });
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
-    if (article.coverImage) {
-      this.meta.updateTag({ property: 'og:image', content: article.coverImage.url });
-      this.meta.updateTag({ name: 'twitter:image', content: article.coverImage.url });
-    }
-    this.seo.setCanonicalUrl('/articles/' + article.slug);
+    this.seo.setPageMeta({
+      title: `${article.title} — Birdland Metrics`,
+      description: article.excerpt,
+      path: '/articles/' + article.slug,
+      type: 'article',
+      image: article.coverImage?.url,
+      article: {
+        publishedTime: article.publishedAt,
+        author: article.author?.name,
+      },
+    });
   }
 
   private addJsonLd(article: BlogPost): void {

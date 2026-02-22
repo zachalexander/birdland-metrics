@@ -10,14 +10,15 @@ import {
   inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { PlayerStatsVizConfig, renderPlayerStats } from './player-stats.render';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
 @Component({
   selector: 'app-player-stats',
   standalone: true,
+  imports: [ShareButtonsComponent],
   templateUrl: './player-stats.component.html',
   styleUrl: './player-stats.component.css',
 })
@@ -26,8 +27,6 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
-  private title = inject(Title);
-  private meta = inject(Meta);
   private seo = inject(SeoService);
   private mlbData = inject(MlbDataService);
   isBrowser = false;
@@ -57,13 +56,11 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     if (!this.config) {
-      this.title.setTitle('Player Stats — Birdland Metrics');
-      this.meta.updateTag({ name: 'description', content: 'Explore player career statistics across MLB seasons.' });
-      this.meta.updateTag({ property: 'og:title', content: 'Player Stats — Birdland Metrics' });
-      this.meta.updateTag({ property: 'og:description', content: 'Explore player career statistics across MLB seasons.' });
-      this.meta.updateTag({ property: 'og:type', content: 'website' });
-      this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/visualizations/player-stats' });
-      this.seo.setCanonicalUrl('/visualizations/player-stats');
+      this.seo.setPageMeta({
+        title: 'Player Stats — Birdland Metrics',
+        description: 'Explore player career statistics across MLB seasons.',
+        path: '/visualizations/player-stats',
+      });
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }
   }

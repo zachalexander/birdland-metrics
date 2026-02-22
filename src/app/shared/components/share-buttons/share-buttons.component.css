@@ -30,3 +30,13 @@
   color: var(--color-accent);
   border-color: var(--color-accent);
 }
+
+.native-share-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .native-share-btn {
+    display: inline-flex;
+  }
+}

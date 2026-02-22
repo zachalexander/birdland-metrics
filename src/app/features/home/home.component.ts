@@ -1,6 +1,5 @@
 import { Component, OnInit, signal, computed, inject, PLATFORM_ID, effect } from '@angular/core';
 import { isPlatformBrowser, DecimalPipe } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { SeoService } from '../../core/services/seo.service';
@@ -12,6 +11,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 import { PlayoffRaceComponent } from '../../visualizations/playoff-race/playoff-race.component';
 import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
 
 @Component({
@@ -24,6 +24,7 @@ import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/n
     RecentGamesComponent,
     PlayoffRaceComponent,
     NewsletterCtaComponent,
+    ShareButtonsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -179,20 +180,14 @@ export class HomeComponent implements OnInit {
   constructor(
     private contentful: ContentfulService,
     private mlbData: MlbDataService,
-    private title: Title,
-    private meta: Meta,
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Birdland Metrics — Baseball Analytics & Insights');
-    this.meta.updateTag({ name: 'description', content: 'Data-driven baseball analysis, visualizations, and insights.' });
-    this.meta.updateTag({ property: 'og:title', content: 'Birdland Metrics — Baseball Analytics & Insights' });
-    this.meta.updateTag({ property: 'og:description', content: 'Data-driven baseball analysis, visualizations, and insights.' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
-    this.meta.updateTag({ property: 'og:url', content: this.seo.getSiteUrl() + '/' });
-    this.seo.setCanonicalUrl('/');
+    this.seo.setPageMeta({
+      title: 'Birdland Metrics — Baseball Analytics & Insights',
+      description: 'Data-driven baseball analysis, visualizations, and insights.',
+      path: '/',
+    });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
 
     this.contentful.getCategories().then(cats => this.categories.set(cats));
