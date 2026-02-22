@@ -1,9 +1,11 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { SeoService } from '../../core/services/seo.service';
 import { BlogPost } from '../../shared/models/content.models';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
+
+const PAGE_SIZE = 12;
 
 @Component({
   selector: 'app-article-list',
@@ -16,6 +18,10 @@ export class ArticleListComponent implements OnInit {
   articles = signal<BlogPost[]>([]);
   category = signal('');
   loading = signal(true);
+  visibleCount = signal(PAGE_SIZE);
+
+  visibleArticles = computed(() => this.articles().slice(0, this.visibleCount()));
+  hasMore = computed(() => this.visibleCount() < this.articles().length);
 
   private seo = inject(SeoService);
 
@@ -55,5 +61,9 @@ export class ArticleListComponent implements OnInit {
         this.loading.set(false);
       })
       .catch(() => this.loading.set(false));
+  }
+
+  loadMore(): void {
+    this.visibleCount.update(n => n + PAGE_SIZE);
   }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { Component, OnInit, signal, inject, PLATFORM_ID, ElementRef, viewChild, AfterViewChecked } from '@angular/core';
+import { isPlatformBrowser, DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -12,23 +12,29 @@ import { VizHostDirective } from '../../shared/directives/viz-host.directive';
 import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 import { AuthorCardComponent } from '../../shared/components/author-card/author-card.component';
+import { TocComponent, TocHeading } from '../../shared/components/toc/toc.component';
 
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [DatePipe, RouterLink, ArticleCardComponent, VizHostDirective, NewsletterCtaComponent, ShareButtonsComponent, AuthorCardComponent],
+  imports: [DatePipe, RouterLink, ArticleCardComponent, VizHostDirective, NewsletterCtaComponent, ShareButtonsComponent, AuthorCardComponent, TocComponent],
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })
-export class ArticleDetailComponent implements OnInit {
+export class ArticleDetailComponent implements OnInit, AfterViewChecked {
   article = signal<BlogPost | null>(null);
   bodyHtml = signal<SafeHtml>('');
   loading = signal(true);
   notFound = signal(false);
   relatedArticles = signal<BlogPost[]>([]);
+  tocHeadings = signal<TocHeading[]>([]);
+
+  articleBody = viewChild<ElementRef>('articleBody');
 
   private seo = inject(SeoService);
   private sanitizer = inject(DomSanitizer);
+  private platformId = inject(PLATFORM_ID);
+  private tocExtracted = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -138,5 +144,26 @@ export class ArticleDetailComponent implements OnInit {
       this.seo.getBreadcrumbSchema(breadcrumbItems),
       this.seo.getOrganizationSchema(),
     );
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.tocExtracted || this.loading() || !isPlatformBrowser(this.platformId)) return;
+    const el = this.articleBody()?.nativeElement as HTMLElement | undefined;
+    if (!el) return;
+    this.tocExtracted = true;
+    this.extractHeadings(el);
+  }
+
+  private extractHeadings(container: HTMLElement): void {
+    const nodes = container.querySelectorAll('h2, h3');
+    const headings: TocHeading[] = [];
+    nodes.forEach((node, i) => {
+      const text = node.textContent?.trim() ?? '';
+      if (!text) return;
+      const id = node.id || `heading-${i}`;
+      if (!node.id) node.id = id;
+      headings.push({ id, text, level: node.tagName === 'H2' ? 2 : 3 });
+    });
+    this.tocHeadings.set(headings);
   }
 }

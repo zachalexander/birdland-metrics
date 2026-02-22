@@ -10,6 +10,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
+import { prefersReducedMotion } from '../viz-utils';
 
 interface HitData {
   x: number;
@@ -144,7 +145,7 @@ export class SprayChartComponent implements OnInit, AfterViewInit {
     };
 
     // Plot hits
-    svg
+    const hits = svg
       .selectAll('circle.hit')
       .data(this.sampleData)
       .enter()
@@ -152,15 +153,20 @@ export class SprayChartComponent implements OnInit, AfterViewInit {
       .attr('class', 'hit')
       .attr('cx', (d) => d.x)
       .attr('cy', (d) => d.y)
-      .attr('r', 0)
       .attr('fill', (d) => colorMap[d.type])
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5)
-      .attr('opacity', 0.85)
-      .transition()
-      .duration(500)
-      .delay((_, i) => i * 50)
-      .attr('r', 6);
+      .attr('opacity', 0.85);
+
+    if (prefersReducedMotion()) {
+      hits.attr('r', 6);
+    } else {
+      hits.attr('r', 0)
+        .transition()
+        .duration(500)
+        .delay((_, i) => i * 50)
+        .attr('r', 6);
+    }
 
     // Legend
     const legendData = ['single', 'double', 'triple', 'homerun', 'out'];

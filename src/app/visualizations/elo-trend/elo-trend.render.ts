@@ -1,6 +1,6 @@
 import {
   TEAM_COLORS, createResponsiveSvg, createTooltip, getActiveTheme,
-  FONT_MONO, FONT_SANS,
+  FONT_MONO, FONT_SANS, prefersReducedMotion,
 } from '../viz-utils';
 import { TEAM_NAMES } from '../../shared/models/mlb.models';
 
@@ -148,13 +148,17 @@ export function renderEloTrend(
 
     // Animate line drawing
     const totalLength = (path.node() as SVGPathElement).getTotalLength();
-    path
-      .attr('stroke-dasharray', `${totalLength} ${totalLength}`)
-      .attr('stroke-dashoffset', totalLength)
-      .transition()
-      .duration(1200)
-      .ease(d3.easeCubicOut)
-      .attr('stroke-dashoffset', 0);
+    if (prefersReducedMotion()) {
+      path.attr('stroke-dashoffset', 0);
+    } else {
+      path
+        .attr('stroke-dasharray', `${totalLength} ${totalLength}`)
+        .attr('stroke-dashoffset', totalLength)
+        .transition()
+        .duration(1200)
+        .ease(d3.easeCubicOut)
+        .attr('stroke-dashoffset', 0);
+    }
   }
 
   // Tooltip + hover interaction

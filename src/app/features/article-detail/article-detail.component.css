@@ -1,5 +1,6 @@
 .article-detail {
   padding-bottom: var(--space-2xl);
+  background: var(--color-bg);
 }
 
 .article-hero-image {
@@ -100,10 +101,36 @@ app-share-buttons {
   margin-left: auto;
 }
 
+.article-body-row {
+  position: relative;
+}
+
 .article-body {
   font-size: var(--text-lg);
   line-height: 1.65;
   color: var(--color-text);
+}
+
+.toc-sidebar {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .article-body-row {
+    display: flex;
+    gap: var(--space-2xl);
+  }
+
+  .article-body-row .article-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .toc-sidebar {
+    display: block;
+    width: 220px;
+    flex-shrink: 0;
+  }
 }
 
 /* Not found */
@@ -209,6 +236,12 @@ app-author-card {
 app-newsletter-cta {
   display: block;
   margin-top: var(--space-3xl);
+}
+
+@media (min-width: 1200px) {
+  .article-container:has(.toc-sidebar) {
+    max-width: 960px;
+  }
 }
 
 @media (max-width: 768px) {

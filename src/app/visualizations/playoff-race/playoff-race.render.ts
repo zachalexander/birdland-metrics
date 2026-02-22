@@ -1,6 +1,6 @@
 import {
   TEAM_COLORS, createResponsiveSvg, createTooltip, getActiveTheme,
-  FONT_MONO,
+  FONT_MONO, prefersReducedMotion,
 } from '../viz-utils';
 import { TEAM_NAMES, PlayoffOddsHistoryPoint, TeamProjection, PlayoffOdds } from '../../shared/models/mlb.models';
 
@@ -30,6 +30,7 @@ export function renderPlayoffRace(
   }
 
   const isCurrent = projections !== undefined || odds !== undefined;
+  const noMotion = prefersReducedMotion();
   const containerWidth = container.getBoundingClientRect().width || 700;
   const isMobile = containerWidth < 500;
   const width = isMobile ? 380 : Math.min(containerWidth * 0.75, 720);
@@ -310,7 +311,7 @@ export function renderPlayoffRace(
 
     if (pts.length === 1) {
       // Pulsing ring behind BAL dot (current season only)
-      if (!isOther && isCurrent) {
+      if (!isOther && isCurrent && !noMotion) {
         const pulseRing = g.append('circle')
           .attr('cx', x(pts[0].date))
           .attr('cy', y(pts[0].playoff_pct))
@@ -343,7 +344,7 @@ export function renderPlayoffRace(
         .attr('stroke-width', !isOther ? 2.5 : 1.5)
         .style('opacity', (isOther && !showAllTeams) ? '0' : '1');
 
-      if (!isOther || showAllTeams) {
+      if ((!isOther || showAllTeams) && !noMotion) {
         dot.style('opacity', 0)
           .transition().duration(600).style('opacity', 1);
       }
@@ -360,6 +361,8 @@ export function renderPlayoffRace(
         path.style('opacity', 0);
       } else if (isOther) {
         path.style('opacity', 1);
+      } else if (noMotion) {
+        // Show immediately
       } else {
         // Animate BAL line drawing
         const totalLength = (path.node() as SVGPathElement).getTotalLength();
@@ -377,7 +380,7 @@ export function renderPlayoffRace(
       const lastPt = pts[pts.length - 1];
 
       // Pulsing ring behind BAL end dot (current season only, inserted first so it renders beneath)
-      if (!isOther && isCurrent) {
+      if (!isOther && isCurrent && !noMotion) {
         const pulseRing = g.append('circle')
           .attr('cx', x(lastPt.date))
           .attr('cy', y(lastPt.playoff_pct))
@@ -411,7 +414,7 @@ export function renderPlayoffRace(
 
       if (isOther && !showAllTeams) {
         endDot.style('opacity', '0');
-      } else if (!isOther) {
+      } else if (!isOther && !noMotion) {
         endDot.style('opacity', '0')
           .transition().delay(1200).duration(300).style('opacity', '1');
       }

@@ -77,7 +77,14 @@
         <span class="reading-time">{{ art.readingTime }} min read</span>
         <app-share-buttons [title]="art.title" [path]="'/articles/' + art.slug" />
       </div>
-      <div class="article-body" appVizHost [innerHTML]="bodyHtml()"></div>
+      <div class="article-body-row">
+        <div class="article-body" #articleBody appVizHost [innerHTML]="bodyHtml()"></div>
+        @if (tocHeadings().length >= 3) {
+          <aside class="toc-sidebar">
+            <app-toc [headings]="tocHeadings()" />
+          </aside>
+        }
+      </div>
       @if (art.author) {
         <app-author-card [author]="art.author" />
       }

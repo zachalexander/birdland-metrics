@@ -310,3 +310,69 @@ h1, h2, h3, h4, h5, h6 {
   padding: var(--space-xl);
   font-size: var(--text-sm);
 }
+
+/* === Print === */
+@media print {
+  app-header,
+  app-footer,
+  app-newsletter-cta,
+  app-share-buttons,
+  .skip-link,
+  .breadcrumbs,
+  .related-articles,
+  .author-card {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .main-content {
+    padding: 0;
+  }
+
+  .article-body a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .article-body a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  .article-body pre {
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+  }
+
+  .article-body img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}
+
+/* === Focus Styles === */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

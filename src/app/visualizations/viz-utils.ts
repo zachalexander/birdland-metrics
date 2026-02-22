@@ -48,6 +48,12 @@ export function getActiveTheme(): VizColorTheme {
   return document.documentElement.getAttribute('data-theme') === 'dark' ? DARK_THEME : LIGHT_THEME;
 }
 
+/** Check if the user prefers reduced motion */
+export function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 export interface Margin {
   top: number;
   right: number;

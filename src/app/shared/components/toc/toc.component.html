@@ -1,0 +1,17 @@
+@if (headings().length >= 3) {
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-label">On this page</p>
+    <ul class="toc-list">
+      @for (h of headings(); track h.id) {
+        <li class="toc-item" [class.toc-h3]="h.level === 3">
+          <a
+            class="toc-link"
+            [class.active]="activeId() === h.id"
+            [href]="'#' + h.id"
+            (click)="$event.preventDefault(); scrollTo(h.id)"
+          >{{ h.text }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+}

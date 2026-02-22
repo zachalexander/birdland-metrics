@@ -23,10 +23,15 @@
       <p class="empty-state">No articles in this category yet.</p>
     } @else {
       <div class="articles-grid">
-        @for (article of articles(); track article.slug) {
+        @for (article of visibleArticles(); track article.slug) {
           <app-article-card [article]="article" />
         }
       </div>
+      @if (hasMore()) {
+        <div class="load-more-wrap">
+          <button class="load-more-btn" (click)="loadMore()">Load More Articles</button>
+        </div>
+      }
     }
   </div>
 </section>

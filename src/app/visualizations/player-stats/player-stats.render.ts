@@ -1,6 +1,6 @@
 import {
   createResponsiveSvg, createTooltip, getActiveTheme,
-  FONT_MONO, FONT_SANS,
+  FONT_MONO, FONT_SANS, prefersReducedMotion,
 } from '../viz-utils';
 import { PlayerSeasonStats } from '../../shared/models/mlb.models';
 
@@ -143,16 +143,21 @@ export function renderPlayerStats(
       .attr('d', line);
 
     const totalLength = (path.node() as SVGPathElement).getTotalLength();
-    path
-      .attr('stroke-dasharray', `${totalLength} ${totalLength}`)
-      .attr('stroke-dashoffset', totalLength)
-      .transition()
-      .duration(1200)
-      .ease(d3.easeCubicOut)
-      .attr('stroke-dashoffset', 0);
+    const noMotion = prefersReducedMotion();
+    if (noMotion) {
+      path.attr('stroke-dashoffset', 0);
+    } else {
+      path
+        .attr('stroke-dasharray', `${totalLength} ${totalLength}`)
+        .attr('stroke-dashoffset', totalLength)
+        .transition()
+        .duration(1200)
+        .ease(d3.easeCubicOut)
+        .attr('stroke-dashoffset', 0);
+    }
 
     // Dots
-    g.selectAll(`.dot-${key}`)
+    const dots = g.selectAll(`.dot-${key}`)
       .data(sorted)
       .join('circle')
       .attr('class', `dot-${key}`)
@@ -161,18 +166,22 @@ export function renderPlayerStats(
       .attr('r', 4)
       .attr('fill', meta.color)
       .attr('stroke', '#fff')
-      .attr('stroke-width', 1.5)
-      .style('opacity', 0)
-      .transition()
-      .delay(1000)
-      .duration(300)
-      .style('opacity', 1);
+      .attr('stroke-width', 1.5);
+    if (noMotion) {
+      dots.style('opacity', 1);
+    } else {
+      dots.style('opacity', 0)
+        .transition()
+        .delay(1000)
+        .duration(300)
+        .style('opacity', 1);
+    }
 
     // End-of-line label
     const lastPt = sorted[sorted.length - 1];
     const lastVal = (lastPt as any)[key] as number;
 
-    g.append('text')
+    const label = g.append('text')
       .attr('x', x(lastPt.season)! + 10)
       .attr('y', yScale(lastVal))
       .attr('dy', '0.35em')
@@ -180,12 +189,16 @@ export function renderPlayerStats(
       .attr('font-size', '10px')
       .attr('font-weight', '700')
       .attr('fill', meta.color)
-      .text(`${meta.shortLabel} ${meta.format(lastVal)}`)
-      .style('opacity', 0)
-      .transition()
-      .delay(1200)
-      .duration(300)
-      .style('opacity', 1);
+      .text(`${meta.shortLabel} ${meta.format(lastVal)}`);
+    if (noMotion) {
+      label.style('opacity', 1);
+    } else {
+      label.style('opacity', 0)
+        .transition()
+        .delay(1200)
+        .duration(300)
+        .style('opacity', 1);
+    }
   }
 
   // Tooltip + hover interaction
