@@ -127,7 +127,7 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
       publisher: {
         '@type': 'Organization',
         name: 'Birdland Metrics',
-        logo: { '@type': 'ImageObject', url: siteUrl + '/logo.png' },
+        logo: { '@type': 'ImageObject', url: siteUrl + '/logo-icon.png' },
       },
     };
 

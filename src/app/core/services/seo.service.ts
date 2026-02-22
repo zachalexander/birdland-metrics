@@ -20,6 +20,7 @@ export class SeoService {
   private meta = inject(Meta);
 
   private readonly defaultImage = environment.siteUrl + '/og-default.png';
+  private readonly defaultTwitterImage = environment.siteUrl + '/twitter-card.png';
 
   getSiteUrl(): string {
     return environment.siteUrl;
@@ -41,7 +42,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:site_name', content: 'Birdland Metrics' });
     this.meta.updateTag({ name: 'twitter:card', content: twitterCard });
     this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
-    this.meta.updateTag({ name: 'twitter:image', content: image });
+    this.meta.updateTag({ name: 'twitter:image', content: page.image ?? this.defaultTwitterImage });
 
     if (page.article) {
       if (page.article.publishedTime) {
@@ -88,7 +89,7 @@ export class SeoService {
       '@type': 'Organization',
       name: 'Birdland Metrics',
       url: environment.siteUrl,
-      logo: environment.siteUrl + '/logo.png',
+      logo: environment.siteUrl + '/logo-icon.png',
       description: 'Data-driven baseball analysis, visualizations, and insights.',
     };
   }

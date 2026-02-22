@@ -21,8 +21,12 @@
     color: #ffffff;
   }
 
-  :host(.header-dark) .logo-icon {
-    filter: invert(1) hue-rotate(180deg);
+  :host(.header-dark) .logo-for-light {
+    display: none;
+  }
+
+  :host(.header-dark) .logo-for-dark {
+    display: block;
   }
 
   :host(.header-dark) ::ng-deep .theme-btn {
@@ -95,12 +99,21 @@
 }
 
 .logo-icon {
-  height: 36px;
-  width: auto;
+  height: 40px;
+  width: 40px;
   display: block;
   flex-shrink: 0;
-  margin-right: 0.25rem;
+  margin-right: 0.05rem;
+  border-radius: 50%;
 }
+
+/* Light mode: show light logo, hide dark */
+.logo-for-light { display: block; }
+.logo-for-dark { display: none; }
+
+/* Dark mode: show dark logo, hide light */
+:host-context([data-theme="dark"]) .logo-for-light { display: none; }
+:host-context([data-theme="dark"]) .logo-for-dark { display: block; }
 
 .logo:hover {
   text-decoration: none;
@@ -119,9 +132,4 @@
   align-items: center;
   gap: 8px;
   margin-left: auto;
-}
-
-/* Dark mode — logo invert */
-:host-context([data-theme="dark"]) .logo-icon {
-  filter: invert(1) hue-rotate(180deg);
 }
