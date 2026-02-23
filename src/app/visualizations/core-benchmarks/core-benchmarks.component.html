@@ -39,11 +39,16 @@
     @for (player of filteredBatters(); track player.playerId) {
       <div class="player-card" [class.all-met]="playerMetCount(player) === player.benchmarks.length" [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
         <div class="card-header">
-          @if (avatarUrl(player.playerId); as avatar) {
-            <img class="player-avatar" [src]="avatar" [alt]="player.name">
-          } @else {
-            <span class="jersey-number">{{ jerseyNumber(player.playerId) }}</span>
-          }
+          <div class="avatar-wrapper">
+            @if (avatarUrl(player.playerId); as avatar) {
+              <img class="player-avatar" [src]="avatar" [alt]="player.name">
+            } @else {
+              <span class="jersey-number">{{ jerseyNumber(player.playerId) }}</span>
+            }
+            @if (isInjured(player.playerId)) {
+              <span class="injury-badge" title="Injured List">IL</span>
+            }
+          </div>
           <div class="player-info">
             <span class="player-name">{{ player.name }}</span>
             <span class="player-position">{{ player.position }}</span>
@@ -102,11 +107,16 @@
     @for (player of filteredPitchers(); track player.playerId) {
       <div class="player-card" [class.all-met]="playerMetCount(player) === player.benchmarks.length" [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
         <div class="card-header">
-          @if (avatarUrl(player.playerId); as avatar) {
-            <img class="player-avatar" [src]="avatar" [alt]="player.name">
-          } @else {
-            <span class="jersey-number">{{ jerseyNumber(player.playerId) }}</span>
-          }
+          <div class="avatar-wrapper">
+            @if (avatarUrl(player.playerId); as avatar) {
+              <img class="player-avatar" [src]="avatar" [alt]="player.name">
+            } @else {
+              <span class="jersey-number">{{ jerseyNumber(player.playerId) }}</span>
+            }
+            @if (isInjured(player.playerId)) {
+              <span class="injury-badge" title="Injured List">IL</span>
+            }
+          </div>
           <div class="player-info">
             <span class="player-name">{{ player.name }}</span>
             <span class="player-position">{{ player.position }}</span>

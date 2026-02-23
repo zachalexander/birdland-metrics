@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle"
-        font-family="Inter, Arial, Helvetica, sans-serif"
-        font-size="70"
+  <circle cx="50" cy="50" r="49" fill="#ffffff" stroke="#cccccc" stroke-width="0.5"/>
+  <text x="49%" y="55%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Impact, 'Arial Black', Arial, Helvetica, sans-serif"
+        font-size="65"
         font-weight="900"
+        letter-spacing="-3"
         fill="#000000">BM</text>
 </svg>

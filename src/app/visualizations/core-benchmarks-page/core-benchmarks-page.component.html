@@ -1,6 +1,6 @@
 <div class="benchmarks-page">
-  <div class="chart-header">
-    <h2 class="page-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
+  <h2 class="page-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
+  <div class="share-row">
     <app-share-buttons title="Core Player Benchmarks — Birdland Metrics" path="/visualizations/core-benchmarks" />
   </div>
   <p class="page-explainer">
@@ -26,4 +26,12 @@
       [showOverride]="viewing2025()"
     />
   }
+  <details class="methodology">
+    <summary>How were these benchmarks set?</summary>
+    <div class="methodology-body">
+      <p>Each player has exactly three benchmarks designed to answer the key questions about their 2026 contribution. We categorized each player by role — franchise player, elite catcher, mid-rotation starter, elite closer, etc. — and set round-number targets appropriate to each tier.</p>
+      <p>For example, Kyle Bradish's ERA target of 3.50 reflects his role as the staff ace, while Trevor Rogers' 4.00 target reflects a solid starter threshold for a mid-rotation arm. Jackson Holliday's targets are deliberately conservative because the question for a 22-year-old isn't whether he's a star yet — it's whether he belongs.</p>
+      <p>Targets were informed by career data, projection systems (ZiPS, Steamer), and positional context to ensure they're reasonable for each player's profile and the team's competitive needs. Benchmark data is sourced from FanGraphs and updates daily throughout the season.</p>
+    </div>
+  </details>
 </div>

@@ -51,6 +51,15 @@ export class CoreBenchmarksComponent {
     '664854': 'assets/ryan-helsley.png',
   };
 
+  private static readonly INJURED_PLAYERS: Set<string> = new Set([
+    '682614',  // Jordan Westburg
+    '696137',  // Jackson Holliday
+  ]);
+
+  isInjured(playerId: string): boolean {
+    return CoreBenchmarksComponent.INJURED_PLAYERS.has(playerId);
+  }
+
   private static readonly GLOSSARY: Record<string, string> = {
     barrel_pct: 'Percentage of batted balls with ideal exit velocity and launch angle',
     wrc_plus: 'Weighted runs created, adjusted for park and league (100 = average)',
