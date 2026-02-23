@@ -42,10 +42,15 @@ export class MlbDataService {
   }
 
   async getProjections(): Promise<TeamProjection[]> {
+    const res = await this.getProjectionsWithMeta();
+    return res.projections;
+  }
+
+  async getProjectionsWithMeta(): Promise<{ updated: string; projections: TeamProjection[] }> {
     const res = await firstValueFrom(
       this.http.get<ProjectionsResponse>(`${this.predBase}/projections-latest.json?t=${Date.now()}`)
     );
-    return res.projections;
+    return { updated: res.updated, projections: res.projections };
   }
 
   async getEloRatings(): Promise<EloRating[]> {

@@ -180,18 +180,18 @@ export function renderWinDistribution(
     .call(g => g.selectAll('.tick text')
       .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', compact ? '16px' : '22px')
+      .attr('font-size', compact ? '16px' : '14px')
       .attr('font-weight', '600')
       .attr('dy', '1.2em'));
 
   // X axis label
   g.append('text')
     .attr('x', innerWidth / 2)
-    .attr('y', innerHeight + (compact ? 44 : 68))
+    .attr('y', innerHeight + (compact ? 44 : 56))
     .attr('text-anchor', 'middle')
     .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', compact ? '13px' : '18px')
+    .attr('font-size', compact ? '13px' : '12px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text('PROJECTED WINS');
@@ -203,27 +203,27 @@ export function renderWinDistribution(
     .call(g => g.selectAll('.tick text')
       .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', compact ? '13px' : '16px')
+      .attr('font-size', compact ? '13px' : '12px')
       .attr('dx', '-0.4em'));
 
   // Y axis label
   g.append('text')
     .attr('transform', 'rotate(-90)')
-    .attr('y', compact ? -36 : -50)
+    .attr('y', compact ? -36 : -42)
     .attr('x', -innerHeight / 2)
     .attr('text-anchor', 'middle')
     .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', compact ? '13px' : '18px')
+    .attr('font-size', compact ? '13px' : '12px')
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text(`FREQUENCY (${(NUM_SIMULATIONS).toLocaleString()} sims)`);
 
-  // 95% confidence interval (mean ± 1.96σ)
+  // 90% confidence interval (mean ± 1.645σ)
   for (const { team, projection: td } of teamBars) {
     const color = TEAM_COLORS[team] ?? theme.textSecondary;
-    const ciLo = Math.round(td.avg_wins - 1.96 * td.std_dev);
-    const ciHi = Math.round(td.avg_wins + 1.96 * td.std_dev);
+    const ciLo = Math.round(td.avg_wins - 1.645 * td.std_dev);
+    const ciHi = Math.round(td.avg_wins + 1.645 * td.std_dev);
 
     // Shaded background region
     const ciLoX = x(Math.max(ciLo, xMin)) ?? 0;
@@ -278,17 +278,17 @@ export function renderWinDistribution(
         .attr('font-size', '12px')
         .attr('font-weight', '600')
         .attr('fill', theme.textMuted)
-        .text(`95% CI: ${ciLo}–${ciHi} Wins`);
+        .text(`90% CI: ${ciLo}–${ciHi} Wins`);
     } else {
       g.append('text')
         .attr('x', ciMidX)
         .attr('y', -4)
         .attr('text-anchor', 'middle')
         .attr('font-family', FONT_MONO)
-        .attr('font-size', '18px')
+        .attr('font-size', '12px')
         .attr('font-weight', '600')
         .attr('fill', theme.textMuted)
-        .text(`95% Confidence Interval: ${ciLo}–${ciHi} Wins`);
+        .text(`90% Confidence Interval: ${ciLo}–${ciHi} Wins`);
     }
   }
 
@@ -348,12 +348,12 @@ export function renderWinDistribution(
       .attr('marker-end', `url(#${arrowId})`);
 
     g.append('text')
-      .attr('x', avgBandX + 58)
+      .attr('x', labelX + 3)
       .attr('y', curveBottomY - 24)
       .attr('text-anchor', 'start')
       .attr('dominant-baseline', 'central')
       .attr('font-family', FONT_SANS)
-      .attr('font-size', compact ? '18px' : '24px')
+      .attr('font-size', compact ? '18px' : '16px')
       .attr('font-weight', '700')
       .attr('fill', color)
       .text(`${medianWin} wins`);

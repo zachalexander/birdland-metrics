@@ -10,7 +10,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DecimalPipe } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
@@ -19,11 +19,12 @@ import { TEAM_NAMES, TeamProjection } from '../../shared/models/mlb.models';
 import { TEAM_COLORS, VizColorTheme } from '../viz-utils';
 import { WinDistributionConfig, renderWinDistribution } from './win-dist.render';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
+import { NewsletterCtaComponent } from '../../shared/components/newsletter-cta/newsletter-cta.component';
 
 @Component({
   selector: 'app-win-distribution',
   standalone: true,
-  imports: [ShareButtonsComponent],
+  imports: [DecimalPipe, ShareButtonsComponent, NewsletterCtaComponent],
   templateUrl: './win-distribution.component.html',
   styleUrl: './win-distribution.component.css',
 })
@@ -43,6 +44,8 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
 
   selectedTeam = signal('BAL');
   teamOptions = signal<{ abbr: string; name: string }[]>([]);
+  updatedDate = signal<string | null>(null);
+  balProjection = signal<TeamProjection | null>(null);
 
   private loadedProjections: TeamProjection[] = [];
   private d3Module: typeof import('d3') | null = null;
@@ -51,7 +54,6 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
   private get resolvedConfig(): WinDistributionConfig {
     return this.config ?? {
       teams: ['BAL'],
-      title: 'Projected Win Distribution',
     };
   }
 
@@ -82,15 +84,28 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
     const cfg = this.resolvedConfig;
 
     try {
-      const [d3, projections] = await Promise.all([
+      const [d3, projectionsResult] = await Promise.all([
         import('d3'),
         this.projections
-          ? Promise.resolve(this.projections)
-          : this.mlbData.getProjections(),
+          ? Promise.resolve({ updated: '', projections: this.projections })
+          : this.mlbData.getProjectionsWithMeta(),
       ]);
 
       this.d3Module = d3;
-      this.loadedProjections = projections;
+      this.loadedProjections = projectionsResult.projections;
+      if (projectionsResult.updated) {
+        const d = new Date(projectionsResult.updated + 'Z');
+        const month = d.toLocaleDateString('en-US', { month: 'short', timeZone: 'America/New_York' });
+        const day = d.getDate();
+        const year = d.getFullYear();
+        const s = ['th', 'st', 'nd', 'rd'];
+        const v = day % 100;
+        const suffix = s[(v - 20) % 10] || s[v] || s[0];
+        const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+        this.updatedDate.set(`${month} ${day}${suffix}, ${year} \u00B7 ${time} ET`);
+      }
+      const bal = projectionsResult.projections.find(p => p.team === 'BAL');
+      if (bal) this.balProjection.set(bal);
       this.loading = false;
 
       // Build dropdown options from config teams

@@ -1,7 +1,10 @@
 <div class="win-dist-wrapper">
   @if (!config) {
     <div class="chart-header">
-      <h3 class="chart-title">Projected Win Distribution</h3>
+      <h3 class="chart-title">Projected Orioles 2026 Win Distribution</h3>
+      @if (updatedDate(); as date) {
+        <p class="chart-updated">Model last updated {{ date }}</p>
+      }
       <app-share-buttons title="Win Distribution — Birdland Metrics" path="/visualizations/win-distribution" />
     </div>
   }
@@ -28,5 +31,23 @@
       <div class="placeholder-bar"></div>
       <p class="placeholder-text">Loading visualization...</p>
     </div>
+  }
+  @if (!config && balProjection(); as bal) {
+    <div class="chart-summary">
+      <h3 class="summary-title">What is the projected range of win outcomes?</h3>
+      <p class="summary-text">
+        As of today, based on 10,000 simulated seasons, the most frequent win outcome for the Orioles is
+        <span class="stat-pill">{{ bal.median_wins | number:'1.0-0' }} games</span>.
+        In 90% of simulations, they finish between
+        <span class="stat-pill">{{ bal.p10 | number:'1.0-0' }} wins</span> and
+        <span class="stat-pill">{{ bal.p90 | number:'1.0-0' }} wins</span>,
+        with the middle half of outcomes landing between
+        <span class="stat-pill">{{ bal.p25 | number:'1.0-0' }} wins</span> and
+        <span class="stat-pill">{{ bal.p75 | number:'1.0-0' }} wins</span>.
+      </p>
+    </div>
+  }
+  @if (!config) {
+    <app-newsletter-cta class="win-dist-newsletter" />
   }
 </div>

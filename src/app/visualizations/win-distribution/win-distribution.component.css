@@ -1,30 +1,36 @@
+:host {
+  display: block;
+  background: var(--color-bg);
+}
+
 .win-dist-wrapper {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-lg) var(--space-2xl);
 }
 
 .chart-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-.chart-header .chart-title {
-  margin-bottom: 0;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
 }
 
 .chart-title {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-family: var(--font-sans);
+  font-size: clamp(1.9rem, 1.6rem + 1vw, 2.35rem);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-text-secondary);
-  margin: 0 0 var(--space-md);
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: var(--color-text);
+  margin: 0;
   text-align: center;
+}
+
+.chart-container {
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 .team-picker {
@@ -57,10 +63,6 @@
   color: #fff;
   background: var(--team-color);
   border-color: var(--team-color);
-}
-
-.chart-container {
-  width: 100%;
 }
 
 .chart-container svg {
@@ -99,6 +101,50 @@
   margin-top: var(--space-md);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
+}
+
+.chart-updated {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: var(--space-sm) 0 0;
+}
+
+.chart-summary {
+  max-width: 820px;
+  margin: var(--space-lg) auto 0;
+}
+
+.summary-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+}
+
+.summary-text {
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.stat-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-accent);
+  background: rgba(223, 74, 0, 0.08);
+  padding: 1px 8px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.win-dist-newsletter {
+  display: block;
+  margin-top: var(--space-2xl);
 }
 
 @keyframes shimmer {
