@@ -2,6 +2,7 @@ import { Component, inject, input, signal, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AnalyticsService } from '../../../core/services/analytics.service';
 
 type CtaState = 'idle' | 'loading' | 'success' | 'error';
 
@@ -23,6 +24,7 @@ export class NewsletterCtaComponent {
 
   private http = inject(HttpClient);
   private platformId = inject(PLATFORM_ID);
+  private analytics = inject(AnalyticsService);
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
@@ -59,7 +61,10 @@ export class NewsletterCtaComponent {
     this.http
       .post<{ success?: boolean; error?: string }>('/api/newsletter', { email: emailValue })
       .subscribe({
-        next: () => this.state.set('success'),
+        next: () => {
+          this.state.set('success');
+          this.analytics.trackEvent('newsletter_signup', { variant: this.variant() });
+        },
         error: (err) => {
           const message = err.error?.error || 'Subscription failed. Please try again later.';
           this.errorMessage.set(message);
