@@ -228,7 +228,7 @@ export function renderPlayoffRace(
     }
 
     // Bracket annotation helper
-    const drawBracket = (startDate: Date, endDate: Date, line1: string, line2: string, rotateOffset: number | null = -0.08, extraX = 0, extraY = 0, curveLeft = false) => {
+    const drawBracket = (startDate: Date, endDate: Date, line1: string, line2: string, rotateOffset: number | null = -0.08, extraX = 0, extraY = 0, curveLeft = false, barBend: number | null = null) => {
       const bsx1 = x(startDate);
       const bsx2 = x(endDate);
       if (bsx1 < 0 || bsx2 > innerWidth) return;
@@ -265,13 +265,17 @@ export function renderPlayoffRace(
         .attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
       g.append('line').attr('x1', bx2).attr('y1', bby2).attr('x2', bx2 + tickDx).attr('y2', bby2 + tickDy)
         .attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
-      g.append('line').attr('x1', bx1).attr('y1', bby1).attr('x2', bx2).attr('y2', bby2)
-        .attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
-
-      const bmx = (bx1 + bx2) / 2;
-      const bmy = (bby1 + bby2) / 2;
+      const bendH = barBend ?? (isMobile ? 4 : 6);
+      const cpx = (bx1 + bx2) / 2 + Math.sin(bAngle) * bendH;
+      const cpy = (bby1 + bby2) / 2 - Math.cos(bAngle) * bendH;
+      // Actual peak of quadratic Bezier at t=0.5: B(0.5) = 0.25*P0 + 0.5*CP + 0.25*P2
+      const bmx = 0.25 * bx1 + 0.5 * cpx + 0.25 * bx2;
+      const bmy = 0.25 * bby1 + 0.5 * cpy + 0.25 * bby2;
+      g.append('path')
+        .attr('d', `M${bx1},${bby1} Q${cpx},${cpy} ${bx2},${bby2}`)
+        .attr('fill', 'none').attr('stroke', theme.textMuted).attr('stroke-width', 1).attr('stroke-dasharray', '3,2').attr('opacity', 0.8);
       const stemH = isMobile ? 38 : 52;
-      const curveOffsetX = curveLeft ? (isMobile ? 3 : 4) : (isMobile ? 25 : 35);
+      const curveOffsetX = curveLeft ? (isMobile ? 12 : 18) : (isMobile ? 25 : 35);
       const dir = curveLeft ? -1 : 1;
       const tipX = bmx + curveOffsetX * dir;
       const tipY = bmy - stemH;
@@ -288,7 +292,7 @@ export function renderPlayoffRace(
         .attr('font-weight', '600').attr('fill', theme.textMuted).attr('text-anchor', 'middle').text(line2);
     };
 
-    drawBracket(new Date(2025, 3, 20), new Date(2025, 3, 29), 'Lost 7', 'out of 9', -0.8, 0, -14, true);
+    drawBracket(new Date(2025, 3, 20), new Date(2025, 3, 28), 'Lost 7', 'out of 9', 0, 0, -14, true, isMobile ? 18 : 26);
     drawBracket(new Date(2025, 4, 4), new Date(2025, 4, 11), '5-game losing', 'streak', null);
     drawBracket(new Date(2025, 4, 14), new Date(2025, 4, 20), '8-game losing', 'streak', -0.08);
   }
