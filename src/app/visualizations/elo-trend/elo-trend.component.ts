@@ -12,6 +12,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
+import { environment } from '../../../environments/environment';
 import { EloTrendConfig, renderEloTrend } from './elo-trend.render';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
@@ -55,6 +56,7 @@ export class EloTrendComponent implements OnInit, AfterViewInit, OnDestroy {
         title: 'ELO Trends — Birdland Metrics',
         description: 'Track ELO rating trends throughout the MLB season.',
         path: '/visualizations/elo-trends',
+        image: `${environment.s3.ogImages}/elo-trends.png`,
       });
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }

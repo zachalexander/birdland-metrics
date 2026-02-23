@@ -12,7 +12,9 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
+import { environment } from '../../../environments/environment';
 import { PlayoffRaceConfig, renderPlayoffRace } from './playoff-race.render';
 import { AL_EAST, TeamProjection, PlayoffOdds } from '../../shared/models/mlb.models';
 
@@ -31,6 +33,7 @@ export class PlayoffRaceComponent implements OnInit, AfterViewInit, OnChanges, O
 
   chartContainer = viewChild<ElementRef>('chartContainer');
   private platformId = inject(PLATFORM_ID);
+  private seo = inject(SeoService);
   private mlbData = inject(MlbDataService);
   isBrowser = false;
   loading = true;
@@ -49,6 +52,16 @@ export class PlayoffRaceComponent implements OnInit, AfterViewInit, OnChanges, O
   }
 
   ngOnInit(): void {
+    if (!this.config) {
+      this.seo.setPageMeta({
+        title: 'Playoff Race — Birdland Metrics',
+        description: 'Track AL East playoff odds throughout the MLB season.',
+        path: '/visualizations/playoff-race',
+        image: `${environment.s3.ogImages}/playoff-race.png`,
+      });
+      this.seo.setJsonLd(this.seo.getOrganizationSchema());
+    }
+
     if (this.isBrowser) {
       this.themeHandler = () => this.rerender();
       window.addEventListener('theme-changed', this.themeHandler);

@@ -13,6 +13,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
+import { environment } from '../../../environments/environment';
 import { TEAM_NAMES, TeamProjection } from '../../shared/models/mlb.models';
 import { TEAM_COLORS, VizColorTheme } from '../viz-utils';
 import { WinDistributionConfig, renderWinDistribution } from './win-dist.render';
@@ -67,6 +68,7 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
         title: 'Win Distribution — Birdland Metrics',
         description: 'Projected win distribution curves for MLB teams.',
         path: '/visualizations/win-distribution',
+        image: `${environment.s3.ogImages}/win-distribution.png`,
       });
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }

@@ -12,6 +12,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
+import { environment } from '../../../environments/environment';
 import { PlayerStatsVizConfig, renderPlayerStats } from './player-stats.render';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
@@ -60,6 +61,7 @@ export class PlayerStatsComponent implements OnInit, AfterViewInit, OnDestroy {
         title: 'Player Stats — Birdland Metrics',
         description: 'Explore player career statistics across MLB seasons.',
         path: '/visualizations/player-stats',
+        image: `${environment.s3.ogImages}/player-stats.png`,
       });
       this.seo.setJsonLd(this.seo.getOrganizationSchema());
     }

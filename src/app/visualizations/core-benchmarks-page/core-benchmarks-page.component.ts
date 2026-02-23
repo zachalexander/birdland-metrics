@@ -2,6 +2,7 @@ import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
+import { environment } from '../../../environments/environment';
 import { BenchmarkPlayer } from '../../shared/models/mlb.models';
 import { CoreBenchmarksComponent } from '../core-benchmarks/core-benchmarks.component';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
@@ -56,6 +57,7 @@ export class CoreBenchmarksPageComponent implements OnInit {
       title: 'Core Player Benchmarks — Birdland Metrics',
       description: 'Track key statistical benchmarks for Orioles core players throughout the 2026 season.',
       path: '/visualizations/core-benchmarks',
+      image: `${environment.s3.ogImages}/core-benchmarks.png`,
     });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
 

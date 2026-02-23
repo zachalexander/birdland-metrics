@@ -14,5 +14,6 @@ export const environment = {
     eloRatings: 'https://mlb-elo-ratings-output.s3.amazonaws.com',
     predictions: 'https://mlb-predictions-2026.s3.amazonaws.com',
     playerStats: 'https://mlb-player-stats-retrosheet.s3.amazonaws.com',
+    ogImages: 'https://mlb-elo-ratings-output.s3.amazonaws.com/og-images',
   },
 };

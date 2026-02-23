@@ -10,6 +10,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
+import { environment } from '../../../environments/environment';
 import { prefersReducedMotion } from '../viz-utils';
 
 interface HitData {
@@ -58,6 +59,7 @@ export class SprayChartComponent implements OnInit, AfterViewInit {
       title: 'Spray Chart — Birdland Metrics',
       description: 'Interactive spray chart visualization for baseball hit data.',
       path: '/visualizations/spray-chart',
+      image: `${environment.s3.ogImages}/spray-chart.png`,
     });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
   }
