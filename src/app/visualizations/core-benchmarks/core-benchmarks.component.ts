@@ -51,13 +51,17 @@ export class CoreBenchmarksComponent {
     '664854': 'assets/ryan-helsley.png',
   };
 
-  private static readonly INJURED_PLAYERS: Set<string> = new Set([
-    '682614',  // Jordan Westburg
-    '696137',  // Jackson Holliday
-  ]);
+  private static readonly INJURIES: Record<string, { diagnosis: string; returnDate: string }> = {
+    '682614': { diagnosis: 'Partial UCL tear', returnDate: 'Back ~May' },
+    '696137': { diagnosis: 'Broken hamate', returnDate: 'Back ~mid-April' },
+  };
 
   isInjured(playerId: string): boolean {
-    return CoreBenchmarksComponent.INJURED_PLAYERS.has(playerId);
+    return playerId in CoreBenchmarksComponent.INJURIES;
+  }
+
+  injuryInfo(playerId: string): { diagnosis: string; returnDate: string } | null {
+    return CoreBenchmarksComponent.INJURIES[playerId] ?? null;
   }
 
   private static readonly GLOSSARY: Record<string, string> = {

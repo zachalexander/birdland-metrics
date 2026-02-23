@@ -52,6 +52,9 @@
           <div class="player-info">
             <span class="player-name">{{ player.name }}</span>
             <span class="player-position">{{ player.position }}</span>
+            @if (injuryInfo(player.playerId); as injury) {
+              <span class="injury-detail">{{ injury.diagnosis }} · {{ injury.returnDate }}</span>
+            }
           </div>
         </div>
         <div class="benchmark-rows">
@@ -120,6 +123,9 @@
           <div class="player-info">
             <span class="player-name">{{ player.name }}</span>
             <span class="player-position">{{ player.position }}</span>
+            @if (injuryInfo(player.playerId); as injury) {
+              <span class="injury-detail">{{ injury.diagnosis }} · {{ injury.returnDate }}</span>
+            }
           </div>
         </div>
         <div class="benchmark-rows">

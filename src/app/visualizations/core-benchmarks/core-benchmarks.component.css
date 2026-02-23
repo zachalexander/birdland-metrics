@@ -217,6 +217,15 @@
   text-transform: uppercase;
 }
 
+.injury-detail {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: #dc2626;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
 .benchmark-rows {
   display: flex;
   flex-direction: column;
