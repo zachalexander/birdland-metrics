@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject, PLATFORM_ID, ElementRef, viewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, signal, inject, PLATFORM_ID, ElementRef, viewChild, AfterViewChecked, PendingTasks } from '@angular/core';
 import { isPlatformBrowser, DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -34,6 +34,7 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
   private seo = inject(SeoService);
   private sanitizer = inject(DomSanitizer);
   private platformId = inject(PLATFORM_ID);
+  private pendingTasks = inject(PendingTasks);
   private tocExtracted = false;
 
   constructor(
@@ -49,6 +50,7 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
       return;
     }
 
+    const taskCleanup = this.pendingTasks.add();
     this.contentful
       .getArticleBySlug(slug)
       .then((article) => {
@@ -90,7 +92,8 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
       .catch(() => {
         this.loading.set(false);
         this.notFound.set(true);
-      });
+      })
+      .finally(() => taskCleanup());
   }
 
   private setMeta(article: BlogPost): void {

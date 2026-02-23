@@ -22,9 +22,7 @@ display: flex;
 flex-direction: column;
 gap: var(--space-lg);
 padding: var(--space-xl) var(--space-2xl);
-background:
-  radial-gradient(ellipse at 75% 50%, rgba(223, 74, 0, 0.06) 0%, transparent 60%),
-  linear-gradient(165deg, #1a1a1a 0%, #2a2a2f 100%);
+background: linear-gradient(165deg, #1a1a1a 0%, #2a2a2f 100%);
 border-radius: var(--home-card-radius) var(--home-card-radius) 0 0;
 margin-top: var(--space-lg);
 box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
