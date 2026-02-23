@@ -2,6 +2,7 @@ import { Component, OnInit, signal, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
+import { AnalyticsService } from '../../core/services/analytics.service';
 import { environment } from '../../../environments/environment';
 import { BenchmarkPlayer } from '../../shared/models/mlb.models';
 import { CoreBenchmarksComponent } from '../core-benchmarks/core-benchmarks.component';
@@ -51,6 +52,7 @@ export class CoreBenchmarksPageComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private seo = inject(SeoService);
   private mlbData = inject(MlbDataService);
+  private analytics = inject(AnalyticsService);
 
   ngOnInit(): void {
     this.seo.setPageMeta({
@@ -69,7 +71,9 @@ export class CoreBenchmarksPageComponent implements OnInit {
   }
 
   toggle2025(): void {
-    this.viewing2025.set(!this.viewing2025());
+    const next = !this.viewing2025();
+    this.viewing2025.set(next);
+    this.analytics.trackEvent('viz_interaction', { viz: 'core_benchmarks', action: 'toggle_season', value: next ? '2025' : 'current' });
   }
 
   private async loadBenchmarks(): Promise<void> {

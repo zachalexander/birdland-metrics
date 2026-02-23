@@ -3,6 +3,7 @@ import { isPlatformBrowser, DecimalPipe } from '@angular/common';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { SeoService } from '../../core/services/seo.service';
+import { AnalyticsService } from '../../core/services/analytics.service';
 import { BlogPost } from '../../shared/models/content.models';
 import { PlayoffOdds, TeamProjection, RecentGame, PlayoffOddsHistoryPoint, TEAM_NAMES, AL_EAST } from '../../shared/models/mlb.models';
 import { TEAM_COLORS } from '../../visualizations/viz-utils';
@@ -176,6 +177,7 @@ export class HomeComponent implements OnInit {
 
   private platformId = inject(PLATFORM_ID);
   private seo = inject(SeoService);
+  private analytics = inject(AnalyticsService);
 
   constructor(
     private contentful: ContentfulService,
@@ -207,6 +209,12 @@ export class HomeComponent implements OnInit {
 
   setOddsSeason(year: number): void {
     this.oddsSeason.set(year);
+    this.analytics.trackEvent('viz_interaction', { viz: 'playoff_race', action: 'season_change', value: String(year) });
+  }
+
+  setShowAllTeams(showAll: boolean): void {
+    this.showAllTeams.set(showAll);
+    this.analytics.trackEvent('viz_interaction', { viz: 'playoff_race', action: 'team_scope', value: showAll ? 'al_east' : 'orioles' });
   }
 
   private async loadDashboard(): Promise<void> {

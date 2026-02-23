@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<select class="mobile-filter" [value]="mobileFilter()" (change)="mobileFilter.set($any($event.target).value)">
+<select class="mobile-filter" [value]="mobileFilter()" (change)="onMobileFilterChange($any($event.target).value)">
   <option value="all">All Players</option>
   <option value="batters">All Position Players</option>
   <option value="pitchers">All Pitchers</option>

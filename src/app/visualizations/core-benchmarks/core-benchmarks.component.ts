@@ -1,5 +1,6 @@
-import { Component, input, computed, signal } from '@angular/core';
+import { Component, input, computed, signal, inject } from '@angular/core';
 import { BenchmarkPlayer, PlayerBenchmark } from '../../shared/models/mlb.models';
+import { AnalyticsService } from '../../core/services/analytics.service';
 
 @Component({
   selector: 'app-core-benchmarks',
@@ -8,6 +9,7 @@ import { BenchmarkPlayer, PlayerBenchmark } from '../../shared/models/mlb.models
   styleUrl: './core-benchmarks.component.css',
 })
 export class CoreBenchmarksComponent {
+  private analytics = inject(AnalyticsService);
   players = input.required<BenchmarkPlayer[]>();
   updated = input<string | null>(null);
   overrideStats = input<Record<string, Record<string, number | null>>>({});
@@ -94,6 +96,11 @@ export class CoreBenchmarksComponent {
   pitchers = computed(() => this.players().filter(p => p.type === 'pitcher'));
 
   mobileFilter = signal('all');
+
+  onMobileFilterChange(value: string): void {
+    this.mobileFilter.set(value);
+    this.analytics.trackEvent('viz_interaction', { viz: 'core_benchmarks', action: 'filter', value });
+  }
 
   filteredBatters = computed(() => {
     const filter = this.mobileFilter();
