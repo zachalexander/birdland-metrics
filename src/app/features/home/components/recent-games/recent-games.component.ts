@@ -45,6 +45,10 @@ export class RecentGamesComponent implements AfterViewInit {
     return game.losing_team === 'Baltimore Orioles';
   }
 
+  isTie(game: RecentGame): boolean {
+    return !game.winning_team && !game.losing_team && game.home_score === game.away_score;
+  }
+
   scrollRight(): void {
     const el = this.gamesGrid()?.nativeElement;
     if (el) {
