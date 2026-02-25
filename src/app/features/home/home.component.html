@@ -11,16 +11,16 @@
         </div>
         <div class="hero-numbers">
           <div class="hero-big-wrap">
-            <div class="hero-gauge" [style.--pct]="odds.playoff_pct">
-              <svg class="gauge-ring" viewBox="0 0 120 120">
-                <circle class="gauge-track" cx="60" cy="60" r="54" />
-                <circle class="gauge-fill" cx="60" cy="60" r="54"
-                  [style.stroke-dashoffset]="339.29 - (339.29 * odds.playoff_pct / 100)" />
-              </svg>
-              <div class="gauge-inner">
-                <span class="hero-big">{{ animatedPct() }}<span class="hero-pct">%</span></span>
-                <span class="hero-big-label">chance</span>
+            <div class="dot-grid-wrap">
+              <div class="dot-grid">
+                @for (dot of dots(); track $index) {
+                  <span class="dot" [class.dot-active]="dot"
+                        [style.animation-delay]="dot ? ($index * 8) + 'ms' : '0ms'"></span>
+                }
               </div>
+              <p class="dot-grid-label">
+                In <strong>{{ filledDots() }}</strong> of 100 simulated seasons, Baltimore makes the playoffs.
+              </p>
             </div>
           </div>
           @if (oriolesWins(); as wins) {

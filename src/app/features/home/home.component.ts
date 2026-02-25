@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
 
   oddsSeason = signal<number>(2026);
   showAllTeams = signal(false);
-  animatedPct = signal(0);
   animatedWins = signal(0);
   historicalOdds = signal<PlayoffOdds[]>([]);
 
@@ -72,11 +71,14 @@ export class HomeComponent implements OnInit {
     }).catch(() => this.historicalOdds.set([]));
   });
 
-  private countUpEffect = effect(() => {
+  filledDots = computed(() => {
     const odds = this.oriolesOdds();
-    if (!odds || !isPlatformBrowser(this.platformId)) return;
-    const target = odds.playoff_pct;
-    this.countUp(target, 1000, v => this.animatedPct.set(v));
+    return odds ? Math.round(odds.playoff_pct) : 0;
+  });
+
+  dots = computed(() => {
+    const filled = this.filledDots();
+    return Array.from({ length: 100 }, (_, i) => i < filled);
   });
 
   private countUpWinsEffect = effect(() => {
