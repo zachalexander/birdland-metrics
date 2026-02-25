@@ -67,7 +67,8 @@
 }
 
 .game-card {
-  flex: 0 0 180px;
+  flex: 1 0 0;
+  min-width: 140px;
   background: var(--color-bg);
   padding: var(--space-md);
   display: flex;
@@ -171,7 +172,8 @@
 
 @media (max-width: 768px) {
   .game-card {
-    flex: 0 0 150px;
+    flex: 1 0 0;
+    min-width: 120px;
     padding: var(--space-sm);
   }
   .scroll-arrow {
