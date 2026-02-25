@@ -626,7 +626,7 @@ margin-top: var(--space-sm);
 .skeleton-article { flex-direction: column; }
 .skeleton-thumb { flex: none; width: 100%; aspect-ratio: 16 / 9; }
 .editorial-band { --home-card-padding: var(--space-md); margin: calc(-1 * var(--space-sm)) 0 var(--space-md); border-radius: 0; }
-.editorial-header { gap: var(--space-xs); padding-left: var(--space-md); }
+.editorial-header { gap: var(--space-xs); padding-left: 0; margin-left: calc(-1 * var(--space-sm)); }
 .editorial-content { margin: 0 calc(-1 * var(--space-md)); }
 .featured-image { aspect-ratio: 16 / 10; }
 .articles-section { --spotlight-aspect-ratio: 21 / 8; }
