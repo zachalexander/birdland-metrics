@@ -1,5 +1,5 @@
-import { Injectable, inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -12,9 +12,10 @@ const GA_ID = 'G-Q3B51YZBGE';
 export class AnalyticsService {
   private router = inject(Router);
   private document = inject(DOCUMENT);
+  private platformId = inject(PLATFORM_ID);
 
   init(): void {
-    if (!environment.production || !this.document.defaultView) return;
+    if (!environment.production || !isPlatformBrowser(this.platformId)) return;
 
     this.loadGtagScript();
 
@@ -26,7 +27,7 @@ export class AnalyticsService {
   }
 
   trackEvent(name: string, params?: Record<string, string | number>): void {
-    if (!environment.production || !this.document.defaultView) return;
+    if (!environment.production || !isPlatformBrowser(this.platformId)) return;
     gtag('event', name, params);
   }
 
