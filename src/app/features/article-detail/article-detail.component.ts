@@ -92,10 +92,20 @@ export class ArticleDetailComponent implements OnInit, OnDestroy, AfterViewCheck
           }
           return '';
         };
+        const renderAsset = (node: any): string => {
+          const asset = node.data?.target;
+          if (!asset?.fields) return '';
+          const file = asset.fields.file;
+          if (!file?.url) return '';
+          const url = file.url.startsWith('//') ? 'https:' + file.url : file.url;
+          const alt = asset.fields.title ?? asset.fields.description ?? '';
+          return `<img src="${url}" alt="${alt}" loading="lazy" />`;
+        };
         const rawHtml = documentToHtmlString(article.content, {
           renderNode: {
             [BLOCKS.EMBEDDED_ENTRY]: renderVizEntry,
             [INLINES.EMBEDDED_ENTRY]: renderVizEntry,
+            [BLOCKS.EMBEDDED_ASSET]: renderAsset,
           },
         });
         this.bodyHtml.set(this.sanitizer.bypassSecurityTrustHtml(rawHtml));

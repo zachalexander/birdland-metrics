@@ -65,8 +65,8 @@ export class VizHostDirective implements AfterViewInit, OnDestroy {
           case 'win-distribution': {
             const { renderWinDistribution } = await import('../../visualizations/win-distribution/win-dist.render');
             const teams: string[] = config.teams ?? ['BAL'];
-            const projections = await this.mlbData.getProjections();
-            renderWinDistribution(el, projections, { teams, title: config.title }, d3);
+            const { updated, projections } = await this.mlbData.getProjectionsWithMeta();
+            renderWinDistribution(el, projections, { teams, title: config.title, compact: config.compact, prevMedian: config.prevMedian, updated }, d3);
             break;
           }
           case 'player-stats': {

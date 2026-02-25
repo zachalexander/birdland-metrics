@@ -198,6 +198,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: var(--space-2xl) 0;
 }
 
+@media (min-width: 960px) {
+  .article-body img {
+    width: 90vw;
+    max-width: 960px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .article-body blockquote {
   background: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
@@ -316,8 +326,17 @@ h1, h2, h3, h4, h5, h6 {
   margin: var(--space-xl) 0;
   padding-top: var(--space-lg);
   border-top: 1px solid var(--color-border);
-  overflow-x: auto;
-  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 960px) {
+  .article-body .article-viz {
+    width: 90vw;
+    max-width: 960px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .viz-empty-state {
