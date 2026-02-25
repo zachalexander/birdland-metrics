@@ -247,13 +247,15 @@ app-newsletter-cta {
 @media (max-width: 768px) {
   .article-hero-image {
     padding: 0;
+    max-width: 100%;
   }
   .article-hero-image picture {
     border-radius: 0;
   }
   .article-hero-image img {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
   }
   .hero-image-attribution {
     padding-left: var(--space-md);

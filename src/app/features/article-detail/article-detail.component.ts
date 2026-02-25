@@ -1,7 +1,8 @@
-import { Component, OnInit, signal, inject, PLATFORM_ID, ElementRef, viewChild, AfterViewChecked, PendingTasks } from '@angular/core';
-import { isPlatformBrowser, DatePipe } from '@angular/common';
+import { Component, OnInit, OnDestroy, signal, inject, PLATFORM_ID, ElementRef, viewChild, AfterViewChecked, PendingTasks } from '@angular/core';
+import { isPlatformBrowser, DatePipe, ViewportScroller } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { ContentfulService } from '../../core/services/contentful.service';
@@ -21,7 +22,7 @@ import { TocComponent, TocHeading } from '../../shared/components/toc/toc.compon
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })
-export class ArticleDetailComponent implements OnInit, AfterViewChecked {
+export class ArticleDetailComponent implements OnInit, OnDestroy, AfterViewChecked {
   article = signal<BlogPost | null>(null);
   bodyHtml = signal<SafeHtml>('');
   loading = signal(true);
@@ -35,7 +36,9 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
   private sanitizer = inject(DomSanitizer);
   private platformId = inject(PLATFORM_ID);
   private pendingTasks = inject(PendingTasks);
+  private scroller = inject(ViewportScroller);
   private tocExtracted = false;
+  private paramSub?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,12 +46,29 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit(): void {
-    const slug = this.route.snapshot.paramMap.get('slug');
-    if (!slug) {
-      this.notFound.set(true);
-      this.loading.set(false);
-      return;
-    }
+    this.paramSub = this.route.paramMap.subscribe((params) => {
+      const slug = params.get('slug');
+      if (!slug) {
+        this.notFound.set(true);
+        this.loading.set(false);
+        return;
+      }
+      this.loadArticle(slug);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.paramSub?.unsubscribe();
+  }
+
+  private loadArticle(slug: string): void {
+    this.loading.set(true);
+    this.notFound.set(false);
+    this.article.set(null);
+    this.bodyHtml.set('');
+    this.relatedArticles.set([]);
+    this.tocHeadings.set([]);
+    this.tocExtracted = false;
 
     const taskCleanup = this.pendingTasks.add();
     this.contentful
@@ -82,6 +102,7 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
         this.loading.set(false);
         this.setMeta(article);
         this.addJsonLd(article);
+        this.scroller.scrollToPosition([0, 0]);
 
         if (article.tags.length) {
           this.contentful.getRelatedArticles(article.slug, article.tags).then((related) => {
@@ -97,12 +118,15 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
   }
 
   private setMeta(article: BlogPost): void {
+    const ogImage = article.coverImage
+      ? article.coverImage.url + '?w=1200&h=630&fit=fill&fm=jpg&q=80'
+      : undefined;
     this.seo.setPageMeta({
       title: `${article.title} — Birdland Metrics`,
       description: article.excerpt,
       path: '/articles/' + article.slug,
       type: 'article',
-      image: article.coverImage?.url,
+      image: ogImage,
       article: {
         publishedTime: article.publishedAt,
         author: article.author?.name,

@@ -1,0 +1,114 @@
+<div class="stat-card-page">
+  <h1 class="page-heading">Stat Card Generator</h1>
+  <p class="page-explainer">
+    Generate on-brand stat cards for social media. Choose a card type, customize the content, and download as PNG.
+  </p>
+
+  @if (loading()) {
+    <p class="loading-text">Loading data…</p>
+  } @else {
+    <div class="builder">
+      <!-- Left panel: Controls -->
+      <div class="controls-panel">
+        <div class="control-group">
+          <label class="control-label">Card Type</label>
+          <div class="seg-toggle">
+            <button class="seg-btn" [class.seg-active]="cardType() === 'projections'" (click)="setCardType('projections')">
+              Projections
+            </button>
+            <button class="seg-btn" [class.seg-active]="cardType() === 'player-stats'" (click)="setCardType('player-stats')">
+              Player Stats
+            </button>
+            <button class="seg-btn" [class.seg-active]="cardType() === 'custom'" (click)="setCardType('custom')">
+              Custom
+            </button>
+          </div>
+        </div>
+
+        @if (cardType() === 'projections') {
+          <div class="control-group">
+            <label class="control-label" for="team-select">Team</label>
+            <select id="team-select" class="control-select" [(ngModel)]="selectedTeam" (ngModelChange)="onTeamChange()">
+              @for (team of teamOptions(); track team.abbr) {
+                <option [value]="team.abbr">{{ team.name }}</option>
+              }
+            </select>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="stat-select">Stat</label>
+            <select id="stat-select" class="control-select" [(ngModel)]="selectedProjectionStat" (ngModelChange)="onProjectionStatChange()">
+              @for (opt of projectionStatOptions; track opt.key) {
+                <option [value]="opt.key">{{ opt.label }}</option>
+              }
+            </select>
+          </div>
+        }
+
+        @if (cardType() === 'player-stats') {
+          <div class="control-group">
+            <label class="control-label" for="player-select">Player</label>
+            <select id="player-select" class="control-select" [(ngModel)]="selectedPlayer" (ngModelChange)="onPlayerChange()">
+              @for (player of playerOptions(); track player.id) {
+                <option [value]="player.id">{{ player.name }}</option>
+              }
+            </select>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="benchmark-select">Benchmark</label>
+            <select id="benchmark-select" class="control-select" [(ngModel)]="selectedBenchmark" (ngModelChange)="onBenchmarkChange()">
+              @for (opt of benchmarkOptions(); track opt.key) {
+                <option [value]="opt.key">{{ opt.label }}</option>
+              }
+            </select>
+          </div>
+        }
+
+        @if (cardType() === 'custom') {
+          <div class="control-group">
+            <label class="control-label" for="custom-headline">Headline</label>
+            <input id="custom-headline" class="control-input" type="text" placeholder="e.g. Playoff Probability" [(ngModel)]="customHeadline" (ngModelChange)="onCustomFieldChange()" />
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="custom-stat-value">Stat Value</label>
+            <input id="custom-stat-value" class="control-input" type="text" placeholder="e.g. 87.3%" [(ngModel)]="customStatValue" (ngModelChange)="onCustomFieldChange()" />
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="custom-stat-label">Stat Label</label>
+            <input id="custom-stat-label" class="control-input" type="text" placeholder="e.g. Baltimore Orioles" [(ngModel)]="customStatLabel" (ngModelChange)="onCustomFieldChange()" />
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="custom-context">Context</label>
+            <input id="custom-context" class="control-input" type="text" placeholder="e.g. Based on 10,000 simulated seasons" [(ngModel)]="customContext" (ngModelChange)="onCustomFieldChange()" />
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="custom-subtext">Subtext</label>
+            <input id="custom-subtext" class="control-input" type="text" placeholder="e.g. Updated Feb 23, 2026" [(ngModel)]="customSubtext" (ngModelChange)="onCustomFieldChange()" />
+          </div>
+        }
+
+        <button class="download-btn" (click)="downloadCard()">Download as PNG</button>
+      </div>
+
+      <!-- Right panel: Card preview -->
+      <div class="preview-panel">
+        <div class="preview-wrapper">
+          <div class="card" #cardPreview>
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-headline">{{ cardHeadline() }}</div>
+              <div class="card-stat-value">{{ cardStatValue() }}</div>
+              <div class="card-stat-label">{{ cardStatLabel() }}</div>
+              @if (cardContext()) {
+                <div class="card-context">{{ cardContext() }}</div>
+              }
+            </div>
+            <div class="card-footer">
+              <span class="card-footer-left">2026 Season</span>
+              <span class="card-footer-right">birdlandmetrics.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

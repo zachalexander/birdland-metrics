@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  background: var(--color-bg);
+}
+
 .category-section {
   padding: var(--space-2xl) var(--space-lg);
 }
