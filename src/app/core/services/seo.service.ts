@@ -41,7 +41,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:image', content: image });
     this.meta.updateTag({ property: 'og:image:width', content: '1200' });
     this.meta.updateTag({ property: 'og:image:height', content: '630' });
-    this.meta.updateTag({ property: 'og:image:type', content: 'image/jpeg' });
+    this.meta.updateTag({ property: 'og:image:type', content: 'image/png' });
     this.meta.updateTag({ property: 'og:site_name', content: 'Birdland Metrics' });
     this.meta.updateTag({ name: 'twitter:card', content: twitterCard });
     this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
