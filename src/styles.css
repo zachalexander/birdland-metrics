@@ -339,6 +339,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@media (max-width: 959px) {
+  .article-body .article-viz {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .viz-empty-state {
   color: var(--color-text-muted);
   text-align: center;

@@ -153,6 +153,12 @@
 }
 
 @media (max-width: 768px) {
+  .win-dist-wrapper {
+    padding: var(--space-lg) var(--space-sm) var(--space-2xl);
+  }
+  .chart-container {
+    max-width: 100%;
+  }
   .team-picker {
     flex-wrap: wrap;
   }

@@ -47,6 +47,7 @@ function renderCurves(
   d3: typeof import('d3'),
   container: HTMLElement,
   config: WinDistributionConfig,
+  fb: number,
 ): void {
   // Prevent tooltip overflow from causing scrollbars
   container.style.overflow = 'hidden';
@@ -105,17 +106,19 @@ function renderCurves(
 
   // Pre-defined layout per slot — sides chosen so no arrow crosses another label
   // Sorted order: TB, BAL, BOS, TOR, NYY
+  // Scale xOff proportionally when chart area is narrower than the desktop default (748px)
+  const xScale = innerWidth / 748;
   const layouts = [
-    { dir: -1, xOff: 68, yBump: 0 },    // TB: left, low
-    { dir: -1, xOff: 65, yBump: 28 },   // BAL: left, high (clears TB)
-    { dir: -1, xOff: 50, yBump: 50 },   // BOS: tall, bent left
-    { dir:  1, xOff: 70, yBump: 42 },   // TOR: right, high
-    { dir:  1, xOff: 58, yBump: 20 },   // NYY: right, mid
+    { dir: -1, xOff: Math.round(68 * xScale), yBump: 0 },    // TB: left, low
+    { dir: -1, xOff: Math.round(65 * xScale), yBump: 28 },   // BAL: left, high (clears TB)
+    { dir: -1, xOff: Math.round(50 * xScale), yBump: 50 },   // BOS: tall, bent left
+    { dir:  1, xOff: Math.round(70 * xScale), yBump: 42 },   // TOR: right, high
+    { dir:  1, xOff: Math.round(58 * xScale), yBump: 20 },   // NYY: right, mid
   ];
 
   // Collect all annotation rects for collision resolution
-  const charW = 7.2;
-  const rowH = 18;
+  const charW = 7.2 * (13 + fb) / 13;
+  const rowH = 18 * (13 + fb) / 13;
   const placedAnnotations: { lx: number; ly: number; halfW: number }[] = [];
 
   for (let i = 0; i < sorted.length; i++) {
@@ -204,7 +207,7 @@ function renderCurves(
       .attr('text-anchor', anchor)
       .attr('dominant-baseline', 'central')
       .attr('font-family', FONT_SANS)
-      .attr('font-size', '13px')
+      .attr('font-size', `${13 + fb}px`)
       .attr('font-weight', '700')
       .attr('fill', color)
       .text(label);
@@ -316,12 +319,27 @@ export function renderWinDistribution(
   const compact = config.compact ?? false;
   const isCurveMode = teamData.length > 2;
 
-  const width = isCurveMode ? 860 : 700;
+  // Mobile detection — use a narrower viewBox so SVG text stays readable.
+  // On a 375px phone with an 860px viewBox, 12px text renders at ~5px physical.
+  // With a 500px viewBox, 14px text renders at ~10.5px — much more readable.
+  const containerWidth = container.clientWidth || 700;
+  const mobile = containerWidth < 600;
+  const fb = mobile ? 2 : 0; // font size bump (px) for chart labels
+
+  const width = mobile
+    ? (isCurveMode ? 500 : 440)
+    : (isCurveMode ? 860 : 700);
   const hasTitle = !!config.title;
-  const height = compact ? 380 : isCurveMode ? 500 : (hasTitle ? 480 : 450);
-  const margin = compact
-    ? { top: 68, right: 36, bottom: 56, left: 48 }
-    : { top: (hasTitle ? 36 : 28) + (isCurveMode ? 90 : 0), right: 48, bottom: 80, left: 64 };
+  const height = mobile
+    ? (compact ? 360 : isCurveMode ? 450 : (hasTitle ? 420 : 400))
+    : (compact ? 380 : isCurveMode ? 500 : (hasTitle ? 480 : 450));
+  const margin = mobile
+    ? (compact
+      ? { top: 56, right: 24, bottom: 44, left: 36 }
+      : { top: (hasTitle ? 28 : 20) + (isCurveMode ? 90 : 0), right: 28, bottom: 62, left: 40 })
+    : (compact
+      ? { top: 68, right: 36, bottom: 56, left: 48 }
+      : { top: (hasTitle ? 36 : 28) + (isCurveMode ? 90 : 0), right: 48, bottom: 80, left: 64 });
 
   const { svg, g, innerWidth, innerHeight } = createResponsiveSvg(d3, container, width, height, margin);
 
@@ -332,7 +350,7 @@ export function renderWinDistribution(
       .attr('y', 22)
       .attr('text-anchor', 'middle')
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '14px')
+      .attr('font-size', `${14 + fb}px`)
       .attr('font-weight', '700')
       .attr('letter-spacing', '0.04em')
       .attr('fill', theme.text)
@@ -347,10 +365,10 @@ export function renderWinDistribution(
     const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
     svg.append('text')
       .attr('x', width / 2)
-      .attr('y', 10)
+      .attr('y', mobile ? 10 : 10)
       .attr('text-anchor', 'middle')
       .attr('font-family', FONT_MONO)
-      .attr('font-size', '10px')
+      .attr('font-size', `${10 + fb}px`)
       .attr('font-weight', '700')
       .attr('fill', theme.textSecondary)
       .text(`Last updated ${month} ${day}${suffix}, ${d.getFullYear()} · ${time} ET`);
@@ -360,7 +378,7 @@ export function renderWinDistribution(
   if (compact && teamData.length) {
     const medianForTitle = Math.round(teamData[0].avg_wins);
     const titleY = 24;
-    const fontSize = 20;
+    const fontSize = mobile ? 16 : 20;
     const prefix = 'A majority of simulations predict an ';
     const highlight = `${medianForTitle}-win`;
     const suffix = ' season.';
@@ -460,7 +478,7 @@ export function renderWinDistribution(
     .call(g => g.selectAll('.tick text')
       .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', compact ? '16px' : '14px')
+      .attr('font-size', `${(compact ? 16 : 14) + fb}px`)
       .attr('font-weight', '600')
       .attr('dy', '1.2em'));
 
@@ -471,7 +489,7 @@ export function renderWinDistribution(
     .attr('text-anchor', 'middle')
     .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', compact ? '13px' : '12px')
+    .attr('font-size', `${(compact ? 13 : 12) + fb}px`)
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text('PROJECTED WINS');
@@ -483,7 +501,7 @@ export function renderWinDistribution(
     .call(g => g.selectAll('.tick text')
       .attr('fill', theme.textMuted)
       .attr('font-family', FONT_MONO)
-      .attr('font-size', compact ? '13px' : '12px')
+      .attr('font-size', `${(compact ? 13 : 12) + fb}px`)
       .attr('dx', '-0.4em'));
 
   // Y axis label
@@ -494,14 +512,14 @@ export function renderWinDistribution(
     .attr('text-anchor', 'middle')
     .attr('fill', theme.textMuted)
     .attr('font-family', FONT_MONO)
-    .attr('font-size', compact ? '13px' : '12px')
+    .attr('font-size', `${(compact ? 13 : 12) + fb}px`)
     .attr('font-weight', '600')
     .attr('letter-spacing', '0.06em')
     .text(`FREQUENCY (${(NUM_SIMULATIONS).toLocaleString()} sims)`);
 
   // --- Curve mode for 3+ teams ---
   if (isCurveMode) {
-    renderCurves(g, teamBars, x, y, xMin, xMax, innerWidth, innerHeight, theme, d3, container, config);
+    renderCurves(g, teamBars, x, y, xMin, xMax, innerWidth, innerHeight, theme, d3, container, config, fb);
     return;
   }
 
@@ -563,7 +581,7 @@ export function renderWinDistribution(
         .attr('y', bracketY - 8)
         .attr('text-anchor', 'middle')
         .attr('font-family', FONT_MONO)
-        .attr('font-size', '12px')
+        .attr('font-size', `${12 + fb}px`)
         .attr('font-weight', '600')
         .attr('fill', theme.textMuted)
         .text(`90% CI: ${ciLo}\u2013${ciHi} Wins`);
@@ -573,7 +591,7 @@ export function renderWinDistribution(
         .attr('y', -4)
         .attr('text-anchor', 'middle')
         .attr('font-family', FONT_MONO)
-        .attr('font-size', '12px')
+        .attr('font-size', `${12 + fb}px`)
         .attr('font-weight', '600')
         .attr('fill', theme.textMuted)
         .text(`90% Confidence Interval: ${ciLo}\u2013${ciHi} Wins`);
@@ -648,7 +666,7 @@ export function renderWinDistribution(
       .attr('text-anchor', 'start')
       .attr('dominant-baseline', 'central')
       .attr('font-family', FONT_SANS)
-      .attr('font-size', compact ? '18px' : '16px')
+      .attr('font-size', `${(compact ? 18 : 16) + fb}px`)
       .attr('font-weight', '700')
       .attr('fill', color)
       .text(medianLabel);
