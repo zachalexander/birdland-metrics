@@ -1,13 +1,14 @@
 import { Component, OnInit, signal, computed, inject, PLATFORM_ID, effect } from '@angular/core';
 import { isPlatformBrowser, DecimalPipe } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ContentfulService } from '../../core/services/contentful.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { SeoService } from '../../core/services/seo.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
+import { environment } from '../../../environments/environment';
 import { BlogPost } from '../../shared/models/content.models';
 import { PlayoffOdds, TeamProjection, RecentGame, PlayoffOddsHistoryPoint, TEAM_NAMES, AL_EAST } from '../../shared/models/mlb.models';
 import { TEAM_COLORS } from '../../visualizations/viz-utils';
-import { RouterLink } from '@angular/router';
 import { ArticleCardComponent } from '../../shared/components/article-card/article-card.component';
 import { RecentGamesComponent } from './components/recent-games/recent-games.component';
 import { PlayoffRaceComponent } from '../../visualizations/playoff-race/playoff-race.component';
@@ -31,6 +32,14 @@ import { ShareButtonsComponent } from '../../shared/components/share-buttons/sha
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
+  private static readonly VIZ_OG_IMAGES: Record<string, string> = {
+    'playoff-race': 'playoff-race.png',
+    'win-distribution': 'win-distribution.png',
+    'elo-trends': 'elo-trends.png',
+    'spray-chart': 'spray-chart.png',
+    'core-benchmarks': 'core-benchmarks.png',
+  };
+
   articles = signal<BlogPost[]>([]);
   categories = signal<string[]>([]);
   loading = signal(true);
@@ -180,6 +189,7 @@ export class HomeComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private seo = inject(SeoService);
   private analytics = inject(AnalyticsService);
+  private route = inject(ActivatedRoute);
 
   constructor(
     private contentful: ContentfulService,
@@ -187,10 +197,14 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const shareParam = this.route.snapshot.queryParamMap.get('share');
+    const vizImage = shareParam ? HomeComponent.VIZ_OG_IMAGES[shareParam] : null;
+
     this.seo.setPageMeta({
       title: 'Birdland Metrics — Baseball Analytics & Insights',
       description: 'Data-driven baseball analysis, visualizations, and insights.',
       path: '/',
+      image: vizImage ? `${environment.s3.ogImages}/${vizImage}` : undefined,
     });
     this.seo.setJsonLd(this.seo.getOrganizationSchema());
 
