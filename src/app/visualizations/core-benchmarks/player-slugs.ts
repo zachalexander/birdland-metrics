@@ -25,14 +25,14 @@ const PLAYERS: PlayerSlugEntry[] = [
     slug: 'jordan-westburg',
     name: 'Jordan Westburg',
     description:
-      'Jordan Westburg\'s 2025 was cut short at 85 games by a partial UCL tear, but the production was there when he played: a .457 slugging percentage, a 115 wRC+, and genuine extra-base pop. His benchmarks — SLG at .450, wRC+ at 110, and a games pace of 140 — reflect two questions: can he sustain the breakout power, and can he stay on the field? The SLG benchmark tracks extra-base power, wRC+ captures total offensive contribution, and the games pace is the health check that matters most. Westburg has the talent to be an above-average everyday player. The UCL is the variable.',
+      'Jordan Westburg\'s 2025 was cut short at 85 games due to myriad injuries, but the production was there when he played: a .457 slugging percentage, a 115 wRC+, and genuine extra-base pop. His benchmarks — SLG at .450, wRC+ at 110, and a games pace of 140 — reflect two questions: can he sustain the breakout power, and can he stay on the field? His latest partial UCL tear injury will set him back this year, but if he can return in late spring, we have his benchmarks set accordingly. The SLG benchmark tracks extra-base power, wRC+ captures total offensive contribution, and the games pace is the health check that matters most. He will miss the 140-mark, but we hope he can land somewhere in the initial projection (around 110, but that is optimistic). Westburg has the talent to be an above-average everyday player. The UCL is the variable.',
   },
   {
     id: '681297',
     slug: 'colton-cowser',
     name: 'Colton Cowser',
     description:
-      'Colton Cowser\'s 2025 was a mixed bag that pointed to a clear development path. He made hard contact at a solid 39.2% rate and posted a 14.1% barrel rate, showing the raw power tools are real — but a 35.6% strikeout rate overwhelmed everything else, dragging his wRC+ down to 83. His benchmarks zero in on the contact-versus-power balance: K% at 28% tests whether he can cut strikeouts to a more sustainable level, Barrel% at 12% ensures he\'s squaring the ball up with authority, and wRC+ at 110 is the bottom-line production number. Cowser doesn\'t need to be a star. He needs to stop striking out enough to let his hard contact profile play.',
+      'Colton Cowser had a tough 2025. After returning from a fractured left thumb, he had a hard time getting it going. He made hard contact at a solid 39.2% rate and posted a 14.1% barrel rate, showing the raw power tools are real — but a 35.6% strikeout rate overwhelmed everything else, dragging his wRC+ down to 83. His benchmarks zero in on the contact-versus-power balance: K% at 28% tests whether he can cut strikeouts to a more sustainable level, Barrel% at 12% ensures he\'s squaring the ball up with authority, and wRC+ at 110 is the bottom-line production number. Cowser doesn\'t need to be a star. He needs to stop striking out enough to let his hard contact profile play.',
   },
   {
     id: '624413',
@@ -46,14 +46,14 @@ const PLAYERS: PlayerSlugEntry[] = [
     slug: 'jackson-holliday',
     name: 'Jackson Holliday',
     description:
-      'Jackson Holliday\'s 2025 showed real growth after a rough debut: a .242 average, 17 home runs, and 149 games played across his age-21 season. His strikeout rate dropped to 21.6%, but his walk rate (8.6%) and on-base percentage still lagged behind what you\'d expect from a former first-overall pick. His benchmarks target the next developmental step: K% at 25% is a generous ceiling he already clears, BB% at 9% pushes him toward better pitch selection, and OBP at .320 tests whether the discipline improvements translate into getting on base. These aren\'t star-level targets — they\'re proof-of-concept numbers for a young player turning potential into production.',
+      'Jackson Holliday\'s 2025 showed real growth after a rough debut: a .242 average, 17 home runs, and 149 games played across his age-21 season. His strikeout rate dropped to 21.6%, but his walk rate (8.6%) and on-base percentage still lagged behind what you\'d expect from a former first-overall pick. His benchmarks target the next developmental step: K% at 25% is a generous ceiling he already clears, BB% at 9% pushes him toward better pitch selection, and OBP at .320 tests whether the discipline improvements translate into getting on base. These aren\'t star-level targets — they\'re proof-of-concept numbers for a young player turning potential into production. We\'ll see if Holliday can take that next step in 2026 after he recovers from the broken hamate injury he suffered early in spring training.',
   },
   {
     id: '680694',
     slug: 'kyle-bradish',
     name: 'Kyle Bradish',
     description:
-      'Kyle Bradish is the most talented arm on the Orioles staff — the question is whether he can stay healthy long enough to prove it. In a limited 32 innings in 2025, the stuff was electric: a 2.53 ERA and a 13.22 K/9 rate that ranked among the best in baseball. His benchmarks — ERA at 3.50, K/9 at 9.5, and an IP pace of 130 — tell a clear story: the first two are almost formalities if he\'s on the mound, but the innings pace is the real test. A 130-inning target means roughly 23 starts of at least 5.2 innings — a realistic goal for a pitcher returning from Tommy John. If Bradish can deliver that, the Orioles have a legitimate ace.',
+      'Kyle Bradish is one of the most talented arms on the Orioles staff — the question is whether he experiences any lingering arm issues that kept him out for most of the past two seasons. In a limited 32 innings in 2025, the stuff was electric: a 2.53 ERA and a 13.22 K/9 rate that ranked among the best in baseball. His benchmarks — ERA at 3.50, K/9 at 9.5, and an IP pace of 130 — tell a clear story: the first two are almost formalities if he\'s on the mound, but the innings pace is the real test. A 130-inning target means roughly 23 starts of at least 5.2 innings — a realistic goal for a pitcher returning from Tommy John. If Bradish can deliver that, the Orioles have a legitimate ace.',
   },
   {
     id: '669432',
