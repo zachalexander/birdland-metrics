@@ -77,6 +77,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'visualizations/core-benchmarks/:playerSlug',
+    loadComponent: () =>
+      import('./visualizations/core-benchmarks-page/core-benchmarks-page.component').then(
+        (m) => m.CoreBenchmarksPageComponent,
+      ),
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./features/contact/contact.component').then(

@@ -1,10 +1,14 @@
 import { Component, input, computed, signal, inject } from '@angular/core';
-import { BenchmarkPlayer, PlayerBenchmark, PlayerProjection } from '../../shared/models/mlb.models';
+import { RouterLink } from '@angular/router';
+import { BenchmarkPlayer, PlayerBenchmark } from '../../shared/models/mlb.models';
 import { AnalyticsService } from '../../core/services/analytics.service';
+import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
+import { slugForPlayerId } from './player-slugs';
 
 @Component({
   selector: 'app-core-benchmarks',
   standalone: true,
+  imports: [ShareButtonsComponent, RouterLink],
   templateUrl: './core-benchmarks.component.html',
   styleUrl: './core-benchmarks.component.css',
 })
@@ -12,9 +16,7 @@ export class CoreBenchmarksComponent {
   private analytics = inject(AnalyticsService);
   players = input.required<BenchmarkPlayer[]>();
   updated = input<string | null>(null);
-  overrideStats = input<Record<string, Record<string, number | null>>>({});
-  showOverride = input(false);
-  projections = input<PlayerProjection[]>([]);
+  focusedPlayerId = input<string | null>(null);
 
   formattedUpdated = computed(() => {
     const raw = this.updated();
@@ -52,6 +54,31 @@ export class CoreBenchmarksComponent {
     '680694': 'assets/kyle-bradish.png',
     '669358': 'assets/shane-baz.png',
     '664854': 'assets/ryan-helsley.png',
+  };
+
+  private static readonly STATS_2025: Record<string, Record<string, number | null>> = {
+    // Gunnar Henderson: .274/.349/.438, 17 HR, 154 G
+    '683002': { barrel_pct: 8.5, wrc_plus: 120, hr_pace: 17 },
+    // Adley Rutschman: .220/.307/.366, 9 HR, 90 G
+    '668939': { obp: 0.307, bb_pct: 11.0, wrc_plus: 91 },
+    // Jordan Westburg: .265/.312/.457, 17 HR, 85 G, 107 wRC+
+    '682614': { slg: 0.457, games_pace: 85, wrc_plus: 107 },
+    // Colton Cowser: .196/.269/.385, 16 HR, 91 G, 6.2% Barrel
+    '681297': { k_pct: 35.6, barrel_pct: 6.2, wrc_plus: 83 },
+    // Pete Alonso (NYM 2025): .240/.329/.467, 34 HR, 13.8% Barrel
+    '624413': { hr_pace: 34, barrel_pct: 13.8, slg: 0.467 },
+    // Jackson Holliday: .242/.314/.375, 17 HR, 149 G
+    '696137': { k_pct: 21.6, bb_pct: 8.6, obp: 0.314 },
+    // Kyle Bradish: 2.53 ERA, 13.22 K/9, 32.0 IP
+    '680694': { era: 2.53, k_per_9: 13.22, ip_pace: 32 },
+    // Trevor Rogers: 1.81 ERA, 0.90 WHIP, 130 IP pace
+    '669432': { era: 1.81, whip: 0.90, ip_pace: 130 },
+    // Shane Baz (TB 2025): 4.87 ERA, 4.37 FIP, 166.1 IP
+    '669358': { era: 4.87, fip: 4.37, ip_pace: 166 },
+    // Ryan Helsley (STL 2025): ~2.75 ERA, ~10.13 K/9, ~49 SV
+    '664854': { era: 4.50, k_per_9: 10.13, sv_pace: 21 },
+    // Team Bullpen
+    'bullpen': { era: 4.87, k_per_9: 9.0, whip: 1.56 },
   };
 
   private static readonly INJURIES: Record<string, { diagnosis: string; returnDate: string }> = {
@@ -108,6 +135,8 @@ export class CoreBenchmarksComponent {
   }
 
   filteredBatters = computed(() => {
+    const focused = this.focusedPlayerId();
+    if (focused) return this.batters().filter(p => p.playerId === focused);
     const filter = this.mobileFilter();
     const list = this.batters();
     if (filter === 'all' || filter === 'batters') return list;
@@ -116,6 +145,8 @@ export class CoreBenchmarksComponent {
   });
 
   filteredPitchers = computed(() => {
+    const focused = this.focusedPlayerId();
+    if (focused) return this.pitchers().filter(p => p.playerId === focused);
     const filter = this.mobileFilter();
     const list = this.pitchers();
     if (filter === 'all' || filter === 'pitchers') return list;
@@ -123,22 +154,16 @@ export class CoreBenchmarksComponent {
     return list.filter(p => p.playerId === filter);
   });
 
+  playerSharePath(playerId: string): string {
+    const slug = slugForPlayerId(playerId);
+    return slug ? `/visualizations/core-benchmarks/${slug}` : '/visualizations/core-benchmarks';
+  }
+
   totalBenchmarks = computed(() =>
     this.players().reduce((sum, p) => sum + p.benchmarks.length, 0)
   );
 
   totalMet = computed(() => {
-    if (this.showOverride()) {
-      const stats = this.overrideStats();
-      return this.players().reduce(
-        (sum, p) => sum + p.benchmarks.filter(b => {
-          const val = stats[p.playerId]?.[b.key] ?? null;
-          if (val === null) return false;
-          return b.direction === 'gte' ? val >= b.target : val <= b.target;
-        }).length,
-        0
-      );
-    }
     return this.players().reduce(
       (sum, p) => sum + p.benchmarks.filter(b => b.met).length,
       0
@@ -148,18 +173,6 @@ export class CoreBenchmarksComponent {
   progressPct = computed(() => {
     const total = this.totalBenchmarks();
     return total > 0 ? Math.round((this.totalMet() / total) * 100) : 0;
-  });
-
-  projectionTotalMet = computed(() => {
-    return this.players().reduce(
-      (sum, p) => sum + p.benchmarks.filter(b => this.isProjectionMet(p.playerId, b) === true).length,
-      0
-    );
-  });
-
-  projectionProgressPct = computed(() => {
-    const total = this.totalBenchmarks();
-    return total > 0 ? Math.round((this.projectionTotalMet() / total) * 100) : 0;
   });
 
   jerseyNumber(playerId: string): string {
@@ -172,10 +185,7 @@ export class CoreBenchmarksComponent {
 
   isMet(playerId: string, benchmark: PlayerBenchmark): boolean {
     if (!benchmark) return false;
-    if (!this.showOverride()) return benchmark.met;
-    const val = this.overrideStats()[playerId]?.[benchmark.key] ?? null;
-    if (val === null) return false;
-    return benchmark.direction === 'gte' ? val >= benchmark.target : val <= benchmark.target;
+    return benchmark.met;
   }
 
   playerMetCount(player: BenchmarkPlayer): number {
@@ -183,12 +193,10 @@ export class CoreBenchmarksComponent {
   }
 
   formatValue(playerId: string, benchmark: PlayerBenchmark): string {
-    if (!benchmark) return 'N/A';
-    const v = this.showOverride()
-      ? (this.overrideStats()[playerId]?.[benchmark.key] ?? null)
-      : benchmark.current;
+    if (!benchmark) return '--';
+    const v = benchmark.current;
 
-    if (v === null) return 'N/A';
+    if (v === null) return '--';
 
     switch (benchmark.key) {
       case 'obp':
@@ -222,6 +230,47 @@ export class CoreBenchmarksComponent {
     }
   }
 
+  format2025Value(playerId: string, benchmark: PlayerBenchmark): string | null {
+    const v = CoreBenchmarksComponent.STATS_2025[playerId]?.[benchmark.key] ?? null;
+    if (v === null) return null;
+
+    switch (benchmark.key) {
+      case 'obp':
+      case 'slg':
+      case 'ops':
+      case 'avg':
+      case 'iso':
+        return v.toFixed(3);
+      case 'barrel_pct':
+      case 'hard_pct':
+      case 'bb_pct':
+      case 'k_pct':
+        return v.toFixed(1) + '%';
+      case 'exit_velo':
+        return v.toFixed(1) + ' mph';
+      case 'era':
+      case 'fip':
+      case 'whip':
+        return v.toFixed(2);
+      case 'k_per_9':
+        return v.toFixed(1);
+      case 'wrc_plus':
+      case 'hr_pace':
+      case 'games_pace':
+      case 'ip_pace':
+      case 'sv_pace':
+        return v.toFixed(0);
+      default:
+        return String(v);
+    }
+  }
+
+  was2025Met(playerId: string, benchmark: PlayerBenchmark): boolean {
+    const v = CoreBenchmarksComponent.STATS_2025[playerId]?.[benchmark.key] ?? null;
+    if (v === null) return false;
+    return benchmark.direction === 'gte' ? v >= benchmark.target : v <= benchmark.target;
+  }
+
   private static readonly ACTUAL_LABELS: Record<string, string> = {
     hr_pace: 'HR',
     ip_pace: 'IP',
@@ -239,103 +288,44 @@ export class CoreBenchmarksComponent {
     return `${val} ${label}`;
   }
 
-  // Projection mapping: benchmark key -> projection stat key
-  private static readonly PROJECTION_KEY_MAP: Record<string, string> = {
-    // Batter stats
-    barrel_pct: 'barrel_pct',
-    wrc_plus: 'wrc_plus',
-    hr_pace: 'hr',
-    obp: 'obp',
-    bb_pct: 'bb_pct',
-    ops: 'ops',
-    iso: 'iso',
-    games_pace: 'games',
-    k_pct: 'k_pct',
-    hard_pct: 'hard_pct',
-    exit_velo: 'ev',
-    slg: 'slg',
-    avg: 'avg',
-    // Pitcher stats
-    era: 'era',
-    fip: 'fip',
-    whip: 'whip',
-    k_per_9: 'k_per_9',
-    ip_pace: 'ip',
-    sv_pace: 'sv',
-  };
-
-  getPlayerProjection(playerId: string): PlayerProjection | null {
-    const projs = this.projections();
-    if (!projs.length) return null;
-    // playerId is MLBAM ID, or string ID for special cases like "bullpen"
-    const mlbamId = parseInt(playerId, 10);
-    if (!isNaN(mlbamId)) {
-      const match = projs.find(p => p.mlbam_id === mlbamId);
-      if (match) return match;
-    }
-    // Fallback to string_id match for non-numeric IDs
-    return projs.find(p => (p as unknown as { string_id?: string }).string_id === playerId) ?? null;
-  }
-
-  getProjectedValue(playerId: string, benchmarkKey: string): number | null {
-    const proj = this.getPlayerProjection(playerId);
-    if (!proj) return null;
-    const statKey = CoreBenchmarksComponent.PROJECTION_KEY_MAP[benchmarkKey];
-    if (!statKey) return null;
-    const val = (proj.stats as unknown as Record<string, number>)[statKey];
-    return val !== undefined ? val : null;
-  }
-
-  formatProjectedValue(playerId: string, benchmark: PlayerBenchmark): string | null {
-    const val = this.getProjectedValue(playerId, benchmark.key);
-    if (val === null) return null;
+  formatRosProjected(benchmark: PlayerBenchmark): string | null {
+    const v = benchmark.rosProjected;
+    if (v === null || v === undefined) return null;
 
     switch (benchmark.key) {
-      // Batter stats
       case 'obp':
       case 'slg':
       case 'ops':
       case 'avg':
       case 'iso':
-        return val.toFixed(3);
+        return v.toFixed(3);
       case 'barrel_pct':
       case 'hard_pct':
       case 'bb_pct':
       case 'k_pct':
-        return val.toFixed(1) + '%';
+        return v.toFixed(1) + '%';
       case 'exit_velo':
-        return val.toFixed(1) + ' mph';
-      case 'wrc_plus':
-        return val.toFixed(0);
-      case 'hr_pace':
-      case 'games_pace':
-        return val.toFixed(0);
-      // Pitcher stats
+        return v.toFixed(1) + ' mph';
       case 'era':
       case 'fip':
       case 'whip':
-        return val.toFixed(2);
+        return v.toFixed(2);
       case 'k_per_9':
-        return val.toFixed(1);
+        return v.toFixed(1);
+      case 'wrc_plus':
+      case 'hr_pace':
+      case 'games_pace':
       case 'ip_pace':
       case 'sv_pace':
-        return val.toFixed(0);
+        return v.toFixed(0);
       default:
-        return String(val);
+        return String(v);
     }
   }
 
-  isProjectionMet(playerId: string, benchmark: PlayerBenchmark): boolean | null {
-    const val = this.getProjectedValue(playerId, benchmark.key);
-    if (val === null) return null;
-    return benchmark.direction === 'gte' ? val >= benchmark.target : val <= benchmark.target;
-  }
-
-  projectionMetCount(player: BenchmarkPlayer): number {
-    return player.benchmarks.filter(b => this.isProjectionMet(player.playerId, b) === true).length;
-  }
-
-  hasProjection(playerId: string): boolean {
-    return this.getPlayerProjection(playerId) !== null;
+  isRosProjectionMet(benchmark: PlayerBenchmark): boolean | null {
+    const v = benchmark.rosProjected;
+    if (v === null || v === undefined) return null;
+    return benchmark.direction === 'gte' ? v >= benchmark.target : v <= benchmark.target;
   }
 }

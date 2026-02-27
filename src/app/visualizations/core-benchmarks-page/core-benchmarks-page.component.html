@@ -1,38 +1,45 @@
 <div class="benchmarks-page">
-  <h2 class="page-heading">{{ viewing2025() ? 'How Did They Perform in 2025?' : 'Are the Core Players Delivering?' }}</h2>
-  <div class="share-row">
-    <app-share-buttons title="Core Player Benchmarks — Birdland Metrics" path="/visualizations/core-benchmarks" />
-  </div>
-  <p class="page-explainer">
-    @if (viewing2025()) {
-      Here's the breakdown of how each player performed against these same benchmarks during the 2025 season.
-    } @else {
-      Each player has key statistical benchmarks that will be updated daily throughout the season. The more targets the core roster hits, the better the Orioles' chances are of making it back to the playoffs.
+  @if (focusedPlayerSlug()) {
+    <a class="back-link" routerLink="/visualizations/core-benchmarks">&larr; All Benchmarks</a>
+    <h2 class="page-heading">{{ focusedPlayerName() }}</h2>
+    <div class="share-row">
+      <app-share-buttons
+        [title]="focusedPlayerName() + ' — Core Benchmarks — Birdland Metrics'"
+        [path]="'/visualizations/core-benchmarks/' + focusedPlayerSlug()"
+      />
+    </div>
+    @if (!loading() && benchmarkPlayers().length) {
+      <app-core-benchmarks
+        [players]="benchmarkPlayers()"
+        [updated]="benchmarksUpdated()"
+        [focusedPlayerId]="focusedPlayerId()"
+      />
     }
-  </p>
-  <div class="page-controls">
-    <div class="seg-toggle">
-      <button class="seg-btn" [class.seg-active]="!viewing2025()"
-              (click)="viewing2025() && toggle2025()">Current</button>
-      <button class="seg-btn" [class.seg-active]="viewing2025()"
-              (click)="!viewing2025() && toggle2025()">2025</button>
+    @if (focusedPlayerDescription(); as desc) {
+      <p class="player-description">{{ desc }}</p>
+    }
+  } @else {
+    <h2 class="page-heading">Are the Core Players Delivering?</h2>
+    <div class="share-row">
+      <app-share-buttons title="Core Player Benchmarks — Birdland Metrics" path="/visualizations/core-benchmarks" />
     </div>
-  </div>
-  @if (!loading() && benchmarkPlayers().length) {
-    <app-core-benchmarks
-      [players]="benchmarkPlayers()"
-      [updated]="benchmarksUpdated()"
-      [overrideStats]="stats2025"
-      [showOverride]="viewing2025()"
-      [projections]="playerProjections()"
-    />
+    <p class="page-explainer">
+      Each player has key statistical benchmarks that will be updated daily throughout the season. The more targets the core roster hits, the better the Orioles' chances are of making it back to the playoffs.
+    </p>
+    @if (!loading() && benchmarkPlayers().length) {
+      <app-core-benchmarks
+        [players]="benchmarkPlayers()"
+        [updated]="benchmarksUpdated()"
+        [focusedPlayerId]="focusedPlayerId()"
+      />
+    }
+    <details class="methodology">
+      <summary>How were these benchmarks set?</summary>
+      <div class="methodology-body">
+        <p>Each player has exactly three benchmarks designed to answer the key questions about their 2026 contribution. We categorized each player by role — franchise player, elite catcher, mid-rotation starter, elite closer, etc. — and set round-number targets appropriate to each tier.</p>
+        <p>For example, Kyle Bradish and Trevor Rogers share the staff ace role, both held to an ERA target of 3.50 reflecting that top-of-the-rotation standard. Jackson Holliday showed real promise in 2025, and his benchmarks are designed to track a noticeable jump in production heading into 2026.</p>
+        <p>Targets were informed by career data, projection systems (ZiPS, Steamer), and positional context to ensure they're reasonable for each player's profile and the team's competitive needs. Benchmark data is sourced from FanGraphs and updates daily throughout the season.</p>
+      </div>
+    </details>
   }
-  <details class="methodology">
-    <summary>How were these benchmarks set?</summary>
-    <div class="methodology-body">
-      <p>Each player has exactly three benchmarks designed to answer the key questions about their 2026 contribution. We categorized each player by role — franchise player, elite catcher, mid-rotation starter, elite closer, etc. — and set round-number targets appropriate to each tier.</p>
-      <p>For example, Kyle Bradish and Trevor Rogers share the staff ace role, both held to an ERA target of 3.50 reflecting that top-of-the-rotation standard. Jackson Holliday showed real promise in 2025, and his benchmarks are designed to track a noticeable jump in production heading into 2026.</p>
-      <p>Targets were informed by career data, projection systems (ZiPS, Steamer), and positional context to ensure they're reasonable for each player's profile and the team's competitive needs. Benchmark data is sourced from FanGraphs and updates daily throughout the season.</p>
-    </div>
-  </details>
 </div>

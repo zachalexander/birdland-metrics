@@ -200,6 +200,7 @@ export interface PlayerBenchmark {
   // Projection-derived fields
   projected?: number;
   pacePct?: number | null;
+  rosProjected?: number | null;
 }
 
 export interface BenchmarkPlayer {

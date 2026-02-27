@@ -1,3 +1,4 @@
+@if (!focusedPlayerId()) {
 <div class="benchmarks-header">
   <div class="benchmarks-meta">
     @if (formattedUpdated(); as date) {
@@ -31,13 +32,17 @@
     }
   </optgroup>
 </select>
+}
 
 @if (filteredBatters().length) {
 <div class="group">
-  <p class="group-label">Position Players</p>
-  <div class="players-grid">
+  @if (!focusedPlayerId()) {
+    <p class="group-label">Position Players</p>
+  }
+  <div class="players-grid" [class.focused-grid]="!!focusedPlayerId()">
     @for (player of filteredBatters(); track player.playerId) {
       <div class="player-card"
+           [class.focused]="!!focusedPlayerId()"
            [class.all-met]="playerMetCount(player) === player.benchmarks.length"
            [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
         <div class="card-header">
@@ -58,6 +63,13 @@
               <span class="injury-detail">{{ injury.diagnosis }} · {{ injury.returnDate }}</span>
             }
           </div>
+          <div class="card-header-right">
+            <div class="stat-col-headers">
+              <span class="stat-col-header">'25</span>
+              <span class="stat-col-header">Now</span>
+              <span class="stat-col-header">Proj</span>
+            </div>
+          </div>
         </div>
         <div class="benchmark-rows">
           @for (bm of player.benchmarks; track bm.key) {
@@ -74,7 +86,7 @@
                   </svg>
                 }
               </span>
-              <span class="benchmark-text">
+              <div class="benchmark-body">
                 <span class="benchmark-label">
                   {{ bm.label }}
                   @if (tooltip(bm.key); as tip) {
@@ -89,19 +101,31 @@
                   }
                 </span>
                 <span class="benchmark-desc">{{ bm.description }}</span>
-              </span>
-              <span class="benchmark-values">
-                <span class="benchmark-value">{{ formatValue(player.playerId, bm) }}</span>
-                @if (formatActual(bm); as actualText) {
-                  <span class="benchmark-actual">{{ actualText }}</span>
-                }
-                @if (formatProjectedValue(player.playerId, bm); as projVal) {
-                  <span class="benchmark-projected">→ {{ projVal }} proj.</span>
-                }
-              </span>
+              </div>
+              <div class="benchmark-stats">
+                <span class="stat-col" [class.stat-met]="bm.current === null && was2025Met(player.playerId, bm)">
+                  {{ format2025Value(player.playerId, bm) ?? '—' }}
+                </span>
+                <span class="stat-col" [class.stat-met]="isMet(player.playerId, bm)"
+                      [class.stat-unmet]="!isMet(player.playerId, bm)">
+                  {{ formatValue(player.playerId, bm) }}
+                </span>
+                <span class="stat-col" [class.stat-met]="bm.current !== null && isRosProjectionMet(bm)"
+                      [class.stat-unmet]="bm.current !== null && isRosProjectionMet(bm) === false">
+                  {{ formatRosProjected(bm) ?? '—' }}
+                </span>
+              </div>
             </div>
           }
         </div>
+        @if (!focusedPlayerId()) {
+          <div class="card-footer">
+            <div class="card-footer-share">
+              <app-share-buttons [title]="player.name + ' — Core Benchmarks'" [path]="playerSharePath(player.playerId)" />
+            </div>
+            <a class="card-detail-link" [routerLink]="playerSharePath(player.playerId)">Why these benchmarks? &rarr;</a>
+          </div>
+        }
       </div>
     }
   </div>
@@ -110,10 +134,13 @@
 
 @if (filteredPitchers().length) {
 <div class="group">
-  <p class="group-label">Pitchers</p>
-  <div class="players-grid">
+  @if (!focusedPlayerId()) {
+    <p class="group-label">Pitchers</p>
+  }
+  <div class="players-grid" [class.focused-grid]="!!focusedPlayerId()">
     @for (player of filteredPitchers(); track player.playerId) {
       <div class="player-card"
+           [class.focused]="!!focusedPlayerId()"
            [class.all-met]="playerMetCount(player) === player.benchmarks.length"
            [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
         <div class="card-header">
@@ -134,6 +161,13 @@
               <span class="injury-detail">{{ injury.diagnosis }} · {{ injury.returnDate }}</span>
             }
           </div>
+          <div class="card-header-right">
+            <div class="stat-col-headers">
+              <span class="stat-col-header">'25</span>
+              <span class="stat-col-header">Now</span>
+              <span class="stat-col-header">Proj</span>
+            </div>
+          </div>
         </div>
         <div class="benchmark-rows">
           @for (bm of player.benchmarks; track bm.key) {
@@ -150,7 +184,7 @@
                   </svg>
                 }
               </span>
-              <span class="benchmark-text">
+              <div class="benchmark-body">
                 <span class="benchmark-label">
                   {{ bm.label }}
                   @if (tooltip(bm.key); as tip) {
@@ -165,19 +199,31 @@
                   }
                 </span>
                 <span class="benchmark-desc">{{ bm.description }}</span>
-              </span>
-              <span class="benchmark-values">
-                <span class="benchmark-value">{{ formatValue(player.playerId, bm) }}</span>
-                @if (formatActual(bm); as actualText) {
-                  <span class="benchmark-actual">{{ actualText }}</span>
-                }
-                @if (formatProjectedValue(player.playerId, bm); as projVal) {
-                  <span class="benchmark-projected">→ {{ projVal }} proj.</span>
-                }
-              </span>
+              </div>
+              <div class="benchmark-stats">
+                <span class="stat-col" [class.stat-met]="bm.current === null && was2025Met(player.playerId, bm)">
+                  {{ format2025Value(player.playerId, bm) ?? '—' }}
+                </span>
+                <span class="stat-col" [class.stat-met]="isMet(player.playerId, bm)"
+                      [class.stat-unmet]="!isMet(player.playerId, bm)">
+                  {{ formatValue(player.playerId, bm) }}
+                </span>
+                <span class="stat-col" [class.stat-met]="bm.current !== null && isRosProjectionMet(bm)"
+                      [class.stat-unmet]="bm.current !== null && isRosProjectionMet(bm) === false">
+                  {{ formatRosProjected(bm) ?? '—' }}
+                </span>
+              </div>
             </div>
           }
         </div>
+        @if (!focusedPlayerId()) {
+          <div class="card-footer">
+            <div class="card-footer-share">
+              <app-share-buttons [title]="player.name + ' — Core Benchmarks'" [path]="playerSharePath(player.playerId)" />
+            </div>
+            <a class="card-detail-link" [routerLink]="playerSharePath(player.playerId)">Why these benchmarks? &rarr;</a>
+          </div>
+        }
       </div>
     }
   </div>
