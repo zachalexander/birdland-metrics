@@ -103,7 +103,7 @@
                 <span class="benchmark-desc">{{ bm.description }}</span>
               </div>
               <div class="benchmark-stats">
-                <span class="stat-col" [class.stat-met]="bm.current === null && was2025Met(player.playerId, bm)">
+                <span class="stat-col">
                   {{ format2025Value(player.playerId, bm) ?? '—' }}
                 </span>
                 <span class="stat-col" [class.stat-met]="isMet(player.playerId, bm)"
@@ -201,7 +201,7 @@
                 <span class="benchmark-desc">{{ bm.description }}</span>
               </div>
               <div class="benchmark-stats">
-                <span class="stat-col" [class.stat-met]="bm.current === null && was2025Met(player.playerId, bm)">
+                <span class="stat-col">
                   {{ format2025Value(player.playerId, bm) ?? '—' }}
                 </span>
                 <span class="stat-col" [class.stat-met]="isMet(player.playerId, bm)"
