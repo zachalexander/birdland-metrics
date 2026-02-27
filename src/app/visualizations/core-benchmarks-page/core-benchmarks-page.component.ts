@@ -37,7 +37,7 @@ export class CoreBenchmarksPageComponent implements OnInit {
     // Jackson Holliday: .242/.314/.375, 17 HR, 149 G
     '696137': { k_pct: 21.6, bb_pct: 8.6, avg: 0.242 },
     // Kyle Bradish: 2.53 ERA, 13.22 K/9, 32.0 IP
-    '669062': { era: 2.53, k_per_9: 13.22, ip_pace: 32 },
+    '680694': { era: 2.53, k_per_9: 13.22, ip_pace: 32 },
     // Trevor Rogers: 1.81 ERA, 0.90 WHIP, 24.3 K%
     '669432': { era: 1.81, whip: 0.90, k_pct: 24.3 },
     // Shane Baz (TB 2025): 4.87 ERA, 4.37 FIP, 166.1 IP
