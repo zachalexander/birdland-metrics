@@ -37,7 +37,9 @@
   <p class="group-label">Position Players</p>
   <div class="players-grid">
     @for (player of filteredBatters(); track player.playerId) {
-      <div class="player-card" [class.all-met]="playerMetCount(player) === player.benchmarks.length" [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
+      <div class="player-card"
+           [class.all-met]="playerMetCount(player) === player.benchmarks.length"
+           [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
         <div class="card-header">
           <div class="avatar-wrapper">
             @if (avatarUrl(player.playerId); as avatar) {
@@ -92,6 +94,9 @@
                 <span class="benchmark-value">{{ formatValue(player.playerId, bm) }}</span>
                 @if (formatActual(bm); as actualText) {
                   <span class="benchmark-actual">{{ actualText }}</span>
+                }
+                @if (formatProjectedValue(player.playerId, bm); as projVal) {
+                  <span class="benchmark-projected">→ {{ projVal }} proj.</span>
                 }
               </span>
             </div>
@@ -108,7 +113,9 @@
   <p class="group-label">Pitchers</p>
   <div class="players-grid">
     @for (player of filteredPitchers(); track player.playerId) {
-      <div class="player-card" [class.all-met]="playerMetCount(player) === player.benchmarks.length" [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
+      <div class="player-card"
+           [class.all-met]="playerMetCount(player) === player.benchmarks.length"
+           [class.some-met]="playerMetCount(player) > 0 && playerMetCount(player) < player.benchmarks.length">
         <div class="card-header">
           <div class="avatar-wrapper">
             @if (avatarUrl(player.playerId); as avatar) {
@@ -163,6 +170,9 @@
                 <span class="benchmark-value">{{ formatValue(player.playerId, bm) }}</span>
                 @if (formatActual(bm); as actualText) {
                   <span class="benchmark-actual">{{ actualText }}</span>
+                }
+                @if (formatProjectedValue(player.playerId, bm); as projVal) {
+                  <span class="benchmark-projected">→ {{ projVal }} proj.</span>
                 }
               </span>
             </div>

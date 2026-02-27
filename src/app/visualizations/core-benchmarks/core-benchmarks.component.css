@@ -408,6 +408,16 @@
   }
 }
 
+/* Inline projection indicator */
+.benchmark-projected {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #6366f1;
+  text-align: right;
+  white-space: nowrap;
+}
+
 /* Responsive: 1 column on mobile */
 @media (max-width: 540px) {
   .mobile-filter {

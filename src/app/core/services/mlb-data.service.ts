@@ -18,6 +18,7 @@ import {
   PlayerStatsResponse,
   PlayerSeasonStats,
   CoreBenchmarksResponse,
+  PlayerProjectionsResponse,
 } from '../../shared/models/mlb.models';
 
 @Injectable({ providedIn: 'root' })
@@ -185,5 +186,20 @@ export class MlbDataService {
     return firstValueFrom(
       this.http.get<CoreBenchmarksResponse>(`${this.statsBase}/benchmarks/core-benchmarks-latest.json?t=${cacheBust}`)
     );
+  }
+
+  async getPlayerProjections(): Promise<PlayerProjectionsResponse> {
+    const cacheBust = Date.now();
+    // Try S3 first, fall back to local file for development
+    try {
+      return await firstValueFrom(
+        this.http.get<PlayerProjectionsResponse>(`${this.statsBase}/projections/orioles-2026.json?t=${cacheBust}`)
+      );
+    } catch {
+      // Fallback to local file for development
+      return firstValueFrom(
+        this.http.get<PlayerProjectionsResponse>(`/projections/orioles-2026.json?t=${cacheBust}`)
+      );
+    }
   }
 }

@@ -4,7 +4,7 @@ import { SeoService } from '../../core/services/seo.service';
 import { MlbDataService } from '../../core/services/mlb-data.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
 import { environment } from '../../../environments/environment';
-import { BenchmarkPlayer } from '../../shared/models/mlb.models';
+import { BenchmarkPlayer, PlayerProjection } from '../../shared/models/mlb.models';
 import { CoreBenchmarksComponent } from '../core-benchmarks/core-benchmarks.component';
 import { ShareButtonsComponent } from '../../shared/components/share-buttons/share-buttons.component';
 
@@ -21,6 +21,7 @@ export class CoreBenchmarksPageComponent implements OnInit {
   loading = signal(true);
 
   viewing2025 = signal(false);
+  playerProjections = signal<PlayerProjection[]>([]);
 
   private static readonly STATS_2025: Record<string, Record<string, number | null>> = {
     // Gunnar Henderson: .274/.349/.438, 17 HR, 154 G
@@ -78,10 +79,18 @@ export class CoreBenchmarksPageComponent implements OnInit {
 
   private async loadBenchmarks(): Promise<void> {
     try {
-      const result = await this.mlbData.getCoreBenchmarks();
-      if (result) {
-        this.benchmarkPlayers.set(result.players);
-        this.benchmarksUpdated.set(result.updated);
+      const [benchmarks, projections] = await Promise.all([
+        this.mlbData.getCoreBenchmarks(),
+        this.mlbData.getPlayerProjections().catch(() => null),
+      ]);
+
+      if (benchmarks) {
+        this.benchmarkPlayers.set(benchmarks.players);
+        this.benchmarksUpdated.set(benchmarks.updated);
+      }
+
+      if (projections) {
+        this.playerProjections.set(projections.projections);
       }
     } catch (err) {
       console.error('Failed to load benchmarks:', err);

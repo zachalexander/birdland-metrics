@@ -197,6 +197,9 @@ export interface PlayerBenchmark {
   actual?: number;
   met: boolean;
   category: BenchmarkCategory;
+  // Projection-derived fields
+  projected?: number;
+  pacePct?: number | null;
 }
 
 export interface BenchmarkPlayer {
@@ -206,12 +209,67 @@ export interface BenchmarkPlayer {
   type: 'batter' | 'pitcher';
   photoUrl?: string;
   benchmarks: PlayerBenchmark[];
+  projectionConfidence?: number;
 }
 
 export interface CoreBenchmarksResponse {
   updated: string;
   season: number;
   players: BenchmarkPlayer[];
+  projectionSource?: string;
+}
+
+// --- Player projections ---
+
+export interface PlayerProjectionStats {
+  season: number;
+  games: number;
+  war: number;
+  // Batter stats (optional for pitchers)
+  pa?: number;
+  avg?: number;
+  obp?: number;
+  slg?: number;
+  ops?: number;
+  hr?: number;
+  sb?: number;
+  bb_pct?: number;
+  k_pct?: number;
+  iso?: number;
+  babip?: number;
+  woba?: number;
+  wrc_plus?: number;
+  barrel_pct?: number;
+  hard_pct?: number;
+  ev?: number;
+  launch_angle?: number;
+  // Pitcher stats (optional for batters)
+  era?: number;
+  fip?: number;
+  whip?: number;
+  k_per_9?: number;
+  bb_per_9?: number;
+  ip?: number;
+  gs?: number;
+  sv?: number;
+}
+
+export interface PlayerProjection {
+  player_name: string;
+  player_id: number;       // FanGraphs ID
+  mlbam_id: number;        // MLB Advanced Media ID
+  position: string;
+  age: number;
+  projection_type: 'marcel' | 'statcast_enhanced' | 'blended';
+  stats: PlayerProjectionStats;
+  confidence: number;
+}
+
+export interface PlayerProjectionsResponse {
+  team: string;
+  season: number;
+  generated_at: string;
+  projections: PlayerProjection[];
 }
 
 // --- Team display helpers ---

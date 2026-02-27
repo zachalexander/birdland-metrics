@@ -1,5 +1,5 @@
 import { Component, input, computed, signal, inject } from '@angular/core';
-import { BenchmarkPlayer, PlayerBenchmark } from '../../shared/models/mlb.models';
+import { BenchmarkPlayer, PlayerBenchmark, PlayerProjection } from '../../shared/models/mlb.models';
 import { AnalyticsService } from '../../core/services/analytics.service';
 
 @Component({
@@ -14,11 +14,12 @@ export class CoreBenchmarksComponent {
   updated = input<string | null>(null);
   overrideStats = input<Record<string, Record<string, number | null>>>({});
   showOverride = input(false);
+  projections = input<PlayerProjection[]>([]);
 
   formattedUpdated = computed(() => {
     const raw = this.updated();
     if (!raw) return null;
-    const d = new Date(raw + 'Z');
+    const d = new Date(raw.endsWith('Z') ? raw : raw + 'Z');
     const month = d.toLocaleDateString('en-US', { month: 'short', timeZone: 'America/New_York' });
     const day = d.getDate();
     const year = d.getFullYear();
@@ -33,7 +34,7 @@ export class CoreBenchmarksComponent {
     '681297': '17',  // Colton Cowser
     '624413': '25',  // Pete Alonso
     '696137': '7',   // Jackson Holliday
-    '669062': '39',  // Kyle Bradish
+    '680694': '39',  // Kyle Bradish
     '669432': '28',  // Trevor Rogers
     '669358': '34',  // Shane Baz
     '664854': '21',  // Ryan Helsley
@@ -48,7 +49,7 @@ export class CoreBenchmarksComponent {
     '624413': 'assets/pete-alonso.png',
     '696137': 'assets/jackson-holliday.png',
     '669432': 'assets/trevor-rogers.png',
-    '669062': 'assets/kyle-bradish.png',
+    '680694': 'assets/kyle-bradish.png',
     '669358': 'assets/shane-baz.png',
     '664854': 'assets/ryan-helsley.png',
   };
@@ -92,8 +93,12 @@ export class CoreBenchmarksComponent {
     return CoreBenchmarksComponent.GLOSSARY[key] ?? null;
   }
 
-  batters = computed(() => this.players().filter(p => p.type === 'batter'));
-  pitchers = computed(() => this.players().filter(p => p.type === 'pitcher'));
+  private isCorePlayers(playerId: string): boolean {
+    return playerId in CoreBenchmarksComponent.JERSEY_NUMBERS;
+  }
+
+  batters = computed(() => this.players().filter(p => p.type === 'batter' && this.isCorePlayers(p.playerId)));
+  pitchers = computed(() => this.players().filter(p => p.type === 'pitcher' && this.isCorePlayers(p.playerId)));
 
   mobileFilter = signal('all');
 
@@ -143,6 +148,18 @@ export class CoreBenchmarksComponent {
   progressPct = computed(() => {
     const total = this.totalBenchmarks();
     return total > 0 ? Math.round((this.totalMet() / total) * 100) : 0;
+  });
+
+  projectionTotalMet = computed(() => {
+    return this.players().reduce(
+      (sum, p) => sum + p.benchmarks.filter(b => this.isProjectionMet(p.playerId, b) === true).length,
+      0
+    );
+  });
+
+  projectionProgressPct = computed(() => {
+    const total = this.totalBenchmarks();
+    return total > 0 ? Math.round((this.projectionTotalMet() / total) * 100) : 0;
   });
 
   jerseyNumber(playerId: string): string {
@@ -220,5 +237,105 @@ export class CoreBenchmarksComponent {
       ? benchmark.actual.toFixed(0)
       : benchmark.actual.toFixed(1);
     return `${val} ${label}`;
+  }
+
+  // Projection mapping: benchmark key -> projection stat key
+  private static readonly PROJECTION_KEY_MAP: Record<string, string> = {
+    // Batter stats
+    barrel_pct: 'barrel_pct',
+    wrc_plus: 'wrc_plus',
+    hr_pace: 'hr',
+    obp: 'obp',
+    bb_pct: 'bb_pct',
+    ops: 'ops',
+    iso: 'iso',
+    games_pace: 'games',
+    k_pct: 'k_pct',
+    hard_pct: 'hard_pct',
+    exit_velo: 'ev',
+    slg: 'slg',
+    avg: 'avg',
+    // Pitcher stats
+    era: 'era',
+    fip: 'fip',
+    whip: 'whip',
+    k_per_9: 'k_per_9',
+    ip_pace: 'ip',
+    sv_pace: 'sv',
+  };
+
+  getPlayerProjection(playerId: string): PlayerProjection | null {
+    const projs = this.projections();
+    if (!projs.length) return null;
+    // playerId is MLBAM ID, or string ID for special cases like "bullpen"
+    const mlbamId = parseInt(playerId, 10);
+    if (!isNaN(mlbamId)) {
+      const match = projs.find(p => p.mlbam_id === mlbamId);
+      if (match) return match;
+    }
+    // Fallback to string_id match for non-numeric IDs
+    return projs.find(p => (p as unknown as { string_id?: string }).string_id === playerId) ?? null;
+  }
+
+  getProjectedValue(playerId: string, benchmarkKey: string): number | null {
+    const proj = this.getPlayerProjection(playerId);
+    if (!proj) return null;
+    const statKey = CoreBenchmarksComponent.PROJECTION_KEY_MAP[benchmarkKey];
+    if (!statKey) return null;
+    const val = (proj.stats as unknown as Record<string, number>)[statKey];
+    return val !== undefined ? val : null;
+  }
+
+  formatProjectedValue(playerId: string, benchmark: PlayerBenchmark): string | null {
+    const val = this.getProjectedValue(playerId, benchmark.key);
+    if (val === null) return null;
+
+    switch (benchmark.key) {
+      // Batter stats
+      case 'obp':
+      case 'slg':
+      case 'ops':
+      case 'avg':
+      case 'iso':
+        return val.toFixed(3);
+      case 'barrel_pct':
+      case 'hard_pct':
+      case 'bb_pct':
+      case 'k_pct':
+        return val.toFixed(1) + '%';
+      case 'exit_velo':
+        return val.toFixed(1) + ' mph';
+      case 'wrc_plus':
+        return val.toFixed(0);
+      case 'hr_pace':
+      case 'games_pace':
+        return val.toFixed(0);
+      // Pitcher stats
+      case 'era':
+      case 'fip':
+      case 'whip':
+        return val.toFixed(2);
+      case 'k_per_9':
+        return val.toFixed(1);
+      case 'ip_pace':
+      case 'sv_pace':
+        return val.toFixed(0);
+      default:
+        return String(val);
+    }
+  }
+
+  isProjectionMet(playerId: string, benchmark: PlayerBenchmark): boolean | null {
+    const val = this.getProjectedValue(playerId, benchmark.key);
+    if (val === null) return null;
+    return benchmark.direction === 'gte' ? val >= benchmark.target : val <= benchmark.target;
+  }
+
+  projectionMetCount(player: BenchmarkPlayer): number {
+    return player.benchmarks.filter(b => this.isProjectionMet(player.playerId, b) === true).length;
+  }
+
+  hasProjection(playerId: string): boolean {
+    return this.getPlayerProjection(playerId) !== null;
   }
 }
