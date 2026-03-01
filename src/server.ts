@@ -230,9 +230,16 @@ app.use(
 app.use((req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then(async (response) => {
+      if (!response) return next();
+      // Check for 404 meta tag in rendered HTML and set proper HTTP status
+      const body = await response.text();
+      if (body.includes('name="prerender-status-code" content="404"')) {
+        res.status(404);
+      }
+      res.set(Object.fromEntries(response.headers.entries()));
+      res.send(body);
+    })
     .catch(next);
 });
 

@@ -70,7 +70,7 @@ export class WinDistributionComponent implements OnInit, AfterViewInit, OnDestro
     if (!this.config) {
       this.seo.setPageMeta({
         title: 'Win Distribution — Birdland Metrics',
-        description: 'Projected win distribution curves for MLB teams.',
+        description: 'Baltimore Orioles 2026 projected win distribution from 10,000 simulated seasons. See the full range of likely outcomes and playoff probability.',
         path: '/visualizations/win-distribution',
         image: `${environment.s3.ogImages}/win-distribution.png`,
       });

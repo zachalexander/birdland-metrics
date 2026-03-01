@@ -45,6 +45,8 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:site_name', content: 'Birdland Metrics' });
     this.meta.updateTag({ name: 'twitter:card', content: twitterCard });
     this.meta.updateTag({ name: 'twitter:site', content: '@birdlandmetrics' });
+    this.meta.updateTag({ name: 'twitter:title', content: page.title });
+    this.meta.updateTag({ name: 'twitter:description', content: page.description });
     this.meta.updateTag({ name: 'twitter:image', content: page.image ?? this.defaultTwitterImage });
 
     if (page.article) {
@@ -94,6 +96,10 @@ export class SeoService {
       url: environment.siteUrl,
       logo: environment.siteUrl + '/logo-icon.png',
       description: 'Data-driven baseball analysis, visualizations, and insights.',
+      sameAs: [
+        'https://bsky.app/profile/birdlandmetrics.com',
+        'https://x.com/birdlandmetrics',
+      ],
     };
   }
 

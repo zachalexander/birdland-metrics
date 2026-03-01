@@ -94,6 +94,7 @@ export class ContentfulService {
           }
         : undefined,
       publishedAt: (fields['publishedAt'] as string) ?? entry.sys.createdAt,
+      updatedAt: entry.sys.updatedAt,
       isPremium: (fields['isPremium'] as boolean) ?? false,
       featured: (fields['featured'] as boolean) ?? false,
       readingTime: Math.ceil(this.countWords(fields['content']) / 200) || 1,

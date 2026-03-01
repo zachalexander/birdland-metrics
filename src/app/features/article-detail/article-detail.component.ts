@@ -153,6 +153,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy, AfterViewCheck
       headline: article.title,
       description: article.excerpt,
       datePublished: article.publishedAt,
+      dateModified: article.updatedAt,
       url: siteUrl + '/articles/' + article.slug,
       ...(article.coverImage && { image: article.coverImage.url }),
       ...(article.author && {

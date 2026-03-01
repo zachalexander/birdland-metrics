@@ -1,7 +1,7 @@
 <div class="win-dist-wrapper">
   @if (!config) {
     <div class="chart-header">
-      <h3 class="chart-title">Projected Orioles 2026 Win Distribution</h3>
+      <h1 class="chart-title">Projected Orioles 2026 Win Distribution</h1>
       @if (updatedDate(); as date) {
         <p class="chart-updated">Model last updated {{ date }}</p>
       }
@@ -34,7 +34,7 @@
   }
   @if (!config && balProjection(); as bal) {
     <div class="chart-summary">
-      <h3 class="summary-title">What is the projected range of win outcomes?</h3>
+      <h2 class="summary-title">What is the projected range of win outcomes?</h2>
       <p class="summary-text">
         As of today, based on 10,000 simulated seasons, the most frequent win outcome for the Orioles is
         <span class="stat-pill">{{ bal.median_wins | number:'1.0-0' }} games</span>.

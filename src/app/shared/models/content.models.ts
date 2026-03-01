@@ -13,6 +13,7 @@ export interface BlogPost {
     height: number;
   };
   publishedAt: string;
+  updatedAt: string;
   isPremium: boolean;
   featured: boolean;
   readingTime: number;

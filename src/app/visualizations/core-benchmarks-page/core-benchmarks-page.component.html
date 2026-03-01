@@ -1,7 +1,7 @@
 <div class="benchmarks-page">
   @if (focusedPlayerSlug()) {
     <a class="back-link" routerLink="/visualizations/core-benchmarks">&larr; All Benchmarks</a>
-    <h2 class="page-heading">{{ focusedPlayerName() }}</h2>
+    <h1 class="page-heading">{{ focusedPlayerName() }}</h1>
     <div class="share-row">
       <app-share-buttons
         [title]="focusedPlayerName() + ' — Core Benchmarks — Birdland Metrics'"
@@ -19,7 +19,7 @@
       <p class="player-description">{{ desc }}</p>
     }
   } @else {
-    <h2 class="page-heading">Are the Core Players Delivering?</h2>
+    <h1 class="page-heading">Are the Core Players Delivering?</h1>
     <div class="share-row">
       <app-share-buttons title="Core Player Benchmarks — Birdland Metrics" path="/visualizations/core-benchmarks" />
     </div>
@@ -34,24 +34,24 @@
       />
     }
     <details class="methodology">
-      <summary>How projections and benchmarks work</summary>
+      <summary><h2 class="methodology-heading">How projections and benchmarks work</h2></summary>
       <div class="methodology-body">
-        <h4>Projection System</h4>
+        <h3>Projection System</h3>
         <p>Every projection starts with a Marcel-style baseline. Marcel, named after Tom Tango's simple projection system, uses each player's last three seasons of FanGraphs data, weighted 5/4/3 in favor of the most recent year. Seasons are also weighted by playing time — plate appearances for batters, innings pitched for pitchers — so a 600 PA season counts far more than a 77 PA cameo.</p>
         <p>This weighted average is then regressed toward the league mean based on sample size. A player with 1,500 career PA over three seasons keeps nearly all of his projection; a player with limited history gets pulled closer to average. The amount of regression varies by stat — strikeout and walk rates stabilize faster (around 400 PA) than batting average or BABIP (around 500 PA).</p>
         <p>Next, an age curve adjusts the projection based on where the player falls in his career arc. Players aged 25-27 are treated as being at their peak. Younger players get a boost — a 21-year-old like Jackson Holliday receives roughly a 6-point wRC+ bump for expected development. Older players see a modest decline, steepening after age 33.</p>
         <p>For batters, the Marcel baseline is enhanced with Statcast data from Baseball Savant. Exit velocity, barrel rate, and hard-hit rate are compared against league averages (88 mph, 7.5%, and 38% respectively). Differences from baseline adjust the projection's wOBA, which in turn shifts SLG, OPS, and wRC+. Barrel rate also directly adjusts the HR projection — roughly 52% of barrels become home runs, so a player who barrels the ball more often than average gets additional projected homers.</p>
         <p>For starting pitchers, projected innings come from a weighted historical workload estimate rather than a flat number. The system looks at the pitcher's last three years of innings, applies the same 5/4/3 weighting, and regresses toward a full starter workload of 170 IP. If a pitcher has a healthy season (150+ IP) in the window, the projection won't drop below 75% of that workload — this prevents two injury-shortened seasons from projecting an ace for 70 innings when he's expected to be healthy. Injured players also get pro-rated based on their expected return date.</p>
 
-        <h4>Setting Benchmarks</h4>
+        <h3>Setting Benchmarks</h3>
         <p>Each player has exactly three benchmarks, hand-picked to answer the most important questions about their 2026 season. We chose benchmarks based on each player's role and development path — Gunnar Henderson's benchmarks test whether he can return to MVP-caliber power production, while Colton Cowser's focus on the contact-versus-power balance that will define his career.</p>
         <p>Targets are fixed, round-number thresholds calibrated against both our projections and FanGraphs Depth Charts (which blends ZiPS and Steamer). They're designed to be meaningful stretch goals — not so easy that they're met by default, and not so hard that they're unreachable. For pitchers, innings targets account for injury history: Bradish and Rogers are both set at 130 IP given their recent workload limitations, while Shane Baz is set at 140 IP after a full healthy season in 2025.</p>
 
-        <h4>During the Season</h4>
+        <h3>During the Season</h3>
         <p>Once games start, benchmarks update daily using current stats from FanGraphs. Counting stats like home runs and innings are shown as 162-game pace numbers so they're comparable to full-season targets throughout the year.</p>
         <p>The "ROS Proj" column shows a rest-of-season projection that blends actual performance with the preseason projection. Early in the season, the blend leans heavily on the preseason number; as plate appearances and innings accumulate, actual performance takes over. This prevents a hot April from wildly inflating projections before the sample is meaningful.</p>
 
-        <h4>Data Sources</h4>
+        <h3>Data Sources</h3>
         <p>Historical stats and current in-season data come from <a href="https://www.fangraphs.com" target="_blank" rel="noopener">FanGraphs</a>. Statcast metrics (exit velocity, barrel rate, hard-hit rate) come from <a href="https://baseballsavant.mlb.com" target="_blank" rel="noopener">Baseball Savant</a>. All data is fetched and processed automatically by an AWS pipeline that runs daily.</p>
       </div>
     </details>

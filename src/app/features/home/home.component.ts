@@ -202,7 +202,7 @@ export class HomeComponent implements OnInit {
 
     this.seo.setPageMeta({
       title: 'Birdland Metrics — Baseball Analytics & Insights',
-      description: 'Data-driven baseball analysis, visualizations, and insights.',
+      description: 'Baltimore Orioles analytics, 2026 projections, playoff odds, and data visualizations. ELO ratings, win distributions, and player benchmarks updated daily.',
       path: '/',
       image: vizImage ? `${environment.s3.ogImages}/${vizImage}` : undefined,
     });
