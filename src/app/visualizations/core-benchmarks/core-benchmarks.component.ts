@@ -97,12 +97,12 @@ export class CoreBenchmarksComponent {
   private static readonly GLOSSARY: Record<string, string> = {
     barrel_pct: 'Percentage of batted balls with ideal exit velocity and launch angle',
     wrc_plus: 'Weighted runs created, adjusted for park and league (100 = average)',
-    hr_pace: 'Home runs projected over a full 162-game season',
+    hr_pace: 'Total home runs hit this season',
     obp: 'On-base percentage — how often a batter reaches base',
     bb_pct: 'Walk rate as a percentage of plate appearances',
     ops: 'On-base plus slugging — a combined hitting metric',
     iso: 'Isolated power — slugging minus batting average',
-    games_pace: 'Games projected over a full 162-game season',
+    games_pace: 'Total games played this season',
     k_pct: 'Strikeout rate as a percentage of plate appearances',
     hard_pct: 'Percentage of batted balls hit 95+ mph',
     exit_velo: 'Average speed of the ball off the bat in mph',
@@ -110,10 +110,10 @@ export class CoreBenchmarksComponent {
     avg: 'Batting average — hits per at-bat',
     era: 'Earned run average — earned runs allowed per nine innings',
     k_per_9: 'Strikeouts per nine innings pitched',
-    ip_pace: 'Innings pitched projected over a full season',
+    ip_pace: 'Total innings pitched this season',
     whip: 'Walks plus hits per inning pitched',
     fip: 'Fielding independent pitching — ERA estimator based on K, BB, HR',
-    sv_pace: 'Saves projected over a full season',
+    sv_pace: 'Total saves recorded this season',
   };
 
   tooltip(key: string): string | null {
