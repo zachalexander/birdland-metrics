@@ -185,14 +185,24 @@ app.get('/sitemap.xml', async (_req, res) => {
       articles.push({ slug, updatedAt: entry.sys.updatedAt.split('T')[0] });
     }
 
+    const playerSlugs = [
+      'gunnar-henderson', 'adley-rutschman', 'jordan-westburg', 'colton-cowser',
+      'pete-alonso', 'jackson-holliday', 'kyle-bradish', 'trevor-rogers',
+      'shane-baz', 'ryan-helsley', 'team-bullpen',
+    ];
+
     const urls = [
       `  <url><loc>${SITE_URL}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`,
       `  <url><loc>${SITE_URL}/disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>`,
       `  <url><loc>${SITE_URL}/visualizations/spray-chart</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>`,
       `  <url><loc>${SITE_URL}/visualizations/elo-trends</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
       `  <url><loc>${SITE_URL}/visualizations/win-distribution</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
+      `  <url><loc>${SITE_URL}/visualizations/core-benchmarks</loc><changefreq>daily</changefreq><priority>0.8</priority></url>`,
+      ...playerSlugs.map(
+        slug => `  <url><loc>${SITE_URL}/visualizations/core-benchmarks/${slug}</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`
+      ),
       ...[...categories].map(
-        cat => `  <url><loc>${SITE_URL}/category/${cat}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`
+        cat => `  <url><loc>${SITE_URL}/category/${encodeURIComponent(cat)}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`
       ),
       ...articles.map(
         a => `  <url><loc>${SITE_URL}/articles/${a.slug}</loc><lastmod>${a.updatedAt}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`
